@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI - Wizard Step 2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Navigation Header -->
+<nav class="border-b border-primary/10 bg-white/5 backdrop-blur-md sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-xl">architecture</span>
+</div>
+<span class="font-bold text-xl tracking-tight">StudioBuilder<span class="text-primary">AI</span></span>
+</div>
+<div class="flex items-center gap-4 text-sm text-slate-400">
+<span class="flex items-center gap-1"><span class="material-icons text-sm">cloud_done</span> Auto-saved</span>
+<div class="w-px h-4 bg-slate-700"></div>
+<button class="hover:text-white transition-colors">Save &amp; Exit</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-grow pt-12 pb-24 px-4">
+<div class="max-w-3xl mx-auto">
+<!-- Progress Stepper -->
+<div class="mb-12">
+<div class="flex justify-between items-center mb-4">
+<span class="text-xs font-semibold uppercase tracking-widest text-primary">Step 2 of 5</span>
+<span class="text-xs font-medium text-slate-400">Project Scope &amp; Description</span>
+</div>
+<div class="h-1.5 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden flex">
+<div class="h-full bg-primary w-2/5"></div>
+<div class="h-full bg-primary/20 w-3/5"></div>
+</div>
+<div class="mt-4 flex justify-between gap-2">
+<div class="flex flex-col items-center opacity-50">
+<div class="text-[10px] font-bold">1. INTRO</div>
+</div>
+<div class="flex flex-col items-center">
+<div class="text-[10px] font-bold text-primary">2. SCOPE</div>
+</div>
+<div class="flex flex-col items-center opacity-50">
+<div class="text-[10px] font-bold">3. STACK</div>
+</div>
+<div class="flex flex-col items-center opacity-50">
+<div class="text-[10px] font-bold">4. ASSETS</div>
+</div>
+<div class="flex flex-col items-center opacity-50">
+<div class="text-[10px] font-bold">5. REVIEW</div>
+</div>
+</div>
+</div>
+<!-- Header Section -->
+<div class="mb-10">
+<h1 class="text-4xl font-bold mb-3 tracking-tight">Define your vision.</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
+                    Provide the technical and creative foundations for your project. This data helps our AI architect the perfect roadmap.
+                </p>
+</div>
+<!-- Form Section -->
+<form class="space-y-12">
+<!-- Section 1: Detailed Description -->
+<section class="space-y-4">
+<div class="flex justify-between items-end">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-200 uppercase tracking-wider">
+                            Detailed Description
+                        </label>
+<span class="text-[10px] text-slate-500">Min. 200 characters recommended</span>
+</div>
+<div class="relative group">
+<textarea class="w-full bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl p-4 focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all placeholder:text-slate-500 text-slate-200" placeholder="e.g., A high-performance SaaS platform for architectural visualization, allowing users to upload CAD files and generate photorealistic renders in real-time using cloud-based GPU clusters..." rows="6"></textarea>
+<div class="absolute bottom-3 right-3 text-[10px] font-mono text-slate-600">0 / 2000</div>
+</div>
+</section>
+<!-- Section 2: Desired Functionalities -->
+<section class="space-y-4">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-200 uppercase tracking-wider">
+                        Desired Functionalities
+                    </label>
+<div class="relative">
+<textarea class="w-full bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl p-4 focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all placeholder:text-slate-500 text-slate-200" placeholder="• User Authentication &amp; RBAC
+• Real-time Collaboration Engine
+• Stripe Integration for Subscriptions
+• Automated PDF Report Generation" rows="4"></textarea>
+</div>
+</section>
+<!-- Section 3: Business Differentiators -->
+<section class="space-y-4">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-200 uppercase tracking-wider">
+                        Business Differentiators
+                    </label>
+<div class="relative">
+<textarea class="w-full bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl p-4 focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all placeholder:text-slate-500 text-slate-200" placeholder="What makes this unique? e.g., Proprietary compression algorithm, first-to-market in EMEA region, zero-knowledge encryption..." rows="3"></textarea>
+</div>
+</section>
+<!-- Section 4: Site References -->
+<section class="space-y-4">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-200 uppercase tracking-wider">
+                        Site References &amp; Benchmarks
+                    </label>
+<div class="space-y-3">
+<div class="flex gap-2">
+<div class="relative flex-grow">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">link</span>
+<input class="w-full bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl pl-10 pr-4 py-3 focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all text-sm" placeholder="https://reference-site-one.com" type="url"/>
+</div>
+<button class="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-xl transition-colors" type="button">
+<span class="material-icons text-lg">add</span>
+</button>
+</div>
+<div class="flex gap-2">
+<div class="relative flex-grow">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">link</span>
+<input class="w-full bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl pl-10 pr-4 py-3 focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all text-sm" placeholder="Add another URL (Optional)" type="url"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Helpful Guide Card -->
+<div class="bg-primary/5 border border-primary/20 rounded-xl p-6 flex gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+<span class="material-icons text-primary">lightbulb</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-primary mb-1">Pro Tip</h4>
+<p class="text-xs text-slate-400 leading-relaxed">
+                            The more descriptive you are about the <strong>Business Differentiators</strong>, the better our AI can suggest specific technology stacks and security protocols tailored to your unique competitive advantage.
+                        </p>
+</div>
+</div>
+</form>
+</div>
+</main>
+<!-- Footer Navigation -->
+<footer class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 py-4 z-50">
+<div class="max-w-3xl mx-auto px-4 flex justify-between items-center">
+<button class="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-slate-500 hover:text-white transition-all group">
+<span class="material-icons text-sm transition-transform group-hover:-translate-x-1">arrow_back</span>
+                Back
+            </button>
+<div class="flex items-center gap-6">
+<span class="text-xs font-medium text-slate-500 hidden sm:block">Step 2 of 5</span>
+<button class="bg-primary hover:bg-primary/90 text-white px-10 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 transition-all flex items-center gap-2 group">
+                    Continue to Stack
+                    <span class="material-icons text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</footer>
+</body></html>

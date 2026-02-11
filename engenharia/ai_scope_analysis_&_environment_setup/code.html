@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.2; }
+            100% { transform: scale(0.8); opacity: 0.5; }
+        }
+        @keyframes float-code {
+            0% { transform: translateY(0); opacity: 0; }
+            20% { opacity: 0.15; }
+            80% { opacity: 0.15; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+        .pulse-effect {
+            animation: pulse-ring 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .code-snippet {
+            position: absolute;
+            font-family: monospace;
+            font-size: 0.875rem;
+            color: #4b2bee;
+            pointer-events: none;
+            user-select: none;
+        }
+    </style>
+<title>AI Scope Analysis - StudioBuilder AI</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen overflow-hidden relative">
+<!-- Ambient Background Elements -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none">
+<!-- Floating Code Fragments -->
+<div class="code-snippet top-[100%] left-[10%] animate-[float-code_12s_linear_infinite]" style="animation-delay: 0s;">
+            export const App = () =&gt; { return &lt;Layout&gt;...&lt;/Layout&gt; }
+        </div>
+<div class="code-snippet top-[100%] left-[70%] animate-[float-code_15s_linear_infinite]" style="animation-delay: 2s;">
+            PRAGMA foreign_keys = ON; CREATE TABLE projects...
+        </div>
+<div class="code-snippet top-[100%] left-[25%] animate-[float-code_18s_linear_infinite]" style="animation-delay: 5s;">
+            docker-compose up -d studio-ai-engine
+        </div>
+<div class="code-snippet top-[100%] left-[85%] animate-[float-code_14s_linear_infinite]" style="animation-delay: 8s;">
+            const agents = await scope.initializeAgents();
+        </div>
+<div class="code-snippet top-[100%] left-[40%] animate-[float-code_20s_linear_infinite]" style="animation-delay: 1s;">
+            mapping.database_relations({ source: 'schema.prisma' });
+        </div>
+<!-- Gradient Orbs -->
+<div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[120px]"></div>
+</div>
+<!-- Main Content Wrapper -->
+<main class="relative z-10 flex flex-col items-center justify-center min-h-screen p-6">
+<!-- Top Branding -->
+<div class="absolute top-12 flex items-center gap-3 opacity-60">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-sm">architecture</span>
+</div>
+<span class="text-sm font-bold tracking-[0.2em] uppercase">StudioBuilder AI</span>
+</div>
+<!-- Central Core Interaction -->
+<div class="relative flex items-center justify-center">
+<!-- Pulsing Outer Rings -->
+<div class="absolute w-[400px] h-[400px] border border-primary/20 rounded-full pulse-effect"></div>
+<div class="absolute w-[300px] h-[300px] border border-primary/30 rounded-full pulse-effect" style="animation-delay: 1s;"></div>
+<div class="absolute w-[500px] h-[500px] border border-primary/5 rounded-full pulse-effect" style="animation-delay: 2s;"></div>
+<!-- Progress Ring -->
+<svg class="w-64 h-64 transform -rotate-90">
+<circle class="text-primary/10" cx="128" cy="128" fill="transparent" r="120" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-primary drop-shadow-[0_0_8px_rgba(75,43,238,0.8)] transition-all duration-1000 ease-in-out" cx="128" cy="128" fill="transparent" r="120" stroke="currentColor" stroke-dasharray="753.98" stroke-dashoffset="240" stroke-linecap="round" stroke-width="4"></circle>
+</svg>
+<!-- 3D Geometric Core -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="relative w-32 h-32 bg-background-dark border border-white/10 rounded-2xl flex items-center justify-center overflow-hidden group shadow-2xl shadow-primary/20">
+<!-- Glassmorphism overlay -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
+<!-- Core Icon -->
+<span class="material-icons text-5xl text-primary animate-pulse">psychology</span>
+<!-- Dynamic Grid Pattern -->
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(circle, #4b2bee 1px, transparent 1px); background-size: 10px 10px;"></div>
+</div>
+</div>
+<!-- Floating Percentage -->
+<div class="absolute -top-12 right-0 bg-background-dark/80 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-lg">
+<span class="text-primary font-bold text-xl tabular-nums">68.4%</span>
+</div>
+</div>
+<!-- Dynamic Status Section -->
+<div class="mt-20 text-center max-w-md">
+<div class="flex flex-col gap-4">
+<h2 class="text-2xl font-semibold tracking-tight text-white/90">
+                    Analyzing Technical Vision<span class="text-primary">...</span>
+</h2>
+<p class="text-slate-400 text-sm font-medium leading-relaxed">
+                    Preparing specialized environment for <span class="text-white">Next.js 14</span> and <span class="text-white">PostgreSQL</span> deployment.
+                </p>
+</div>
+<!-- Task Log Feed -->
+<div class="mt-10 space-y-3">
+<div class="flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/5 rounded-lg opacity-40">
+<span class="material-icons text-green-500 text-sm">check_circle</span>
+<span class="text-xs font-mono text-slate-300">Scaffolding Next.js Architecture</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 bg-white/5 border border-primary/20 rounded-lg shadow-lg shadow-primary/10">
+<span class="material-icons text-primary text-sm animate-spin">refresh</span>
+<span class="text-xs font-mono text-white">Mapping Database Relations...</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 bg-transparent border border-white/5 rounded-lg opacity-20">
+<span class="material-icons text-slate-500 text-sm">radio_button_unchecked</span>
+<span class="text-xs font-mono text-slate-400">Initializing AI Agents</span>
+</div>
+</div>
+</div>
+<!-- Bottom Metadata -->
+<div class="absolute bottom-12 flex items-center gap-8 text-[10px] font-mono uppercase tracking-widest text-slate-500">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+                System: Optimal
+            </div>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></span>
+                Engine: v4.2-Neural
+            </div>
+<div class="flex items-center gap-2">
+                Lat: 24ms
+            </div>
+</div>
+</main>
+<!-- Visual Polish: Grainy Texture Overlay -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay" data-alt="Subtle dark technical carbon fiber pattern texture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBwmA-MYSOmxQE_ssMqdVZ2UFFiJzjr4r-Jj0uIiDkrE4zg5onLH87K_k8D6753nNoQaUu7pvE018kR8VGWfkIeFDU9Q8a2uANnSjJI8L58618e45XQvYraN43_4sRmpgqTohA12Z81daHXm9qNIlStC6F_bgHQ3h3lkEquGhkv5cR3Kb6_ulE205llrxLsbiCA-9Hvxjckcpkt86BPDVuXISCiLgKfxEgY97sTNenV0Hc0VSKUVvYPV0NrTOFPccm7biO0xU0QioI');"></div>
+<!-- Decorative Elements -->
+<div class="fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+<div class="fixed bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-20"></div>
+<!-- Corner Decorative Brackets -->
+<div class="fixed top-10 left-10 w-8 h-8 border-t-2 border-l-2 border-primary/30 rounded-tl-xl pointer-events-none"></div>
+<div class="fixed top-10 right-10 w-8 h-8 border-t-2 border-r-2 border-primary/30 rounded-tr-xl pointer-events-none"></div>
+<div class="fixed bottom-10 left-10 w-8 h-8 border-b-2 border-l-2 border-primary/30 rounded-bl-xl pointer-events-none"></div>
+<div class="fixed bottom-10 right-10 w-8 h-8 border-b-2 border-r-2 border-primary/30 rounded-br-xl pointer-events-none"></div>
+</body></html>

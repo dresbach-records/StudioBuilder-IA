@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022",
+                        "editor-bg": "#0f0f11",
+                        "syntax-key": "#9cdcfe",
+                        "syntax-string": "#ce9178",
+                        "syntax-number": "#b5cea8",
+                        "syntax-bool": "#569cd6"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["Fira Code", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<title>StudioBuilder AI - Project Dependencies</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header Navigation -->
+<header class="h-14 border-b border-slate-200 dark:border-primary/20 bg-white dark:bg-background-dark/80 flex items-center justify-between px-6 sticky top-0 z-50 backdrop-blur-md">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-xl">architecture</span>
+</div>
+<span class="font-bold text-lg tracking-tight">StudioBuilder AI</span>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
+<nav class="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400">
+<span class="hover:text-primary cursor-pointer">projects</span>
+<span class="material-icons text-sm">chevron_right</span>
+<span class="hover:text-primary cursor-pointer">studio-builder</span>
+<span class="material-icons text-sm">chevron_right</span>
+<span class="text-slate-900 dark:text-white font-semibold">package.json</span>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 text-xs bg-primary/10 text-primary px-2 py-1 rounded border border-primary/20">
+<span class="material-icons text-xs">lock</span>
+<span>READ-ONLY</span>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-all shadow-lg shadow-primary/20">
+<span class="material-icons text-sm">content_copy</span>
+                Copy to Clipboard
+            </button>
+</div>
+</header>
+<main class="flex-1 flex overflow-hidden">
+<!-- Explorer Sidebar (Mock) -->
+<aside class="w-64 border-r border-slate-200 dark:border-primary/10 bg-slate-50/50 dark:bg-background-dark hidden lg:flex flex-col">
+<div class="p-4 uppercase text-[10px] font-bold tracking-widest text-slate-400">Explorer</div>
+<div class="flex flex-col text-sm">
+<div class="px-4 py-2 flex items-center gap-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-primary/5 cursor-pointer">
+<span class="material-icons text-sm">folder</span> app
+                </div>
+<div class="px-4 py-2 flex items-center gap-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-primary/5 cursor-pointer">
+<span class="material-icons text-sm">folder</span> components
+                </div>
+<div class="px-4 py-2 flex items-center gap-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-primary/5 cursor-pointer text-primary bg-primary/10 border-r-2 border-primary font-medium">
+<span class="material-icons text-sm text-yellow-500">settings</span> package.json
+                </div>
+<div class="px-4 py-2 flex items-center gap-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-primary/5 cursor-pointer">
+<span class="material-icons text-sm text-blue-500">description</span> tsconfig.json
+                </div>
+<div class="px-4 py-2 flex items-center gap-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-primary/5 cursor-pointer">
+<span class="material-icons text-sm text-primary">style</span> tailwind.config.js
+                </div>
+</div>
+<div class="mt-auto p-6">
+<div class="bg-primary/10 rounded-xl p-4 border border-primary/20">
+<h4 class="text-xs font-bold text-primary mb-2 uppercase tracking-wide">Summary</h4>
+<div class="space-y-2">
+<div class="flex justify-between text-xs">
+<span class="text-slate-400">Dependencies</span>
+<span class="text-white font-mono">14</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-slate-400">Dev Deps</span>
+<span class="text-white font-mono">8</span>
+</div>
+<div class="h-1 bg-slate-800 rounded-full mt-2">
+<div class="h-full bg-primary w-3/4 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Editor Area -->
+<section class="flex-1 flex flex-col bg-editor-bg overflow-hidden">
+<!-- Tabs -->
+<div class="flex items-center bg-background-dark/50 border-b border-white/5 h-10">
+<div class="flex items-center gap-2 px-4 h-full bg-editor-bg border-t border-primary text-xs text-white">
+<span class="material-icons text-xs text-yellow-500">settings</span>
+                    package.json
+                    <span class="material-icons text-[14px] ml-2 opacity-50">close</span>
+</div>
+</div>
+<!-- Monaco Editor Content Mock -->
+<div class="flex-1 overflow-auto font-mono text-sm leading-relaxed p-6 relative">
+<div class="absolute left-0 top-0 w-12 h-full bg-background-dark/30 border-r border-white/5 flex flex-col items-center py-6 text-slate-600 select-none">
+<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span><span>33</span><span>34</span><span>35</span>
+</div>
+<div class="pl-10">
+<div class="mb-1"><span class="text-slate-300">{</span></div>
+<div class="ml-4 mb-1"><span class="text-syntax-key">"name"</span>: <span class="text-syntax-string">"studio-builder-ai"</span>,</div>
+<div class="ml-4 mb-1"><span class="text-syntax-key">"version"</span>: <span class="text-syntax-string">"2.4.0-enterprise"</span>,</div>
+<div class="ml-4 mb-1"><span class="text-syntax-key">"private"</span>: <span class="text-syntax-bool">true</span>,</div>
+<div class="ml-4 mb-1"><span class="text-syntax-key">"scripts"</span>: <span class="text-slate-300">{</span></div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"dev"</span>: <span class="text-syntax-string">"next dev"</span>,</div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"build"</span>: <span class="text-syntax-string">"next build"</span>,</div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"start"</span>: <span class="text-syntax-string">"next start"</span>,</div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"lint"</span>: <span class="text-syntax-string">"next lint"</span></div>
+<div class="ml-4 mb-1"><span class="text-slate-300">}</span>,</div>
+<div class="ml-4 mb-1"><span class="text-syntax-key">"dependencies"</span>: <span class="text-slate-300">{</span></div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"@monaco-editor/react"</span>: <span class="text-syntax-string">"^4.6.0"</span>,</div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"asaas-sdk"</span>: <span class="text-syntax-string">"^1.2.1"</span>,</div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"framer-motion"</span>: <span class="text-syntax-string">"^10.16.4"</span>,</div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"lucide-react"</span>: <span class="text-syntax-string">"^0.284.0"</span>,</div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"next"</span>: <span class="text-syntax-string">"14.0.1"</span>,</div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"react"</span>: <span class="text-syntax-string">"^18.2.0"</span>,</div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"react-dom"</span>: <span class="text-syntax-string">"^18.2.0"</span>,</div>
+<div class="ml-8 mb-1 bg-primary/20 -mx-4 px-4 border-l-2 border-primary"><span class="text-syntax-key">"stripe"</span>: <span class="text-syntax-string">"^14.4.0"</span>,</div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"tailwindcss"</span>: <span class="text-syntax-string">"^3.3.5"</span></div>
+<div class="ml-4 mb-1"><span class="text-slate-300">}</span>,</div>
+<div class="ml-4 mb-1"><span class="text-syntax-key">"devDependencies"</span>: <span class="text-slate-300">{</span></div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"@types/node"</span>: <span class="text-syntax-string">"^20.8.10"</span>,</div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"@types/react"</span>: <span class="text-syntax-string">"^18.2.33"</span>,</div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"eslint"</span>: <span class="text-syntax-string">"^8.52.0"</span>,</div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"postcss"</span>: <span class="text-syntax-string">"^8.4.31"</span>,</div>
+<div class="ml-8 mb-1"><span class="text-syntax-key">"typescript"</span>: <span class="text-syntax-string">"^5.2.2"</span></div>
+<div class="ml-4 mb-1"><span class="text-slate-300">}</span></div>
+<div><span class="text-slate-300">}</span></div>
+</div>
+</div>
+<!-- Editor Footer -->
+<div class="h-6 bg-primary flex items-center px-4 justify-between text-[10px] text-white font-medium">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1">
+<span class="material-icons text-[12px]">device_hub</span>
+                        main*
+                    </div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-[12px]">sync</span>
+                        Ready
+                    </div>
+</div>
+<div class="flex items-center gap-4">
+<span>Spaces: 2</span>
+<span>UTF-8</span>
+<span>JSON</span>
+</div>
+</div>
+</section>
+<!-- Right Insights Sidebar -->
+<aside class="w-72 border-l border-slate-200 dark:border-primary/10 bg-slate-50/50 dark:bg-background-dark hidden xl:flex flex-col p-6">
+<h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Security &amp; Versions</h3>
+<div class="space-y-6">
+<div class="bg-white dark:bg-background-light/5 p-4 rounded-xl border border-slate-200 dark:border-white/5">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-icons text-green-500">check_circle</span>
+<span class="text-sm font-semibold">Vulnerabilities</span>
+</div>
+<p class="text-xs text-slate-400">0 critical vulnerabilities found in your dependencies.</p>
+</div>
+<div>
+<h4 class="text-xs font-bold text-slate-500 mb-3 flex items-center gap-2">
+<span class="material-icons text-xs">update</span>
+                        Updates Available
+                    </h4>
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-xs font-mono text-primary">next</span>
+<span class="text-[10px] text-slate-500">14.0.1 → 14.1.0</span>
+</div>
+<button class="text-[10px] bg-slate-200 dark:bg-white/10 px-2 py-1 rounded">Update</button>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-xs font-mono text-primary">stripe</span>
+<span class="text-[10px] text-slate-500">14.4.0 → 14.5.2</span>
+</div>
+<button class="text-[10px] bg-slate-200 dark:bg-white/10 px-2 py-1 rounded">Update</button>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-slate-200 dark:border-white/5">
+<div class="rounded-lg overflow-hidden relative group">
+<img alt="Code analysis heatmap" class="w-full h-32 object-cover opacity-60 grayscale hover:grayscale-0 transition-all" data-alt="Abstract heatmap showing code complexity and distribution" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxBE-zrDtWY3pmHeg8kFKil7DDfKla9EYfD1ZtlyoZiIoNpCiwPaLVZMwtiKy_yJqhhxdaxbtTj_US_L62Ffe6BiGiKvygn8i8wHdNe0Zk5sq_l1DvfByfDOPvcSQFwIw_eTkH0tjXqGhCoIuQgtmO4LTen6WgQvHlyfLeW0CJ66V8zzmdgz-XEn0otduGgoiKMc2y1dID2BH-TaaxYOBzm5ORVYuE42euY0BeP_7om5ntROt6wcUd7TIWPdKolvGl-7sfc5nlmec"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark to-transparent flex items-end p-3">
+<span class="text-[10px] font-bold text-white uppercase tracking-tighter">Code Architecture Insight</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</main>
+</body></html>

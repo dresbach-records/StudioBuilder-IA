@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI - Passo 5: Revisão Final</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .step-line {
+            height: 2px;
+            background: linear-gradient(90deg, #4b2bee 100%, #1e1e20 0%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<!-- Navigation Header -->
+<nav class="border-b border-white/5 bg-background-light dark:bg-background-dark/50 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-sm">auto_awesome</span>
+</div>
+<span class="font-bold text-xl tracking-tight">StudioBuilder <span class="text-primary">AI</span></span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-400 hover:text-white transition-colors">
+<span class="material-icons">help_outline</span>
+</button>
+<div class="h-8 w-px bg-white/10"></div>
+<span class="text-sm text-slate-400">Sair do Wizard</span>
+</div>
+</div>
+</nav>
+<main class="max-w-5xl mx-auto px-4 py-12">
+<!-- Progress Stepper -->
+<div class="mb-12">
+<div class="flex justify-between items-center mb-4">
+<span class="text-xs font-semibold uppercase tracking-widest text-primary">Passo 5 de 5</span>
+<span class="text-sm text-slate-400">Concluindo sua visão</span>
+</div>
+<div class="flex gap-2">
+<div class="h-1.5 flex-1 rounded-full bg-primary"></div>
+<div class="h-1.5 flex-1 rounded-full bg-primary"></div>
+<div class="h-1.5 flex-1 rounded-full bg-primary"></div>
+<div class="h-1.5 flex-1 rounded-full bg-primary"></div>
+<div class="h-1.5 flex-1 rounded-full bg-primary shadow-[0_0_10px_rgba(75,43,238,0.5)]"></div>
+</div>
+</div>
+<!-- Title Section -->
+<div class="mb-10 text-center">
+<h1 class="text-4xl font-bold mb-4">Revisão Final</h1>
+<p class="text-slate-400 max-w-2xl mx-auto">Tudo pronto! Revise os detalhes do seu briefing abaixo. Esta é a base que nossa IA usará para construir a estrutura do seu projeto.</p>
+</div>
+<!-- Summary Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+<!-- Basic Info Card -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-icons">info</span>
+</div>
+<div>
+<h3 class="font-semibold text-lg leading-tight">Informações Básicas</h3>
+<p class="text-xs text-slate-500">Identidade do projeto</p>
+</div>
+</div>
+<button class="text-primary hover:bg-primary/10 p-2 rounded-lg transition-colors">
+<span class="material-icons text-sm">edit</span>
+</button>
+</div>
+<div class="space-y-4">
+<div>
+<span class="text-xs text-slate-500 uppercase tracking-wider">Nome do Projeto</span>
+<p class="font-medium">Nova Plataforma SaaS v2.0</p>
+</div>
+<div>
+<span class="text-xs text-slate-500 uppercase tracking-wider">Indústria</span>
+<p class="font-medium">Tecnologia &amp; Software</p>
+</div>
+<div>
+<span class="text-xs text-slate-500 uppercase tracking-wider">Cronograma</span>
+<p class="font-medium text-primary">Urgente (4-6 semanas)</p>
+</div>
+</div>
+<div class="absolute -top-4 -right-4 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center rotate-12">
+<span class="material-icons text-primary/40">check_circle</span>
+</div>
+</div>
+<!-- Scope Card -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-icons">track_changes</span>
+</div>
+<div>
+<h3 class="font-semibold text-lg leading-tight">Escopo &amp; Objetivos</h3>
+<p class="text-xs text-slate-500">Funcionalidades e metas</p>
+</div>
+</div>
+<button class="text-primary hover:bg-primary/10 p-2 rounded-lg transition-colors">
+<span class="material-icons text-sm">edit</span>
+</button>
+</div>
+<div class="space-y-4">
+<div>
+<span class="text-xs text-slate-500 uppercase tracking-wider">Público Alvo</span>
+<p class="font-medium">Gestores de TI Enterprise</p>
+</div>
+<div>
+<span class="text-xs text-slate-500 uppercase tracking-wider">Funcionalidades Chave</span>
+<div class="flex flex-wrap gap-2 mt-1">
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded border border-primary/20">Dashboard</span>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded border border-primary/20">API REST</span>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded border border-primary/20">Auth Multi-factor</span>
+</div>
+</div>
+</div>
+<div class="absolute -top-4 -right-4 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center rotate-12">
+<span class="material-icons text-primary/40">check_circle</span>
+</div>
+</div>
+<!-- Files Card -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-icons">attach_file</span>
+</div>
+<div>
+<h3 class="font-semibold text-lg leading-tight">Arquivos &amp; Ativos</h3>
+<p class="text-xs text-slate-500">Documentação anexada</p>
+</div>
+</div>
+<button class="text-primary hover:bg-primary/10 p-2 rounded-lg transition-colors">
+<span class="material-icons text-sm">edit</span>
+</button>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-2 bg-white/5 rounded-lg border border-white/5">
+<span class="material-icons text-slate-500">description</span>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium truncate">branding_guidelines.pdf</p>
+<p class="text-[10px] text-slate-500 uppercase">2.4 MB</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2 bg-white/5 rounded-lg border border-white/5">
+<span class="material-icons text-slate-500">image</span>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium truncate">wireframes_final.png</p>
+<p class="text-[10px] text-slate-500 uppercase">8.1 MB</p>
+</div>
+</div>
+</div>
+<div class="absolute -top-4 -right-4 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center rotate-12">
+<span class="material-icons text-primary/40">check_circle</span>
+</div>
+</div>
+<!-- Structure Card -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-icons">architecture</span>
+</div>
+<div>
+<h3 class="font-semibold text-lg leading-tight">Estrutura &amp; Tech</h3>
+<p class="text-xs text-slate-500">Preferências técnicas</p>
+</div>
+</div>
+<button class="text-primary hover:bg-primary/10 p-2 rounded-lg transition-colors">
+<span class="material-icons text-sm">edit</span>
+</button>
+</div>
+<div class="space-y-4">
+<div>
+<span class="text-xs text-slate-500 uppercase tracking-wider">Arquitetura</span>
+<p class="font-medium">Microserviços escaláveis</p>
+</div>
+<div>
+<span class="text-xs text-slate-500 uppercase tracking-wider">Stack Preferencial</span>
+<p class="font-medium italic">Next.js, Tailwind CSS, Node.js</p>
+</div>
+</div>
+<div class="absolute -top-4 -right-4 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center rotate-12">
+<span class="material-icons text-primary/40">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Action Section -->
+<div class="bg-primary/5 rounded-2xl p-8 border border-primary/20 text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+<div class="flex flex-col items-center">
+<label class="flex items-center gap-3 mb-8 cursor-pointer group">
+<div class="relative">
+<input class="peer h-5 w-5 rounded border-white/20 bg-white/5 text-primary focus:ring-primary focus:ring-offset-background-dark" type="checkbox"/>
+</div>
+<span class="text-sm text-slate-300 group-hover:text-white transition-colors">
+                        Confirmo que as informações acima estão corretas e estou pronto para iniciar.
+                    </span>
+</label>
+<div class="flex flex-col sm:flex-row gap-4 items-center">
+<button class="px-8 py-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl shadow-[0_10px_40px_-10px_rgba(75,43,238,0.5)] transition-all transform hover:-translate-y-1 flex items-center gap-3 group">
+                        CONCLUIR PROJETO
+                        <span class="material-icons group-hover:translate-x-1 transition-transform">rocket_launch</span>
+</button>
+<button class="px-8 py-4 bg-transparent text-slate-400 hover:text-white font-medium transition-colors">
+                        Salvar Rascunho
+                    </button>
+</div>
+<p class="mt-6 text-[11px] text-slate-500 uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-icons text-[14px]">verified_user</span>
+                    Processamento seguro via StudioBuilder Cloud Engine
+                </p>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="mt-20 flex justify-center opacity-30">
+<img alt="Abstract Background" class="w-full h-32 object-cover rounded-3xl blur-3xl" data-alt="Abstract purple and blue fluid background pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANyo6dcSmzWeqA7qasqsOvbFumSVbcsGjuOK8tNq12i6sGj0MtWK2GDvhyg8KS_Ifuej0kgTcZJRUiJQabhYtCWPIvSDOpfotIeV6wnr34b23_XhXEpFVDhGtOE15aaFLiwXvtdMt0lJE3-Mq7duU_W17GbIazT8e42UwbNqhQp0duMIHwZ9l71OY-C13TePB7VipDqJeyABt0Qs3zYDDc9VuXbcV3Rfn_PY_BtI8x-4SYtAi3C9SudEBe6osfTBc6r3Hf7tVi_Fo"/>
+</div>
+</main>
+<footer class="py-8 border-t border-white/5 text-center">
+<p class="text-xs text-slate-600">© 2024 StudioBuilder AI. Todos os direitos reservados. Termos e Privacidade.</p>
+</footer>
+</body></html>

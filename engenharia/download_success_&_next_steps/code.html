@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Download Success - StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#121022",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glow-effect {
+            box-shadow: 0 0 40px 10px rgba(59, 43, 238, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col items-center justify-center p-6 font-display">
+<!-- Main Success Container -->
+<div class="max-w-4xl w-full">
+<!-- Header Section -->
+<div class="text-center mb-12">
+<div class="relative inline-block mb-6">
+<!-- Glowing Aura -->
+<div class="absolute inset-0 bg-primary/30 blur-3xl rounded-full scale-150"></div>
+<!-- Success Icon -->
+<div class="relative bg-primary text-white w-20 h-20 rounded-full flex items-center justify-center shadow-2xl shadow-primary/40">
+<span class="material-icons-round text-5xl">check_circle</span>
+</div>
+</div>
+<h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Download Complete</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg max-w-xl mx-auto">
+                Your production-ready code has been exported. StudioBuilder AI has optimized your assets and structures for immediate deployment.
+            </p>
+</div>
+<!-- Central Action Card -->
+<div class="bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/20 rounded-xl p-8 mb-8 backdrop-blur-sm shadow-xl">
+<h2 class="text-xl font-semibold mb-8 flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-icons-round text-primary text-sm">rocket_launch</span>
+</span>
+                Next Steps
+            </h2>
+<!-- Grid Options -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1: VS Code -->
+<div class="group relative bg-white dark:bg-primary/10 border border-slate-100 dark:border-white/5 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 flex flex-col h-full">
+<div class="mb-4 text-primary">
+<span class="material-icons-round text-3xl">code</span>
+</div>
+<h3 class="text-lg font-bold mb-2">Open in VS Code</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-6 flex-grow">
+                        Extract the ZIP and run <code class="bg-primary/10 px-1 rounded text-primary">npm install</code> followed by <code class="bg-primary/10 px-1 rounded text-primary">npm run dev</code>.
+                    </p>
+<button class="w-full py-2.5 bg-slate-100 dark:bg-white/5 hover:bg-primary hover:text-white rounded-lg transition-colors font-medium flex items-center justify-center gap-2 text-sm">
+<span>Copy Local Path</span>
+<span class="material-icons-round text-xs">content_copy</span>
+</button>
+</div>
+<!-- Card 2: Firebase -->
+<div class="group relative bg-white dark:bg-primary/10 border border-slate-100 dark:border-white/5 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 flex flex-col h-full">
+<div class="mb-4 text-orange-500">
+<span class="material-icons-round text-3xl">cloud_upload</span>
+</div>
+<h3 class="text-lg font-bold mb-2">Deploy to Firebase</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-6 flex-grow">
+                        Launch your site instantly. Use our automated Firebase integration for a 1-click hosting setup.
+                    </p>
+<button class="w-full py-2.5 bg-slate-100 dark:bg-white/5 hover:bg-primary hover:text-white rounded-lg transition-colors font-medium flex items-center justify-center gap-2 text-sm">
+<span>Go Live Now</span>
+<span class="material-icons-round text-xs">arrow_forward</span>
+</button>
+</div>
+<!-- Card 3: Team -->
+<div class="group relative bg-white dark:bg-primary/10 border border-slate-100 dark:border-white/5 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 flex flex-col h-full">
+<div class="mb-4 text-emerald-500">
+<span class="material-icons-round text-3xl">group_add</span>
+</div>
+<h3 class="text-lg font-bold mb-2">Share with Team</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-6 flex-grow">
+                        Invite developers or clients to your workspace. Sync changes and manage feedback in real-time.
+                    </p>
+<button class="w-full py-2.5 bg-slate-100 dark:bg-white/5 hover:bg-primary hover:text-white rounded-lg transition-colors font-medium flex items-center justify-center gap-2 text-sm">
+<span>Open Modal</span>
+<span class="material-icons-round text-xs">share</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Navigation -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-6 px-4">
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-background-dark bg-slate-700" data-alt="Team member avatar 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS3QoGcHxE2Dei-9U6bJ14xMlJm9WNc43ZqzA5CCtDnPwO8JztUAONWr-_FfCWRGYN6o0HDDVfxTH_yX8YE8aXMjIU-9i8HaAfSeAhc_l9m0fx8Me0WF_6r0hcyhUPtQPYbhFbgmGvPzuYoJawNAwgODxzQvfdFYx2H36X8sA1lM4s8bPdHedDBbkL8FQ0WwQ9cyzBJOboQivsLWrmMD6t6ElqBUhu6FXIRB95_6ndtE41GkdJvtL3g3olOusejUuo19yV61AygUg"/>
+<img class="w-8 h-8 rounded-full border-2 border-background-dark bg-slate-700" data-alt="Team member avatar 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0_--Ab8P-w2wPkZAgxoEcOiahV4gpjTfePV8yLQ__RkRE8CCeOFBaymqOjmzjhS2W6GKSMHIAb8K3ExvvhxwYedUyjfxnUNPZSoJiuj9UVnSzpXCej2IvdxGc219SDs8Pry_1dphEpt-2wKWbchSk6MYhJuOHQEwvdndLYFh9OWEwCVW8OC7UZ-O6K8EVvXyvGekrjVXqoraWwrApqQHp1rLRrh2J0I6arpJk_uuDUKGDRrMByp4jxLXRJVatLwQj3m1gd-UwdMw"/>
+<div class="w-8 h-8 rounded-full border-2 border-background-dark bg-primary flex items-center justify-center text-[10px] font-bold">+12</div>
+</div>
+<p class="text-xs text-slate-500">Others have successfully built with this template</p>
+</div>
+<div class="flex items-center gap-4 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none px-6 py-3 border border-slate-200 dark:border-primary/20 hover:bg-slate-50 dark:hover:bg-primary/10 rounded-lg font-medium transition-all text-sm">
+                    Return to Editor
+                </button>
+<button class="flex-1 sm:flex-none px-8 py-3 bg-primary text-white rounded-lg font-semibold hover:opacity-90 transition-all shadow-lg shadow-primary/25 text-sm">
+                    Start New Project
+                </button>
+</div>
+</div>
+<!-- System Status Hint -->
+<div class="mt-12 pt-8 border-t border-slate-200 dark:border-primary/10 text-center">
+<p class="text-xs text-slate-500 uppercase tracking-widest font-bold opacity-50 flex items-center justify-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                Export Engine V2.4 Stable
+            </p>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
+<div class="absolute top-[-10%] left-[-5%] w-96 h-96 bg-primary/10 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-5%] right-[-5%] w-[500px] h-[500px] bg-primary/5 blur-[150px] rounded-full"></div>
+</div>
+</body></html>

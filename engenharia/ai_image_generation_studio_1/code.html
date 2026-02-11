@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Image Generation Studio | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #2b8cee33; border-radius: 10px; }
+        .image-overlay { opacity: 0; transition: opacity 0.2s ease-in-out; }
+        .image-card:hover .image-overlay { opacity: 1; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 h-screen flex flex-col overflow-hidden font-display">
+<!-- Header / Nav -->
+<header class="h-16 border-b border-primary/10 flex items-center justify-between px-6 bg-background-light dark:bg-background-dark z-50">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons-round text-white">architecture</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-sm font-bold tracking-tight uppercase text-primary">StudioBuilder AI</h1>
+<p class="text-xs text-slate-500">Image Generation Studio v2.4</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex -space-x-2 mr-4">
+<img alt="User" class="w-8 h-8 rounded-full border-2 border-background-dark" data-alt="Female profile picture for user interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChHjGfd73VckPgMoB4rHZYSZaNK16cmG5FIBTAedoOZpOgrQvrIVh0dvZzTnCWJUo66AjePuADG1zmUgHEEHf-7pqcIzZnCNeXYm97pZkbJ4I2m_d-K7ykBuEw8IIyLuLmwVFZHq7YfjS-M8OdeeNNp9Yr_SfcfRAl2liZouOBTIzwhyCatq57lCvUf-wKsYWcnwKbVzIlstCuF7DA000qmUCfBnnKuzdXDBglJGj-6vlO-cgvgnIHWp-JW8o7dD9US7r8CT9yCHY"/>
+<img alt="User" class="w-8 h-8 rounded-full border-2 border-background-dark" data-alt="Male profile picture for user interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmszHMYKIhZ_r-9e3KGIE1fbK2vNyCL_Gc57Zf8ssS1RCufglOk4n_TxpFFyU9NT93ulyjuMhiVUY1DI_J_eSnbxJX5nSaVmG_35SNOuRR8FK0UPRZ5bBrTHxobFIIUvDhQBaP2KsfvSBvr5nBFnnfLDsIJu01nTElLXnXTmwwPaR9FNbg1BpQQTe86FqO6SWatDzVB_E89p_RWxeoymUiTg5xLUwbgtnfT-3xi0X6_kCXTceAbe94MM1vLmQuvHjcVBieF2TMGQo"/>
+</div>
+<button class="flex items-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary px-4 py-2 rounded-lg transition-colors">
+<span class="material-icons-round text-sm">folder</span>
+<span class="text-sm font-medium">Projects</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-800 transition-colors">
+<span class="material-icons-round">notifications</span>
+</button>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Left Sidebar: Tuning Controls -->
+<aside class="w-80 border-r border-primary/10 bg-background-light dark:bg-background-dark/50 overflow-y-auto custom-scrollbar p-6">
+<div class="space-y-8">
+<!-- Aspect Ratio -->
+<section>
+<label class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4 block">Aspect Ratio</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="flex flex-col items-center justify-center p-3 rounded-lg border border-primary/20 bg-primary/10 text-primary">
+<div class="w-6 h-6 border-2 border-primary rounded-sm mb-1"></div>
+<span class="text-[10px] font-bold tracking-tighter">1:1</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg border border-slate-700 hover:border-primary/50 text-slate-400">
+<div class="w-8 h-5 border-2 border-slate-600 rounded-sm mb-1"></div>
+<span class="text-[10px] font-bold tracking-tighter">16:9</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg border border-slate-700 hover:border-primary/50 text-slate-400">
+<div class="w-5 h-8 border-2 border-slate-600 rounded-sm mb-1"></div>
+<span class="text-[10px] font-bold tracking-tighter">9:16</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg border border-slate-700 hover:border-primary/50 text-slate-400">
+<div class="w-8 h-6 border-2 border-slate-600 rounded-sm mb-1"></div>
+<span class="text-[10px] font-bold tracking-tighter">4:3</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg border border-slate-700 hover:border-primary/50 text-slate-400">
+<div class="w-6 h-8 border-2 border-slate-600 rounded-sm mb-1"></div>
+<span class="text-[10px] font-bold tracking-tighter">3:4</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg border border-slate-700 hover:border-primary/50 text-slate-400">
+<span class="material-icons-round text-lg">settings_overscan</span>
+<span class="text-[10px] font-bold tracking-tighter">CUSTOM</span>
+</button>
+</div>
+</section>
+<!-- Quality & CFG -->
+<section class="space-y-6">
+<div>
+<div class="flex justify-between items-center mb-4">
+<label class="text-xs font-bold uppercase tracking-widest text-slate-500">Quality Steps</label>
+<span class="text-xs font-mono text-primary bg-primary/10 px-2 py-0.5 rounded">50</span>
+</div>
+<input class="w-full h-1.5 bg-slate-800 rounded-full appearance-none cursor-pointer accent-primary" max="100" min="10" type="range" value="50"/>
+</div>
+<div>
+<div class="flex justify-between items-center mb-4">
+<label class="text-xs font-bold uppercase tracking-widest text-slate-500">CFG Scale</label>
+<span class="text-xs font-mono text-primary bg-primary/10 px-2 py-0.5 rounded">7.5</span>
+</div>
+<input class="w-full h-1.5 bg-slate-800 rounded-full appearance-none cursor-pointer accent-primary" max="20" min="1" step="0.5" type="range" value="7.5"/>
+</div>
+</section>
+<!-- Seed Control -->
+<section>
+<label class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4 block">Generation Seed</label>
+<div class="flex gap-2">
+<div class="relative flex-1">
+<input class="w-full bg-slate-900 border border-slate-700 rounded-lg py-2 pl-3 pr-10 text-sm font-mono focus:border-primary focus:ring-1 focus:ring-primary outline-none" type="text" value="849201842"/>
+<span class="material-icons-round absolute right-3 top-2.5 text-sm text-slate-500">casino</span>
+</div>
+<button class="bg-slate-800 hover:bg-slate-700 p-2 px-3 rounded-lg transition-colors">
+<span class="material-icons-round text-sm">refresh</span>
+</button>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<input class="w-4 h-4 rounded border-slate-700 bg-slate-900 text-primary focus:ring-primary" id="fixed-seed" type="checkbox"/>
+<label class="text-xs text-slate-400" for="fixed-seed">Lock seed for variations</label>
+</div>
+</section>
+<!-- Model Choice -->
+<section>
+<label class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4 block">Model Engine</label>
+<select class="w-full bg-slate-900 border border-slate-700 rounded-lg py-2.5 px-3 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none appearance-none">
+<option>Stable Diffusion XL v1.0</option>
+<option>StudioBuilder High-Fidelity</option>
+<option>DALL-E 3 Integrated</option>
+<option>Minimalist Vector Engine</option>
+</select>
+</section>
+</div>
+</aside>
+<!-- Main Content: Gallery -->
+<main class="flex-1 relative flex flex-col bg-background-light dark:bg-background-dark overflow-hidden">
+<div class="flex-1 overflow-y-auto custom-scrollbar p-8 pb-32">
+<div class="max-w-6xl mx-auto">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="text-2xl font-bold">Recent Creations</h2>
+<p class="text-slate-500 text-sm">Today, October 24, 2023</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg bg-slate-800/50 hover:bg-slate-800 text-slate-400 transition-colors">
+<span class="material-icons-round text-lg">grid_view</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-slate-800 text-slate-500 transition-colors">
+<span class="material-icons-round text-lg">view_agenda</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Image Card 1 -->
+<div class="image-card relative group aspect-square rounded-xl overflow-hidden bg-slate-900 border border-primary/5">
+<img alt="AI Generated Asset" class="w-full h-full object-cover" data-alt="Abstract 3D render fluid digital art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgMY3XiuN1sxaFSLOmd4TxwgkiXsesp9lRcB7w4YvrflIWlDUGSljCWGs6ej-KGRqAC1fpj4bY4OhWdh6jBg8V6KcaopK__6mS9kC6WQuxY2_RXCXihJVVnPmyMpgUMdohUSs2qmMkXu03kU82nB1VNpdOKSV51aPaxnSO9Qpz0_mOHkccevyySe7amZCRsRMMsEp9IgCLaYeCnRmjgSKbdUjw2a45rwxg0AwDSMbQyuIZhN6b-G9vocEQtBSh-VZszN49j6p_3D8"/>
+<div class="image-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
+<div class="flex gap-2 justify-center">
+<button class="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-md hover:bg-primary transition-all flex items-center justify-center" title="Add to Project">
+<span class="material-icons-round text-lg text-white">create_new_folder</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-md hover:bg-primary transition-all flex items-center justify-center" title="Generate Variations">
+<span class="material-icons-round text-lg text-white">auto_awesome</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-md hover:bg-primary transition-all flex items-center justify-center" title="Download">
+<span class="material-icons-round text-lg text-white">download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Image Card 2 -->
+<div class="image-card relative group aspect-square rounded-xl overflow-hidden bg-slate-900 border border-primary/5">
+<img alt="AI Generated Asset" class="w-full h-full object-cover" data-alt="Minimalist architectural photo concrete building" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8QqxxA2TL0jTLa7s7ZkUZvdYpM5K311Ak3qhp4s5HdjdA7jhfrRz-sA7CgJ0DvpyxSskxcKWaJeomLoMn43bUeGJ60wTmy81RV40UlE4k_r73T5FDzC8yGv8h5DpPpgvw7YCvVDRmtpjU67VfPIZPDnHClIwTuwIZpQ2IwhU4CWWkEX1ZU-flinAH13Z3R9akcj7DEFMD4Tm6BjjpC7TX2ZLQF7B3HbP3A6JBD7ujzAusWawAPpjxD8C4VFYVT6A0dCeYrDzlpwY"/>
+<div class="image-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
+<div class="flex gap-2 justify-center">
+<button class="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-md hover:bg-primary transition-all flex items-center justify-center">
+<span class="material-icons-round text-lg text-white">create_new_folder</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-md hover:bg-primary transition-all flex items-center justify-center">
+<span class="material-icons-round text-lg text-white">auto_awesome</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-md hover:bg-primary transition-all flex items-center justify-center">
+<span class="material-icons-round text-lg text-white">download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Image Card 3 -->
+<div class="image-card relative group aspect-square rounded-xl overflow-hidden bg-slate-900 border border-primary/5">
+<img alt="AI Generated Asset" class="w-full h-full object-cover" data-alt="Colorful abstract geometric illustration shapes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw4yvHgHGw6DlKXkc3YuYDSbj-0zQWZop2CrvpDL2BLjLY0QVqISrnebCWO1MKlMq5Loa3alhG242I93bYE28k5SJ60gY6oK_Rv0trq8osRfua2rBJouOLH1OF-WeLO294IuPwE6sm9uNPtPR5Jo5w-o5Lg4P3_a3a0K0xDQQm9okmmMAUMnrYZZ7vgLmV-TNl-XjJIfJJPqGcO-2hQJW7h5FN7DMBjUnu4A8zixgBHwrS9oeH3nQpcvwIYHbLr0aN5qeelKeFh-o"/>
+<div class="image-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
+<div class="flex gap-2 justify-center">
+<button class="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-md hover:bg-primary transition-all flex items-center justify-center">
+<span class="material-icons-round text-lg text-white">create_new_folder</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-md hover:bg-primary transition-all flex items-center justify-center">
+<span class="material-icons-round text-lg text-white">auto_awesome</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-md hover:bg-primary transition-all flex items-center justify-center">
+<span class="material-icons-round text-lg text-white">download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Image Card 4 -->
+<div class="image-card relative group aspect-square rounded-xl overflow-hidden bg-slate-900 border border-primary/5">
+<img alt="AI Generated Asset" class="w-full h-full object-cover" data-alt="Sleek modern purple gradient render" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYJu4RRKndJ1EMwPe4prM-Ch_8KnqbMMRxSgW_bqQHfjvWujey-laZ7IiiLmpg9f1gMi7HpJwHYKzxJsHkCzqpXcU9fwv5rVVZsllc79JDMXib7-DtKmn6pmOk946xm-hrOpWgzMz0gF3i0zYDQbJw5e9VZkhWIEUm7BB2WMN3Oxhjb6QTPsKJKvFuh-qpOeQyQ0GpOQ15KkHajwLBxiT_wSG8GhHYtGX3VmHrFBo5Rt-yJTFR6tXLng-3rkCZ3zB4afc2UtEcZqk"/>
+<div class="image-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
+<div class="flex gap-2 justify-center">
+<button class="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-md hover:bg-primary transition-all flex items-center justify-center">
+<span class="material-icons-round text-lg text-white">create_new_folder</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-md hover:bg-primary transition-all flex items-center justify-center">
+<span class="material-icons-round text-lg text-white">auto_awesome</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-white/10 backdrop-blur-md hover:bg-primary transition-all flex items-center justify-center">
+<span class="material-icons-round text-lg text-white">download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Image Card 5 -->
+<div class="image-card relative group aspect-square rounded-xl overflow-hidden bg-slate-900 border border-primary/5">
+<img alt="AI Generating" class="w-full h-full object-cover opacity-60 grayscale blur-sm" data-alt="Placeholder image for generating asset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcBBWDxH0hi1ui5TkiBgTgz6MJ0t8snSG5OQEhpV1FoEW1j6vFE0xkf6FiMsnnqNtgLZgn0M9Vm2ZPtXMj9XfMlxwxgNrpi7j2RYVE5Np7b9kDoc8mB8eN-Buyd9i7Y_7mT8_luTGHaUWJ2cIfuQI6R4ce38NuXbMKJsP81sqhu6uTQB4D38RYzN458N1ZsVp7gHfwaNpQD1WpSUaxXss-o_h7cJMaDTXhSdR0a39SWL5UyGvYX4VKhJ7JSYu_GUV8WPXT_GJSSyE"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-4">
+<div class="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+<span class="mt-4 text-sm font-medium text-primary animate-pulse">Generating Assets...</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Floating Prompt Bar -->
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 w-[90%] max-w-4xl z-50">
+<div class="bg-slate-900/80 backdrop-blur-2xl border border-primary/20 rounded-2xl shadow-2xl p-4">
+<!-- Style Selectors -->
+<div class="flex gap-2 overflow-x-auto custom-scrollbar pb-3 mb-3">
+<button class="flex-shrink-0 px-3 py-1.5 rounded-full bg-primary text-white text-xs font-semibold flex items-center gap-1.5">
+<span class="material-icons-round text-sm">view_in_ar</span> 3D Render
+                        </button>
+<button class="flex-shrink-0 px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium flex items-center gap-1.5 transition-colors">
+<span class="material-icons-round text-sm">camera</span> Minimalist Photo
+                        </button>
+<button class="flex-shrink-0 px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium flex items-center gap-1.5 transition-colors">
+<span class="material-icons-round text-sm">brush</span> Flat Illustration
+                        </button>
+<button class="flex-shrink-0 px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium flex items-center gap-1.5 transition-colors">
+<span class="material-icons-round text-sm">palette</span> Cyberpunk
+                        </button>
+<button class="flex-shrink-0 px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium flex items-center gap-1.5 transition-colors">
+<span class="material-icons-round text-sm">architecture</span> Blueprint
+                        </button>
+<button class="flex-shrink-0 px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium flex items-center gap-1.5 transition-colors">
+<span class="material-icons-round text-sm">movie</span> Cinematic
+                        </button>
+</div>
+<!-- Input Bar -->
+<div class="flex items-end gap-3">
+<div class="flex-1 relative">
+<textarea class="w-full bg-slate-800/50 border border-slate-700 focus:border-primary focus:ring-1 focus:ring-primary rounded-xl px-4 py-3.5 text-sm outline-none resize-none transition-all placeholder:text-slate-500" placeholder="Describe the image you want to create in detail..." rows="1"></textarea>
+<div class="absolute right-3 bottom-3 flex items-center gap-2">
+<span class="text-[10px] text-slate-500 font-mono">142/1000</span>
+</div>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white h-12 px-6 rounded-xl flex items-center gap-2 font-bold transition-all shadow-lg shadow-primary/20">
+<span class="material-icons-round">bolt</span>
+<span>Generate</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

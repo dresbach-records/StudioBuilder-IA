@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .code-font { font-family: 'JetBrains Mono', monospace; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #4b2bee33; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #4b2bee55; }
+        .gradient-primary { background: linear-gradient(135deg, #4b2bee 0%, #7e22ce 100%); }
+    </style>
+<title>StudioBuilder AI - Database Generator</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 h-screen flex flex-col overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="h-14 border-b border-primary/20 bg-white/5 backdrop-blur-md flex items-center justify-between px-4 shrink-0">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center">
+<span class="material-icons text-white text-xl">architecture</span>
+</div>
+<span class="font-bold text-lg tracking-tight">StudioBuilder <span class="text-primary">AI</span></span>
+</div>
+<nav class="hidden md:flex items-center gap-1 ml-6 text-sm font-medium text-slate-400">
+<button class="px-3 py-1.5 hover:text-white transition-colors">Project</button>
+<button class="px-3 py-1.5 hover:text-white transition-colors">Editor</button>
+<button class="px-3 py-1.5 text-primary border-b-2 border-primary">Generate Tables</button>
+<button class="px-3 py-1.5 hover:text-white transition-colors">Deploy</button>
+</nav>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 text-xs bg-primary/10 text-primary px-3 py-1.5 rounded-full border border-primary/20">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                AI Scanning Active
+            </div>
+<button class="gradient-primary text-white px-5 py-2 rounded-lg font-semibold text-sm flex items-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-icons text-sm">sync</span>
+                Sync to Project
+            </button>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="flex-1 flex overflow-hidden">
+<!-- Sidebar: File Tree -->
+<aside class="w-64 border-r border-primary/10 flex flex-col shrink-0 bg-background-light dark:bg-background-dark/50">
+<div class="p-3 text-xs font-bold uppercase tracking-widest text-slate-500 flex justify-between items-center">
+                Explorer
+                <span class="material-icons text-sm">more_horiz</span>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar text-sm">
+<!-- Root Structure -->
+<div class="px-2">
+<div class="flex items-center gap-2 py-1 px-2 text-slate-400">
+<span class="material-icons text-sm">expand_more</span>
+<span class="material-icons text-sm">folder</span>
+<span>app</span>
+</div>
+<div class="flex items-center gap-2 py-1 px-2 text-slate-400">
+<span class="material-icons text-sm">chevron_right</span>
+<span class="material-icons text-sm">folder</span>
+<span>components</span>
+</div>
+<!-- AI Generated Folder -->
+<div class="mt-1 bg-primary/10 rounded-lg py-1 border border-primary/20">
+<div class="flex items-center gap-2 py-1 px-2 text-primary font-medium">
+<span class="material-icons text-sm">expand_more</span>
+<span class="material-icons text-sm">auto_awesome</span>
+<span>tables</span>
+<span class="ml-auto text-[10px] bg-primary text-white px-1.5 rounded-full">NEW</span>
+</div>
+<div class="ml-8 space-y-1 mt-1">
+<div class="flex items-center gap-2 py-1 px-2 text-primary bg-primary/10 rounded border-l-2 border-primary">
+<span class="material-icons text-sm">description</span>
+<span>products.sql</span>
+</div>
+<div class="flex items-center gap-2 py-1 px-2 text-slate-300 hover:text-white cursor-pointer">
+<span class="material-icons text-sm">data_object</span>
+<span>orders.ts</span>
+</div>
+<div class="flex items-center gap-2 py-1 px-2 text-slate-300 hover:text-white cursor-pointer">
+<span class="material-icons text-sm">description</span>
+<span>users.sql</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 py-1 px-2 text-slate-400 mt-2">
+<span class="material-icons text-sm">settings</span>
+<span>next.config.js</span>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-primary/10">
+<div class="flex items-center gap-3 text-xs p-3 bg-primary/5 rounded-xl border border-primary/20">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-icons">psychology</span>
+</div>
+<div>
+<div class="font-bold">Studio AI</div>
+<div class="text-slate-500">Watching changes...</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Editor & Preview Area -->
+<section class="flex-1 flex flex-col min-w-0 bg-background-light dark:bg-background-dark">
+<!-- Progress Scanning Header -->
+<div class="p-4 bg-background-light dark:bg-background-dark/80 border-b border-primary/10">
+<div class="flex justify-between items-center mb-2">
+<div class="text-sm font-medium flex items-center gap-2">
+<span class="material-icons text-primary animate-spin text-sm">autorenew</span>
+                        Scanning project entities (Products, Orders, Users)...
+                    </div>
+<div class="text-xs text-slate-500">85% Complete</div>
+</div>
+<div class="w-full h-1.5 bg-primary/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%] rounded-full shadow-[0_0_8px_rgba(75,43,238,0.5)]"></div>
+</div>
+</div>
+<!-- Tabbed Editor -->
+<div class="flex-1 flex flex-col min-h-0">
+<div class="flex bg-background-light dark:bg-black/20 border-b border-primary/10">
+<button class="px-6 py-2 border-b-2 border-primary bg-primary/5 text-sm font-medium flex items-center gap-2">
+<span class="material-icons text-xs">code</span> products.sql
+                    </button>
+<button class="px-6 py-2 border-r border-primary/10 text-slate-500 text-sm font-medium flex items-center gap-2 hover:bg-white/5 transition-colors">
+<span class="material-icons text-xs">terminal</span> orders.ts
+                    </button>
+<button class="px-6 py-2 border-r border-primary/10 text-slate-500 text-sm font-medium flex items-center gap-2 hover:bg-white/5 transition-colors">
+<span class="material-icons text-xs">schema</span> ER Diagram
+                    </button>
+</div>
+<div class="flex-1 flex flex-col lg:flex-row min-h-0">
+<!-- SQL Code Editor -->
+<div class="flex-1 border-r border-primary/10 flex flex-col min-h-0">
+<div class="flex-1 overflow-auto custom-scrollbar bg-[#0a0a0f] p-6 code-font text-sm leading-relaxed">
+<div class="flex gap-4">
+<div class="text-slate-600 select-none text-right w-6">1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13</div>
+<div>
+<span class="text-purple-400">CREATE TABLE</span> <span class="text-blue-300">products</span> (<br/>
+                                      <span class="text-blue-400">id</span> <span class="text-yellow-500">UUID</span> <span class="text-purple-400">PRIMARY KEY DEFAULT</span> gen_random_uuid(),<br/>
+                                      <span class="text-blue-400">name</span> <span class="text-yellow-500">VARCHAR(255)</span> <span class="text-purple-400">NOT NULL</span>,<br/>
+                                      <span class="text-blue-400">description</span> <span class="text-yellow-500">TEXT</span>,<br/>
+                                      <span class="text-blue-400">price</span> <span class="text-yellow-500">DECIMAL(10, 2)</span> <span class="text-purple-400">NOT NULL</span>,<br/>
+                                      <span class="text-blue-400">category_id</span> <span class="text-yellow-500">UUID</span> <span class="text-purple-400">REFERENCES</span> categories(id),<br/>
+                                      <span class="text-blue-400">stock_quantity</span> <span class="text-yellow-500">INTEGER</span> <span class="text-purple-400">DEFAULT</span> 0,<br/>
+                                      <span class="text-blue-400">created_at</span> <span class="text-yellow-500">TIMESTAMP WITH TIME ZONE</span> <span class="text-purple-400">DEFAULT</span> <span class="text-blue-300">now()</span>,<br/>
+                                      <span class="text-blue-400">updated_at</span> <span class="text-yellow-500">TIMESTAMP WITH TIME ZONE</span> <span class="text-purple-400">DEFAULT</span> <span class="text-blue-300">now()</span><br/>
+                                    );<br/>
+<br/>
+<span class="text-slate-500">-- AI detected relationship between Orders and Products</span><br/>
+<span class="text-purple-400">CREATE INDEX</span> idx_products_category <span class="text-purple-400">ON</span> products(category_id);
+                                </div>
+</div>
+</div>
+</div>
+<!-- ER Diagram Preview Side -->
+<div class="flex-1 bg-background-light dark:bg-background-dark/40 relative overflow-hidden flex flex-col min-h-0">
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(#4b2bee 1px, transparent 1px); background-size: 20px 20px;"></div>
+<div class="p-3 border-b border-primary/10 flex justify-between items-center z-10 bg-background-dark/60 backdrop-blur-sm">
+<span class="text-xs font-bold uppercase text-slate-500 tracking-wider">Visual Entity Relationship Preview</span>
+<div class="flex gap-2">
+<button class="w-6 h-6 rounded bg-primary/20 flex items-center justify-center text-primary"><span class="material-icons text-xs">add</span></button>
+<button class="w-6 h-6 rounded bg-primary/20 flex items-center justify-center text-primary"><span class="material-icons text-xs">remove</span></button>
+</div>
+</div>
+<div class="flex-1 relative flex items-center justify-center p-8 overflow-auto custom-scrollbar">
+<!-- Diagram Content -->
+<div class="relative w-full h-full min-h-[400px]">
+<!-- Table: Users -->
+<div class="absolute top-10 left-10 w-48 bg-background-dark border border-primary/40 rounded-lg shadow-xl shadow-primary/5 z-20">
+<div class="bg-primary/20 px-3 py-1.5 rounded-t-lg border-b border-primary/40 text-xs font-bold flex items-center gap-2">
+<span class="material-icons text-[14px]">person</span> Users
+                                    </div>
+<div class="p-2 space-y-1 text-[11px] text-slate-300">
+<div class="flex justify-between"><span>id</span> <span class="text-slate-500 italic">uuid [PK]</span></div>
+<div class="flex justify-between"><span>email</span> <span class="text-slate-500 italic">string</span></div>
+<div class="flex justify-between"><span>full_name</span> <span class="text-slate-500 italic">string</span></div>
+</div>
+</div>
+<!-- Table: Orders -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 bg-background-dark border-2 border-primary rounded-lg shadow-2xl shadow-primary/20 z-20">
+<div class="bg-primary px-3 py-1.5 rounded-t-md text-white text-xs font-bold flex items-center gap-2">
+<span class="material-icons text-[14px]">shopping_cart</span> Orders
+                                    </div>
+<div class="p-2 space-y-1 text-[11px] text-slate-300">
+<div class="flex justify-between"><span>id</span> <span class="text-slate-500 italic">uuid [PK]</span></div>
+<div class="flex justify-between text-primary font-medium"><span>user_id</span> <span class="italic text-primary/70">uuid [FK]</span></div>
+<div class="flex justify-between"><span>total_amount</span> <span class="text-slate-500 italic">decimal</span></div>
+<div class="flex justify-between"><span>status</span> <span class="text-slate-500 italic">enum</span></div>
+</div>
+</div>
+<!-- Table: Products -->
+<div class="absolute bottom-10 right-10 w-48 bg-background-dark border border-primary/40 rounded-lg shadow-xl shadow-primary/5 z-20">
+<div class="bg-primary/20 px-3 py-1.5 rounded-t-lg border-b border-primary/40 text-xs font-bold flex items-center gap-2">
+<span class="material-icons text-[14px]">inventory_2</span> Products
+                                    </div>
+<div class="p-2 space-y-1 text-[11px] text-slate-300">
+<div class="flex justify-between"><span>id</span> <span class="text-slate-500 italic">uuid [PK]</span></div>
+<div class="flex justify-between"><span>name</span> <span class="text-slate-500 italic">string</span></div>
+<div class="flex justify-between"><span>price</span> <span class="text-slate-500 italic">decimal</span></div>
+</div>
+</div>
+<!-- SVG Connections -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-10">
+<defs>
+<marker id="arrowhead" markerheight="7" markerwidth="10" orient="auto" refx="0" refy="3.5">
+<polygon fill="#4b2bee" points="0 0, 10 3.5, 0 7"></polygon>
+</marker>
+</defs>
+<!-- User to Order -->
+<path d="M 230 100 Q 300 100, 320 200" fill="none" stroke="#4b2bee" stroke-dasharray="5,5" stroke-width="2"></path>
+<!-- Order to Product -->
+<path d="M 430 300 Q 450 400, 520 420" fill="none" stroke="#4b2bee" stroke-dasharray="5,5" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Terminal / AI Console -->
+<footer class="h-32 border-t border-primary/10 bg-black/40 flex flex-col shrink-0">
+<div class="flex items-center gap-4 px-4 h-8 bg-black/20 text-[10px] font-bold uppercase text-slate-500">
+<span class="text-primary border-b border-primary h-full flex items-center">Output</span>
+<span>AI Debugger</span>
+<span>Project Console</span>
+</div>
+<div class="flex-1 overflow-auto p-3 code-font text-xs text-slate-400 space-y-1 custom-scrollbar">
+<div class="flex gap-2">
+<span class="text-primary">[AI Scan]</span>
+<span>Analyzing `app/lib/api.ts` and `app/models/`...</span>
+</div>
+<div class="flex gap-2">
+<span class="text-green-500">[Detected]</span>
+<span>Entity "Product" found in types. Mapping to SQL table...</span>
+</div>
+<div class="flex gap-2">
+<span class="text-green-500">[Detected]</span>
+<span>Many-to-One relationship found: Orders belongs to User.</span>
+</div>
+<div class="flex gap-2">
+<span class="text-primary">[Schema]</span>
+<span class="animate-pulse">Generating `tables/products.sql` with optimized indexes...</span>
+</div>
+<div class="flex gap-2">
+<span class="text-primary font-bold">READY</span>
+<span>SQL schema and TypeScript types generated. Click "Sync" to commit changes.</span>
+</div>
+</div>
+</footer>
+</section>
+</main>
+<!-- Bottom Status Bar -->
+<div class="h-6 bg-primary text-[10px] text-white flex items-center px-3 justify-between shrink-0">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1">
+<span class="material-icons text-[12px]">account_tree</span> main*
+            </div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-[12px]">error_outline</span> 0
+                <span class="material-icons text-[12px]">warning_amber</span> 2
+            </div>
+</div>
+<div class="flex items-center gap-4 uppercase font-bold tracking-widest">
+<span>Next.js 14.2</span>
+<span>PostgreSQL</span>
+<span>UTF-8</span>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI | Engineering &amp; Software Development</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b4bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101322",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-nav {
+            background: rgba(16, 19, 34, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(43, 75, 238, 0.1);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(43, 75, 238, 0.15), transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(43, 75, 238, 0.05), transparent 50%);
+        }
+        .card-border {
+            border: 1px solid rgba(43, 75, 238, 0.1);
+            transition: all 0.3s ease;
+        }
+        .card-border:hover {
+            border-color: rgba(43, 75, 238, 0.5);
+            background: rgba(43, 75, 238, 0.02);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200">
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 glass-nav">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-icons-round text-white text-xl">architecture</span>
+</div>
+<span class="text-xl font-bold tracking-tight dark:text-white">StudioBuilder<span class="text-primary">AI</span></span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#services">Services</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#development">Custom Build</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#architecture">Architecture</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#portfolio">Portfolio</a>
+</div>
+<div class="flex items-center">
+<button class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-bold hover:bg-blue-600 transition-all shadow-lg shadow-primary/20">
+                    Consult our Experts
+                </button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen pt-32 pb-20 flex items-center overflow-hidden hero-gradient">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="relative z-10">
+<div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-bold uppercase tracking-widest text-primary">Institutional Engineering Firm</span>
+</div>
+<h1 class="text-5xl lg:text-7xl font-bold leading-[1.1] mb-8 dark:text-white">
+                    Excellence in <span class="text-primary">Engineering</span> &amp; Software Development
+                </h1>
+<p class="text-lg lg:text-xl text-slate-500 dark:text-slate-400 mb-10 max-w-xl leading-relaxed">
+                    We build high-performance digital ecosystems for visionary companies. Precision-engineered systems designed for infinite scale.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-white px-8 py-4 rounded-xl text-base font-bold flex items-center justify-center space-x-2 hover:translate-y-[-2px] transition-all shadow-xl shadow-primary/30">
+<span>Consult our Experts</span>
+<span class="material-icons-round">arrow_forward</span>
+</button>
+<button class="bg-white/5 dark:bg-white/5 border border-slate-200 dark:border-slate-800 backdrop-blur-sm text-slate-800 dark:text-white px-8 py-4 rounded-xl text-base font-bold hover:bg-slate-100 dark:hover:bg-white/10 transition-all">
+                        View Portfolio
+                    </button>
+</div>
+</div>
+<div class="relative lg:h-[600px] flex items-center justify-center">
+<!-- Abstract 3D Geometric Visual Mockup -->
+<div class="relative w-full aspect-square max-w-[500px]">
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-[120px] opacity-30"></div>
+<img alt="Abstract 3D Geometric Structure" class="w-full h-full object-contain mix-blend-lighten drop-shadow-2xl" data-alt="Abstract glowing 3D wireframe mesh representing complex architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFMxPv_LcUHfoJmWuFEC_osNyACBbbNwKCGhKC-PXlCrGv7EbSZhEW-EvE5cU6GGbrxXnZ2FCFpgmWjsUKkQjx54xnYN-sfseLu2AjQ4j6zjkPqYhkEuiQE6_vd-U-wHy5WAQfS0tpOEEn8epx9k_5563h5_n1P6WJMiV3GDCi-v09Ccsu3XgYRVoGjqtfr5Q0sh2egWz6JNNy_OULIDCvIqYdoDrqbr4MqA9AOAfv2OfEyeP7mTFhimm-ccvc9S9ThXugqXX2_yU"/>
+<!-- Tech Accents -->
+<div class="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-primary/40 rounded-tr-3xl"></div>
+<div class="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-primary/40 rounded-bl-3xl"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Engineering Services -->
+<section class="py-24 bg-white dark:bg-background-dark" id="services">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+<div>
+<h2 class="text-3xl lg:text-4xl font-bold mb-4 dark:text-white">Core Engineering Services</h2>
+<p class="text-slate-500 dark:text-slate-400 max-w-2xl">Rigorous technical frameworks designed for high-availability environments and mission-critical operations.</p>
+</div>
+<div class="hidden md:block">
+<div class="h-[1px] w-32 bg-primary/30 mb-2"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="p-8 rounded-xl bg-slate-50 dark:bg-white/5 card-border group">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+<span class="material-icons-round text-primary group-hover:text-white transition-colors">cloud_queue</span>
+</div>
+<h3 class="text-xl font-bold mb-4 dark:text-white">Cloud Systems</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Highly scalable multi-cloud architectures built on AWS, Azure, and GCP with automated disaster recovery protocols.</p>
+</div>
+<div class="p-8 rounded-xl bg-slate-50 dark:bg-white/5 card-border group">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+<span class="material-icons-round text-primary group-hover:text-white transition-colors">psychology</span>
+</div>
+<h3 class="text-xl font-bold mb-4 dark:text-white">AI Integration</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Operationalizing large language models and neural networks into existing enterprise workflows with extreme low latency.</p>
+</div>
+<div class="p-8 rounded-xl bg-slate-50 dark:bg-white/5 card-border group">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+<span class="material-icons-round text-primary group-hover:text-white transition-colors">security</span>
+</div>
+<h3 class="text-xl font-bold mb-4 dark:text-white">Hardened Security</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Defense-in-depth engineering from the kernel level up to the application layer, ensuring compliance and data integrity.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Custom Development Section -->
+<section class="py-24 bg-background-light dark:bg-background-dark/50 border-y border-slate-200 dark:border-slate-800" id="development">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1">
+<div class="grid grid-cols-2 gap-4">
+<img alt="Clean Code Display" class="rounded-xl w-full h-48 object-cover border border-slate-800/20 shadow-lg" data-alt="Technical code snippets on a high resolution screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2w29HJBYHVgq7_Prc25PAFzeZdpH1lUuXf7ibh_Bc2Yg5MbFJQN9GuZW829_Owz3Bkay2K1Vazgh_EQjaPMhLvGat-nGVFOnvqXXU4aHfCpsTgsOpK_x8vg-hfUNsdgVJ4fbdHu8wicQYBFAXhdzI4DPy9127pSPaqSAfA9dVmhxb32e3yWbsCV6WgKQu41JAAzy7DLCgQkmxmRm-jBlsSGp6eP9ZQsN2DjWOS3Ys8SGkG3oR_nBNo0Ue5kWet0PXqj2PiSe4Y4E"/>
+<img alt="Data Dashboard" class="rounded-xl w-full h-48 object-cover mt-8 border border-slate-800/20 shadow-lg" data-alt="Abstract data analytics visualization dashboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxwzKXRkwSzO3hEjZ3RKaKfwNGgsEVHn084yI4J92UevVO5-SU2-9w43mwZON4ZXYqlHKZf58GudF75s0Gc2DwVYO5onsnHlGFPeLjp8MbdHq8FmGIAKsWgq5QikUBNG2ojH2OWVOiry9BlZOO0FZ6ageXuYovSejUnDbTFQ-qODsdQK_d2DwXToz6nEzlKzTsbvtIobhs4dCXMfrnfjQQaMYRbDHVeAdac-_TCTceZ7YdOvHPQMmvcpqsjxmEbyUXunYuyoOxlEU"/>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<h2 class="text-3xl lg:text-4xl font-bold mb-6 dark:text-white">Custom Development &amp; Legacy Modernization</h2>
+<p class="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">
+                    We specialize in transforming complex business logic into efficient, maintainable software. From greenfield projects to complete architectural overhauls, our team ensures your technology stack is an asset, not a liability.
+                </p>
+<ul class="space-y-4 mb-10">
+<li class="flex items-start space-x-3">
+<span class="material-icons-round text-primary mt-0.5">check_circle</span>
+<span class="dark:text-slate-300 font-medium">Enterprise Application Suites</span>
+</li>
+<li class="flex items-start space-x-3">
+<span class="material-icons-round text-primary mt-0.5">check_circle</span>
+<span class="dark:text-slate-300 font-medium">FinTech &amp; Real-time Trading Engines</span>
+</li>
+<li class="flex items-start space-x-3">
+<span class="material-icons-round text-primary mt-0.5">check_circle</span>
+<span class="dark:text-slate-300 font-medium">Blockchain Infrastructure &amp; Smart Contracts</span>
+</li>
+</ul>
+<button class="text-primary font-bold flex items-center space-x-2 group">
+<span>Explore Custom Solutions</span>
+<span class="material-icons-round transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Advanced Systems Architecture -->
+<section class="py-24 relative overflow-hidden bg-background-dark" id="architecture">
+<div class="absolute inset-0 opacity-10">
+<div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(rgba(43, 75, 238, 0.4) 1px, transparent 1px); background-size: 40px 40px;"></div>
+</div>
+<div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+<h2 class="text-3xl lg:text-5xl font-bold mb-12 text-white">Advanced Systems Architecture</h2>
+<div class="relative max-w-4xl mx-auto mb-20 p-8 border border-primary/20 bg-background-dark/80 rounded-2xl backdrop-blur-xl">
+<!-- Technical Schematic Mockup -->
+<div class="grid grid-cols-4 gap-4 h-64">
+<div class="col-span-1 border-r border-slate-700 flex flex-col justify-center items-center p-4">
+<div class="w-12 h-12 rounded bg-primary/20 flex items-center justify-center mb-2">
+<span class="material-icons-round text-primary">input</span>
+</div>
+<span class="text-[10px] uppercase tracking-tighter text-slate-500">Edge Gateway</span>
+</div>
+<div class="col-span-2 flex flex-col justify-center space-y-4 px-8">
+<div class="h-10 border border-primary/40 rounded flex items-center px-4 justify-between">
+<span class="text-[10px] text-slate-400">Microservice Alpha</span>
+<div class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
+</div>
+<div class="h-10 border border-primary rounded bg-primary/10 flex items-center px-4 justify-between">
+<span class="text-[10px] text-primary font-bold">Orchestration Layer</span>
+<div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(43,75,238,0.6)]"></div>
+</div>
+<div class="h-10 border border-primary/40 rounded flex items-center px-4 justify-between">
+<span class="text-[10px] text-slate-400">Microservice Beta</span>
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+</div>
+</div>
+<div class="col-span-1 border-l border-slate-700 flex flex-col justify-center items-center p-4">
+<div class="w-12 h-12 rounded bg-white/5 flex items-center justify-center mb-2">
+<span class="material-icons-round text-slate-400">storage</span>
+</div>
+<span class="text-[10px] uppercase tracking-tighter text-slate-500">Distributed DB</span>
+</div>
+</div>
+<div class="absolute -top-3 -right-3 bg-primary text-[10px] font-bold px-2 py-1 rounded text-white tracking-widest uppercase">Live Schematic</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+<div class="p-6 border-l border-primary/30">
+<h4 class="text-white font-bold mb-2">Microservices</h4>
+<p class="text-slate-500 text-sm">Decomposed monolithic systems into agile, independent services.</p>
+</div>
+<div class="p-6 border-l border-primary/30">
+<h4 class="text-white font-bold mb-2">Edge Computing</h4>
+<p class="text-slate-500 text-sm">Pushing logic closer to the user to eliminate latency bottlenecks.</p>
+</div>
+<div class="p-6 border-l border-primary/30">
+<h4 class="text-white font-bold mb-2">High Availability</h4>
+<p class="text-slate-500 text-sm">99.999% uptime architectures with zero-point failure resilience.</p>
+</div>
+<div class="p-6 border-l border-primary/30">
+<h4 class="text-white font-bold mb-2">Event Streaming</h4>
+<p class="text-slate-500 text-sm">Real-time data processing pipelines using Kafka and Pulsar.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Global Offices / Locations (Before Footer) -->
+<section class="py-20 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-6">
+<h3 class="text-2xl font-bold mb-12 text-center dark:text-white">Global Presence</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="text-center group">
+<div class="w-full h-40 rounded-xl mb-6 overflow-hidden">
+<img alt="London" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="London skyline at night with modern architecture" data-location="London" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD8CSmq7bpJCXYokCdOSz8V_VdL3PTeIvc2yPeKcRNywmtq_hsfFePnW39H85DB1u6WWK5aIg8SBt6LbnOiW5hDKOnW7AGJ2pBIIeKmXYHESfA1XZNcBIHapyMAwpz6FeHol7RVuDUc2mFrOwBaLCNDwwnu8tcEyWo6htHObl5MdCbGBWAgHvx2So2H86b-mOkrBN8iqGHhZA1dYUeDMASQl50nIOQA9z-WOahffIbQtWNlSzUb1Keu5MnZ8NXuirpfmzO4tVBNcQ"/>
+</div>
+<h5 class="font-bold text-lg dark:text-white">London, UK</h5>
+<p class="text-slate-500 text-sm">18 Finsbury Square, EC2A 1AH</p>
+</div>
+<div class="text-center group">
+<div class="w-full h-40 rounded-xl mb-6 overflow-hidden">
+<img alt="New York" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="New York Manhattan skyline bridge at night" data-location="New York" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpGtQeBGPjUPu2_p1vIV3JW-OJE9zI5HQASwtayyAaQM-vVOOlusEhspXt5rUNOzeAQ5up3HdAshimgqsyZsWYgilJ231_9Irrz3Pmr8dlrvOVX97TrZf03xpaQNcJaxGKECy7_wNSxhsLU5Fj4P9VmQ_FUS1npyr59tPF8s__W4jQnhvLeZxdmlw_kXTNxVsUaNT4N20exOwxiQ__GMTJblmKcZPAI5GMTA86pBMNIqUCkuIkxmuu3h90NJqsR4uCdyPr1VxiifQ"/>
+</div>
+<h5 class="font-bold text-lg dark:text-white">New York, USA</h5>
+<p class="text-slate-500 text-sm">250 Hudson St, NY 10013</p>
+</div>
+<div class="text-center group">
+<div class="w-full h-40 rounded-xl mb-6 overflow-hidden">
+<img alt="Singapore" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Singapore Marina Bay Sands modern skyline" data-location="Singapore" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR-4L7LygDEGb5cR6sh5gYegy7TqQKshvQYhqe5Qg72KTQZy-9GiZ_NsjPi1nl_5XxvSXCB0hnCHLD5ddCNeP6JY364e-BYYD2mc1gPaGLCFcnRGV9XB2N_1v4S1fjsjbG1LIO64aYYmYG0_3Ea4uebGigSnJWQ--wv7D4ARtdVHRYs04tq0khobz0p3IAiDK3C8aEQymZ-X6TGxn30gwuy0cubpuBeJVZQPDrJJYEmECDkaZPbMa982NH_rZEl3_EIZH_uQtiAuQ"/>
+</div>
+<h5 class="font-bold text-lg dark:text-white">Singapore</h5>
+<p class="text-slate-500 text-sm">7 Temasek Blvd, 038987</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-background-dark border-t border-slate-800 pt-20 pb-10">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center space-x-2 mb-6">
+<div class="w-6 h-6 bg-primary rounded flex items-center justify-center">
+<span class="material-icons-round text-white text-sm">architecture</span>
+</div>
+<span class="text-lg font-bold tracking-tight text-white">StudioBuilder<span class="text-primary">AI</span></span>
+</div>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">
+                    A premium engineering collective dedicated to solving the world's most complex technical challenges.
+                </p>
+<div class="flex space-x-4">
+<a class="w-8 h-8 rounded-full border border-slate-800 flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary transition-all" href="#">
+<span class="material-icons-round text-sm">public</span>
+</a>
+<a class="w-8 h-8 rounded-full border border-slate-800 flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary transition-all" href="#">
+<span class="material-icons-round text-sm">terminal</span>
+</a>
+</div>
+</div>
+<div>
+<h6 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Specializations</h6>
+<ul class="space-y-3 text-slate-500 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Distributed Systems</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cloud Infrastructure</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Machine Learning Ops</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cybersecurity Systems</a></li>
+</ul>
+</div>
+<div>
+<h6 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Company</h6>
+<ul class="space-y-3 text-slate-500 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Our Portfolio</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Engineering Blog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Technical Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Press Kit</a></li>
+</ul>
+</div>
+<div>
+<h6 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Contact</h6>
+<ul class="space-y-3 text-slate-500 text-sm">
+<li class="flex items-center space-x-2">
+<span class="material-icons-round text-primary text-sm">email</span>
+<span>partnerships@studiobuilder.ai</span>
+</li>
+<li class="flex items-center space-x-2">
+<span class="material-icons-round text-primary text-sm">phone</span>
+<span>+1 (212) 555-0198</span>
+</li>
+</ul>
+<div class="mt-8">
+<button class="w-full bg-primary/20 text-primary border border-primary/30 py-3 rounded-lg text-sm font-bold hover:bg-primary hover:text-white transition-all">
+                        Consult our Experts
+                    </button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 pt-10 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-slate-600 text-[10px] uppercase tracking-widest font-medium">
+                © 2024 StudioBuilder AI Engineering Firm. All technical assets protected.
+            </p>
+<div class="flex space-x-8 text-slate-600 text-[10px] uppercase tracking-widest font-medium">
+<a class="hover:text-slate-400" href="#">Privacy Policy</a>
+<a class="hover:text-slate-400" href="#">Security Disclosure</a>
+<a class="hover:text-slate-400" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

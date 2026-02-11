@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI | DevOps &amp; Deployment Control</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "neon-green": "#10b981",
+                        "neon-red": "#ef4444",
+                        "terminal-bg": "#0a0f14",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #2b8cee44; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #2b8cee; }
+        .glow-success { box-shadow: 0 0 15px rgba(16, 185, 129, 0.2); }
+        .glow-primary { box-shadow: 0 0 15px rgba(43, 140, 238, 0.2); }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full w-20 flex flex-col items-center py-8 bg-white dark:bg-slate-900/50 border-r border-slate-200 dark:border-slate-800 z-50">
+<div class="mb-12">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-xl">S</div>
+</div>
+<nav class="flex flex-col gap-8 flex-1">
+<button class="p-3 text-primary bg-primary/10 rounded-xl"><span class="material-icons">dashboard</span></button>
+<button class="p-3 text-slate-400 hover:text-primary transition-colors"><span class="material-icons">account_tree</span></button>
+<button class="p-3 text-slate-400 hover:text-primary transition-colors"><span class="material-icons">storage</span></button>
+<button class="p-3 text-slate-400 hover:text-primary transition-colors"><span class="material-icons">security</span></button>
+<button class="p-3 text-slate-400 hover:text-primary transition-colors"><span class="material-icons">settings</span></button>
+</nav>
+<div class="mt-auto">
+<button class="p-3 text-slate-400"><span class="material-icons">logout</span></button>
+</div>
+</aside>
+<main class="ml-20 p-8 max-w-[1600px] mx-auto">
+<!-- Header -->
+<header class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div>
+<h1 class="text-2xl font-bold tracking-tight">Engineering Dashboard</h1>
+<p class="text-slate-500 text-sm">DevOps &amp; Deployment Control <span class="mx-2">•</span> <span class="text-neon-green">Live Monitoring</span></p>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-slate-100 dark:bg-slate-800/50 p-1 rounded-lg flex gap-1">
+<button class="px-4 py-2 text-sm font-medium rounded-md bg-white dark:bg-slate-700 shadow-sm">Production</button>
+<button class="px-4 py-2 text-sm font-medium text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">Staging</button>
+</div>
+<div class="flex items-center gap-3 bg-white dark:bg-slate-800 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700">
+<div class="w-2 h-2 rounded-full bg-neon-green animate-pulse"></div>
+<span class="text-sm font-medium">Cluster: Hostinger-SaoPaulo-01</span>
+</div>
+</div>
+</header>
+<!-- Top Metrics Row -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 glow-primary">
+<div class="flex items-center justify-between mb-4">
+<span class="text-sm font-medium text-slate-500">CPU Usage</span>
+<span class="material-icons text-primary text-xl">memory</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-bold">42%</span>
+<span class="text-neon-green text-sm pb-1 flex items-center"><span class="material-icons text-sm">trending_down</span> 2%</span>
+</div>
+<div class="mt-4 w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 42%"></div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between mb-4">
+<span class="text-sm font-medium text-slate-500">RAM (Allocated)</span>
+<span class="material-icons text-primary text-xl">analytics</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-bold">8.4 GB</span>
+<span class="text-slate-500 text-sm pb-1">/ 16 GB</span>
+</div>
+<div class="mt-4 w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 52.5%"></div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between mb-4">
+<span class="text-sm font-medium text-slate-500">Avg. Latency</span>
+<span class="material-icons text-primary text-xl">speed</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-bold">24ms</span>
+<span class="text-neon-red text-sm pb-1 flex items-center"><span class="material-icons text-sm">trending_up</span> 4ms</span>
+</div>
+<div class="mt-4 flex gap-1 items-end h-6">
+<div class="flex-1 bg-primary/20 rounded-sm h-3"></div>
+<div class="flex-1 bg-primary/40 rounded-sm h-4"></div>
+<div class="flex-1 bg-primary/30 rounded-sm h-2"></div>
+<div class="flex-1 bg-primary/60 rounded-sm h-5"></div>
+<div class="flex-1 bg-primary rounded-sm h-6"></div>
+<div class="flex-1 bg-primary/80 rounded-sm h-4"></div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between mb-4">
+<span class="text-sm font-medium text-slate-500">Active Build</span>
+<span class="material-icons text-primary text-xl">sync</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-3xl font-bold">#2,481</div>
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase tracking-wider">Running</span>
+</div>
+<div class="mt-4 flex items-center gap-2 text-xs text-slate-500">
+<span class="material-icons text-xs">history</span>
+<span>Started 2m 45s ago by CI/CD Bot</span>
+</div>
+</div>
+</section>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left: Terminal & Actions -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Terminal Component -->
+<div class="bg-terminal-bg rounded-xl border border-slate-800 overflow-hidden shadow-2xl">
+<div class="bg-slate-900 px-4 py-2 border-b border-slate-800 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="flex gap-1.5">
+<div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+<div class="w-3 h-3 rounded-full bg-amber-500/50"></div>
+<div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+</div>
+<span class="ml-4 text-xs font-mono text-slate-400">bash — build-logs — studiobuilder-v2.481</span>
+</div>
+<div class="flex items-center gap-4 text-slate-500">
+<span class="material-icons text-sm hover:text-white cursor-pointer">content_copy</span>
+<span class="material-icons text-sm hover:text-white cursor-pointer">fullscreen</span>
+</div>
+</div>
+<div class="p-6 h-[450px] font-mono text-sm overflow-y-auto custom-scrollbar">
+<div class="space-y-1">
+<p class="text-slate-500">[14:32:01] <span class="text-primary">INFO</span> Initializing Docker build context...</p>
+<p class="text-slate-500">[14:32:05] <span class="text-primary">INFO</span> Loading env configuration from Vault</p>
+<p class="text-slate-500">[14:32:08] <span class="text-neon-green">SUCCESS</span> Connection established to GitHub API</p>
+<p class="text-slate-300"># Step 1/14: FROM node:18-alpine AS builder</p>
+<p class="text-slate-500">---&gt; 14c772392686</p>
+<p class="text-slate-300"># Step 2/14: WORKDIR /app</p>
+<p class="text-slate-300"># Step 3/14: COPY package.json yarn.lock ./</p>
+<p class="text-slate-300"># Step 4/14: RUN yarn install --frozen-lockfile</p>
+<p class="text-slate-400">yarn install v1.22.19</p>
+<p class="text-slate-400">[1/4] Resolving packages...</p>
+<p class="text-slate-400">[2/4] Fetching packages...</p>
+<p class="text-slate-400">[3/4] Linking dependencies...</p>
+<p class="text-slate-500">[14:34:10] <span class="text-primary">INFO</span> Bundling assets with Vite...</p>
+<p class="text-slate-300">✓ 1,248 modules transformed.</p>
+<p class="text-slate-300">dist/index.html                  0.45 kB │ gzip:  0.28 kB</p>
+<p class="text-slate-300">dist/assets/index-D5-Cj_F-.css  42.12 kB │ gzip: 11.23 kB</p>
+<p class="text-slate-300">dist/assets/index-By9_m0K8.js  845.12 kB │ gzip: 254.10 kB</p>
+<p class="text-slate-500">[14:34:45] <span class="text-neon-green">SUCCESS</span> Build completed in 164s</p>
+<p class="text-slate-500">[14:34:46] <span class="text-primary">INFO</span> Pushing image to registry: hostinger.io/studio-builder:latest</p>
+<div class="flex items-center gap-2 pt-2">
+<span class="text-primary">➜</span>
+<span class="w-2 h-5 bg-primary animate-pulse"></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pipeline Vis -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 mb-6">Pipeline Visualization</h3>
+<div class="flex items-center justify-between">
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-12 h-12 rounded-full border-2 border-neon-green flex items-center justify-center text-neon-green glow-success">
+<span class="material-icons">code</span>
+</div>
+<span class="text-xs font-medium">Build</span>
+</div>
+<div class="flex-1 h-0.5 bg-neon-green mx-2 mb-6"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full border-2 border-neon-green flex items-center justify-center text-neon-green glow-success">
+<span class="material-icons">fact_check</span>
+</div>
+<span class="text-xs font-medium">Testing</span>
+</div>
+<div class="flex-1 h-0.5 bg-primary mx-2 mb-6"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center text-primary animate-pulse">
+<span class="material-icons">cloud_upload</span>
+</div>
+<span class="text-xs font-medium">Deploying</span>
+</div>
+<div class="flex-1 h-0.5 bg-slate-200 dark:bg-slate-800 mx-2 mb-6"></div>
+<div class="flex flex-col items-center gap-2 opacity-40">
+<div class="w-12 h-12 rounded-full border-2 border-slate-400 flex items-center justify-center text-slate-400">
+<span class="material-icons">rocket_launch</span>
+</div>
+<span class="text-xs font-medium">Production</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Side Panels -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Deployment Controls -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<h3 class="font-bold mb-4 flex items-center gap-2">
+<span class="material-icons text-primary">bolt</span>
+                        Quick Actions
+                    </h3>
+<div class="grid grid-cols-1 gap-3">
+<button class="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all">
+<span class="material-icons text-lg">refresh</span> Rebuild System
+                        </button>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-2 transition-all">
+<span class="material-icons text-lg">history</span> Rollback
+                            </button>
+<button class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 py-3 rounded-lg font-medium text-sm flex items-center justify-center gap-2 transition-all">
+<span class="material-icons text-lg">key</span> Env Vars
+                            </button>
+</div>
+</div>
+</div>
+<!-- Security Audit -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<h3 class="font-bold mb-4 flex items-center gap-2">
+<span class="material-icons text-amber-500">security</span>
+                        Security &amp; Health
+                    </h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+<div class="flex items-center gap-3">
+<span class="material-icons text-neon-green">verified_user</span>
+<div>
+<p class="text-sm font-semibold">SSL Certificate</p>
+<p class="text-[10px] text-slate-500">Expires in 284 days</p>
+</div>
+</div>
+<span class="text-xs font-bold text-neon-green">VALID</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+<div class="flex items-center gap-3">
+<span class="material-icons text-neon-green">admin_panel_settings</span>
+<div>
+<p class="text-sm font-semibold">Cloud Firewall</p>
+<p class="text-[10px] text-slate-500">12 Rules Active</p>
+</div>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-slate-300 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+<div class="flex items-center gap-3">
+<span class="material-icons text-primary">hub</span>
+<div>
+<p class="text-sm font-semibold">Database Ops</p>
+<p class="text-[10px] text-slate-500">Read: 2.1k/s</p>
+</div>
+</div>
+<span class="text-xs font-bold text-primary">NORMAL</span>
+</div>
+</div>
+</div>
+<!-- GitHub Commits -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<h3 class="font-bold mb-4 flex items-center justify-between">
+<span class="flex items-center gap-2">
+<span class="material-icons text-slate-900 dark:text-white">commit</span>
+                            Recent Commits
+                        </span>
+<a class="text-xs text-primary font-medium" href="#">View Repo</a>
+</h3>
+<div class="space-y-4 max-h-[300px] overflow-y-auto custom-scrollbar pr-2">
+<div class="flex gap-3 border-l-2 border-primary pl-4 py-1">
+<div class="flex-1">
+<p class="text-sm font-medium line-clamp-1">feat: add distributed tracing for worker nodes</p>
+<div class="flex items-center justify-between mt-1">
+<span class="text-[10px] text-slate-500 flex items-center gap-1">
+<img class="w-4 h-4 rounded-full" data-alt="Developer profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbYf5tAUiQ0tOIpH0of0oTn64XcYobbu0E49aPHNgzwPQTnClQUfBpPmdTHVK70ByzqFJ3N6lJpAk2mAr4n9VMNmgJUHiSz4h-dlRTXoTmbrdHxb2a3-lH0u4D25BRL8GZNAlZd2CfS032EeRXYu_fu766clFR59V-mVXC2CASJCxO2-PZ--w7CLoa273-1XqrgWnmZiLcM3QKMAOrlls7fAvo839emop1DQF_hkxZeIX2YtiClkeFlLTAxnFDSrzEFd6vR_a_6fY"/>
+                                        @marcusdev
+                                    </span>
+<span class="text-[10px] font-mono text-slate-400">#4a1c3f2</span>
+</div>
+</div>
+</div>
+<div class="flex gap-3 border-l-2 border-slate-200 dark:border-slate-800 pl-4 py-1">
+<div class="flex-1">
+<p class="text-sm font-medium line-clamp-1">fix: memory leak in telemetry-collector</p>
+<div class="flex items-center justify-between mt-1">
+<span class="text-[10px] text-slate-500 flex items-center gap-1">
+<img class="w-4 h-4 rounded-full" data-alt="Developer profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDbvt6EgMKQGX3911MdGBAVxBEjTyYx7ehxIm76KjNZmiu0iqGLYl6VW09dymCe7MSXRXVKI8LeBJioCdrgLCOX-Xi2BSfQ4HBL2IwYZfgHtcWQgzQCHpjp7xcOhLDS6S-8pPdC7hITGRYk7SN0mGExSS62ngyv7IAXk1epFU3Y6pktkK5sxNZmxUibW8_UwsH9Tvtg81W09ITpTMg65w47jy_bRg12xmhadpRX8GJt1gipH4F9-zJFSUaR7baIl-5LpUIyaedzpc"/>
+                                        @sarah.eng
+                                    </span>
+<span class="text-[10px] font-mono text-slate-400">#9b2d1e1</span>
+</div>
+</div>
+</div>
+<div class="flex gap-3 border-l-2 border-slate-200 dark:border-slate-800 pl-4 py-1">
+<div class="flex-1">
+<p class="text-sm font-medium line-clamp-1">docs: update api reference for v2.4</p>
+<div class="flex items-center justify-between mt-1">
+<span class="text-[10px] text-slate-500 flex items-center gap-1">
+<img class="w-4 h-4 rounded-full" data-alt="Developer profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9jKoAYjibQ32anzEtfVtHjt2DWCKj7RhVq8y7N6Aqlf_dpT3_t4mo38CTdWsNKdDhqvMqMNCzU1TSTD5z3R-d-DafOYERTuV0aG_Lc4Rr3mxlrZz1UFt3kvKe52ZYGDQD6TzC8LUGQNYuYr7pQ5QaE6lxqYMxhvwMoIYYBvDv64HEyQqaqlTSF1TjJXdCVEYhjcurHyIZ9oB3KrFZI2UeiZRAgOyEV0BF8CNiryOXtvBLtqX0wHu6Dx6_uwVqoeKVQLWOjmN0Nv0"/>
+                                        @alex_infra
+                                    </span>
+<span class="text-[10px] font-mono text-slate-400">#c22f09a</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Infrastructure Map Preview -->
+<section class="mt-8">
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden h-[300px] relative">
+<div class="absolute inset-0 opacity-40 dark:opacity-20 bg-slate-200" data-location="Global Server Distribution" style="background-image: url('https://placeholder.pics/svg/300'); background-size: cover; background-position: center;"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-light dark:from-background-dark via-transparent to-transparent"></div>
+<div class="relative h-full p-8 flex flex-col justify-end">
+<div class="flex items-center gap-4">
+<div class="bg-white dark:bg-slate-900 p-4 rounded-lg border border-slate-200 dark:border-slate-700 shadow-xl">
+<h4 class="text-xs font-bold uppercase text-slate-500 mb-2">Global Nodes</h4>
+<div class="flex gap-6">
+<div class="flex flex-col">
+<span class="text-lg font-bold">Sao Paulo</span>
+<span class="text-[10px] text-neon-green">Primary Node — Active</span>
+</div>
+<div class="flex flex-col">
+<span class="text-lg font-bold">New York</span>
+<span class="text-[10px] text-slate-500">Secondary — Standby</span>
+</div>
+<div class="flex flex-col">
+<span class="text-lg font-bold">London</span>
+<span class="text-[10px] text-slate-500">Secondary — Standby</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="ml-20 py-6 px-8 border-t border-slate-200 dark:border-slate-800 text-center">
+<p class="text-xs text-slate-500">StudioBuilder AI Infrastructure Management v4.2.0-stable | © 2024 Engineering Team</p>
+</footer>
+</body></html>

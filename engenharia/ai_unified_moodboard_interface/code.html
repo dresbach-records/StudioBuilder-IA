@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Unified Moodboard Interface | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0F172A",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0F172A;
+        }
+        .glass-panel {
+            background: rgba(59, 43, 238, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .gradient-button {
+            background: linear-gradient(135deg, #3b2bee 0%, #6366f1 100%);
+            box-shadow: 0 4px 20px rgba(59, 43, 238, 0.3);
+        }
+        .subtle-glow {
+            box-shadow: 0 0 30px rgba(59, 43, 238, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<!-- Header Navigation -->
+<header class="border-b border-primary/10 bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-icons text-white text-lg">auto_awesome</span>
+</div>
+<span class="text-xl font-bold tracking-tight">StudioBuilder <span class="text-primary">AI</span></span>
+</div>
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Projects</a>
+<a class="text-white border-b-2 border-primary pb-1" href="#">Moodboard</a>
+<a class="hover:text-primary transition-colors" href="#">Assets</a>
+<a class="hover:text-primary transition-colors" href="#">Export</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-white/5 rounded-full transition-colors">
+<span class="material-icons">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/40 overflow-hidden">
+<img alt="Profile" data-alt="User profile avatar close up portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEvD1rQ_fPKFm8gRQPX9MN_ywfKZSUmdXF4Run-M-ecRaZ_GOu3mcjM5-AAnvRKNXTq7yo3WcVpECWoWM5VXNkSsRVX9uNiLiMQg1s8fCpJku_ewtzQ6xSCCdaxuAiExF7xT9mX7_ML6C6MjzvlsNyzo7_MDA9qzLv8_c_T3YkdxhCPjLkeujXqa9jGHwPxlx4zXECjMFA06m4JhsHUI_nU4HDJCA3m2yEPYqbvJq7VWFysm_D0WWCNlLfxeQ3EtkdR8k-4wTXlCQ"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-10">
+<!-- Top Status Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+<div>
+<h1 class="text-3xl font-bold">AI Unified Moodboard</h1>
+<p class="text-slate-400 mt-1">Synthesis of 12 uploaded visual references and brand guidelines.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 rounded-lg border border-primary/20 bg-primary/5 hover:bg-primary/10 transition-colors flex items-center gap-2 text-sm">
+<span class="material-icons text-sm">refresh</span>
+                    Re-Analyze
+                </button>
+<button class="px-4 py-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-colors flex items-center gap-2 text-sm">
+<span class="material-icons text-sm">share</span>
+                    Share
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-6">
+<!-- Central Synthesis Card -->
+<div class="col-span-12 lg:col-span-8 glass-panel rounded-xl p-8 subtle-glow relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-icons text-9xl text-primary">psychology</span>
+</div>
+<div class="relative z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold mb-4 uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        AI Generated Direction
+                    </div>
+<h2 class="text-4xl font-bold mb-4">Modern Tech Elegance</h2>
+<p class="text-lg text-slate-300 max-w-2xl leading-relaxed">
+                        This aesthetic blends high-performance utility with premium visual minimalism. We've prioritized deep contrast, glassmorphic depths, and vibrant primary accents to create a sense of professional innovation and clarity.
+                    </p>
+<div class="mt-8 flex flex-wrap gap-6">
+<div class="flex items-center gap-3">
+<span class="material-icons text-primary">check_circle</span>
+<span class="text-sm font-medium">Dark Mode Optimized</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-icons text-primary">check_circle</span>
+<span class="text-sm font-medium">High Information Density</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-icons text-primary">check_circle</span>
+<span class="text-sm font-medium">SaaS-Focused Hierarchy</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Typography Duo -->
+<div class="col-span-12 lg:col-span-4 glass-panel rounded-xl p-8">
+<h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-6">Typography Pairing</h3>
+<div class="space-y-8">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs text-slate-400">Heading (Display)</span>
+<span class="text-xs font-mono text-primary">Space Grotesk</span>
+</div>
+<div class="text-3xl font-bold leading-tight">Quick brown fox</div>
+</div>
+<div class="pt-6 border-t border-white/5">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs text-slate-400">Body (Sans)</span>
+<span class="text-xs font-mono text-primary">Inter Regular</span>
+</div>
+<div class="text-base text-slate-400 leading-relaxed">
+                            The intelligent designer seeks to balance form and function, ensuring that every pixel serves a purpose.
+                        </div>
+</div>
+</div>
+</div>
+<!-- Master Palette Strip -->
+<div class="col-span-12 glass-panel rounded-xl p-8">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest">Master Palette</h3>
+<span class="text-xs text-slate-400">Extracted from 8 dominant sources</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4">
+<div class="space-y-2 group cursor-pointer">
+<div class="h-24 rounded-lg bg-[#3b2bee] border border-white/10 group-hover:ring-2 ring-primary transition-all"></div>
+<div class="text-xs font-bold">Primary</div>
+<div class="text-[10px] font-mono text-slate-500">#3B2BEE</div>
+</div>
+<div class="space-y-2 group cursor-pointer">
+<div class="h-24 rounded-lg bg-[#0F172A] border border-white/10 group-hover:ring-2 ring-primary transition-all"></div>
+<div class="text-xs font-bold">Background</div>
+<div class="text-[10px] font-mono text-slate-500">#0F172A</div>
+</div>
+<div class="space-y-2 group cursor-pointer">
+<div class="h-24 rounded-lg bg-[#1E293B] border border-white/10 group-hover:ring-2 ring-primary transition-all"></div>
+<div class="text-xs font-bold">Surface</div>
+<div class="text-[10px] font-mono text-slate-500">#1E293B</div>
+</div>
+<div class="space-y-2 group cursor-pointer">
+<div class="h-24 rounded-lg bg-[#6366F1] border border-white/10 group-hover:ring-2 ring-primary transition-all"></div>
+<div class="text-xs font-bold">Accent Light</div>
+<div class="text-[10px] font-mono text-slate-500">#6366F1</div>
+</div>
+<div class="space-y-2 group cursor-pointer">
+<div class="h-24 rounded-lg bg-[#F43F5E] border border-white/10 group-hover:ring-2 ring-primary transition-all"></div>
+<div class="text-xs font-bold">System Red</div>
+<div class="text-[10px] font-mono text-slate-500">#F43F5E</div>
+</div>
+<div class="space-y-2 group cursor-pointer">
+<div class="h-24 rounded-lg bg-[#10B981] border border-white/10 group-hover:ring-2 ring-primary transition-all"></div>
+<div class="text-xs font-bold">System Green</div>
+<div class="text-[10px] font-mono text-slate-500">#10B981</div>
+</div>
+<div class="space-y-2 group cursor-pointer">
+<div class="h-24 rounded-lg bg-[#94A3B8] border border-white/10 group-hover:ring-2 ring-primary transition-all"></div>
+<div class="text-xs font-bold">Muted Text</div>
+<div class="text-[10px] font-mono text-slate-500">#94A3B8</div>
+</div>
+<div class="space-y-2 group cursor-pointer">
+<div class="h-24 rounded-lg bg-[#F8FAFC] border border-white/10 group-hover:ring-2 ring-primary transition-all"></div>
+<div class="text-xs font-bold">Pure High</div>
+<div class="text-[10px] font-mono text-slate-500">#F8FAFC</div>
+</div>
+</div>
+</div>
+<!-- Visual Language Section -->
+<div class="col-span-12 lg:col-span-6 glass-panel rounded-xl p-8">
+<h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-6">Visual Language</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white/5 rounded-lg p-4 border border-white/5">
+<div class="text-xs text-slate-500 mb-3">Icon Style: Line Weight 1.5px</div>
+<div class="flex justify-between">
+<span class="material-icons text-primary">dashboard</span>
+<span class="material-icons text-primary">pie_chart</span>
+<span class="material-icons text-primary">layers</span>
+<span class="material-icons text-primary">settings</span>
+</div>
+</div>
+<div class="bg-white/5 rounded-lg p-4 border border-white/5 flex flex-col justify-center items-center">
+<div class="text-xs text-slate-500 mb-3 text-center">Component Radius</div>
+<div class="w-full h-8 bg-primary/20 rounded-lg border border-primary flex items-center justify-center text-[10px] font-bold">8px (LG)</div>
+</div>
+<div class="col-span-2 bg-gradient-to-br from-primary/10 to-transparent rounded-lg p-6 border border-white/5 overflow-hidden relative h-32">
+<div class="text-xs text-slate-500 mb-2">Pattern Extraction: Grainy Flow</div>
+<div class="absolute inset-0 opacity-20" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBfdsp2--_sQdExD3gZk9x6o6lIvhKUo1mSmRrEGWTiFGITOvstmv7fQT6ZXqFsJYL5uaLS5Hipo2UM01JQcR7Pw19hoiXJsvRmUYaIaY7E6uXuXQvJKw5HrG6oCCus3-2aQtAZUB-6pNF4wjdBuVKZ2yLZ5QQQhb9JbP5mLYRB4gRtLUbevOEcemBmiXxXIBXCRI46pchV_7agtNqMq6CJVmG5WkIEPbKnMveibjT0vZJjj_WNy1YWDI_TxgPVdy6zy3Ubf_9v6nA');"></div>
+<div class="w-48 h-48 bg-primary/30 blur-3xl absolute -bottom-10 -right-10 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Source References -->
+<div class="col-span-12 lg:col-span-6 glass-panel rounded-xl p-8">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest">Source References</h3>
+<button class="text-xs text-primary hover:underline">View All</button>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<div class="aspect-square rounded-lg overflow-hidden grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all border border-white/10">
+<img alt="Ref 1" class="w-full h-full object-cover" data-alt="Abstract minimal white 3d geometric shapes architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC7h3s4SNRJT63IfI3QZvvjb5IVA0wmNSibCJ7mwS6feafK3yQIwML2KZBRBstkLo6AhBZbCKr16nGWSu07aiLoaM3fAn-OygdCzeaL9nF7pxlA0n5QeW3NAb8Gl7lTlI_oj60bj8xeFt_6VyBgw0pbbFWsnMzOPJM2wFMUCRSH0InZj02I_bsyN6Rv36h7w0d6n4BE7sS8XUr19Nmkd2dcLz8bmeMrmyTIN0lmQfR-1HR1ZGL8FMHOlomYUUHmQPm5NxV2aKJE7g"/>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all border border-white/10">
+<img alt="Ref 2" class="w-full h-full object-cover" data-alt="Abstract colorful fluid wave gradient background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiO4NblthVhwxl8_3PsI9HQ9Fpfg7-GhL6MhH11Gf3wSzJY5iRrj1mXrs_TyjvGUBgD03MyLKLwa_b14PbSmdoy5FmgRX5kgZWM0Ipmiogwf_KZ7a59tHy1Dpd9fXMWGJB_auNOWevT6PKBh6LFzGWGBY4sXtveuBRqilz3H47pi12DXyRsnLnpdylNOB7anwmAd1y2pBD9z_FTObe_jmIACLv1-6Djb7F4U_Ll5MaxBoNh9CYBliK_94Qd33NXOkFBn6NE4hY744"/>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all border border-white/10">
+<img alt="Ref 3" class="w-full h-full object-cover" data-alt="High tech hardware vintage aesthetic computer components" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbizC49bVetMwRMlJRmrezLRFkrViSnkj68XuooBIVUimiTKij7RbEV5wlxk9kbx3ldzjvxUiOkVGiHXSFZB_ApHsCgOeOOPKeuo67X64RX__C2OXCSid0VsM3c1jSLh4NXhpCE_CIFR6T-TT44dFBxQesggjcVY6GUOitf5vd8Mxi7t53DVkd3u4aUAdEc7l3goP-0kSsIJKjp5kgdvt3lqKJJYXTV-mNyErKPHyv2tnziUV3JIGaDOqiN6Bj60yg93Z3QE8jFhQ"/>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all border border-white/10">
+<img alt="Ref 4" class="w-full h-full object-cover" data-alt="Clean desk with coding monitor and coffee" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0wYYO6QHmHBKMMlznKzqafQw_CjLt2OZV2qOgvej76ZUruClB6VN3hjBj_wDVdoTxf9GxxzGy3-gggfqFO_O9_YCc59TJXACUoQmfkfZCIOEBfReVy-RnxZrOX1KLa1KvvHbLrGjBI87pO3Px_xTLZsPv3IIB0C8wXkGg2rCMSPBgCOw5iboiumEGAP-RNwxqCtvoQgfqn3rec0EwVjEk2tKUnGdjz_zFcdMHWVlFz-NO2fV6FhPQOaxBpWMBx5Fyn_lpWuNdsfY"/>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all border border-white/10">
+<img alt="Ref 5" class="w-full h-full object-cover" data-alt="Business dashboard analytics chart on computer screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXWkZ8YMqizsMeqhR1XUFixukZPQqMHj_-d4ZR8ui8NHNJHOCc_B6UYJpQCGFzRs94xYy-Rd8ZDkD7heT1azaMv20azjPknlg7DYuZDHX5r_DJPfaiX5Fogp31CdKbeiIfIURrx5tLuuxNaMfiZP70w9_nM8b86Cqv99S_01mG1IHTqAE5Zj9olAjyRLzArOP0Wf5RfohkjYrPILt60KoVBGhbLdFnCi9ULObts8w00BVHTOKcAZ64NnXKhfU0oWvcRgy0axq1qe4"/>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden bg-white/5 border border-dashed border-white/20 flex flex-col items-center justify-center text-slate-500">
+<span class="material-icons">add</span>
+<span class="text-[10px] mt-1">Add More</span>
+</div>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="col-span-12 py-12 flex flex-col items-center">
+<button class="gradient-button text-white px-10 py-5 rounded-xl font-bold text-lg flex items-center gap-3 hover:scale-[1.02] transition-transform active:scale-95 group">
+<span>Generate Site from Moodboard</span>
+<span class="material-icons group-hover:translate-x-1 transition-transform">bolt</span>
+</button>
+<p class="text-slate-500 text-sm mt-6">Estimated generation time: <span class="text-slate-300 font-medium">~45 seconds</span></p>
+</div>
+</div>
+</main>
+<!-- Footer Stats -->
+<footer class="max-w-7xl mx-auto px-6 py-8 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex gap-10">
+<div>
+<div class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Tokens Used</div>
+<div class="text-sm font-bold">1,240 / 5,000</div>
+</div>
+<div>
+<div class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Model</div>
+<div class="text-sm font-bold">Studio-4-Vision</div>
+</div>
+<div>
+<div class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Status</div>
+<div class="text-sm font-bold flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                    Ready to Generate
+                </div>
+</div>
+</div>
+<div class="text-slate-500 text-xs">
+            © 2024 StudioBuilder AI. All style directions are synthesized based on provided input.
+        </div>
+</footer>
+</body></html>

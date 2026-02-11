@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Markdown Export &amp; Preview Interface | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022",
+                        "editor-bg": "#1a1631",
+                        "border-neutral": "#2d2a45",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .markdown-preview h1 { @apply text-3xl font-bold mb-6 pb-2 border-b border-white/10; }
+        .markdown-preview h2 { @apply text-2xl font-semibold mb-4 mt-8; }
+        .markdown-preview p { @apply text-slate-300 mb-4 leading-relaxed; }
+        .markdown-preview ul { @apply list-disc list-inside mb-4 space-y-2 text-slate-300; }
+        .markdown-preview code { @apply bg-white/10 px-1.5 py-0.5 rounded font-mono text-sm text-primary; }
+        .markdown-preview pre { @apply bg-background-dark/50 p-4 rounded-lg font-mono text-sm mb-4 border border-white/5 overflow-x-auto; }
+        .syntax-header { color: #4b2bee; }
+        .syntax-string { color: #a5d6ff; }
+        .syntax-comment { color: #8b949e; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-200 min-h-screen flex flex-col">
+<!-- Header Navigation -->
+<header class="h-16 border-b border-border-neutral bg-background-dark/80 backdrop-blur-md flex items-center justify-between px-6 sticky top-0 z-50">
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons-round text-white text-xl">architecture</span>
+</div>
+<span class="font-bold text-lg tracking-tight">StudioBuilder <span class="text-primary">AI</span></span>
+</div>
+<div class="h-4 w-px bg-border-neutral"></div>
+<nav class="flex items-center space-x-2 text-sm text-slate-400">
+<span>Projects</span>
+<span class="material-icons-round text-xs">chevron_right</span>
+<span>System README</span>
+<span class="material-icons-round text-xs">chevron_right</span>
+<span class="text-slate-100">Export</span>
+</nav>
+</div>
+<div class="flex items-center space-x-3">
+<div class="flex items-center bg-editor-bg rounded-lg p-1 mr-4 border border-border-neutral">
+<button class="px-3 py-1.5 text-xs font-medium rounded-md bg-primary text-white shadow-lg">GitHub Style</button>
+<button class="px-3 py-1.5 text-xs font-medium rounded-md text-slate-400 hover:text-slate-200">Standard</button>
+</div>
+<button class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-all text-sm font-medium">
+<span class="material-icons-round text-lg">content_copy</span>
+<span>Copy to Clipboard</span>
+</button>
+<button class="flex items-center space-x-2 px-5 py-2 rounded-lg bg-gradient-to-r from-primary to-indigo-600 hover:opacity-90 transition-all text-sm font-semibold text-white shadow-xl shadow-primary/20">
+<span class="material-icons-round text-lg">download</span>
+<span>Download README.md</span>
+</button>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="flex-1 flex overflow-hidden">
+<!-- Left Pane: Markdown Editor -->
+<section class="w-1/2 flex flex-col border-r border-border-neutral bg-editor-bg/30">
+<div class="h-10 border-b border-border-neutral flex items-center justify-between px-4 bg-editor-bg/50">
+<div class="flex items-center space-x-2">
+<span class="material-icons-round text-sm text-primary">edit_note</span>
+<span class="text-xs font-semibold tracking-wider uppercase text-slate-400">Editor</span>
+</div>
+<div class="text-[10px] text-slate-500 font-mono">UTF-8 • README.md</div>
+</div>
+<div class="flex-1 p-6 font-mono text-sm overflow-y-auto leading-relaxed">
+<div class="space-y-1">
+<p><span class="syntax-header"># StudioBuilder AI System README</span></p>
+<p class="syntax-comment">&lt;!-- Enterprise AI Engineering Platform --&gt;</p>
+<br/>
+<p><span class="syntax-header">## Overview</span></p>
+<p>This repository contains the core architectural framework for StudioBuilder AI, an enterprise-grade platform designed to streamline AI-driven engineering and project management operations.</p>
+<br/>
+<p><span class="syntax-header">## Key Features</span></p>
+<p>- <span class="syntax-string">**Automated Requirements Engineering:**</span> Direct translation of business logic into technical specs.</p>
+<p>- <span class="syntax-string">**AI Code Generation:**</span> Context-aware snippets and boilerplate generation.</p>
+<p>- <span class="syntax-string">**Resource Optimizer:**</span> Intelligent GPU and compute allocation logic.</p>
+<br/>
+<p><span class="syntax-header">## Tech Stack</span></p>
+<p>The system utilizes the following core components:</p>
+<p>```json</p>
+<p class="pl-4">{</p>
+<p class="pl-8"><span class="syntax-string">"engine"</span>: <span class="text-orange-400">"StudioCore-v4"</span>,</p>
+<p class="pl-8"><span class="syntax-string">"runtime"</span>: <span class="text-orange-400">"Node-v20"</span>,</p>
+<p class="pl-8"><span class="syntax-string">"inference"</span>: <span class="text-orange-400">"Triton-Stack"</span></p>
+<p class="pl-4">}</p>
+<p>```</p>
+<br/>
+<p><span class="syntax-header">## Installation</span></p>
+<p>To initialize the project, run:</p>
+<p>```bash</p>
+<p class="pl-4">npm install @studiobuilder/core --auth-token=$AUTH_TOKEN</p>
+<p class="pl-4">studio-builder init --project-id=sys-001</p>
+<p>```</p>
+<br/>
+<p><span class="syntax-header">## Security</span></p>
+<p>All AI models are locally hosted or via encrypted enterprise tunnels to ensure data privacy.</p>
+</div>
+</div>
+</section>
+<!-- Right Pane: Live Preview -->
+<section class="w-1/2 flex flex-col bg-background-dark">
+<div class="h-10 border-b border-border-neutral flex items-center justify-between px-4 bg-background-dark/50">
+<div class="flex items-center space-x-2">
+<span class="material-icons-round text-sm text-green-400">visibility</span>
+<span class="text-xs font-semibold tracking-wider uppercase text-slate-400">Live Preview</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="text-[10px] text-slate-500 font-medium">SYNCED</span>
+</div>
+</div>
+<div class="flex-1 p-10 overflow-y-auto scrollbar-hide">
+<div class="max-w-2xl mx-auto markdown-preview">
+<h1>StudioBuilder AI System README</h1>
+<div class="flex items-center space-x-2 mb-8 -mt-4">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/20 text-primary border border-primary/30">ENTERPRISE</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700">v1.4.2</span>
+</div>
+<h2>Overview</h2>
+<p>This repository contains the core architectural framework for StudioBuilder AI, an enterprise-grade platform designed to streamline AI-driven engineering and project management operations.</p>
+<h2>Key Features</h2>
+<ul>
+<li><strong>Automated Requirements Engineering:</strong> Direct translation of business logic into technical specs.</li>
+<li><strong>AI Code Generation:</strong> Context-aware snippets and boilerplate generation.</li>
+<li><strong>Resource Optimizer:</strong> Intelligent GPU and compute allocation logic.</li>
+</ul>
+<h2>Tech Stack</h2>
+<p>The system utilizes the following core components:</p>
+<pre><code>{
+  "engine": "StudioCore-v4",
+  "runtime": "Node-v20",
+  "inference": "Triton-Stack"
+}</code></pre>
+<h2>Installation</h2>
+<p>To initialize the project, run:</p>
+<pre><code>npm install @studiobuilder/core --auth-token=$AUTH_TOKEN
+studio-builder init --project-id=sys-001</code></pre>
+<h2>Security</h2>
+<p>All AI models are locally hosted or via encrypted enterprise tunnels to ensure data privacy and 100% compliance with corporate governance standards.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Status Bar -->
+<footer class="h-8 border-t border-border-neutral bg-editor-bg/80 flex items-center justify-between px-4 text-[11px] text-slate-500">
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-1">
+<span class="material-icons-round text-xs">notes</span>
+<span>1,245 characters</span>
+</div>
+<div class="flex items-center space-x-1">
+<span class="material-icons-round text-xs">schedule</span>
+<span>2 min read</span>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-1 text-primary">
+<span class="material-icons-round text-xs">cloud_done</span>
+<span class="font-medium">Saved to Cloud</span>
+</div>
+<div class="flex items-center space-x-1">
+<span class="material-icons-round text-xs">terminal</span>
+<span>UTF-8</span>
+</div>
+</div>
+</footer>
+</body></html>

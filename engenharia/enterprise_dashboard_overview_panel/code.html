@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI | Enterprise Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b3bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101222",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-accent {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(43, 59, 238, 0.15) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen overflow-hidden flex">
+<!-- Fixed Sidebar -->
+<aside class="w-20 lg:w-64 border-r border-white/5 bg-background-light dark:bg-background-dark/50 flex flex-col items-center lg:items-start py-6 transition-all duration-300 z-50">
+<div class="px-6 mb-10 flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons-round text-white text-xl">architecture</span>
+</div>
+<span class="hidden lg:block font-bold text-lg tracking-tight">StudioBuilder <span class="text-primary text-xs ml-1 bg-primary/10 px-1 rounded">AI</span></span>
+</div>
+<nav class="flex-1 w-full space-y-2 px-3">
+<a class="flex items-center gap-4 px-4 py-3 bg-primary/10 text-primary rounded-xl transition-all" href="#">
+<span class="material-icons-round">dashboard</span>
+<span class="hidden lg:block font-medium">Overview</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-icons-round">groups</span>
+<span class="hidden lg:block font-medium">CRM</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-icons-round">engineering</span>
+<span class="hidden lg:block font-medium">Engineering</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-icons-round">account_balance_wallet</span>
+<span class="hidden lg:block font-medium">Financials</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-icons-round">workspaces</span>
+<span class="hidden lg:block font-medium">Team</span>
+</a>
+</nav>
+<div class="mt-auto px-3 w-full space-y-4">
+<div class="px-4 py-4 rounded-xl bg-gradient-to-br from-primary/20 to-transparent border border-primary/20 hidden lg:block">
+<p class="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Enterprise Plan</p>
+<p class="text-[11px] text-slate-400 leading-relaxed mb-3">Optimize your AI workflow with advanced analytics.</p>
+<button class="w-full py-2 bg-primary text-white text-xs font-bold rounded-lg shadow-lg shadow-primary/20">Upgrade Now</button>
+</div>
+<div class="flex items-center gap-3 px-4 py-3">
+<img class="w-8 h-8 rounded-full border border-white/20" data-alt="User profile avatar male professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIHWXEPGqEMQa-HOHv-3YuNmrlLm7wkxOGQht0HqRU5bitrPy_VB5ON-JsTCU64piPTFdLl-ZeO6cTmC9GQxzmL2FvC4c2s9AguyEDwkpXU5Fei_2_OoqMMASdn9aQT0A1ugELfvbH4yLCZHqmxzWfPoAzyQZ_XVnFpGdOmtqOQ9yiqOKqxGML96dpvd79r3DQQM_CltGOBZJSoWLffHLeDmY-K1PPmuB6ZxA57hA0Vj7zaHS2sb3ZdnHHCmeFmtYvK-u_9p9QSJQ"/>
+<div class="hidden lg:block">
+<p class="text-xs font-bold">Alex Rivera</p>
+<p class="text-[10px] text-slate-500 uppercase">CTO</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 h-screen overflow-y-auto custom-scrollbar relative">
+<!-- Header -->
+<header class="sticky top-0 z-30 bg-background-dark/80 backdrop-blur-md border-b border-white/5 px-8 py-4 flex items-center justify-between">
+<div>
+<h1 class="text-xl font-bold tracking-tight">Enterprise Overview</h1>
+<p class="text-xs text-slate-500">Real-time status of your StudioBuilder ecosystem.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden md:block">
+<span class="material-icons-round absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">search</span>
+<input class="bg-white/5 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary w-64 transition-all" placeholder="Search projects..." type="text"/>
+</div>
+<button class="p-2 text-slate-400 hover:text-white relative">
+<span class="material-icons-round">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-background-dark"></span>
+</button>
+<div class="h-8 w-[1px] bg-white/10 mx-2"></div>
+<button class="bg-primary hover:bg-primary/90 text-white text-sm font-medium px-4 py-2 rounded-lg flex items-center gap-2 transition-all">
+<span class="material-icons-round text-lg">add</span>
+                    New Project
+                </button>
+</div>
+</header>
+<div class="p-8 space-y-8 max-w-[1600px] mx-auto">
+<!-- KPI Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+<div class="glow-accent -top-10 -left-10"></div>
+<!-- KPI 1 -->
+<div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-icons-round">rocket_launch</span>
+</div>
+<span class="text-emerald-500 text-xs font-bold flex items-center gap-1">
+<span class="material-icons-round text-sm">trending_up</span> +5%
+                        </span>
+</div>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider">Active Projects</p>
+<h3 class="text-2xl font-bold mt-1">42</h3>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<!-- KPI 2 -->
+<div class="glass-card p-6 rounded-2xl group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-purple-500/10 rounded-lg text-purple-500">
+<span class="material-icons-round">payments</span>
+</div>
+<span class="text-emerald-500 text-xs font-bold flex items-center gap-1">
+<span class="material-icons-round text-sm">trending_up</span> +12.4%
+                        </span>
+</div>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider">MRR (USD)</p>
+<h3 class="text-2xl font-bold mt-1">$128,500</h3>
+</div>
+<!-- KPI 3 -->
+<div class="glass-card p-6 rounded-2xl group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-blue-400/10 rounded-lg text-blue-400">
+<span class="material-icons-round">groups</span>
+</div>
+<span class="text-slate-500 text-xs font-bold flex items-center gap-1">
+                            Stable
+                        </span>
+</div>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider">Total Clients</p>
+<h3 class="text-2xl font-bold mt-1">89</h3>
+</div>
+<!-- KPI 4 -->
+<div class="glass-card p-6 rounded-2xl group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-orange-500/10 rounded-lg text-orange-500">
+<span class="material-icons-round">timer</span>
+</div>
+<span class="text-emerald-500 text-xs font-bold flex items-center gap-1">
+<span class="material-icons-round text-sm">keyboard_arrow_down</span> -2d
+                        </span>
+</div>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider">Avg. Completion</p>
+<h3 class="text-2xl font-bold mt-1">14 Days</h3>
+</div>
+</div>
+<!-- Main Dashboard Grid -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Charts -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Project Health Card -->
+<div class="glass-card rounded-2xl p-8">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-lg font-bold flex items-center gap-2">
+<span class="material-icons-round text-primary">analytics</span>
+                                Project Health
+                            </h2>
+<button class="text-xs text-slate-400 hover:text-white flex items-center gap-1">
+                                Full Report <span class="material-icons-round text-sm">open_in_new</span>
+</button>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-12">
+<!-- Doughnut Chart Mockup -->
+<div class="relative w-48 h-48">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<path class="text-slate-800" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="100, 100" stroke-width="3"></path>
+<!-- On Track - Blue -->
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="65, 100" stroke-linecap="round" stroke-width="3"></path>
+<!-- At Risk - Purple -->
+<path class="text-purple-500" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="20, 100" stroke-dashoffset="-65" stroke-linecap="round" stroke-width="3"></path>
+<!-- Delayed - Orange -->
+<path class="text-orange-500" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="10, 100" stroke-dashoffset="-85" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-3xl font-bold">42</span>
+<span class="text-[10px] uppercase text-slate-500">Total Units</span>
+</div>
+</div>
+<!-- Legend -->
+<div class="flex-1 space-y-4 w-full">
+<div class="flex items-center justify-between p-3 rounded-xl hover:bg-white/5 transition-all">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-sm font-medium">On Track</span>
+</div>
+<span class="text-sm font-bold">28 Projects</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl hover:bg-white/5 transition-all">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-purple-500"></div>
+<span class="text-sm font-medium">At Risk</span>
+</div>
+<span class="text-sm font-bold">10 Projects</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl hover:bg-white/5 transition-all">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-orange-500"></div>
+<span class="text-sm font-medium">Delayed</span>
+</div>
+<span class="text-sm font-bold">4 Projects</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Team Velocity Card -->
+<div class="glass-card rounded-2xl p-8 relative overflow-hidden">
+<div class="glow-accent -bottom-10 -right-10 opacity-50"></div>
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-lg font-bold flex items-center gap-2">
+<span class="material-icons-round text-purple-500">speed</span>
+                                Team Velocity
+                            </h2>
+<div class="flex bg-white/5 p-1 rounded-lg">
+<button class="px-3 py-1 text-xs font-medium rounded-md bg-white/10">Sprint</button>
+<button class="px-3 py-1 text-xs font-medium rounded-md text-slate-400">Monthly</button>
+</div>
+</div>
+<!-- Line Graph Mockup -->
+<div class="h-64 flex items-end justify-between gap-2 relative">
+<!-- Background Grid -->
+<div class="absolute inset-0 border-b border-white/5 flex flex-col justify-between py-2">
+<div class="w-full border-t border-white/5"></div>
+<div class="w-full border-t border-white/5"></div>
+<div class="w-full border-t border-white/5"></div>
+</div>
+<!-- Bars/Graph representation -->
+<div class="relative group flex-1 h-[60%] bg-primary/20 rounded-t-lg border-t-2 border-primary hover:bg-primary/30 transition-all cursor-pointer">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-10 left-1/2 -translate-x-1/2 bg-primary px-2 py-1 rounded text-[10px] font-bold">S-14</div>
+</div>
+<div class="relative group flex-1 h-[75%] bg-primary/20 rounded-t-lg border-t-2 border-primary hover:bg-primary/30 transition-all cursor-pointer">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-10 left-1/2 -translate-x-1/2 bg-primary px-2 py-1 rounded text-[10px] font-bold">S-15</div>
+</div>
+<div class="relative group flex-1 h-[68%] bg-primary/20 rounded-t-lg border-t-2 border-primary hover:bg-primary/30 transition-all cursor-pointer">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-10 left-1/2 -translate-x-1/2 bg-primary px-2 py-1 rounded text-[10px] font-bold">S-16</div>
+</div>
+<div class="relative group flex-1 h-[90%] bg-primary/20 rounded-t-lg border-t-2 border-primary hover:bg-primary/30 transition-all cursor-pointer">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-10 left-1/2 -translate-x-1/2 bg-primary px-2 py-1 rounded text-[10px] font-bold">S-17</div>
+</div>
+<div class="relative group flex-1 h-[85%] bg-primary/20 rounded-t-lg border-t-2 border-primary hover:bg-primary/30 transition-all cursor-pointer">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-10 left-1/2 -translate-x-1/2 bg-primary px-2 py-1 rounded text-[10px] font-bold">S-18</div>
+</div>
+<div class="relative group flex-1 h-[95%] bg-primary rounded-t-lg border-t-2 border-white hover:bg-primary/90 transition-all cursor-pointer shadow-[0_-10px_20px_-5px_rgba(43,59,238,0.5)]">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-10 left-1/2 -translate-x-1/2 bg-white text-primary px-2 py-1 rounded text-[10px] font-bold uppercase">Current</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 px-2 text-[10px] text-slate-500 font-bold uppercase tracking-widest">
+<span>Sprint 14</span>
+<span>Sprint 15</span>
+<span>Sprint 16</span>
+<span>Sprint 17</span>
+<span>Sprint 18</span>
+<span class="text-primary">Sprint 19</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Activity Stream -->
+<div class="col-span-12 lg:col-span-4">
+<div class="glass-card rounded-2xl h-full flex flex-col">
+<div class="p-6 border-b border-white/5 flex items-center justify-between">
+<h2 class="text-lg font-bold flex items-center gap-2">
+<span class="material-icons-round text-primary">bolt</span>
+                                Activity Stream
+                            </h2>
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded-full">LIVE</span>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-6">
+<!-- Activity Item 1 -->
+<div class="flex gap-4 group">
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center border border-emerald-500/20 group-hover:scale-110 transition-transform">
+<span class="material-icons-round text-xl">description</span>
+</div>
+<div class="w-px h-full bg-white/5 my-2"></div>
+</div>
+<div class="flex-1 pb-6">
+<div class="flex items-center justify-between">
+<p class="text-sm font-bold">Client Signed Contract</p>
+<span class="text-[10px] text-slate-500">2m ago</span>
+</div>
+<p class="text-xs text-slate-400 mt-1"><span class="text-white font-medium">Global Tech Corp</span> finalized the master service agreement for Q3.</p>
+<div class="mt-3 flex items-center gap-2">
+<img class="w-5 h-5 rounded-full" data-alt="Team member profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhq7tNLfHI-kJ4crfsdIn0vO6ohBivKhhtchhSqX9kSAm46-kbTN6yDs4I3Na-E0ierL6sKDlM4Jfl8R0DXV0grPGCpMQfB1kPF0UNYY4EjL1Nz68OhTGI-LVmPGdIMB1msE2Fp-gd4-Cr01WZSSSpkXD4I6rE9Z-2_pSmUKlrDfJRetkPgzvdAijpdXKqO95EZc86uDO86FC95U6_idyvPA_wq5QbxmtRFDWMuCa3Tr_bYUFMH68LEVn_SjQs871NbGBtlY3Pc4k"/>
+<span class="text-[10px] text-slate-500 font-medium">Managed by Marcus J.</span>
+</div>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="flex gap-4 group">
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center border border-primary/20 group-hover:scale-110 transition-transform">
+<span class="material-icons-round text-xl">cloud_done</span>
+</div>
+<div class="w-px h-full bg-white/5 my-2"></div>
+</div>
+<div class="flex-1 pb-6">
+<div class="flex items-center justify-between">
+<p class="text-sm font-bold">Deployment Success</p>
+<span class="text-[10px] text-slate-500">15m ago</span>
+</div>
+<p class="text-xs text-slate-400 mt-1"><span class="text-white font-medium">v2.4.0 - Core Engine</span> was successfully pushed to production.</p>
+<div class="mt-3 inline-flex items-center px-2 py-1 rounded bg-white/5 border border-white/5">
+<span class="material-icons-round text-[12px] text-slate-500 mr-1">history</span>
+<span class="text-[10px] text-slate-400">Pipeline took 4.2 min</span>
+</div>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="flex gap-4 group">
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-purple-500/10 text-purple-500 flex items-center justify-center border border-purple-500/20 group-hover:scale-110 transition-transform">
+<span class="material-icons-round text-xl">auto_fix_high</span>
+</div>
+<div class="w-px h-full bg-white/5 my-2"></div>
+</div>
+<div class="flex-1 pb-6">
+<div class="flex items-center justify-between">
+<p class="text-sm font-bold">New Project Initialized</p>
+<span class="text-[10px] text-slate-500">1h ago</span>
+</div>
+<p class="text-xs text-slate-400 mt-1">AI agent <span class="text-white font-medium">StudioBot-9</span> initialized "Internal CRM Bot".</p>
+<div class="mt-3 flex gap-2">
+<span class="px-2 py-1 rounded-full bg-purple-500/10 text-purple-500 text-[9px] font-bold uppercase tracking-tighter">AI-Driven</span>
+<span class="px-2 py-1 rounded-full bg-slate-800 text-slate-400 text-[9px] font-bold uppercase tracking-tighter">Internal</span>
+</div>
+</div>
+</div>
+<!-- Activity Item 4 -->
+<div class="flex gap-4 group">
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center border border-orange-500/20 group-hover:scale-110 transition-transform">
+<span class="material-icons-round text-xl">report_problem</span>
+</div>
+</div>
+<div class="flex-1 pb-6">
+<div class="flex items-center justify-between">
+<p class="text-sm font-bold">Resource Alert</p>
+<span class="text-[10px] text-slate-500">3h ago</span>
+</div>
+<p class="text-xs text-slate-400 mt-1">Storage limit reaching <span class="text-orange-500 font-bold">92%</span> on Node-West-02.</p>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-white/5 text-center">
+<button class="text-xs font-semibold text-primary hover:underline">View All Notifications</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Client Map / Regional Overview Section -->
+<div class="glass-card rounded-2xl p-8 overflow-hidden relative group">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="text-lg font-bold">Global Presence</h2>
+<p class="text-xs text-slate-500">Infrastructure distribution and client clusters.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-xs text-slate-300">Active Nodes</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<span class="text-xs text-slate-300">Standby</span>
+</div>
+</div>
+</div>
+<div class="h-64 bg-background-dark/50 rounded-xl overflow-hidden relative">
+<img class="w-full h-full object-cover opacity-20 grayscale filter" data-alt="Stylized world map with data points" data-location="Global" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr4rsDUCpNTnbYoJa9EAylgv4VzxfnECcqkLpqjTxxxf_jJQZteyTScMv3lsSh04BpZ9qhV27zxXMYMtJfOM4W6SJQ6eun0wJ5fDGLZLL-Rt0Cosh4EimVZNJXso52XFBezDcw1i2kL5LnDo34m5doxgN5Fep2EHuzzCMQZBSkT9mzJXdQ0sHq6i8Ow8WdbOAp5q-30ylsh9v4lwu4nPooROvbyqJ_ee6DSn8cE50mn_1J--Xxo5e6-PD7tC6G--VqyqMTJ4w6fBY"/>
+<!-- Map Markers Mockup -->
+<div class="absolute top-[30%] left-[20%] w-3 h-3 bg-primary rounded-full shadow-[0_0_10px_rgba(43,59,238,0.8)]"></div>
+<div class="absolute top-[45%] left-[55%] w-3 h-3 bg-primary rounded-full shadow-[0_0_10px_rgba(43,59,238,0.8)]"></div>
+<div class="absolute top-[35%] left-[80%] w-3 h-3 bg-primary rounded-full shadow-[0_0_10px_rgba(43,59,238,0.8)]"></div>
+<div class="absolute bottom-[20%] left-[40%] w-3 h-3 bg-purple-500 rounded-full shadow-[0_0_10px_rgba(147,51,234,0.8)]"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-4 flex gap-6">
+<div class="bg-white/5 backdrop-blur px-4 py-2 rounded-lg border border-white/10">
+<p class="text-[10px] text-slate-500 uppercase font-bold">North America</p>
+<p class="text-sm font-bold">24 Active</p>
+</div>
+<div class="bg-white/5 backdrop-blur px-4 py-2 rounded-lg border border-white/10">
+<p class="text-[10px] text-slate-500 uppercase font-bold">Europe</p>
+<p class="text-sm font-bold">18 Active</p>
+</div>
+<div class="bg-white/5 backdrop-blur px-4 py-2 rounded-lg border border-white/10">
+<p class="text-[10px] text-slate-500 uppercase font-bold">APAC</p>
+<p class="text-sm font-bold">12 Active</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Stats Mini -->
+<footer class="p-8 border-t border-white/5 flex flex-wrap items-center justify-between gap-4 text-slate-500 text-xs">
+<div class="flex items-center gap-6">
+<span>© 2024 StudioBuilder AI Enterprise</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> System Status: Operational</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-white transition-colors" href="#">Documentation</a>
+<a class="hover:text-white transition-colors" href="#">API Keys</a>
+<a class="hover:text-white transition-colors" href="#">Security</a>
+</div>
+</footer>
+</main>
+</body></html>

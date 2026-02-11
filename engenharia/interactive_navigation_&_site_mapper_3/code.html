@@ -1,0 +1,364 @@
+<html class="dark"><head></head><body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200 overflow-hidden h-screen flex flex-col">```html
+
+
+<meta charset="utf-8"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#135bec",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+            "canvas-dark": "#0c101a",
+            "ai-glow": "#8b5cf6",
+            "error-red": "#ef4444",
+            "warning-amber": "#f59e0b",
+          },
+          fontFamily: {
+            "display": ["Space Grotesk"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+<style type="text/tailwindcss">
+    .dot-grid {
+      background-image: radial-gradient(circle, #1e293b 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .bezier-line {
+      stroke: #135bec;
+      stroke-width: 2;
+      fill: none;
+    }
+    .broken-line {
+      stroke: #f59e0b;
+      stroke-width: 2;
+      fill: none;
+      stroke-dasharray: 6 4;
+    }
+    .node-glow:hover {
+      box-shadow: 0 0 15px rgba(19, 91, 236, 0.4);
+    }
+    .error-glow {
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+    }
+    .pulse-red {
+      animation: pulse-red-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse-red-glow {
+      0%, 100% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.2); border-color: rgba(239, 68, 68, 0.5); }
+      50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.5); border-color: rgba(239, 68, 68, 1); }
+    }
+    .ai-gradient {
+      background: linear-gradient(135deg, #135bec 0%, #8b5cf6 100%);
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+    }
+    .scanning-line {
+      position: absolute;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, #8b5cf6, transparent);
+      left: 0;
+      top: 0;
+      animation: scan 2s ease-in-out infinite;
+    }
+    @keyframes scan {
+      0% { left: 0%; opacity: 0; }
+      50% { opacity: 1; }
+      100% { left: 100%; opacity: 0; }
+    }
+  </style>
+
+
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark flex items-center justify-between px-6 z-50">
+<div class="flex items-center gap-4">
+<div class="bg-primary p-2 rounded-lg">
+<span class="material-icons text-white">architecture</span>
+</div>
+<div>
+<h1 class="font-bold text-lg leading-none uppercase tracking-tight">StudioBuilder AI</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Interactive Navigation &amp; Site Mapper</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="ai-gradient flex items-center gap-2 text-white px-5 py-2 rounded-xl font-bold transition-all hover:scale-[1.02] active:scale-[0.98] ring-1 ring-white/20">
+<span class="material-symbols-outlined text-[20px] animate-pulse">auto_fix_high</span>
+<span>AI Auto-Link</span>
+</button>
+<div class="h-6 w-px bg-slate-200 dark:border-slate-800"></div>
+<div class="flex bg-slate-100 dark:bg-slate-800 rounded-lg p-1">
+<button class="px-4 py-1.5 rounded-md text-sm font-medium bg-white dark:bg-slate-700 shadow-sm text-primary">Mapper</button>
+<button class="px-4 py-1.5 rounded-md text-sm font-medium text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">Editor</button>
+</div>
+<div class="flex items-center gap-2 ml-2">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-icons text-[20px]">zoom_out</span>
+</button>
+<span class="text-sm font-medium min-w-[40px] text-center">85%</span>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-icons text-[20px]">zoom_in</span>
+</button>
+</div>
+<button class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white px-5 py-2 rounded-xl font-semibold transition-all">
+<span class="material-icons text-sm text-green-400">play_arrow</span>
+<span>Live Preview</span>
+</button>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<aside class="w-72 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark flex flex-col z-40">
+<div class="p-4">
+<div class="relative">
+<span class="material-icons absolute left-3 top-2.5 text-slate-400 text-sm">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-lg py-2 pl-9 pr-4 text-sm focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Search pages..." type="text"/>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-2">
+<div class="mb-6">
+<h3 class="px-4 text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 flex justify-between items-center">
+            Pages
+            <span class="material-icons text-sm cursor-pointer hover:text-primary">add</span>
+</h3>
+<nav class="space-y-0.5">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg bg-primary/10 text-primary group" href="#">
+<span class="material-symbols-outlined text-[18px]">description</span>
+<span class="text-sm font-medium">index.html</span>
+<span class="material-icons text-xs ml-auto opacity-0 group-hover:opacity-100">more_vert</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 group" href="#">
+<span class="material-symbols-outlined text-[18px]">description</span>
+<span class="text-sm font-medium">about.html</span>
+<span class="material-icons text-xs ml-auto opacity-0 group-hover:opacity-100">more_vert</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 group border-l-2 border-error-red/50" href="#">
+<span class="material-symbols-outlined text-[18px]">description</span>
+<span class="text-sm font-medium">services.html</span>
+<span class="material-icons text-xs ml-auto text-error-red">error_outline</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 group" href="#">
+<span class="material-symbols-outlined text-[18px]">description</span>
+<span class="text-sm font-medium">contact.html</span>
+<span class="material-icons text-xs ml-auto text-ai-glow animate-pulse">auto_fix_high</span>
+</a>
+</nav>
+</div>
+<div class="mb-6">
+<h3 class="px-4 text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 flex justify-between items-center">
+            Components
+          </h3>
+<nav class="space-y-0.5">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400" href="#">
+<span class="material-icons text-[18px]">widgets</span>
+<span class="text-sm font-medium">Navbar.tsx</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 border-l-2 border-error-red/50" href="#">
+<span class="material-icons text-[18px]">widgets</span>
+<span class="text-sm font-medium">Footer.tsx</span>
+</a>
+</nav>
+</div>
+</div>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-900 rounded-xl">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs">JD</div>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-bold truncate">John Designer</p>
+<p class="text-[10px] text-slate-500 truncate">Pro Account</p>
+</div>
+<span class="material-icons text-slate-400 text-sm cursor-pointer">settings</span>
+</div>
+</div>
+</aside>
+<main class="flex-1 relative bg-canvas-dark dot-grid overflow-hidden">
+<div class="absolute top-6 left-1/2 -translate-x-1/2 z-[60] flex items-center gap-3 bg-slate-900/90 backdrop-blur-xl border border-warning-amber/30 px-6 py-3 rounded-2xl shadow-2xl ring-1 ring-white/10">
+<div class="flex h-8 w-8 items-center justify-center rounded-full bg-warning-amber/20 text-warning-amber">
+<span class="material-symbols-outlined text-lg">link_off</span>
+</div>
+<p class="text-sm font-medium text-slate-100">Found <span class="text-warning-amber font-bold">3 broken links</span> in 2 pages. AI can suggest repairs.</p>
+<button class="ml-4 text-xs font-bold text-slate-500 hover:text-white transition-colors">REVIEW ALL</button>
+</div>
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-10">
+<path class="bezier-line" d="M 450 300 C 550 300, 550 150, 650 150"></path>
+<path class="broken-line" d="M 450 340 C 550 340, 550 500, 650 500"></path>
+<path class="bezier-line stroke-ai-glow opacity-80" d="M 850 150 C 950 150, 950 300, 1050 300" stroke-dasharray="5 5"></path>
+<circle cx="450" cy="300" fill="#135bec" r="4"></circle>
+<circle cx="650" cy="150" fill="#135bec" r="4"></circle>
+<circle cx="450" cy="340" fill="#f59e0b" r="4"></circle>
+<circle cx="650" cy="500" fill="#f59e0b" r="4"></circle>
+<circle class="animate-pulse" cx="1050" cy="300" fill="#8b5cf6" r="5"></circle>
+</svg>
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl rounded-full px-6 py-3 flex items-center gap-8 z-50">
+<div class="flex items-center gap-2">
+<button class="p-2 bg-primary text-white rounded-lg">
+<span class="material-icons text-[20px]">near_me</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-primary rounded-lg">
+<span class="material-icons text-[20px]">pan_tool</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-primary rounded-lg">
+<span class="material-icons text-[20px]">add_link</span>
+</button>
+</div>
+<div class="w-px h-6 bg-slate-200 dark:bg-slate-700"></div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-ai-glow bg-ai-glow/10 rounded-lg">
+<span class="material-symbols-outlined text-[20px]">auto_fix_high</span>
+</button>
+<button class="p-2 text-warning-amber bg-warning-amber/10 rounded-lg">
+<span class="material-icons text-[20px]">diagnostics</span>
+</button>
+</div>
+<div class="w-px h-6 bg-slate-200 dark:bg-slate-700"></div>
+<button class="p-2 text-slate-400 hover:text-red-400 rounded-lg">
+<span class="material-icons text-[20px]">delete_outline</span>
+</button>
+</div>
+<div class="absolute top-[200px] left-[150px] group z-20">
+<div class="mb-2 flex items-center gap-2">
+<span class="material-icons text-sm text-primary">home</span>
+<span class="text-xs font-bold text-slate-400 uppercase">Home Page</span>
+<span class="px-1.5 py-0.5 rounded bg-primary/20 text-[10px] text-primary font-bold">ROOT</span>
+</div>
+<div class="w-[300px] bg-slate-800 rounded-xl overflow-hidden border-2 border-primary node-glow transition-all ring-4 ring-primary/10 relative">
+<img class="w-full aspect-video object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4AWEYthA4YlxhqhqvH16iZyhcs-4n7_PaIKKQ0_FAYyQJ6nvj8dZpRlW9usHTWJlB8OXnODPkmxMSr0T20lMC6drTTXVSEwe2Fjv7rMNMRGOj-EcJNk95F1RbhSZLkLkij_NNLmpAjrf9choL3qN1qN1L0FR1xTy8dO5eqCKwHY_ArvzGAa9jP9Pcuo1x8ES4JdH1UJaQ3OOwIn-9tzINKAu7Fvpfodl1lyrJP1hBzKJvseKH9tESS_p4UoqtknRugHEoTp37gWg"/>
+<div class="p-3 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+<span class="text-xs font-medium">index.html</span>
+<div class="flex gap-1">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<div class="w-2 h-2 rounded-full bg-error-red animate-pulse"></div>
+</div>
+</div>
+</div>
+<div class="absolute -right-2 top-1/2 -translate-y-1/2 flex flex-col gap-4">
+<div class="w-4 h-4 bg-primary border-4 border-background-dark rounded-full cursor-pointer hover:scale-125 transition-transform"></div>
+<div class="w-4 h-4 bg-warning-amber border-4 border-background-dark rounded-full cursor-pointer hover:scale-125 transition-transform"></div>
+</div>
+</div>
+<div class="absolute top-[80px] left-[650px] group z-20">
+<div class="mb-2 flex items-center gap-2">
+<span class="material-icons text-sm text-slate-500">info</span>
+<span class="text-xs font-bold text-slate-400 uppercase">About Us</span>
+</div>
+<div class="w-[200px] bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 node-glow transition-all relative">
+<img class="w-full aspect-video object-cover opacity-60 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmMr7h6iDMdxvHnPhdHAXCg6qbrji0nrHjI7uwDGvhqoJOAdpT1diRH2znWUA_R2ZRtsDpHAxphQl1pWaTIFEMs5GdLpzDQJVc-fJTf9n8A48q3CdkrJ2kKJ_8DolHx0O6LknVb4ZtGgHIXhCTgmsiS-jH1maNFs8XkL5N1T3UV55Xv6Bjks50PnkP_N7UItntoGN8ixYfpRtoWEijagWPD8GKcR0Q5IFOQEteUh1pV-VAg_XytXpY1wbnnvlMgBdPxGOyed6wQDA"/>
+<div class="p-3 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+<span class="text-[10px] font-medium">about.html</span>
+</div>
+</div>
+<div class="absolute -left-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-slate-700 border-4 border-background-dark rounded-full cursor-pointer"></div>
+<div class="absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-primary border-4 border-background-dark rounded-full cursor-pointer"></div>
+</div>
+<div class="absolute top-[420px] left-[650px] group z-20">
+<div class="mb-2 flex items-center gap-2">
+<span class="material-icons text-sm text-error-red">error</span>
+<span class="text-xs font-bold text-slate-400 uppercase">Services</span>
+<span class="px-1.5 py-0.5 rounded bg-error-red/20 text-[10px] text-error-red font-bold">DISCONNECTED</span>
+</div>
+<div class="w-[200px] bg-slate-800 rounded-xl overflow-hidden border-2 border-error-red/50 pulse-red transition-all relative">
+<img class="w-full aspect-video object-cover opacity-60 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK0Vtpw_FfoP8QAuDOoowFjFXghYVIefpl8XOd0fNFlswjKrvUcbiwb55eCY0SkHYSG4bxq2HMDNMwyVnNB2ON3lwJ3K0OAODS03V9zOOpjJ5KJoAvmXbc4z-RjTpbil0VirNC0qVAXGfpX8NE3v1o9qhx8zej22NCerLF3GjABAKd1FPGZTTwdt2CZslwLoF3G01luUp_C74glH4WxUhz0Z-cw_NN57MbRywLQKnCB1ne_0KuIdlMjdNMVIL4UP1JKD3XK5vtFL4"/>
+<div class="p-3 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+<span class="text-[10px] font-medium">services.html</span>
+</div>
+</div>
+<div class="absolute -left-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-warning-amber border-4 border-background-dark rounded-full cursor-pointer"></div>
+</div>
+<div class="absolute top-[280px] left-[1050px] group z-20">
+<div class="mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-ai-glow">auto_fix_high</span>
+<span class="text-xs font-bold text-slate-400 uppercase">Contact Us</span>
+</div>
+<div class="w-[200px] bg-slate-800 rounded-xl overflow-hidden border border-ai-glow/50 hover:border-ai-glow node-glow transition-all ring-2 ring-ai-glow/10 relative">
+<img class="w-full aspect-video object-cover opacity-80 group-hover:opacity-100 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuComrCIpDIRkh5QPw7buAqG-U1gnrDA844jyzgvSVnPJBxEAC80yu-O7UpRUKtQ6f-f78yCbKlqFzPfDcifsRLXaxikRE3wnvzxGocXd8edq3OS_6jcsIVQWAsYWQjtwFcBj5774TL5nvZlGcXF5jzzV9DlbNhfi5Xk8kv_btGDSbydIVCrKfTCA15tg_3lEJTWr5hJTCBp9nqUUwEf9u3lIIUhrnIHcoIpc3BxrveNCcHXQ2S3-npiki8cZ7yI2lBarS_BAG3UIrg"/>
+<div class="p-3 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+<span class="text-[10px] font-medium">contact.html</span>
+</div>
+</div>
+<div class="absolute -left-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-ai-glow border-4 border-background-dark rounded-full cursor-pointer shadow-[0_0_8px_rgba(139,92,246,0.6)]"></div>
+</div>
+</main>
+<aside class="w-80 border-l border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark flex flex-col z-40">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between mb-1">
+<h2 class="font-bold text-sm uppercase tracking-wider text-slate-500">Navigation Health</h2>
+<span class="px-2 py-0.5 rounded-full bg-error-red/10 text-[9px] text-error-red font-bold">3 ERRORS</span>
+</div>
+<p class="text-xs text-slate-400 italic">Found disconnected paths &amp; dead ends</p>
+</div>
+<div class="p-6 flex-1 overflow-y-auto space-y-6">
+<div>
+<label class="block text-[11px] font-bold text-slate-500 uppercase mb-3">Dead End Buttons</label>
+<div class="space-y-3">
+<div class="p-3 bg-error-red/5 dark:bg-error-red/10 rounded-lg border border-error-red/20">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-icons text-error-red text-sm">link_off</span>
+<span class="text-xs font-bold">"Learn More"</span>
+</div>
+<button class="text-[10px] font-bold text-ai-glow hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">auto_fix_high</span> Fix with AI
+</button>
+</div>
+<p class="text-[10px] text-slate-500">Hero section in <span class="text-slate-300">index.html</span> has no destination.</p>
+</div>
+<div class="p-3 bg-error-red/5 dark:bg-error-red/10 rounded-lg border border-error-red/20">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-icons text-error-red text-sm">link_off</span>
+<span class="text-xs font-bold">"View Portfolio"</span>
+</div>
+<button class="text-[10px] font-bold text-ai-glow hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">auto_fix_high</span> Fix with AI
+</button>
+</div>
+<p class="text-[10px] text-slate-500">Footer link in <span class="text-slate-300">Footer.tsx</span> points to missing page.</p>
+</div>
+<div class="p-3 bg-warning-amber/5 dark:bg-warning-amber/10 rounded-lg border border-warning-amber/20">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-icons text-warning-amber text-sm">priority_high</span>
+<span class="text-xs font-bold">"Get Started"</span>
+</div>
+<button class="text-[10px] font-bold text-ai-glow hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">auto_fix_high</span> Fix with AI
+</button>
+</div>
+<p class="text-[10px] text-slate-500">Amber path: Ambiguous destination detected.</p>
+</div>
+</div>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+<h4 class="text-[11px] font-bold uppercase text-slate-400 mb-2">Diagnostics Summary</h4>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-xs text-slate-500">Total Links</span>
+<span class="text-xs font-bold">12</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-slate-500">Broken Paths</span>
+<span class="text-xs font-bold text-error-red">3</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-slate-500">AI Fixes Available</span>
+<span class="text-xs font-bold text-ai-glow">3</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 border-t border-slate-200 dark:border-slate-800">
+<button class="w-full py-3 bg-primary/10 hover:bg-primary/20 text-primary rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-colors border border-primary/20">
+<span class="material-symbols-outlined text-[20px]">auto_fix_high</span>
+          Repair All with AI
+        </button>
+</div>
+</aside>
+</div>
+
+```</body></html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Personalized Client Portal | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen">
+<!-- Top Navigation Header -->
+<header class="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<div class="flex items-center space-x-6">
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Projeto</span>
+<h1 class="text-xl font-bold text-slate-900 dark:text-white">Redesign Identidade Visual - StudioBuilder</h1>
+</div>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-700 hidden md:block"></div>
+<div class="hidden md:flex flex-col">
+<span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Status</span>
+<div class="flex items-center space-x-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mr-1.5"></span>
+                                Em Análise
+                            </span>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<div class="hidden lg:flex flex-col items-end mr-4">
+<span class="text-xs font-semibold text-slate-500 uppercase tracking-wider text-right">Progresso Geral</span>
+<div class="w-48 h-2 bg-slate-100 dark:bg-slate-800 rounded-full mt-1 overflow-hidden">
+<div class="h-full bg-primary" style="width: 35%;"></div>
+</div>
+</div>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons">notifications</span>
+</button>
+<div class="flex items-center space-x-3 border-l pl-4 border-slate-200 dark:border-slate-800">
+<img alt="Client Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="Client profile picture with professional suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxjVlRGYHEPoqWKBzymzBWoLJV0LImtPEdmfEjgGEZAI9oGibGt2BRmUwK1a11J4rRkjA1gx4szyAUTSYHubTi-91mkkUp745ygBvpmSixBe-dAMQSBSKD3KUZEEHqFZcP8PKoIJEicU2MPJdSuHSjjYLA3SPHnrS4ktJlOnFZpOcNkwYRFHKpXoz7hgdf14G7Usgw0VtTtasGHi5-QElAf-b8263O523xb3bLgV1xSDcUpaylHYbvCfv3BqNNQm8f_PDiFNRCofY"/>
+<span class="hidden sm:inline font-medium text-sm">Olá, Ricardo</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Main Tracking Content -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Section 1: Summary & Manager -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center space-x-4">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+<span class="material-icons text-3xl">person</span>
+</div>
+<div>
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Gerente do Projeto</p>
+<h3 class="font-bold text-lg">Beatriz Mendes</h3>
+<button class="text-xs text-primary font-medium hover:underline">Ver Perfil &amp; Contato</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center space-x-4">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+<span class="material-icons text-3xl">event</span>
+</div>
+<div>
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Previsão de Entrega</p>
+<h3 class="font-bold text-lg">14 de Novembro, 2023</h3>
+<p class="text-xs text-slate-500">Cronograma atualizado em 28 Out</p>
+</div>
+</div>
+</section>
+<!-- Section 2: Progress Timeline -->
+<section class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<h2 class="text-lg font-bold mb-6 flex items-center">
+<span class="material-icons text-primary mr-2">timeline</span>
+                        Linha do Tempo
+                    </h2>
+<div class="relative">
+<!-- Timeline Line -->
+<div class="absolute left-4 top-0 h-full w-0.5 bg-slate-100 dark:bg-slate-800"></div>
+<!-- Timeline Steps -->
+<div class="space-y-8 relative">
+<!-- Completed -->
+<div class="flex items-start ml-12 relative">
+<div class="absolute -left-12 mt-1 w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center z-10">
+<span class="material-icons text-sm">check</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Kick-off &amp; Briefing</h4>
+<p class="text-sm text-slate-500">Concluído em 15 de Outubro</p>
+</div>
+</div>
+<!-- Current -->
+<div class="flex items-start ml-12 relative">
+<div class="absolute -left-12 mt-1 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center z-10 ring-4 ring-primary/20">
+<span class="material-icons text-sm">sync</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">Análise de Conceitos</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">Em andamento pela equipe criativa</p>
+<div class="mt-3 inline-flex items-center text-xs font-medium px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">
+                                        Fase Atual
+                                    </div>
+</div>
+</div>
+<!-- Future -->
+<div class="flex items-start ml-12 relative">
+<div class="absolute -left-12 mt-1 w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-400 flex items-center justify-center z-10">
+<span class="material-icons text-sm">schedule</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-400">Entrega da Primeira V1</h4>
+<p class="text-sm text-slate-400">Previsão: 02 de Novembro</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Confirmed Scope -->
+<section class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<h2 class="text-lg font-bold mb-6 flex items-center">
+<span class="material-icons text-primary mr-2">fact_check</span>
+                        Escopo Confirmado
+                    </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-4 border border-slate-100 dark:border-slate-800 rounded-lg bg-slate-50/50 dark:bg-slate-800/50">
+<h4 class="font-semibold text-sm text-slate-900 dark:text-white mb-3">Identidade Visual</h4>
+<ul class="space-y-2">
+<li class="flex items-center text-sm text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary text-lg mr-2">check_circle</span>
+                                    Logotipo Principal &amp; Secundário
+                                </li>
+<li class="flex items-center text-sm text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary text-lg mr-2">check_circle</span>
+                                    Paleta de Cores &amp; Tipografia
+                                </li>
+<li class="flex items-center text-sm text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary text-lg mr-2">check_circle</span>
+                                    Manual da Marca (PDF)
+                                </li>
+</ul>
+</div>
+<div class="p-4 border border-slate-100 dark:border-slate-800 rounded-lg bg-slate-50/50 dark:bg-slate-800/50">
+<h4 class="font-semibold text-sm text-slate-900 dark:text-white mb-3">Materiais Digitais</h4>
+<ul class="space-y-2">
+<li class="flex items-center text-sm text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary text-lg mr-2">check_circle</span>
+                                    6 Templates p/ Redes Sociais
+                                </li>
+<li class="flex items-center text-sm text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary text-lg mr-2">check_circle</span>
+                                    Assinatura de E-mail
+                                </li>
+<li class="flex items-center text-sm text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary text-lg mr-2">check_circle</span>
+                                    Apresentação Comercial (Pitch Deck)
+                                </li>
+</ul>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Sidebar Widgets -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Section 4: Billing & Payments -->
+<section class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<h2 class="text-lg font-bold mb-4 flex items-center">
+<span class="material-icons text-primary mr-2">payments</span>
+                        Financeiro
+                    </h2>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-xs text-slate-500 uppercase font-semibold">Total do Contrato</p>
+<p class="text-2xl font-bold text-slate-900 dark:text-white">R$ 4.500,00</p>
+</div>
+<span class="text-sm font-medium text-green-500 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded">50% Pago</span>
+</div>
+<div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-green-500" style="width: 50%;"></div>
+</div>
+<div class="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-sm text-slate-600 dark:text-slate-400">Sinal de Entrada</span>
+<span class="text-sm font-medium text-slate-900 dark:text-white">Liquidado</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-slate-600 dark:text-slate-400">Parcela 2 (15 Nov)</span>
+<button class="text-xs font-bold text-primary hover:text-primary/80">VER FATURA</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Files & Documents -->
+<section class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<h2 class="text-lg font-bold mb-4 flex items-center justify-between">
+<span class="flex items-center">
+<span class="material-icons text-primary mr-2">folder_open</span>
+                            Documentos
+                        </span>
+<span class="text-xs font-normal text-slate-500">3 arquivos</span>
+</h2>
+<div class="space-y-2">
+<a class="flex items-center p-3 rounded-lg border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-icons text-red-500 mr-3">picture_as_pdf</span>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium truncate">Proposta_Comercial.pdf</p>
+<p class="text-xs text-slate-400">12 Out 2023</p>
+</div>
+<span class="material-icons text-slate-400 group-hover:text-primary transition-colors">download</span>
+</a>
+<a class="flex items-center p-3 rounded-lg border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-icons text-blue-500 mr-3">description</span>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium truncate">Briefing_Preenchido.docx</p>
+<p class="text-xs text-slate-400">14 Out 2023</p>
+</div>
+<span class="material-icons text-slate-400 group-hover:text-primary transition-colors">download</span>
+</a>
+<a class="flex items-center p-3 rounded-lg border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group" href="#">
+<span class="material-icons text-primary mr-3">verified</span>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium truncate">Contrato_Assinado.pdf</p>
+<p class="text-xs text-slate-400">15 Out 2023</p>
+</div>
+<span class="material-icons text-slate-400 group-hover:text-primary transition-colors">download</span>
+</a>
+</div>
+</section>
+<!-- Section 6: Simple Message Area -->
+<section class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<h2 class="text-lg font-bold mb-4 flex items-center">
+<span class="material-icons text-primary mr-2">chat_bubble_outline</span>
+                        Dúvidas ou Recados
+                    </h2>
+<div class="space-y-4">
+<textarea class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary" placeholder="Envie uma mensagem rápida para a Beatriz..." rows="3"></textarea>
+<button class="w-full bg-primary text-white font-bold py-2.5 rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center">
+<span class="material-icons text-sm mr-2">send</span>
+                            Enviar Mensagem
+                        </button>
+<p class="text-[10px] text-center text-slate-400">Tempo médio de resposta: 4 horas úteis</p>
+</div>
+</section>
+</div>
+</div>
+</main>
+<footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-slate-200 dark:border-slate-800 mt-12">
+<div class="flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
+<div class="flex items-center space-x-2 mb-4 md:mb-0">
+<span class="font-bold text-slate-600 dark:text-slate-300">StudioBuilder AI</span>
+<span>© 2023 Todos os direitos reservados.</span>
+</div>
+<div class="flex space-x-6">
+<a class="hover:text-primary" href="#">Termos de Uso</a>
+<a class="hover:text-primary" href="#">Privacidade</a>
+<a class="hover:text-primary" href="#">Suporte Central</a>
+</div>
+</div>
+</footer>
+</body></html>

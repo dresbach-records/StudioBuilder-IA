@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Engineering Platform Registration | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#4b2bee",
+            "background-light": "#f6f6f8",
+            "background-dark": "#131022",
+          },
+          fontFamily: {
+            "display": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-display">
+<!-- Header / Navigation -->
+<header class="border-b border-primary/10 bg-white/5 backdrop-blur-md sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-icons text-white text-xl">auto_fix_high</span>
+</div>
+<span class="font-bold text-lg tracking-tight">StudioBuilder <span class="text-primary">AI</span></span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="flex items-center">
+<div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
+<span class="material-icons text-[14px] text-primary font-bold">check</span>
+</div>
+<div class="h-[2px] w-4 bg-primary/30"></div>
+<div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
+<span class="material-icons text-[14px] text-primary font-bold">check</span>
+</div>
+<div class="h-[2px] w-4 bg-primary"></div>
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<span class="text-[12px] text-white font-bold">3</span>
+</div>
+</div>
+<span class="text-xs font-medium text-primary uppercase tracking-widest ml-2">Step 3: Registration</span>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow flex items-stretch">
+<!-- Left Column: Registration Form -->
+<div class="w-full lg:w-[60%] p-8 lg:p-16 flex flex-col justify-center border-r border-primary/10">
+<div class="max-w-xl mx-auto w-full">
+<div class="mb-10">
+<h1 class="text-3xl font-bold mb-4">Secure Your Workspace</h1>
+<p class="text-slate-500 dark:text-slate-400">Enter your professional details to initialize your AI-driven engineering environment. Your workspace will be ready in seconds.</p>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="text-xs font-semibold uppercase tracking-wider text-slate-500">Full Name</label>
+<input class="w-full bg-white dark:bg-white/5 border border-primary/10 focus:border-primary focus:ring-1 focus:ring-primary rounded-lg px-4 py-3 outline-none transition-all" placeholder="Jane Cooper" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-semibold uppercase tracking-wider text-slate-500">Company Name</label>
+<input class="w-full bg-white dark:bg-white/5 border border-primary/10 focus:border-primary focus:ring-1 focus:ring-primary rounded-lg px-4 py-3 outline-none transition-all" placeholder="Acme Engineering" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-semibold uppercase tracking-wider text-slate-500">Corporate Email</label>
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-lg">alternate_email</span>
+<input class="w-full bg-white dark:bg-white/5 border border-primary/10 focus:border-primary focus:ring-1 focus:ring-primary rounded-lg pl-10 pr-4 py-3 outline-none transition-all" placeholder="name@company.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-semibold uppercase tracking-wider text-slate-500">Set Password</label>
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-lg">lock</span>
+<input class="w-full bg-white dark:bg-white/5 border border-primary/10 focus:border-primary focus:ring-1 focus:ring-primary rounded-lg pl-10 pr-12 py-3 outline-none transition-all" type="password" value="••••••••••••"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-primary" type="button">
+<span class="material-icons text-lg">visibility</span>
+</button>
+</div>
+<!-- Password Strength -->
+<div class="pt-2">
+<div class="flex gap-1 mb-1">
+<div class="h-1 flex-1 rounded-full bg-primary"></div>
+<div class="h-1 flex-1 rounded-full bg-primary"></div>
+<div class="h-1 flex-1 rounded-full bg-primary"></div>
+<div class="h-1 flex-1 rounded-full bg-slate-300 dark:bg-slate-700"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-[10px] text-slate-500 font-medium">Strength: <span class="text-primary">Secure</span></span>
+<span class="text-[10px] text-slate-500">Min. 8 characters</span>
+</div>
+</div>
+</div>
+<div class="pt-6">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group transition-all transform active:scale-[0.98]">
+<span>Create Account &amp; Initialize AI</span>
+<span class="material-icons text-lg group-hover:translate-x-1 transition-transform">bolt</span>
+</button>
+</div>
+<div class="flex items-center justify-center gap-8 py-4 opacity-60">
+<div class="flex items-center gap-1">
+<span class="material-icons text-sm">verified_user</span>
+<span class="text-[10px] uppercase tracking-widest font-bold">AES-256 Encrypted</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-sm">gpp_good</span>
+<span class="text-[10px] uppercase tracking-widest font-bold">GDPR Compliant</span>
+</div>
+</div>
+</form>
+<div class="mt-8 text-center">
+<p class="text-sm text-slate-500">
+            Already have an account? <a class="text-primary font-semibold hover:underline" href="#">Log in</a>
+</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Project Brief Summary -->
+<div class="hidden lg:flex lg:w-[40%] bg-primary/5 p-12 flex-col">
+<div class="flex-grow">
+<div class="mb-8">
+<h2 class="text-xl font-bold flex items-center gap-2">
+<span class="material-icons text-primary">description</span>
+            Project Brief
+          </h2>
+<p class="text-sm text-slate-500 mt-1">Reviewing the technical scope for initialization.</p>
+</div>
+<div class="space-y-6">
+<!-- Card: Overview -->
+<div class="bg-white dark:bg-white/5 border border-primary/10 rounded-xl p-5 shadow-sm">
+<div class="text-[10px] font-bold text-primary uppercase tracking-widest mb-3">Project Metadata</div>
+<h3 class="text-lg font-bold mb-4">CloudScale Infrastructure</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center pb-3 border-b border-primary/5">
+<span class="text-sm text-slate-500">Architecture</span>
+<span class="text-sm font-semibold">Microservices (Event-Driven)</span>
+</div>
+<div class="flex justify-between items-center pb-3 border-b border-primary/5">
+<span class="text-sm text-slate-500">Tech Stack</span>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">NEXT.JS</span>
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">RUST</span>
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">AWS</span>
+</div>
+</div>
+<div class="flex justify-between items-center pb-3 border-b border-primary/5">
+<span class="text-sm text-slate-500">Timeline</span>
+<span class="text-sm font-semibold">Q3 2024 Launch</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-slate-500">AI Level</span>
+<span class="text-sm font-semibold text-primary">Autonomous Tier</span>
+</div>
+</div>
+</div>
+<!-- Card: Engineering Insights -->
+<div class="bg-primary/10 border border-primary/20 rounded-xl p-5 relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-icons text-primary text-sm">psychology</span>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest">AI Readiness Score</span>
+</div>
+<div class="flex items-end gap-3">
+<span class="text-3xl font-bold">94%</span>
+<span class="text-xs text-slate-500 mb-1">Optimized for rapid generation</span>
+</div>
+<p class="text-xs text-slate-500 mt-3 leading-relaxed">
+                Project scope is well-defined. Our LLM core is pre-warmed for the selected Rust/AWS infrastructure pattern.
+              </p>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute -right-4 -bottom-4 opacity-5 pointer-events-none">
+<span class="material-icons text-9xl">auto_awesome</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-8 border-t border-primary/10">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-full object-cover grayscale opacity-80" data-alt="Professional engineer profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxIsR3I_XUBWrQ4ig4e8s8dXnVG2YA1OK4DSlPRdMG_dgmfflKZsSbHyxG9xABrlB3nrqDxO1UrKbsIT_dU1mKH-Osl7T2kyZGsCpFYkXCKYtXF9ynDfz2LuLyC6wblwthO40Yjic2i_Is8k5MPnkWAl1bzDp1XEuVYxVYHRNdC_eaTjE_RnP1KoT1JeKgPWKNpVYodFBgNtI8tnojmf4NKi6HyFVqtXNkhvOEijkx_6rbYi51GELMIi11-SAQW9MbEl8dH5PjGkY"/>
+<div>
+<p class="text-sm italic text-slate-500 leading-snug">"StudioBuilder cut our setup time by 80%."</p>
+<p class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mt-1">— Marcus Chen, CTO at TechFlow</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-white/5 border-t border-primary/10 py-4 px-8">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-medium text-slate-500 uppercase tracking-widest">
+<div class="flex items-center gap-6">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Security Protocol</a>
+</div>
+<div class="flex items-center gap-2">
+<a class="flex items-center gap-1 hover:text-primary transition-colors" href="#">
+<span class="material-icons text-xs">arrow_back</span>
+          Back to intake form
+        </a>
+</div>
+<div>
+        © 2024 StudioBuilder AI. v2.4.0-Stable
+      </div>
+</div>
+</footer>
+</body></html>

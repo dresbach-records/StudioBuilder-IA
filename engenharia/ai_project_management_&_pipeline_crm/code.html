@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI | Project Pipeline CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5b13ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0F172A", // Deep Navy as requested
+                        "accent-blue": "#3b82f6",
+                        "accent-green": "#10b981",
+                        "accent-amber": "#f59e0b",
+                        "card-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen antialiased overflow-hidden flex">
+<!-- Sidebar Navigation -->
+<aside class="w-20 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark flex flex-col items-center py-6 gap-8 z-50">
+<div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-icons-round text-2xl">auto_awesome</span>
+</div>
+<nav class="flex flex-col gap-6">
+<a class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center transition-colors" href="#">
+<span class="material-icons-round">dashboard</span>
+</a>
+<a class="w-12 h-12 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center transition-colors" href="#">
+<span class="material-icons-round">terminal</span>
+</a>
+<a class="w-12 h-12 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center transition-colors" href="#">
+<span class="material-icons-round">groups</span>
+</a>
+<a class="w-12 h-12 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center transition-colors" href="#">
+<span class="material-icons-round">analytics</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-6">
+<a class="w-12 h-12 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center transition-colors" href="#">
+<span class="material-icons-round">settings</span>
+</a>
+<img alt="User Profile" class="w-10 h-10 rounded-full border-2 border-primary/20" data-alt="Close up portrait of a professional male developer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA05NOO-vhhXY8n_68kNKtrppColy01gWT9iFln0VZ5wfQCHoG-M08wOZt8vTOUGADS2QLgGQynI8c_u09kEOmR_iYxipOjtze_qakIbyRNQ1YX8RQFHqQtWvXxkjVMIR_ogA1qzcE2nczWebKH2ZlnuFiMXtt5bxi6hgvGW7LFba60qAVsVQ4vuggrs3C3uW4XDdFF2vvWHP8zzM0x0eZGDC6QxsB7GGmQdzUHGQZGsjJjyvJKB1V5VnSwmtD89ZgsCaRsh2EptFQ"/>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-h-screen overflow-hidden">
+<!-- Header Section -->
+<header class="h-20 border-b border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-background-dark/50 backdrop-blur-md flex items-center justify-between px-8">
+<div class="flex items-center gap-4">
+<h1 class="text-xl font-bold tracking-tight">Project Pipeline</h1>
+<div class="h-6 w-px bg-slate-200 dark:border-slate-700"></div>
+<div class="flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg p-1">
+<button class="px-3 py-1 bg-white dark:bg-card-dark rounded shadow-sm text-sm font-semibold">Kanban</button>
+<button class="px-3 py-1 text-sm font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400">List View</button>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<!-- Search Collaborators -->
+<div class="relative w-96">
+<span class="material-icons-round absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/50 text-slate-300" placeholder="Find collaborators to invite..." type="text"/>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-all">
+<span class="material-icons-round text-sm">add</span>
+                    New Project
+                </button>
+</div>
+</header>
+<!-- Kanban Board Area -->
+<div class="flex-1 overflow-x-auto p-8 bg-slate-50 dark:bg-slate-900/30">
+<div class="flex gap-6 h-full min-w-max">
+<!-- Column: Initiation -->
+<div class="w-[320px] flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-accent-blue"></span>
+<h2 class="font-bold text-slate-500 dark:text-slate-400 uppercase text-xs tracking-widest">Initiation</h2>
+<span class="bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] px-2 py-0.5 rounded-full">2</span>
+</div>
+<button class="text-slate-400 hover:text-slate-600"><span class="material-icons-round text-lg">more_horiz</span></button>
+</div>
+<!-- Card 1 -->
+<div class="bg-white dark:bg-card-dark rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden group hover:border-primary/50 transition-all">
+<div class="h-24 bg-slate-200 dark:bg-slate-800 relative">
+<img alt="Project Preview" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="Modern minimalist dashboard user interface layout" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeIo63TzwlKwpWSkodvlEIUXMPKrGpy_kxv0fNpH6XbEOCUWm2LX9EDz2qdWT09O_ktDAhj6XGhRKX90ks4_CrZ4saVoomK3FvdIoTGJIemAuv7PArLK4qHeLsm4mhK13MEglH_gZrHhZ5kRmHTU7g_fnzyFrjkx8ecFH1nH6U73zc1KtKruHWYMfj_8kwEkvJuPsTdyjczRALVb5RHKlOUTd1j61djsH8Xl7gcI5BoGx_KwK0thfSeaCWo5aa-s20sgdHGgi8EyM"/>
+<div class="absolute top-2 right-2 bg-accent-blue/20 backdrop-blur-md text-accent-blue text-[10px] font-bold px-2 py-1 rounded border border-accent-blue/30 uppercase">AI Processing</div>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-sm mb-1">Nexus Finance Portal</h3>
+<p class="text-xs text-slate-400 mb-4 line-clamp-2">Generating core component architecture and state management strategy...</p>
+<div class="flex items-center justify-between mb-4">
+<div class="flex -space-x-2">
+<img alt="Team" class="w-6 h-6 rounded-full border-2 border-white dark:border-card-dark" data-alt="Portrait of a female engineering lead" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxXQYbhesXaRPT5bEQljVGeXRSfqxHPTmuSpgghiMo4BxMDg9PGCKqOHKmuHr3YuNKi4ZAM93m-BVxokE-gnUsjhf8LfV2hG-JxHeqTvHqt81OOBBTrv3fZWqgqKfcWtlx38VG_PvU6aB4Kei4ZWGdy1zGmNtDpuhI82U8UrhiiBAlou77v1FWUxIwd8hHXy8IOgQOfF3KBH_zhCADm5lzggFKkB8vx_YxIAUs3b4WVsyCyquoS-4pLW_PeBo53vmDXxutSpeTdvA"/>
+<div class="w-6 h-6 rounded-full border-2 border-white dark:border-card-dark bg-slate-100 dark:bg-slate-700 flex items-center justify-center">
+<span class="material-icons-round text-[10px] text-slate-400">add</span>
+</div>
+</div>
+<div class="flex gap-2">
+<span class="material-icons-round text-slate-400 text-sm">description</span>
+<span class="material-icons-round text-slate-400 text-sm">picture_as_pdf</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 py-1.5 rounded text-[10px] font-bold transition-colors">VIEW PROPOSAL</button>
+<button class="bg-primary/10 text-primary py-1.5 rounded text-[10px] font-bold border border-primary/20">OPEN IDE</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white dark:bg-card-dark rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden group hover:border-primary/50 transition-all opacity-80">
+<div class="h-24 bg-slate-200 dark:bg-slate-800 relative">
+<img alt="Project Preview" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="Abstract data visualization with purple and blue lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5vi7D2aVwsypGJrhlkzFng0zDSLLqxyOU1pIqCRqroSYIxdnfofm_2mQr13kuoeFjiBNqK4imsPEbBgNa0O5QelmsY9TkffeotLVCoIT26y9ue-ynJ5tzJo9a5eA_dO28hoFgqW0AwNDjfZkbsDBu3bjYcp716hUHgaZOFaWtnGo58qw1-O4QJqrnyCVBLysrPRPlSh3baIbl2vBd0xlpWWq7lueO4KCU3jtpT8ujhBAb7deuUbMurDBWAyYVFkM6XYryp7yAlas"/>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-sm mb-1">Crypto Dashboard V3</h3>
+<p class="text-xs text-slate-400 mb-4 line-clamp-2">AI drafting initial wireframes based on prompt #294...</p>
+<div class="flex items-center justify-between mb-4">
+<div class="flex -space-x-2">
+<img alt="Team" class="w-6 h-6 rounded-full border-2 border-white dark:border-card-dark" data-alt="Close up portrait of a male designer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9J_23W7xImuEodcnWrWMqlepbFXNO9beqBAqwLiPPC6DIX6cMw4EeVZ6Tmr11s9_TTWs9s4234XQ1sVz-zZ3nmw5ZwwESWnrOAi0SuZfAyMJM5A792l01i5zMcua2u9IygzM5WxtSUusSCrT6heMwo_J-H0f442P_qzCc37qx57pve_iOmiTsEAUtEdwdWMqohxTmKZbQ12Wwf3LsRX6R6BKT80kkZQWWhTRyz0M3Z8hUfSEj3DEwhvMtbpL6c2wRihiQlZqij4w"/>
+</div>
+<div class="flex gap-2">
+<span class="material-icons-round text-slate-400 text-sm">description</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 py-1.5 rounded text-[10px] font-bold">VIEW PROPOSAL</button>
+<button class="bg-primary/10 text-primary py-1.5 rounded text-[10px] font-bold border border-primary/20">OPEN IDE</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Planning -->
+<div class="w-[320px] flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<h2 class="font-bold text-slate-500 dark:text-slate-400 uppercase text-xs tracking-widest">Planning</h2>
+<span class="bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] px-2 py-0.5 rounded-full">1</span>
+</div>
+<button class="text-slate-400 hover:text-slate-600"><span class="material-icons-round text-lg">more_horiz</span></button>
+</div>
+<!-- Card 3 -->
+<div class="bg-white dark:bg-card-dark rounded-xl border-l-4 border-l-primary border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden group hover:border-primary/50 transition-all">
+<div class="h-24 bg-slate-200 dark:bg-slate-800 relative">
+<img alt="Project Preview" class="w-full h-full object-cover opacity-60" data-alt="Engineering team collaborating in a workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu0g05KhhGt7Hi8awXR0RhMVNnKNL5maVjXyNE3PvOh-PCCcAD_ZpmSvtYzTncBGCyOGRYTTVTJdIXDIOeOTk-AkcOUOPqpxahwLMto0lZu9d4sxvZ89lCcmcqquxt-WVklHE9knwTAkPmhaIalzi-gbUBu3jf6lwWOPkd0KUmeCIkNWrlNSW0XG62F8Oa7_SuonQMmf-4SlvmK4g5b_fr8JEFcfdgPwyCxvpmb7us2DTeT2geaCKaFwZ0lAJASR-75QTuQWJg7bc"/>
+<div class="absolute top-2 right-2 bg-primary/20 backdrop-blur-md text-primary text-[10px] font-bold px-2 py-1 rounded border border-primary/30 uppercase">Docs Ready</div>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-sm mb-1">HealthTech Mobile API</h3>
+<p class="text-xs text-slate-400 mb-4">PRD and Technical Specs generated by AI. Ready for human review.</p>
+<div class="flex items-center justify-between mb-4">
+<div class="flex -space-x-2">
+<img alt="Team" class="w-6 h-6 rounded-full border-2 border-white dark:border-card-dark" data-alt="Portrait of a female software engineer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjvfCyeUagcwBvZNNVTWwxkFfkUYDTEIwHVkWPdNlrvYlUwvKfJsPNK02MmjFgksZBNAliGXhnpMjL5XmpnBH3iR_kobBJwhl-Ulkf4qth8J_EvdLLyI5PfWBsmfqOd9CWci_H1Z_E0vCYc34FZm5iilz1lnFSb9gH938xZF02jQiLRX1-F2TwxxqJUBCRnYA07OxAL7Mct0o2FN_KGJvwMdux_yq4lOUfL7IsGq952XOzCVNXoFdUGXbKqp4KDev0knDY62QsU6M"/>
+<img alt="Team" class="w-6 h-6 rounded-full border-2 border-white dark:border-card-dark" data-alt="Portrait of a male developer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChB_9c4DQv4YbYscjdwql2dYLX2w3MFwal6pzEivq5QpLJuImGq9G3WvJaTTd-iSKEhpsGKRFge3zxgO-poXeQLw7yL0ZSzf3CPpJPgvy5xofMsovQO8K6VdZXEMOWBs5vwgla51x20BIli9hgLKReq0XSKtpRw7rjhnGYWXQi7Dy-g05tOgqiM2lNucCKk0cUr5P0L06XkfrLeKDfgAJSJmpkN4Bubn5j1Nfog4AYmvpdKkqQxxZNBLnx7lqnuJtXvt-FYjfrZSo"/>
+</div>
+<div class="flex gap-2">
+<span class="material-icons-round text-primary text-sm">check_circle</span>
+<span class="material-icons-round text-slate-400 text-sm">picture_as_pdf</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-primary text-white py-1.5 rounded text-[10px] font-bold">VIEW PROPOSAL</button>
+<button class="bg-primary/10 text-primary py-1.5 rounded text-[10px] font-bold border border-primary/20">OPEN IDE</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Development -->
+<div class="w-[320px] flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-accent-blue"></span>
+<h2 class="font-bold text-slate-500 dark:text-slate-400 uppercase text-xs tracking-widest">Development</h2>
+<span class="bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] px-2 py-0.5 rounded-full">1</span>
+</div>
+<button class="text-slate-400 hover:text-slate-600"><span class="material-icons-round text-lg">more_horiz</span></button>
+</div>
+<!-- Card 4 -->
+<div class="bg-white dark:bg-card-dark rounded-xl border-l-4 border-l-accent-blue border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden group hover:shadow-xl hover:shadow-primary/5 transition-all">
+<div class="h-24 bg-slate-200 dark:bg-slate-800 relative">
+<img alt="Project Preview" class="w-full h-full object-cover opacity-60" data-alt="Clean lines of code on a dark editor screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuuDi1tblrnczswzn_RGSuu04iG4ZlZdnXFUTBsVfruiBI9IvHVopMmU6CgstHigc2gp_N-lxLly3kgbpq7xPIQPjxaX7ZeXJAN-laQBz2KL4SyJi5w7RxbhJ6Y-vodDPINNo3cK4dgLUIhOw0KRKBj1Ui5r-Er5P3GrWSFB7PfsZKXzEzR5SqLn6WDntNvM_hKrlMFF4sGe2JOPS88Kzoxo5eHOy0axaKSQ3L2zD425VYYAvW50gN_oeVV53sJ8ldL8sEAQZymfY"/>
+<div class="absolute top-2 right-2 flex gap-1">
+<div class="bg-accent-blue/20 backdrop-blur-md text-accent-blue text-[10px] font-bold px-2 py-1 rounded border border-accent-blue/30 uppercase">Sprint 4</div>
+<div class="bg-slate-900/60 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded border border-white/10 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-accent-green animate-pulse"></span> Live
+                                </div>
+</div>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-sm mb-1">E-Commerce Core</h3>
+<p class="text-xs text-slate-400 mb-4">Payment gateway integration and cart logic implementation phase.</p>
+<div class="flex items-center justify-between mb-4">
+<div class="flex -space-x-2">
+<img alt="Team" class="w-6 h-6 rounded-full border-2 border-white dark:border-card-dark" data-alt="Portrait of a smiling young male engineer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI-WAaxchhT3sYILEHaYbCHbfg8_WbHDQtE6AEeEiWjhiiS5T3ujwipVlJaD04_HNbvj64s3m5oqcl03YVFKLXfpk_rl_uczVRvfAyiJxr8eRnjkPgKDInfuw226ldpQxt0NkpxUJ064ZEj-v3Xmaj1yOoKwSLGrnxlca7ZxN_gg3nk2C0FhsbhzHVSLcT44DKRdfGsPb01tS3VJlhQbURf1R4uALcbATmcVneHlCIysL_tygmw4a1zuvIwJlo4kD47nBJbEMLVF0"/>
+<img alt="Team" class="w-6 h-6 rounded-full border-2 border-white dark:border-card-dark" data-alt="Portrait of a female technical product manager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-2J0tliDuEQYYy_mKK3vr4PLyFScj5SYKBmEmGxagEYwMdxE4sunVjmqOv7ElSWIo2JHTbf5Osf8o5cdGWvWo5Rkyw5zsmn_bR-TtgFRsJ3vXrBmd_r5oKG8Pww9BH3JT8QVkUsGuYF3IZO_CVXgytWer7UUDNovk-QshIg1FLY43RmC3i8ap7E5fprfItlw0mfwvxfZP7D32nczyIYsLfqWMH7S083HcQujdNlfwoTyQOLy3qPI9Ef0ArV1roPoG_0f8snPTR-4"/>
+</div>
+<div class="flex gap-2">
+<div class="w-16 h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-accent-blue"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">75%</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 py-1.5 rounded text-[10px] font-bold">VIEW PROPOSAL</button>
+<button class="bg-primary text-white py-1.5 rounded text-[10px] font-bold shadow-lg shadow-primary/20">OPEN IDE</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Testing -->
+<div class="w-[320px] flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-accent-amber"></span>
+<h2 class="font-bold text-slate-500 dark:text-slate-400 uppercase text-xs tracking-widest">Testing</h2>
+<span class="bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] px-2 py-0.5 rounded-full">0</span>
+</div>
+<button class="text-slate-400 hover:text-slate-600"><span class="material-icons-round text-lg">more_horiz</span></button>
+</div>
+<div class="border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-xl h-40 flex flex-col items-center justify-center text-slate-400 gap-2">
+<span class="material-icons-round text-2xl">bug_report</span>
+<p class="text-[10px] font-bold uppercase tracking-wider">No active tests</p>
+</div>
+</div>
+<!-- Column: Completed -->
+<div class="w-[320px] flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-accent-green"></span>
+<h2 class="font-bold text-slate-500 dark:text-slate-400 uppercase text-xs tracking-widest">Completed</h2>
+<span class="bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] px-2 py-0.5 rounded-full">1</span>
+</div>
+<button class="text-slate-400 hover:text-slate-600"><span class="material-icons-round text-lg">more_horiz</span></button>
+</div>
+<!-- Card 5 -->
+<div class="bg-white dark:bg-card-dark rounded-xl border-l-4 border-l-accent-green border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden opacity-70 hover:opacity-100 transition-all">
+<div class="h-24 bg-slate-200 dark:bg-slate-800 relative">
+<img alt="Project Preview" class="w-full h-full object-cover grayscale" data-alt="Minimalist architectural structure with clean glass surfaces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9Arfb4W11MbASVO3-KOUx7hJAGxcL_piwfa2QcdwI_psWbW1-_xtjRbBG9VyHludTcLqeTZmDXRjafe4bxItCNKQc4CBfKT_zKczZCPforW2wtsJk8ySGYcroUBRTwNLJFZLHfMiA2HSF-TVZe4EjI_6MLnWLjXkDyfD_h6d-lpvzKZQCoSNv52l9nQ8GnbBOlb-uNZSY6qsgSnbtJNosTzN7Nw3nHWJqYKEtwLX_0CjFI59zVj7RQtddpXiLuCvQnPIxf1XsAYs"/>
+<div class="absolute inset-0 bg-accent-green/10"></div>
+<div class="absolute top-2 right-2 bg-accent-green text-white text-[10px] font-bold px-2 py-1 rounded flex items-center gap-1 uppercase">
+<span class="material-icons-round text-[10px]">check</span> Deployed
+                            </div>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-sm mb-1 line-through">LMS Integration</h3>
+<p class="text-xs text-slate-400 mb-4">Final handoff completed on Nov 12. All assets exported.</p>
+<div class="flex items-center justify-between mb-4">
+<div class="flex -space-x-2">
+<img alt="Team" class="w-6 h-6 rounded-full border-2 border-white dark:border-card-dark" data-alt="Portrait of a professional male developer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4dY-lqmYN2bSrfs7fIR5ratBZ_9EU-u9IkqTPDzwn96aGsZaNtEUJ7tEwNFty-pjVV8SJO0ocin9z574GHVUbgcLnwancm6Mizz2QQDJpt6R5X9i3Y1iMbINvi2SYY2OUqzKAkMrh4EK5bkKG18j1X7e5xExP4wJkwoGkCx8xo3KOhHTvgTZTPVgJXjtTGN6jyCNbXjzT742qaAP1Sy6eqFUD5c7GaBkZm55A5ZvYPOT-FQBlkzAu9ivZwaDdCFGzZ09Qmv-83iY"/>
+</div>
+<span class="text-[10px] font-bold text-accent-green">SUCCESS</span>
+</div>
+<button class="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 py-2 rounded text-[10px] font-bold transition-colors">ARCHIVE PROJECT</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Stats / AI Insights -->
+<footer class="h-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark px-8 flex items-center justify-between">
+<div class="flex items-center gap-6 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    AI Engine: v2.4 Optimal
+                </div>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-accent-blue"></span>
+                    Active Builds: 12
+                </div>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-accent-amber"></span>
+                    Review Pending: 3
+                </div>
+</div>
+<div class="flex items-center gap-2 text-xs text-slate-500">
+<span class="material-icons-round text-sm">bolt</span>
+<span>Automation power at 94% this week</span>
+</div>
+</footer>
+</main>
+</body></html>

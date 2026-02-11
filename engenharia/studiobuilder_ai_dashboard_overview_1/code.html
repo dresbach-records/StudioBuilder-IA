@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2560e9",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        "sidebar-dark": "#0F172A",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="flex min-h-screen">
+<!-- Sidebar -->
+<aside class="w-64 bg-sidebar-dark text-slate-300 flex flex-col fixed h-full z-50">
+<div class="p-6 flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-icons text-white text-xl">auto_awesome</span>
+</div>
+<span class="text-white font-bold text-lg tracking-tight">StudioBuilder AI</span>
+</div>
+<nav class="flex-1 px-4 space-y-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary text-white transition-colors" href="#">
+<span class="material-icons text-xl">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white transition-colors" href="#">
+<span class="material-icons text-xl">add_circle_outline</span>
+<span>Create Project</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white transition-colors" href="#">
+<span class="material-icons text-xl">folder_open</span>
+<span>My Projects</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white transition-colors" href="#">
+<span class="material-icons text-xl">widgets</span>
+<span>Component Library</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white transition-colors" href="#">
+<span class="material-icons text-xl">output</span>
+<span>Exports</span>
+</a>
+<div class="pt-4 mt-4 border-t border-slate-800">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white transition-colors" href="#">
+<span class="material-icons text-xl">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white transition-colors" href="#">
+<span class="material-icons text-xl">subscriptions</span>
+<span>Subscription</span>
+</a>
+</div>
+</nav>
+<div class="p-4 mt-auto">
+<div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Free Plan</span>
+<span class="text-xs text-primary font-bold">45%</span>
+</div>
+<div class="w-full bg-slate-700 h-1.5 rounded-full mb-3">
+<div class="bg-primary h-1.5 rounded-full" style="width: 45%"></div>
+</div>
+<p class="text-[10px] leading-tight text-slate-400">45/100 monthly generations used. Upgrade for unlimited.</p>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 ml-64 flex flex-col">
+<!-- Topbar -->
+<header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 sticky top-0 z-40">
+<div class="flex-1 max-w-xl">
+<div class="relative group">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-transparent focus:border-primary focus:ring-0 rounded-lg text-sm transition-all" placeholder="Search projects, templates, or components..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 relative">
+<span class="material-icons">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 dark:bg-slate-800 mx-1"></div>
+<button class="flex items-center gap-2 pl-2 pr-1 py-1 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="text-sm font-medium hidden md:block">Alex Sterling</span>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 object-cover" data-alt="Close up portrait of a male professional user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg1BNWf6FqgnP6zIq8tBzdb3juGhDbLZ6YJSRz-XADgsJ_K7PP16QP0nwmRYIjzBy43FPupYLNHNFoEB6e8NzbFkz9e3O4KqCj4U_n97CT7VtjEe_p9uN6Cnermgg5W5x8XmCLau7QYjlKjNLSbxyr9FDPZzqSP3gU8bD98V-iPE6VJA5CuA-eNwmXB-u7agrSpkIeg_eLplgDBddbg8G8K-yrhWVHk4Ny4JgLsMUOkHIsIdgJ4apHUEmK4jwnck-zIvKlFT_MIKo"/>
+</button>
+</div>
+</header>
+<div class="p-8">
+<!-- Welcome Section -->
+<div class="mb-8">
+<h1 class="text-2xl font-bold text-slate-900 dark:text-white">Welcome back, Alex!</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-1">Here's what's happening with your projects today.</p>
+</div>
+<!-- Quick Start Card -->
+<section class="mb-8">
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary via-blue-600 to-indigo-700 p-8 shadow-lg shadow-primary/20">
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="max-w-lg">
+<h2 class="text-2xl font-bold text-white mb-2">Build your next vision.</h2>
+<p class="text-blue-100 mb-6">Describe the website you want to build, and let our AI generate the layout, content, and components in seconds.</p>
+<div class="flex gap-2 p-1.5 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+<input class="flex-1 bg-transparent border-none text-white placeholder:text-blue-200 focus:ring-0 text-sm" placeholder="A modern portfolio for a photography studio with dark mode..." type="text"/>
+<button class="bg-white text-primary font-bold px-6 py-2 rounded-lg hover:bg-blue-50 transition-colors flex items-center gap-2 whitespace-nowrap">
+<span class="material-icons text-sm">auto_awesome</span>
+                                        Generate
+                                    </button>
+</div>
+</div>
+<div class="hidden lg:block relative">
+<div class="absolute -inset-4 bg-white/10 blur-2xl rounded-full"></div>
+<span class="material-icons text-[120px] text-white/20">design_services</span>
+</div>
+</div>
+<!-- Abstract Decorative Background -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+<div class="absolute -left-10 -top-10 w-40 h-40 bg-indigo-400/10 rounded-full blur-2xl text-white"></div>
+</div>
+</section>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+<span class="material-icons text-primary">auto_fix_high</span>
+</div>
+<span class="text-[10px] font-bold text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded uppercase tracking-wider">+12%</span>
+</div>
+<h3 class="text-slate-500 dark:text-slate-400 text-sm font-medium">AI Generations</h3>
+<p class="text-2xl font-bold mt-1">45 / 100</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
+<span class="material-icons text-purple-500">folder</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded uppercase tracking-wider">Total</span>
+</div>
+<h3 class="text-slate-500 dark:text-slate-400 text-sm font-medium">Active Projects</h3>
+<p class="text-2xl font-bold mt-1">12</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 bg-amber-500/10 rounded-lg flex items-center justify-center">
+<span class="material-icons text-amber-500">cloud_upload</span>
+</div>
+<span class="text-[10px] font-bold text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded uppercase tracking-wider">Active</span>
+</div>
+<h3 class="text-slate-500 dark:text-slate-400 text-sm font-medium">Exports Done</h3>
+<p class="text-2xl font-bold mt-1">08</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 bg-pink-500/10 rounded-lg flex items-center justify-center">
+<span class="material-icons text-pink-500">extension</span>
+</div>
+<span class="text-[10px] font-bold text-pink-500 bg-pink-500/10 px-2 py-1 rounded uppercase tracking-wider">New</span>
+</div>
+<h3 class="text-slate-500 dark:text-slate-400 text-sm font-medium">Custom Components</h3>
+<p class="text-2xl font-bold mt-1">124</p>
+</div>
+</div>
+<!-- Recent Projects Section -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="px-6 py-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+<h2 class="font-bold text-lg">Recent Projects</h2>
+<button class="text-primary text-sm font-semibold hover:underline">View All Projects</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 p-6">
+<!-- Project Card 1 -->
+<div class="group border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300">
+<div class="aspect-video bg-slate-100 dark:bg-slate-800 relative overflow-hidden">
+<img alt="SaaS Landing Page" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Screenshot of a modern blue themed SaaS landing page" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCElbH0_3Ea09Ki3Ba8voQXai6Ds7vmdyuskKsQwFjbn0DfN1ZeQqq2rSKY3u5qeL2k4EDKH0Jc6Sl6ywDIAkmE_MgM7yYJWZwpVvZ5sJZxAKSvpSCerks9DRhSpgjvZuX1cUTJwWAi613WaUC85FxdHZ13JbPojcMuMPs5_YKbjHWksJLKCzxejxXBNhG6t9sN6Do4xtGdPbLaSz81Q0JK7dk5SkAekaK0BOZn_O9a12voiFpRiwZv-Ei6FxHrKbys9qh-KVGNtHQ"/>
+<div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+<button class="bg-white text-slate-900 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-primary hover:text-white transition-colors">Edit Project</button>
+<button class="bg-white/20 backdrop-blur-sm text-white w-10 h-10 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors">
+<span class="material-icons">more_vert</span>
+</button>
+</div>
+<div class="absolute top-3 left-3">
+<span class="bg-emerald-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Published</span>
+</div>
+</div>
+<div class="p-4">
+<h4 class="font-bold text-slate-900 dark:text-white mb-1">Nexus Analytics Dashboard</h4>
+<p class="text-slate-500 dark:text-slate-400 text-xs flex items-center gap-1">
+<span class="material-icons text-[14px]">history</span>
+                                    Edited 2 hours ago
+                                </p>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="group border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300">
+<div class="aspect-video bg-slate-100 dark:bg-slate-800 relative overflow-hidden">
+<img alt="Tech Blog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Screenshot of a clean minimalist developer portfolio website" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfu_MMbsYRFFSk1dc6FhIUs1svVEK7rMTJzP6M5i-AkZlBFePL0uoZiwUhM0vFIq4d6s6byrQ0C7g6TzrH7Q8g3cDsw-FP9cT2QsgjWaQ2AkpHD48wmj8XMllN_stiMWmUpFD-hj9G_1ZU1Q2ml8qf7rO4i9uwC6wYWAgpR7k5bcCL_ZomHB9f41VKEyxiDsf5MoYJby_oILUKvFd9E1oh4NTE5u1As5hXs8CnydwVXhbQuv-0EN0Sgph7k19boO8xBMKNZhOxy44"/>
+<div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+<button class="bg-white text-slate-900 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-primary hover:text-white transition-colors">Edit Project</button>
+<button class="bg-white/20 backdrop-blur-sm text-white w-10 h-10 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors">
+<span class="material-icons">more_vert</span>
+</button>
+</div>
+<div class="absolute top-3 left-3">
+<span class="bg-amber-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Draft</span>
+</div>
+</div>
+<div class="p-4">
+<h4 class="font-bold text-slate-900 dark:text-white mb-1">DevStream Portfolio</h4>
+<p class="text-slate-500 dark:text-slate-400 text-xs flex items-center gap-1">
+<span class="material-icons text-[14px]">history</span>
+                                    Edited 5 hours ago
+                                </p>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="group border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300">
+<div class="aspect-video bg-slate-100 dark:bg-slate-800 relative overflow-hidden">
+<img alt="Ecommerce Site" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Screenshot of a high-end luxury ecommerce fashion website" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0iL5LRaUAu8lk9JxWxY67wOwn7GXGHlw3s4Sy-TGnn6zvZHt_TBohpE9D65Kr1KCONGrMmUo4jbWyxD1j4YyJRyWcA4mQXheEQJsRxEJ_Dusk8qXYiv0_ulXIzLmiIwgzJzO1KFRX37C5bFg8z-vk4EZN8qxBNisCoN_A5JXmSCVGyc7M5tDL8cwMotbfdFy1ogXdpLufnw_wcqQNO2mc9YyQ7INL3R-F8wPrj0smGfYgunWB2v1u-zBXN_R7vTDsdp8uCDkYxMk"/>
+<div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+<button class="bg-white text-slate-900 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-primary hover:text-white transition-colors">Edit Project</button>
+<button class="bg-white/20 backdrop-blur-sm text-white w-10 h-10 rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors">
+<span class="material-icons">more_vert</span>
+</button>
+</div>
+<div class="absolute top-3 left-3">
+<span class="bg-amber-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Draft</span>
+</div>
+</div>
+<div class="p-4">
+<h4 class="font-bold text-slate-900 dark:text-white mb-1">Aura Fashion E-com</h4>
+<p class="text-slate-500 dark:text-slate-400 text-xs flex items-center gap-1">
+<span class="material-icons text-[14px]">history</span>
+                                    Edited 1 day ago
+                                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Tips / Onboarding -->
+<div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="flex gap-4 p-5 bg-primary/5 border border-primary/10 rounded-xl">
+<div class="w-12 h-12 shrink-0 bg-primary text-white rounded-lg flex items-center justify-center">
+<span class="material-icons">lightbulb</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-1">Pro Tip: Component Export</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">You can export individual components directly to React or Tailwind CSS by right-clicking them in the editor suite.</p>
+</div>
+</div>
+<div class="flex gap-4 p-5 bg-purple-500/5 border border-purple-500/10 rounded-xl">
+<div class="w-12 h-12 shrink-0 bg-purple-500 text-white rounded-lg flex items-center justify-center">
+<span class="material-icons">rocket_launch</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-1">Join the Community</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">Get inspired by what others are building in the StudioBuilder AI showcase and share your own layouts.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

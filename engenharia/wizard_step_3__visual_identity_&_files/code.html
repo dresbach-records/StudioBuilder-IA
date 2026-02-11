@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI - Wizard Step 3</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #4b2bee33;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<!-- Header Navigation -->
+<header class="border-b border-slate-200 dark:border-white/5 bg-white/50 dark:bg-white/5 backdrop-blur-md sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-lg">bolt</span>
+</div>
+<span class="font-bold text-xl tracking-tight">StudioBuilder <span class="text-primary">AI</span></span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-500 hover:text-primary transition-colors">
+<span class="material-icons">help_outline</span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:bg-white/10 mx-2"></div>
+<button class="text-sm font-medium hover:text-primary transition-colors">Save &amp; Exit</button>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-12">
+<!-- Progress Stepper -->
+<div class="mb-12">
+<div class="flex items-center justify-between mb-4">
+<span class="text-sm font-medium text-primary">Step 3 of 5</span>
+<span class="text-sm font-medium text-slate-400">60% Completed</span>
+</div>
+<div class="h-2 w-full bg-slate-200 dark:bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[60%] rounded-full shadow-[0_0_15px_rgba(75,43,238,0.5)]"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Sidebar: Info -->
+<div class="lg:col-span-4">
+<h1 class="text-3xl font-bold mb-4">Visual Identity &amp; Technical Assets</h1>
+<p class="text-slate-500 dark:text-slate-400 leading-relaxed mb-8">
+                    Define the aesthetic foundation of your project. These assets help our AI engine generate a cohesive design language that aligns with your brand's vision and technical requirements.
+                </p>
+<div class="bg-primary/5 border border-primary/20 p-6 rounded-xl">
+<h3 class="text-sm font-semibold text-primary uppercase tracking-wider mb-3">AI Context Hint</h3>
+<p class="text-sm text-slate-600 dark:text-slate-300">
+                        Uploading high-resolution vector logos and high-fidelity reference images significantly improves the accuracy of the generated UI prototypes.
+                    </p>
+</div>
+</div>
+<!-- Main Content Area -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Section 1: Visual Style -->
+<section class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-xl p-8">
+<h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-icons text-primary">auto_awesome</span>
+                        Select Design Direction
+                    </h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Card 1 -->
+<div class="group relative cursor-pointer border-2 border-primary bg-primary/5 rounded-xl p-4 transition-all hover:bg-primary/10">
+<div class="aspect-square mb-4 rounded-lg bg-primary/20 flex items-center justify-center">
+<span class="material-icons text-primary text-3xl">rocket_launch</span>
+</div>
+<span class="block text-sm font-bold text-center">Modern</span>
+<div class="absolute top-2 right-2 h-5 w-5 bg-primary rounded-full flex items-center justify-center">
+<span class="material-icons text-white text-[12px]">check</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer border-2 border-transparent bg-slate-50 dark:bg-white/5 rounded-xl p-4 transition-all hover:border-primary/50">
+<div class="aspect-square mb-4 rounded-lg bg-slate-200 dark:bg-white/10 flex items-center justify-center">
+<span class="material-icons text-slate-500 dark:text-slate-400 text-3xl">business</span>
+</div>
+<span class="block text-sm font-bold text-center opacity-80">Corporate</span>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer border-2 border-transparent bg-slate-50 dark:bg-white/5 rounded-xl p-4 transition-all hover:border-primary/50">
+<div class="aspect-square mb-4 rounded-lg bg-slate-200 dark:bg-white/10 flex items-center justify-center">
+<span class="material-icons text-slate-500 dark:text-slate-400 text-3xl">grid_view</span>
+</div>
+<span class="block text-sm font-bold text-center opacity-80">Minimalist</span>
+</div>
+<!-- Card 4 -->
+<div class="group cursor-pointer border-2 border-transparent bg-slate-50 dark:bg-white/5 rounded-xl p-4 transition-all hover:border-primary/50">
+<div class="aspect-square mb-4 rounded-lg bg-slate-200 dark:bg-white/10 flex items-center justify-center">
+<span class="material-icons text-slate-500 dark:text-slate-400 text-3xl">diamond</span>
+</div>
+<span class="block text-sm font-bold text-center opacity-80">Premium</span>
+</div>
+</div>
+</section>
+<!-- Section 2: Color Palette -->
+<section class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-xl p-8">
+<h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-icons text-primary">palette</span>
+                        Color Palette
+                    </h2>
+<div class="flex flex-col md:flex-row gap-8">
+<div class="flex-1">
+<label class="text-xs font-semibold uppercase text-slate-500 mb-3 block">Primary Brand Color</label>
+<div class="flex items-center gap-3 bg-slate-50 dark:bg-white/5 p-2 rounded-lg border border-slate-200 dark:border-white/10">
+<div class="w-10 h-10 rounded bg-primary"></div>
+<input class="bg-transparent border-none focus:ring-0 text-sm font-mono w-full" type="text" value="#4b2bee"/>
+</div>
+</div>
+<div class="flex-[2]">
+<label class="text-xs font-semibold uppercase text-slate-500 mb-3 block">Suggested Palettes</label>
+<div class="flex flex-wrap gap-4">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full ring-2 ring-background-dark bg-[#0F172A]"></div>
+<div class="w-8 h-8 rounded-full ring-2 ring-background-dark bg-[#334155]"></div>
+<div class="w-8 h-8 rounded-full ring-2 ring-background-dark bg-[#4b2bee]"></div>
+</div>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full ring-2 ring-background-dark bg-[#111827]"></div>
+<div class="w-8 h-8 rounded-full ring-2 ring-background-dark bg-[#10B981]"></div>
+<div class="w-8 h-8 rounded-full ring-2 ring-background-dark bg-[#F9FAFB]"></div>
+</div>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full ring-2 ring-background-dark bg-[#F43F5E]"></div>
+<div class="w-8 h-8 rounded-full ring-2 ring-background-dark bg-[#FB923C]"></div>
+<div class="w-8 h-8 rounded-full ring-2 ring-background-dark bg-[#FDE68A]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: File Uploads -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Upload 1: Logo -->
+<div class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-xl p-6">
+<h3 class="font-bold mb-4 flex items-center gap-2">
+<span class="material-icons text-primary text-sm">image</span>
+                            Brand Logo
+                        </h3>
+<div class="border-2 border-dashed border-slate-200 dark:border-white/10 rounded-xl p-8 text-center hover:border-primary transition-colors group cursor-pointer bg-slate-50/50 dark:bg-white/5">
+<span class="material-icons text-slate-400 group-hover:text-primary mb-3 text-3xl">cloud_upload</span>
+<p class="text-sm font-medium">Drop SVG or PNG</p>
+<p class="text-xs text-slate-500 mt-1">Max 10MB • 1024x1024 recommended</p>
+</div>
+</div>
+<!-- Upload 2: Docs -->
+<div class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-xl p-6">
+<h3 class="font-bold mb-4 flex items-center gap-2">
+<span class="material-icons text-primary text-sm">description</span>
+                            Technical Files
+                        </h3>
+<div class="border-2 border-dashed border-slate-200 dark:border-white/10 rounded-xl p-8 text-center hover:border-primary transition-colors group cursor-pointer bg-slate-50/50 dark:bg-white/5">
+<span class="material-icons text-slate-400 group-hover:text-primary mb-3 text-3xl">upload_file</span>
+<p class="text-sm font-medium">Drop PDF or DOCX</p>
+<p class="text-xs text-slate-500 mt-1">Product specs, feature lists, etc.</p>
+</div>
+</div>
+<!-- Upload 3: Inspiration (Full width) -->
+<div class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-xl p-6 md:col-span-2">
+<h3 class="font-bold mb-4 flex items-center gap-2">
+<span class="material-icons text-primary text-sm">collections</span>
+                            Visual Inspiration
+                        </h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="aspect-video bg-slate-100 dark:bg-white/10 rounded-lg flex flex-col items-center justify-center border-2 border-dashed border-slate-200 dark:border-white/10 hover:border-primary cursor-pointer group">
+<span class="material-icons text-slate-400 group-hover:text-primary">add</span>
+<span class="text-[10px] uppercase font-bold text-slate-400 mt-1">Add Image</span>
+</div>
+<div class="relative group aspect-video rounded-lg overflow-hidden border border-slate-200 dark:border-white/10">
+<img alt="Reference" class="w-full h-full object-cover" data-alt="Abstract gradient mesh background in blue and purple tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZolDPf2eEUxT_-6Jngj4y2bW530WBZYk9gtOn3ndKt1kExV-s-relNXU0PVjGTQxNCaQGCJ9Dk_pSRwOu21kKt3bjSUgfahESK7tw4kpfJ3mhNeWAzqvjHb6B-wp7xhloya8DPOSgsm0PePi77SAefFz5dO1MAZ068g1SVGC1FHRo_IZ1C8N87RCwG7T2y-FgyGssqk_1l5OKQ5NZ_COltSbh2uvMzeMFDhEw-MaOgG8f6KWfdrfCmh8RQOKknrSM_SVgL3rN3O0"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-red-500 text-white p-1 rounded-full"><span class="material-icons text-sm">close</span></button>
+</div>
+</div>
+<div class="relative group aspect-video rounded-lg overflow-hidden border border-slate-200 dark:border-white/10">
+<img alt="Reference" class="w-full h-full object-cover" data-alt="Minimalist architectural shapes with soft lighting shadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx3xJL-37d9S4C61H2BvpZXVLWfbmPuY902OtrrUZhq-IlcghW6uvETikOkH4Y46ozxlfZVKITA38vDpWej7fNYs7pJU1cBt0hROsXm5YsrC5iP0q2vLch22T2bbzRaRFjeuxCLUKT8Y1H81SXLlW3mU6k1WcCyrYH_HbSCNbQuYhcl7s4-LN8th34dxE95Ap_Bw1lDC-wR6zpodZcIXezcOXZ1KIhUeX9OGvV6ltJE2j3KnXEdKEnnNiGPqCyq65H9oAhbhoIynQ"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-red-500 text-white p-1 rounded-full"><span class="material-icons text-sm">close</span></button>
+</div>
+</div>
+<div class="flex items-center justify-center bg-primary/10 rounded-lg p-4">
+<div class="text-center">
+<div class="w-8 h-1 bg-primary rounded-full mb-2 mx-auto"></div>
+<span class="text-[10px] font-bold text-primary uppercase">Uploading...</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Navigation Footer -->
+<div class="flex items-center justify-between pt-8 border-t border-slate-200 dark:border-white/5">
+<button class="flex items-center gap-2 px-6 py-3 rounded-lg border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/5 transition-all font-medium">
+<span class="material-icons text-sm">arrow_back</span>
+                        Back
+                    </button>
+<div class="flex gap-4">
+<button class="px-6 py-3 rounded-lg font-medium text-slate-500 hover:text-slate-700 dark:hover:text-white transition-all">
+                            Skip for now
+                        </button>
+<button class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-bold shadow-lg shadow-primary/20 flex items-center gap-2 transition-all group">
+                            Continue to Step 4
+                            <span class="material-icons text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Background Decoration -->
+<div class="fixed top-0 right-0 -z-10 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-[300px] h-[300px] bg-primary/5 blur-[100px] rounded-full -translate-x-1/2 translate-y-1/2"></div>
+</body></html>

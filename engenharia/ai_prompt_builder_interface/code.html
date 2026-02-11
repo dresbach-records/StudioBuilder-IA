@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI - Create Project</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2560e9",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-button {
+            background: linear-gradient(135deg, #2560e9 0%, #8b5cf6 100%);
+        }
+        .soft-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Navigation Header -->
+<nav class="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-xl">auto_awesome</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">StudioBuilder <span class="text-primary">AI</span></span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="#">My Projects</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="#">Templates</a>
+<div class="h-6 w-px bg-slate-200 dark:border-slate-800"></div>
+<div class="flex items-center gap-3 bg-primary/10 px-3 py-1.5 rounded-full">
+<span class="material-icons text-primary text-sm">bolt</span>
+<span class="text-xs font-semibold text-primary uppercase tracking-wider">12 Credits Left</span>
+</div>
+<img alt="Profile" class="w-8 h-8 rounded-full border-2 border-primary/20" data-alt="User profile avatar portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW1vG-olwozqkuFXel3gMkWDe5mJgNvaiEXyOHKbiW8tsm-KOUebHZjCSmC_QzBzs6SszDQqMB0eakbmrIj0MTwCulkrZ0LxHH_EzUhzkSH0F9jZguCrQqZk3dJ_0y8JOTN8KqycfPPNrJVdig6Z-a8LWfkDK6i84d_Jx1bZabNfhEB8ciNXXwnntV7oEwMrksoC5w-p9Et5GXFPuzJcgFYuQILWJ-r_x2x-k-Z37Kl0lzTmn8WEQ6zlzRBTfpS_9fV5VJNDqzoKc"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="max-w-5xl mx-auto px-4 py-12 md:py-20">
+<!-- Headline Section -->
+<div class="text-center mb-12">
+<h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">
+                Start your next project with AI.
+            </h1>
+<p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
+                Describe your vision in natural language and watch StudioBuilder AI craft a fully responsive layout with modern components.
+            </p>
+</div>
+<!-- Central Prompt Builder Card -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-200 dark:border-slate-800 p-6 md:p-8">
+<div class="space-y-6">
+<!-- Prompt Input Section -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300" for="prompt">AI Prompt</label>
+<button class="text-xs text-primary hover:underline flex items-center gap-1 font-medium">
+<span class="material-icons text-xs">lightbulb</span> Prompting Tips
+                        </button>
+</div>
+<div class="relative group">
+<textarea class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-xl px-5 py-4 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-primary focus:border-primary transition-all resize-none text-lg" id="prompt" placeholder="Describe the site you want to create... (e.g. A modern landing page for a sustainable coffee brand with earth tones and minimalist sections)" rows="5"></textarea>
+<div class="absolute bottom-4 right-4 text-slate-400 text-xs">
+                            0 / 500
+                        </div>
+</div>
+<!-- Inspiration Tags -->
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="text-xs text-slate-400 font-medium py-1">Try:</span>
+<button class="text-xs font-medium bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 hover:text-primary px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700 transition-colors">SaaS Landing Page</button>
+<button class="text-xs font-medium bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 hover:text-primary px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700 transition-colors">Creative Portfolio</button>
+<button class="text-xs font-medium bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 hover:text-primary px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700 transition-colors">E-commerce Fashion</button>
+</div>
+</div>
+<!-- Configuration Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+<!-- Category -->
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Category</label>
+<div class="relative">
+<select class="w-full appearance-none bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2.5 text-slate-700 dark:text-slate-300 focus:ring-2 focus:ring-primary focus:border-primary">
+<option>Landing Page</option>
+<option>E-commerce</option>
+<option>SaaS Dashboard</option>
+<option>Portfolio</option>
+<option>Corporate Blog</option>
+</select>
+<span class="material-icons absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Style -->
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Visual Style</label>
+<div class="relative">
+<select class="w-full appearance-none bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2.5 text-slate-700 dark:text-slate-300 focus:ring-2 focus:ring-primary focus:border-primary">
+<option>Modern &amp; Minimal</option>
+<option>Bold &amp; Vibrant</option>
+<option>Dark Mode Sleek</option>
+<option>Playful &amp; Round</option>
+<option>High Contrast Tech</option>
+</select>
+<span class="material-icons absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Color Picker Mock -->
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Brand Color</label>
+<div class="flex items-center gap-2 p-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg">
+<div class="flex-1 flex gap-1.5">
+<button class="w-8 h-8 rounded bg-primary ring-2 ring-primary ring-offset-2 dark:ring-offset-slate-800"></button>
+<button class="w-8 h-8 rounded bg-purple-600 hover:scale-105 transition-transform"></button>
+<button class="w-8 h-8 rounded bg-emerald-500 hover:scale-105 transition-transform"></button>
+<button class="w-8 h-8 rounded bg-orange-500 hover:scale-105 transition-transform"></button>
+</div>
+<div class="w-px h-6 bg-slate-200 dark:bg-slate-700 mx-1"></div>
+<button class="p-1 text-slate-400 hover:text-primary">
+<span class="material-icons text-xl">palette</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="pt-8">
+<button class="gradient-button w-full py-4 rounded-xl text-white font-bold text-lg shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-3">
+<span class="material-icons">auto_awesome</span>
+                        Generate Layout
+                    </button>
+<p class="text-center text-xs text-slate-400 dark:text-slate-500 mt-4">
+                        Estimated time: <span class="font-medium">~30 seconds</span>. You can edit every detail once generated.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Recent Project Preview (Optional/Auxiliary) -->
+<div class="mt-20">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Jump back in</h3>
+<a class="text-sm font-semibold text-primary" href="#">View all</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary transition-colors cursor-pointer flex">
+<div class="w-32 h-full relative overflow-hidden bg-slate-100 dark:bg-slate-800">
+<img alt="Recent project" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="Screenshot of a minimalist dashboard interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeJB7mcEB5tvN4fuHpTE18OE-6bKFj6hluAAh1NhdkGuhSLWKfk54V9Oin2dfp6qhnWONiIFpdQVsb8X8WXoFzeCljCQsT67_vZM8B4pz-RZ7FUa2ljfoPWvz3oyVWPJyceSvhOO7fnpI0aqFhZFW6Z3oVC-keZ79BLwXzNlmmgnJMJ6HNpzKL5xRnDB_5l3Or-bhdDAj369lc7Damq9ciwb31piHTsc1rcwfbUeOaGnZsIHl0m0S3BCg6skRHZJbYoBhpyMmHuW4"/>
+</div>
+<div class="p-4 flex-1">
+<h4 class="font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Nova Analytics Dash</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Edited 2 hours ago</p>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-[10px] font-bold text-slate-500 uppercase rounded">Dashboard</span>
+</div>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary transition-colors cursor-pointer flex">
+<div class="w-32 h-full relative overflow-hidden bg-slate-100 dark:bg-slate-800">
+<img alt="Recent project" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="Screenshot of an elegant e-commerce product page" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKRzLKwyNpuH3LYuLkwyndK1xkt7ToinncXcvEegeBEmaFuAUMonA8zt41sTj7mSEXLwFt1it1KxSHHpYZTt5JfiWKAoHd6jTCOyVeGMQt5z5SH6MsnJcXOqwV89QVJcIfI9jz3XO-DVbjZjoehn4uuCn5cC6oQ8ad7jMjQcWbIp0vgn1bl_Scfbuqd9m7LyxUuSNszk5coKTufqn_NWS3GlfslPvRCq18F2v0XHTZrrVaWQOjmltBZe7tg-sq-pzSWsss5H5ZsIY"/>
+</div>
+<div class="p-4 flex-1">
+<h4 class="font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Zenith Watch Store</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Edited 1 day ago</p>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-[10px] font-bold text-slate-500 uppercase rounded">E-commerce</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Meta -->
+<footer class="max-w-7xl mx-auto px-4 py-8 border-t border-slate-200 dark:border-slate-800 mt-12 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="text-slate-400 text-sm">
+            © 2024 StudioBuilder AI. All rights reserved.
+        </div>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm" href="#">Documentation</a>
+<a class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm" href="#">Privacy Policy</a>
+<a class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm" href="#">Support</a>
+</div>
+</footer>
+</body></html>

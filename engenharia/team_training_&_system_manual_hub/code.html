@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Team Training &amp; System Manual Hub | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(75, 43, 238, 0.2);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(75, 43, 238, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
+<!-- Top Utility Bar -->
+<header class="sticky top-0 z-50 border-b border-primary/10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-[1600px] mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-8 flex-1">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white">auto_awesome</span>
+</div>
+<span class="text-xl font-extrabold tracking-tight">StudioBuilder <span class="text-primary">AI</span></span>
+</div>
+<div class="relative w-full max-w-xl">
+<span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-slate-200/50 dark:bg-slate-800/50 border-none rounded-xl py-3 pl-12 pr-20 focus:ring-2 focus:ring-primary text-sm" placeholder="Search documentation, tutorials, or workflows..." type="text"/>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 flex gap-1">
+<kbd class="px-2 py-1 rounded bg-slate-300 dark:bg-slate-700 text-[10px] font-bold opacity-70">CMD</kbd>
+<kbd class="px-2 py-1 rounded bg-slate-300 dark:bg-slate-700 text-[10px] font-bold opacity-70">K</kbd>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6 ml-8">
+<div class="hidden lg:flex flex-col items-end gap-1">
+<div class="flex items-center gap-3">
+<span class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Certification Progress</span>
+<span class="text-xs font-bold text-primary">68%</span>
+</div>
+<div class="w-48 h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 68%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-3 border-l border-slate-200 dark:border-slate-800 pl-6">
+<button class="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons text-slate-400">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGEa-UsLFh6BWUWQ0ncAvovak5m4CIqX5HlFBG0XyFYExHrvR7rFkPwmEAtJ0wheVod3DrGAnYMXatZQrHBml57X_uHE6OD3MVxFuebz-jnqZtXhf2NJwSoazzQXcPFi_PVbTmsMZe0fFwxZ_sg6nJvbyEge0P7hNGaKa61Lk-2FenH1bKRF_uUcFERh7qkIJjSITaIQQ-b43g_He-Jbxp61pNu9UdmU-Xcd3xdOwQup56yoH8kMXvwwBDmAuqO-whXFm73ZIjCVM"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="max-w-[1600px] mx-auto flex">
+<!-- Sidebar Navigation -->
+<aside class="w-72 fixed h-[calc(100vh-80px)] hidden xl:block border-r border-primary/10 py-8 px-6 overflow-y-auto custom-scrollbar">
+<nav class="space-y-8">
+<div>
+<h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-4">Learning Paths</h3>
+<ul class="space-y-1">
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary font-semibold transition-all" href="#"><span class="material-icons text-[18px]">school</span>Getting Started</a></li>
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all" href="#"><span class="material-icons text-[18px]">psychology</span>Mastering Prompts</a></li>
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all" href="#"><span class="material-icons text-[18px]">account_tree</span>Schema Design</a></li>
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all" href="#"><span class="material-icons text-[18px]">hub</span>Workflow Automation</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-4">Resources</h3>
+<ul class="space-y-1">
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all" href="#"><span class="material-icons text-[18px]">description</span>API Reference</a></li>
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all" href="#"><span class="material-icons text-[18px]">terminal</span>CLI Tools</a></li>
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all" href="#"><span class="material-icons text-[18px]">extension</span>Plugin SDK</a></li>
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all" href="#"><span class="material-icons text-[18px]">storage</span>Data Export</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-4">Community</h3>
+<ul class="space-y-1">
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all" href="#"><span class="material-icons text-[18px]">forum</span>Team Discussions</a></li>
+<li><a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all" href="#"><span class="material-icons text-[18px]">library_books</span>Best Practices</a></li>
+</ul>
+</div>
+<div class="pt-8">
+<div class="p-4 rounded-xl bg-gradient-to-br from-primary to-indigo-700 text-white">
+<p class="text-sm font-bold mb-2">Need direct help?</p>
+<p class="text-xs text-indigo-100 mb-4 opacity-80 leading-relaxed">Schedule a 1-on-1 session with an AI specialist.</p>
+<button class="w-full py-2 bg-white/20 backdrop-blur-md rounded-lg text-xs font-bold hover:bg-white/30 transition-all">Book Now</button>
+</div>
+</div>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 xl:ml-72 p-8 lg:p-12">
+<!-- Hero Section -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+<div>
+<div class="flex items-center gap-2 text-primary font-bold text-sm mb-2 uppercase tracking-widest">
+<span class="material-icons text-[18px]">auto_stories</span>
+                            StudioBuilder Academy
+                        </div>
+<h1 class="text-4xl lg:text-5xl font-extrabold mb-4">Training &amp; Documentation</h1>
+<p class="text-slate-500 dark:text-slate-400 max-w-2xl text-lg leading-relaxed">Master the StudioBuilder ecosystem with our comprehensive guide to building, scaling, and automating AI-native applications.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-3 bg-primary text-white rounded-xl font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-lg shadow-primary/20">
+<span class="material-icons">play_circle</span>
+                            Resume Training
+                        </button>
+<button class="px-6 py-3 bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white rounded-xl font-bold border border-slate-300 dark:border-slate-700 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">
+                            View Roadmap
+                        </button>
+</div>
+</div>
+<!-- Featured Learning Paths -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="group relative overflow-hidden rounded-2xl bg-slate-200 dark:bg-slate-800/50 border border-slate-300 dark:border-slate-700/50 p-6 hover:border-primary/50 transition-all">
+<div class="mb-4 w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-500 flex items-center justify-center">
+<span class="material-icons">verified</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Core Foundations</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Master the architecture and basic data structures of StudioBuilder.</p>
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold px-2 py-1 rounded bg-emerald-500/10 text-emerald-500 uppercase">Completed</span>
+<span class="text-xs text-slate-400">12 Lessons</span>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-2xl bg-slate-200 dark:bg-slate-800/50 border border-slate-300 dark:border-slate-700/50 p-6 hover:border-primary/50 transition-all">
+<div class="mb-4 w-12 h-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center">
+<span class="material-icons">architecture</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Advanced Automations</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Building complex multi-step workflows with external API hooks.</p>
+<div class="flex items-center justify-between">
+<div class="flex-1 mr-4">
+<div class="w-full h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full">
+<div class="h-full bg-primary rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+<span class="text-xs font-bold text-primary">45%</span>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-2xl bg-slate-200 dark:bg-slate-800/50 border border-slate-300 dark:border-slate-700/50 p-6 hover:border-primary/50 transition-all opacity-70">
+<div class="mb-4 w-12 h-12 rounded-xl bg-amber-500/20 text-amber-500 flex items-center justify-center">
+<span class="material-icons">lock</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Enterprise Scaling</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Security protocols and managing massive datasets at scale.</p>
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-slate-400">Locked</span>
+<span class="material-icons text-slate-400 text-sm">lock</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Video Tutorials Grid -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-extrabold">Video Tutorials</h2>
+<a class="text-primary text-sm font-bold flex items-center gap-1 hover:underline" href="#">
+                        View All
+                        <span class="material-icons text-[18px]">chevron_right</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Video Card 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-4">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Screenshot of code interface with AI prompt text" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmNd4Mh8uk8SVn2awFb3C9VUH54Lm2rDfZgqGtsGI7-kP-ZBaqS0zJLMflNPSYFtJ4cCiMB-qC6JpIOFw0c4tb8AZ-r_8M9geds4YhlbPMBTii4EtL2I49mtFFfLK1vl_kNChZ480FhKoZdiS0il-uTvsfbAKQiX76nMk6lFtG5GX1_YmBMM8DoJSbaCOlpr5U5bo8mmyYbZANJgBCjifI1lloA1cGvuSYOxRaGOji2yOueJoMWBConYoJd7eEYIPBJm4AGsQBbNo"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all">
+<span class="material-icons text-white text-5xl">play_circle_filled</span>
+</div>
+<div class="absolute bottom-3 right-3 px-2 py-1 bg-black/80 rounded text-[10px] font-bold text-white uppercase tracking-wider">
+                                14:22
+                            </div>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<h4 class="font-bold text-lg mb-1 group-hover:text-primary transition-colors">Mastering AI Prompts</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-1">Expert techniques for few-shot prompting and system logic.</p>
+</div>
+<span class="material-icons text-slate-600">more_vert</span>
+</div>
+</div>
+<!-- Video Card 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-4">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Data visualization dashboard showing graphs and stats" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-BIzwAbCoHZROlfc2I6GxiICxtOKiXWpPD7l3-a_1fRcNNwWcxZocCii1YY8A9otVY3cq9EY8mof-7whsx3fv07WDqYUWoKfCz05tFS-GZrGalG1jPjI7-LAGGPpTqv2MRNZ1IQszHPL6NZrLpuoIVaJOJm-RLqu3YwNIfNr_hVKdRsnlI96wRaSlkuxVhw5m7byw-MgU5aQy25Efn4DKHe2IBTjS9wNVHBoO_C1rh_vRrAtKviU1zYwz6lK4Id8QVaP6uz0Ea1c"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all">
+<span class="material-icons text-white text-5xl">play_circle_filled</span>
+</div>
+<div class="absolute bottom-3 right-3 px-2 py-1 bg-black/80 rounded text-[10px] font-bold text-white uppercase tracking-wider">
+                                08:45
+                            </div>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<h4 class="font-bold text-lg mb-1 group-hover:text-primary transition-colors">Database Schema Automation</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-1">Auto-generating relational models with natural language.</p>
+</div>
+<span class="material-icons text-slate-600">more_vert</span>
+</div>
+</div>
+<!-- Video Card 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-4">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Team brainstorming session with sticky notes and whiteboards" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEg6pMifsTDhKA1cT6Ex7Gf-y0XOM1ToELbD4uyMmH8hH8nRFKsGnI-2Lv28xpE0qXj11d2qIo-vyytHc5ybmPJ750PWOfORJdNa7l83LPBWyOdj0Rh2cqIUIGs3woh_MRyLwdaWYY0l4PooNWZ8tT8oxucvRCso44Sm9cdX3uZDn2BAgYz5gV4j26Rb_BmEq77DjjrBCdpe6RcJaAaW3BA8sOaZMATerNP5lSodLeX2lr826aPsUPSqIq5r4165PfidbfWEq3qto"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all">
+<span class="material-icons text-white text-5xl">play_circle_filled</span>
+</div>
+<div class="absolute bottom-3 right-3 px-2 py-1 bg-black/80 rounded text-[10px] font-bold text-white uppercase tracking-wider">
+                                21:10
+                            </div>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<h4 class="font-bold text-lg mb-1 group-hover:text-primary transition-colors">Collaborative CRM Workflows</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-1">Setting up multi-user approval queues and triggers.</p>
+</div>
+<span class="material-icons text-slate-600">more_vert</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Manuals & Documentation -->
+<section>
+<div class="flex items-center justify-between mb-8 border-t border-primary/10 pt-12">
+<h2 class="text-2xl font-extrabold">Technical Manuals</h2>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-500">
+<span class="material-icons">grid_view</span>
+</button>
+<button class="p-2 rounded-lg text-slate-400">
+<span class="material-icons">list</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Doc Card 1 -->
+<div class="flex flex-col p-6 bg-slate-200/50 dark:bg-slate-800/30 rounded-2xl border border-slate-300 dark:border-slate-700/50 hover:bg-slate-200 dark:hover:bg-slate-800/60 transition-all cursor-pointer">
+<div class="flex items-center gap-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">
+<span>Docs</span>
+<span class="material-icons text-[12px]">chevron_right</span>
+<span>System Configuration</span>
+</div>
+<h4 class="text-xl font-bold mb-3">API Authentication Guide</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">Detailed reference on OAuth2.0 flows, scoped permissions, and secure token rotation for team environments.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1 text-xs text-slate-500">
+<span class="material-icons text-[14px]">schedule</span>
+                                    15 min read
+                                </span>
+<span class="flex items-center gap-1 text-xs text-slate-500">
+<span class="material-icons text-[14px]">history</span>
+                                    Updated 2d ago
+                                </span>
+</div>
+<span class="material-icons text-primary">arrow_forward</span>
+</div>
+</div>
+<!-- Doc Card 2 -->
+<div class="flex flex-col p-6 bg-slate-200/50 dark:bg-slate-800/30 rounded-2xl border border-slate-300 dark:border-slate-700/50 hover:bg-slate-200 dark:hover:bg-slate-800/60 transition-all cursor-pointer">
+<div class="flex items-center gap-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">
+<span>Docs</span>
+<span class="material-icons text-[12px]">chevron_right</span>
+<span>Deployment</span>
+</div>
+<h4 class="text-xl font-bold mb-3">Edge Function Handlers</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">How to write and deploy serverless functions to manipulate incoming AI data streams in real-time.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1 text-xs text-slate-500">
+<span class="material-icons text-[14px]">schedule</span>
+                                    8 min read
+                                </span>
+<span class="flex items-center gap-1 text-xs text-slate-500">
+<span class="material-icons text-[14px]">history</span>
+                                    Updated 5h ago
+                                </span>
+</div>
+<span class="material-icons text-primary">arrow_forward</span>
+</div>
+</div>
+<!-- Doc Card 3 -->
+<div class="flex flex-col p-6 bg-slate-200/50 dark:bg-slate-800/30 rounded-2xl border border-slate-300 dark:border-slate-700/50 hover:bg-slate-200 dark:hover:bg-slate-800/60 transition-all cursor-pointer">
+<div class="flex items-center gap-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">
+<span>Docs</span>
+<span class="material-icons text-[12px]">chevron_right</span>
+<span>Frontend</span>
+</div>
+<h4 class="text-xl font-bold mb-3">UI Component Library</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">Documentation for the built-in Tailwind-based component library for rapid dashboard development.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1 text-xs text-slate-500">
+<span class="material-icons text-[14px]">schedule</span>
+                                    25 min read
+                                </span>
+<span class="flex items-center gap-1 text-xs text-slate-500">
+<span class="material-icons text-[14px]">history</span>
+                                    Updated yesterday
+                                </span>
+</div>
+<span class="material-icons text-primary">arrow_forward</span>
+</div>
+</div>
+<!-- Doc Card 4 -->
+<div class="flex flex-col p-6 bg-slate-200/50 dark:bg-slate-800/30 rounded-2xl border border-slate-300 dark:border-slate-700/50 hover:bg-slate-200 dark:hover:bg-slate-800/60 transition-all cursor-pointer">
+<div class="flex items-center gap-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">
+<span>Docs</span>
+<span class="material-icons text-[12px]">chevron_right</span>
+<span>Governance</span>
+</div>
+<h4 class="text-xl font-bold mb-3">Model Privacy Standards</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">Our protocol for handling PII and ensuring zero-retention policies across diverse LLM providers.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1 text-xs text-slate-500">
+<span class="material-icons text-[14px]">schedule</span>
+                                    12 min read
+                                </span>
+<span class="flex items-center gap-1 text-xs text-slate-500">
+<span class="material-icons text-[14px]">history</span>
+                                    Updated 1w ago
+                                </span>
+</div>
+<span class="material-icons text-primary">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Floating Tooltip/Quick Support (optional styling touch) -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="w-14 h-14 bg-primary rounded-full flex items-center justify-center text-white shadow-xl shadow-primary/30 hover:scale-110 active:scale-95 transition-all">
+<span class="material-icons">support_agent</span>
+</button>
+</div>
+</body></html>

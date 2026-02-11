@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI - SQL Export Modal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022", // Adjusted slightly to match StudioBuilder theme logic while keeping user's preferred dark vibe
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .code-syntax-keyword { color: #c678dd; }
+        .code-syntax-type { color: #61afef; }
+        .code-syntax-string { color: #98c379; }
+        .code-syntax-comment { color: #5c6370; }
+        .code-syntax-function { color: #e5c07b; }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center p-4">
+<!-- Modal Backdrop -->
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-0"></div>
+<!-- Export Modal Container -->
+<div class="relative z-10 w-full max-w-5xl bg-[#0F172A] border border-primary/20 rounded-xl shadow-2xl overflow-hidden flex flex-col md:flex-row h-[85vh] max-h-[720px]">
+<!-- Sidebar: Dialect Selection -->
+<div class="w-full md:w-72 border-b md:border-b-0 md:border-r border-white/10 flex flex-col bg-[#0F172A]">
+<div class="p-6">
+<div class="flex items-center gap-2 mb-8">
+<div class="w-8 h-8 bg-gradient-to-br from-primary to-[#7c3aed] rounded flex items-center justify-center">
+<span class="material-icons text-white text-sm">database</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Export Schema</h2>
+</div>
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Target Dialect</p>
+<div class="space-y-3">
+<!-- PostgreSQL Option (Active) -->
+<button class="w-full text-left p-4 rounded-lg bg-primary/10 border border-primary/40 group transition-all">
+<div class="flex items-center gap-3 mb-1">
+<span class="material-icons text-primary">storage</span>
+<span class="font-bold text-sm">PostgreSQL</span>
+</div>
+<p class="text-xs text-slate-400 leading-relaxed">Standard-compliant, advanced data types and indexing.</p>
+</button>
+<!-- MySQL Option -->
+<button class="w-full text-left p-4 rounded-lg bg-white/5 border border-transparent hover:border-white/10 hover:bg-white/10 transition-all group">
+<div class="flex items-center gap-3 mb-1">
+<span class="material-icons text-slate-400 group-hover:text-slate-200">dns</span>
+<span class="font-bold text-sm text-slate-300">MySQL</span>
+</div>
+<p class="text-xs text-slate-500 leading-relaxed">High performance, wide cloud compatibility &amp; hosting.</p>
+</button>
+<!-- SQLite Option -->
+<button class="w-full text-left p-4 rounded-lg bg-white/5 border border-transparent hover:border-white/10 hover:bg-white/10 transition-all group">
+<div class="flex items-center gap-3 mb-1">
+<span class="material-icons text-slate-400 group-hover:text-slate-200">terminal</span>
+<span class="font-bold text-sm text-slate-300">SQLite</span>
+</div>
+<p class="text-xs text-slate-500 leading-relaxed">Serverless, file-based portability for local dev.</p>
+</button>
+</div>
+</div>
+<div class="mt-auto p-6 border-t border-white/10">
+<div class="flex items-center gap-2 text-slate-500">
+<span class="material-icons text-sm">folder</span>
+<span class="text-xs font-mono">studio-builder/tables/</span>
+</div>
+</div>
+</div>
+<!-- Main Content: Preview & Actions -->
+<div class="flex-1 flex flex-col min-w-0 bg-[#0c1222]">
+<!-- Header Bar -->
+<div class="h-14 border-b border-white/10 flex items-center justify-between px-6">
+<div class="flex items-center gap-4">
+<span class="text-sm font-medium text-slate-400">Preview: <span class="text-slate-200">schema_pg.sql</span></span>
+<span class="bg-primary/20 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">READ ONLY</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded transition-colors">
+<span class="material-icons text-sm">content_copy</span>
+                        Copy
+                    </button>
+<button class="md:hidden text-slate-400">
+<span class="material-icons">close</span>
+</button>
+</div>
+</div>
+<!-- Code Preview Window -->
+<div class="flex-1 overflow-auto custom-scrollbar p-6 font-mono text-sm leading-relaxed bg-[#0c1222]">
+<div class="flex">
+<!-- Line Numbers -->
+<div class="pr-6 text-right text-slate-600 select-none">
+<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div>
+</div>
+<!-- SQL Content -->
+<div class="flex-1">
+<p class="code-syntax-comment">-- StudioBuilder AI Generated Schema</p>
+<p class="code-syntax-comment">-- Dialect: PostgreSQL | Generated on: 2023-11-15</p>
+<br/>
+<p><span class="code-syntax-keyword">CREATE EXTENSION IF NOT EXISTS</span> "uuid-ossp";</p>
+<br/>
+<p><span class="code-syntax-keyword">CREATE TABLE</span> <span class="code-syntax-function">users</span> (</p>
+<p class="pl-4">id <span class="code-syntax-type">UUID PRIMARY KEY DEFAULT</span> uuid_generate_v4(),</p>
+<p class="pl-4">email <span class="code-syntax-type">VARCHAR(255) UNIQUE NOT NULL</span>,</p>
+<p class="pl-4">password_hash <span class="code-syntax-type">TEXT NOT NULL</span>,</p>
+<p class="pl-4">full_name <span class="code-syntax-type">VARCHAR(100)</span>,</p>
+<p class="pl-4">created_at <span class="code-syntax-type">TIMESTAMP WITH TIME ZONE DEFAULT</span> CURRENT_TIMESTAMP,</p>
+<p class="pl-4">updated_at <span class="code-syntax-type">TIMESTAMP WITH TIME ZONE DEFAULT</span> CURRENT_TIMESTAMP</p>
+<p>);</p>
+<br/>
+<p><span class="code-syntax-keyword">CREATE TABLE</span> <span class="code-syntax-function">projects</span> (</p>
+<p class="pl-4">id <span class="code-syntax-type">UUID PRIMARY KEY DEFAULT</span> uuid_generate_v4(),</p>
+<p class="pl-4">user_id <span class="code-syntax-type">UUID REFERENCES</span> users(id) <span class="code-syntax-keyword">ON DELETE CASCADE</span>,</p>
+<p class="pl-4">name <span class="code-syntax-type">VARCHAR(255) NOT NULL</span>,</p>
+<p class="pl-4">description <span class="code-syntax-type">TEXT</span>,</p>
+<p class="pl-4">is_public <span class="code-syntax-type">BOOLEAN DEFAULT</span> <span class="code-syntax-keyword">FALSE</span></p>
+<p>);</p>
+<br/>
+<p><span class="code-syntax-keyword">CREATE INDEX</span> idx_users_email <span class="code-syntax-keyword">ON</span> users(email);</p>
+</div>
+</div>
+</div>
+<!-- Footer Action Bar -->
+<div class="p-6 border-t border-white/10 flex items-center justify-between bg-[#0F172A]">
+<div class="hidden sm:flex items-center gap-4 text-slate-500 text-xs">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+                        Ready to export
+                    </div>
+<span>~1.2 KB</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none px-6 py-2.5 rounded-lg border border-white/10 text-slate-300 font-medium hover:bg-white/5 transition-colors text-sm">
+                        Cancel
+                    </button>
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-2 px-8 py-2.5 rounded-lg bg-gradient-to-r from-primary to-[#7c3aed] text-white font-bold hover:opacity-90 transition-opacity shadow-lg shadow-primary/20 text-sm">
+<span class="material-icons text-sm">download</span>
+                        Download .sql
+                    </button>
+</div>
+</div>
+</div>
+<!-- Close Button (Absolute) -->
+<button class="absolute top-4 right-4 text-slate-500 hover:text-white transition-colors hidden md:block">
+<span class="material-icons">close</span>
+</button>
+</div>
+</body></html>

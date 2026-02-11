@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI - Master Sidebar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b3bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0F172A", // Overriding slightly for specific requested aesthetic
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .sidebar-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .sidebar-scroll::-webkit-scrollbar-thumb {
+            background: rgba(43, 59, 238, 0.1);
+            border-radius: 10px;
+        }
+        .sidebar-scroll:hover::-webkit-scrollbar-thumb {
+            background: rgba(43, 59, 238, 0.3);
+        }
+        .neon-icon {
+            text-shadow: 0 0 8px rgba(43, 59, 238, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased h-screen overflow-hidden flex">
+<!-- SIDEBAR -->
+<aside class="w-72 h-full flex flex-col bg-white dark:bg-[#0F172A] border-r border-slate-200 dark:border-slate-800 transition-all duration-300 relative z-50">
+<!-- Header / Logo -->
+<div class="px-6 py-8 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-icons-round text-white text-xl">Auto_fix_high</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">StudioBuilder <span class="text-primary">AI</span></h1>
+</div>
+</div>
+<!-- Search Trigger -->
+<div class="px-4 mb-6">
+<button class="w-full flex items-center justify-between px-3 py-2 bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-500 dark:text-slate-400 text-sm hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-icons-round text-lg">search</span>
+<span>Search modules...</span>
+</div>
+<span class="text-[10px] font-semibold bg-slate-200 dark:bg-slate-700 px-1.5 py-0.5 rounded">⌘K</span>
+</button>
+</div>
+<!-- Navigation Scroll Area -->
+<div class="flex-1 overflow-y-auto sidebar-scroll px-3 space-y-8 pb-10">
+<!-- CORE Section -->
+<section>
+<h3 class="px-4 mb-2 text-[11px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Core</h3>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg bg-primary/10 text-primary border-l-2 border-primary group transition-all" href="#">
+<span class="material-icons-round text-xl neon-icon">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary transition-all group" href="#">
+<span class="material-icons-round text-xl group-hover:text-primary transition-colors">chat_bubble_outline</span>
+<span class="text-sm font-medium">Planning Chat</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 mt-2 rounded-lg bg-primary text-white shadow-md shadow-primary/20 hover:bg-primary/90 transition-all" href="#">
+<span class="material-icons-round text-xl">add_box</span>
+<span class="text-sm font-medium">Create New App</span>
+</a>
+</nav>
+</section>
+<!-- WORKSPACE Section -->
+<section>
+<h3 class="px-4 mb-2 text-[11px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Workspace</h3>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary transition-all group" href="#">
+<span class="material-icons-round text-xl group-hover:text-primary transition-colors">auto_awesome_mosaic</span>
+<span class="text-sm font-medium">Visual Editor</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary transition-all group" href="#">
+<span class="material-icons-round text-xl group-hover:text-primary transition-colors">terminal</span>
+<span class="text-sm font-medium">AI Code IDE</span>
+<span class="ml-auto text-[9px] bg-primary/20 text-primary px-1.5 py-0.5 rounded uppercase font-bold">Beta</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary transition-all group" href="#">
+<span class="material-icons-round text-xl group-hover:text-primary transition-colors">folder_copy</span>
+<span class="text-sm font-medium">Assets Manager</span>
+</a>
+</nav>
+</section>
+<!-- ENGINEERING Section -->
+<section>
+<h3 class="px-4 mb-2 text-[11px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Engineering</h3>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary transition-all group" href="#">
+<span class="material-icons-round text-xl group-hover:text-primary transition-colors">schema</span>
+<span class="text-sm font-medium">DB Modeling</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary transition-all group" href="#">
+<span class="material-icons-round text-xl group-hover:text-primary transition-colors">cloud_upload</span>
+<span class="text-sm font-medium">DevOps &amp; Deploy</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary transition-all group" href="#">
+<span class="material-icons-round text-xl group-hover:text-primary transition-colors">data_exploration</span>
+<span class="text-sm font-medium">System Logs</span>
+</a>
+</nav>
+</section>
+<!-- BUSINESS Section -->
+<section>
+<h3 class="px-4 mb-2 text-[11px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Business</h3>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary transition-all group" href="#">
+<span class="material-icons-round text-xl group-hover:text-primary transition-colors">view_kanban</span>
+<span class="text-sm font-medium">CRM Pipeline</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary transition-all group" href="#">
+<span class="material-icons-round text-xl group-hover:text-primary transition-colors">gavel</span>
+<span class="text-sm font-medium">Proposals &amp; Contracts</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary transition-all group" href="#">
+<span class="material-icons-round text-xl group-hover:text-primary transition-colors">payments</span>
+<span class="text-sm font-medium">Financial Reports</span>
+</a>
+</nav>
+</section>
+<!-- TEAM Section -->
+<section>
+<h3 class="px-4 mb-2 text-[11px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Team</h3>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary transition-all group" href="#">
+<span class="material-icons-round text-xl group-hover:text-primary transition-colors">school</span>
+<span class="text-sm font-medium">Team Training</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary transition-all group" href="#">
+<span class="material-icons-round text-xl group-hover:text-primary transition-colors">admin_panel_settings</span>
+<span class="text-sm font-medium">Permissions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary transition-all group" href="#">
+<span class="material-icons-round text-xl group-hover:text-primary transition-colors">forum</span>
+<span class="text-sm font-medium">Internal Chat</span>
+</a>
+</nav>
+</section>
+<!-- SETTINGS Section -->
+<section>
+<h3 class="px-4 mb-2 text-[11px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Settings</h3>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary transition-all group" href="#">
+<span class="material-icons-round text-xl group-hover:text-primary transition-colors">settings</span>
+<span class="text-sm font-medium">General</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary transition-all group" href="#">
+<span class="material-icons-round text-xl group-hover:text-primary transition-colors">vpn_key</span>
+<span class="text-sm font-medium">API Keys</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-primary transition-all group" href="#">
+<span class="material-icons-round text-xl group-hover:text-primary transition-colors">credit_card</span>
+<span class="text-sm font-medium">Billing</span>
+</a>
+</nav>
+</section>
+</div>
+<!-- Footer / User Profile -->
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<button class="w-full flex items-center gap-3 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all text-left">
+<div class="relative">
+<img alt="User profile" class="w-10 h-10 rounded-lg object-cover" data-alt="Professional man headshot in dark suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0-Vy4E8ncYSnHl5B_TEXP_Yh_NBOBt6FM-LqpwccL5pCOHDohqDstlnJCMCG3PShYIfuRL3p8IfkEhuoA8caFSzIVm7MWIuHyXHKsYIu7qxjziaEbjncGeGMBVqiZMtWw0MBtNJCfwLiyYZwbsadQd9JsFrznZYKHwRYhQJrxYVJ15QdjdEuFzeU5OTYikbuJMj4h5l9fQ2VpwWrrt6PsO4Y-ARWYkGOG7I0CECqhrFjX1gZsvGDSwwt2oeCE6g6ElPt9C7BqHoE"/>
+<div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-white dark:border-[#0F172A] rounded-full"></div>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold text-slate-900 dark:text-white truncate">Alex Sterling</p>
+<p class="text-[11px] text-slate-500 dark:text-slate-400 truncate">Enterprise Studio</p>
+</div>
+<span class="material-icons-round text-slate-400">unfold_more</span>
+</button>
+</div>
+</aside>
+<!-- MAIN CONTENT PLACEHOLDER -->
+<main class="flex-1 flex flex-col bg-background-light dark:bg-slate-950 overflow-hidden">
+<!-- Top Nav Header -->
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 bg-white/50 dark:bg-[#0F172A]/50 backdrop-blur-md">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-colors">
+<span class="material-icons-round">menu_open</span>
+</button>
+<div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+<span>Workspace</span>
+<span class="material-icons-round text-xs">chevron_right</span>
+<span class="text-slate-900 dark:text-white font-medium">Dashboard Overview</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-round text-slate-600 dark:text-slate-400">notifications</span>
+</button>
+<div class="h-6 w-px bg-slate-200 dark:border-slate-800"></div>
+<button class="flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-lg font-medium text-sm hover:bg-primary/20 transition-all">
+<span class="material-icons-round text-sm">bolt</span>
+                    Upgrade
+                </button>
+</div>
+</header>
+<!-- Viewport Content Area -->
+<div class="flex-1 p-8 overflow-y-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="bg-white dark:bg-[#0F172A] p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-blue-500/10 rounded-lg">
+<span class="material-icons-round text-blue-500">rocket_launch</span>
+</div>
+<span class="text-xs font-bold text-green-500">+12%</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Active Projects</p>
+<h2 class="text-2xl font-bold dark:text-white mt-1">24</h2>
+</div>
+<div class="bg-white dark:bg-[#0F172A] p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-purple-500/10 rounded-lg">
+<span class="material-icons-round text-purple-500">memory</span>
+</div>
+<span class="text-xs font-bold text-green-500">+2.4k</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">AI Tokens Used</p>
+<h2 class="text-2xl font-bold dark:text-white mt-1">842.1k</h2>
+</div>
+<div class="bg-white dark:bg-[#0F172A] p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-amber-500/10 rounded-lg">
+<span class="material-icons-round text-amber-500">group</span>
+</div>
+<span class="text-xs font-bold text-slate-400">Stable</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Team Efficiency</p>
+<h2 class="text-2xl font-bold dark:text-white mt-1">94%</h2>
+</div>
+</div>
+<!-- Dashboard Visual Placeholder -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="bg-white dark:bg-[#0F172A] border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm h-80 relative flex items-center justify-center">
+<div class="absolute inset-0 opacity-10 dark:opacity-20 pointer-events-none">
+<div class="absolute inset-0 bg-gradient-to-br from-primary to-transparent"></div>
+</div>
+<div class="text-center">
+<span class="material-icons-round text-4xl text-slate-300 dark:text-slate-700 mb-2">bar_chart</span>
+<p class="text-slate-400 text-sm">Project Analytics Visualization</p>
+</div>
+</div>
+<div class="bg-white dark:bg-[#0F172A] border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm h-80 p-6">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white mb-4">Recent System Logs</h4>
+<div class="space-y-4">
+<div class="flex items-start gap-3 pb-3 border-b border-slate-100 dark:border-slate-800">
+<div class="w-1.5 h-1.5 rounded-full bg-green-500 mt-2"></div>
+<div>
+<p class="text-xs font-medium dark:text-slate-200">Deployment successful: app-production-v2</p>
+<p class="text-[10px] text-slate-500">2 minutes ago</p>
+</div>
+</div>
+<div class="flex items-start gap-3 pb-3 border-b border-slate-100 dark:border-slate-800">
+<div class="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
+<div>
+<p class="text-xs font-medium dark:text-slate-200">AI Logic Optimizer updated system triggers</p>
+<p class="text-[10px] text-slate-500">14 minutes ago</p>
+</div>
+</div>
+<div class="flex items-start gap-3 pb-3 border-b border-slate-100 dark:border-slate-800">
+<div class="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2"></div>
+<div>
+<p class="text-xs font-medium dark:text-slate-200">API Key "Stripe_Prod" expiring in 3 days</p>
+<p class="text-[10px] text-slate-500">1 hour ago</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI | Role-Based Permission Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0F172A",
+                        "surface-dark": "#1E293B",
+                        "border-dark": "#334155"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #2b6cee;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #2b6cee;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<!-- Top Navigation Bar -->
+<header class="border-b border-slate-200 dark:border-border-dark bg-white dark:bg-background-dark/50 backdrop-blur-md sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-icons-round text-white text-xl">auto_awesome</span>
+</div>
+<span class="text-xl font-bold tracking-tight">StudioBuilder <span class="text-primary">AI</span></span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-1 text-sm font-medium text-slate-500 dark:text-slate-400">
+<span class="material-icons-round text-sm">history</span>
+<span>Last edited 2m ago by Admin</span>
+</div>
+<div class="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                    AD
+                </div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-8">
+<div class="flex flex-col gap-8">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<nav class="flex mb-2 text-sm text-slate-500 dark:text-slate-400 gap-2">
+<span>Settings</span>
+<span>/</span>
+<span class="text-primary">Governance</span>
+</nav>
+<h1 class="text-3xl font-bold">Permissions Management</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-1 max-w-2xl">Configure granular access controls for your collaborative engineering workspace. Changes apply immediately to all assigned members.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white transition-colors">
+                        Discard Changes
+                    </button>
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg font-medium shadow-lg shadow-primary/20 flex items-center gap-2 transition-all">
+<span class="material-icons-round text-sm">save</span>
+                        Save Role Settings
+                    </button>
+</div>
+</div>
+<!-- Role Selector Tabs -->
+<div class="flex flex-wrap gap-2 border-b border-slate-200 dark:border-border-dark p-1">
+<button class="px-6 py-3 border-b-2 border-primary text-primary bg-primary/10 flex items-center gap-2 font-semibold transition-all">
+<span class="material-icons-round text-xl">admin_panel_settings</span>
+                    Manager
+                </button>
+<button class="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-300 flex items-center gap-2 font-medium transition-all">
+<span class="material-icons-round text-xl">terminal</span>
+                    Developer
+                </button>
+<button class="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-300 flex items-center gap-2 font-medium transition-all">
+<span class="material-icons-round text-xl">palette</span>
+                    Designer
+                </button>
+<button class="px-6 py-3 border-b-2 border-transparent text-slate-500 hover:text-slate-300 flex items-center gap-2 font-medium transition-all ml-auto">
+<span class="material-icons-round text-xl">add</span>
+                    Create Custom Role
+                </button>
+</div>
+<!-- Role Summary Card -->
+<div class="bg-white dark:bg-surface-dark rounded-xl p-6 border border-slate-200 dark:border-border-dark flex flex-col md:flex-row gap-6 items-start md:items-center">
+<div class="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-icons-round text-3xl">verified_user</span>
+</div>
+<div class="flex-1">
+<h2 class="text-xl font-bold mb-1">Manager Role</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                        Managers possess administrative oversight. By default, they have authority to manage billing, approve legal contracts, and oversee the CRM pipeline in addition to core engineering functions.
+                    </p>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface-dark object-cover" data-alt="User avatar of an active manager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcToWI0PYKH0qvPIQLZU-e9Ke9lqICgz5L9AQ0tLWMB0hOe3X7xQ0mdk6qbP2gk-bjZTGB-Qzh6wQI_aK4WrQMUm6yS2joUfuUgjXD69KaK75wcl20NkkqPtpj-nkPg5hOqpLYfL23KKDrFMOUoGnCKqsikCONRdxlvZb71erl1tqqx7SpNAi2KpWVuNf1FPgG0_obYR_tVk5Oc1Fov_OlD4uoFWCkwsVtEmsLvyiY9r8Mg-Deu8GBZ8Gaz-iXesD1tdQIlOwM250"/>
+<img class="w-8 h-8 rounded-full border-2 border-surface-dark object-cover" data-alt="User avatar of another manager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYtTbwPj4ooaG4Yv-GJKDOpjVGAZZOrHSRtidO7Mz-a1m9NGQSDeSRdtGbGpH3C2o30O9c8r3UJ7gNJ1ng-fAQsQ0N5dccy6hXlyvcUYw14hl0wewDFcw1zzoiCGmk_NJuNIaTOuYllg-38-nwVokR3lpJXGl-S-TFKygHX-8rVlH-EBSovg8aF3BAeZtasirraLOrxR6ht87_9RUGNBC8CP53kk-UdWXFFI4WACQQeiGjL7Lo-FiPDdM7h7qhW44H9mNnVCBx1vI"/>
+<div class="w-8 h-8 rounded-full bg-slate-700 border-2 border-surface-dark flex items-center justify-center text-[10px] font-bold">+12</div>
+</div>
+<span class="text-xs text-slate-500">14 users assigned</span>
+</div>
+</div>
+<!-- Search and Matrix Container -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-border-dark overflow-hidden">
+<div class="p-4 border-b border-slate-200 dark:border-border-dark flex items-center gap-4 bg-slate-50 dark:bg-slate-900/50">
+<div class="relative flex-1">
+<span class="material-icons-round absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-lg">search</span>
+<input class="w-full bg-white dark:bg-background-dark border border-slate-200 dark:border-border-dark rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-primary focus:border-primary" placeholder="Search modules or specific permissions..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-2 text-xs font-semibold bg-slate-200 dark:bg-slate-800 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">Reset to Defaults</button>
+</div>
+</div>
+<!-- Matrix Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-border-dark">
+<th class="px-6 py-4 font-semibold">Functional Module</th>
+<th class="px-6 py-4 font-semibold">Description</th>
+<th class="px-6 py-4 font-semibold">Status</th>
+<th class="px-6 py-4 font-semibold text-right">Access</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-border-dark">
+<!-- Row 1: AI Generation -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded bg-indigo-500/10 text-indigo-400">
+<span class="material-icons-round text-xl">psychology</span>
+</div>
+<span class="font-bold">AI Generation</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-slate-500 dark:text-slate-400">
+                                    Access to LLM prompts, model selection, and fine-tuning parameters.
+                                </td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-500/10 text-green-500">
+<span class="w-1 h-1 rounded-full bg-green-500 mr-1.5"></span>
+                                        Active
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- Row 2: Code Editing -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded bg-amber-500/10 text-amber-400">
+<span class="material-icons-round text-xl">code</span>
+</div>
+<span class="font-bold">Code Editing</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-slate-500 dark:text-slate-400">
+                                    Modify source code, manage branches, and initiate pull requests.
+                                </td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-500/10 text-green-500">
+<span class="w-1 h-1 rounded-full bg-green-500 mr-1.5"></span>
+                                        Active
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- Row 3: Database Access -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded bg-emerald-500/10 text-emerald-400">
+<span class="material-icons-round text-xl">storage</span>
+</div>
+<span class="font-bold">Database Access</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-slate-500 dark:text-slate-400">
+                                    Direct access to querying, schema migrations, and backup tools.
+                                </td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-primary/10 text-primary">
+<span class="w-1 h-1 rounded-full bg-primary mr-1.5"></span>
+                                        Custom
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- Row 4: Billing -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded bg-pink-500/10 text-pink-400">
+<span class="material-icons-round text-xl">payments</span>
+</div>
+<span class="font-bold">Billing</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-slate-500 dark:text-slate-400">
+                                    Manage subscription plans, payment methods, and invoices.
+                                </td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-500/10 text-green-500">
+<span class="w-1 h-1 rounded-full bg-green-500 mr-1.5"></span>
+                                        Active
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- Row 5: CRM Pipeline -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded bg-sky-500/10 text-sky-400">
+<span class="material-icons-round text-xl">hub</span>
+</div>
+<span class="font-bold">CRM Pipeline</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-slate-500 dark:text-slate-400">
+                                    View and manage client leads, communication history, and deals.
+                                </td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-amber-500/10 text-amber-500">
+<span class="w-1 h-1 rounded-full bg-amber-500 mr-1.5"></span>
+                                        Restricted
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- Row 6: Contract Signing -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded bg-purple-500/10 text-purple-400">
+<span class="material-icons-round text-xl">draw</span>
+</div>
+<span class="font-bold">Contract Signing</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-slate-500 dark:text-slate-400">
+                                    Execute legal documents and digital signatures on behalf of StudioBuilder.
+                                </td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-500/10 text-slate-500">
+<span class="w-1 h-1 rounded-full bg-slate-500 mr-1.5"></span>
+                                        Disabled
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200 dark:border-border-dark flex justify-between items-center">
+<p class="text-xs text-slate-500 font-medium">Showing 6 of 6 available modules</p>
+<div class="flex gap-2">
+<button class="text-slate-400 hover:text-white transition-colors">
+<span class="material-icons-round">chevron_left</span>
+</button>
+<button class="text-slate-400 hover:text-white transition-colors">
+<span class="material-icons-round">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Warning Callout -->
+<div class="bg-amber-500/5 border border-amber-500/20 rounded-xl p-4 flex gap-4 items-center">
+<span class="material-icons-round text-amber-500">warning</span>
+<p class="text-sm text-amber-200/80">
+<span class="font-bold text-amber-500">Caution:</span> Modifying these permissions will log all sessions out and require users to re-authenticate to apply changes. 
+                </p>
+</div>
+</div>
+</main>
+<!-- Global Action Bar (Sticky Footer) -->
+<footer class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-background-dark/80 backdrop-blur-lg border-t border-slate-200 dark:border-border-dark py-4 px-6 z-40">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="hidden sm:flex items-center gap-4">
+<div class="flex items-center gap-2 text-sm text-slate-500">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    Pending unsaved changes for 'Manager'
+                </div>
+</div>
+<div class="flex gap-4 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none px-6 py-2.5 rounded-lg border border-slate-200 dark:border-border-dark hover:bg-slate-100 dark:hover:bg-slate-800 font-medium transition-all">
+                    Cancel
+                </button>
+<button class="flex-1 sm:flex-none px-8 py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-white font-bold shadow-xl shadow-primary/20 transition-all">
+                    Save Role Settings
+                </button>
+</div>
+</div>
+</footer>
+<!-- Spacer for Sticky Footer -->
+<div class="h-24"></div>
+</body></html>

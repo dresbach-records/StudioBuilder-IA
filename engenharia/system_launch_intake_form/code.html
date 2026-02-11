@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Launch My System | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(19, 16, 34, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(75, 43, 238, 0.2);
+        }
+        .node-network {
+            background: radial-gradient(circle at 50% 50%, rgba(75, 43, 238, 0.1) 0%, transparent 70%);
+        }
+        .gradient-button {
+            background: linear-gradient(135deg, #4b2bee 0%, #8a2be2 100%);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .gradient-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(75, 43, 238, 0.4);
+        }
+        .chip-active {
+            background: rgba(75, 43, 238, 0.15);
+            border-color: #4b2bee;
+            box-shadow: 0 0 10px rgba(75, 43, 238, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen overflow-x-hidden flex flex-col">
+<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+<div class="node-network absolute inset-0"></div>
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[150px]"></div>
+<div class="absolute inset-0 opacity-20">
+<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="grid" patternunits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(75, 43, 238, 0.2)" stroke-width="0.5"></path>
+</pattern>
+</defs>
+<rect fill="url(#grid)" height="100%" width="100%"></rect>
+</svg>
+</div>
+</div>
+<header class="relative z-10 w-full px-8 py-6 flex justify-between items-center">
+<div class="flex items-center space-x-2">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white">architecture</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">StudioBuilder <span class="text-primary">AI</span></span>
+</div>
+<div class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="hover:text-primary transition-colors" href="#">Architecture</a>
+<a class="hover:text-primary transition-colors" href="#">Pricing</a>
+</div>
+</header>
+<main class="relative z-10 flex-grow flex items-center justify-center px-4 py-12">
+<div class="max-w-4xl w-full">
+<div class="text-center mb-10">
+<h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">Launch My System</h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg max-w-xl mx-auto">Translate your architectural vision into a production-ready engineering foundation.</p>
+</div>
+<div class="glass-panel rounded-xl shadow-2xl overflow-hidden border border-slate-200 dark:border-primary/20">
+<div class="w-full h-1 bg-slate-200 dark:bg-slate-800 flex">
+<div class="w-1/2 h-full bg-primary shadow-[0_0_10px_#4b2bee]"></div>
+<div class="w-1/2 h-full opacity-30"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12">
+<div class="lg:col-span-4 p-8 bg-slate-50/50 dark:bg-white/5 border-b lg:border-b-0 lg:border-r border-slate-200 dark:border-white/5">
+<div class="space-y-8">
+<div class="flex items-start space-x-4">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold">1</div>
+<div>
+<h3 class="font-semibold text-slate-900 dark:text-white">The Vision</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Define the core identity and purpose of your system.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4 opacity-50">
+<div class="w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 text-xs font-bold">2</div>
+<div>
+<h3 class="font-semibold text-slate-900 dark:text-white">Technical Scope</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Specify platforms and required integrations.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4 opacity-50">
+<div class="w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 text-xs font-bold">3</div>
+<div>
+<h3 class="font-semibold text-slate-900 dark:text-white">Registration</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Secure your workspace and invite your team.</p>
+</div>
+</div>
+</div>
+<div class="mt-12 p-4 rounded-lg bg-primary/5 border border-primary/10">
+<div class="flex items-center space-x-2 text-primary mb-2">
+<span class="material-icons text-sm">bolt</span>
+<span class="text-xs font-bold uppercase tracking-wider">Pro Tip</span>
+</div>
+<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Use technical keywords to help our AI architect suggest the most efficient stack for your specific scale.
+                            </p>
+</div>
+</div>
+<div class="lg:col-span-8 p-8 md:p-12">
+<form class="space-y-8">
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" for="project-name">Project Name</label>
+<input class="w-full bg-white dark:bg-slate-900/50 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="project-name" placeholder="e.g., Nexus Protocol" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" for="purpose">Core Purpose &amp; System Logic</label>
+<textarea class="w-full bg-white dark:bg-slate-900/50 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none resize-none font-mono text-sm" id="purpose" placeholder="Describe the core logic, user flow, and technical goals in detail..." rows="6"></textarea>
+</div>
+</div>
+<div class="space-y-6 pt-6 border-t border-slate-200 dark:border-slate-800">
+<div>
+<h4 class="text-sm font-semibold text-slate-900 dark:text-white mb-4 uppercase tracking-widest opacity-70">Step 2 Preview: Technical Scope</h4>
+<div class="space-y-4">
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Target Platforms</p>
+<div class="flex flex-wrap gap-3">
+<button class="chip-active flex items-center space-x-2 px-4 py-2 rounded-full border border-primary text-sm font-medium text-primary bg-primary/10 transition-all" type="button">
+<span class="material-icons text-sm">language</span>
+<span>Web App</span>
+</button>
+<button class="flex items-center space-x-2 px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-400 hover:border-primary transition-all" type="button">
+<span class="material-icons text-sm">smartphone</span>
+<span>Mobile (iOS/Android)</span>
+</button>
+<button class="flex items-center space-x-2 px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-400 hover:border-primary transition-all" type="button">
+<span class="material-icons text-sm">desktop_windows</span>
+<span>Desktop Client</span>
+</button>
+</div>
+</div>
+<div class="space-y-4 mt-6">
+<p class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Critical Integrations</p>
+<div class="flex flex-wrap gap-3">
+<button class="flex items-center space-x-2 px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-400 hover:border-primary transition-all" type="button">
+<span class="material-icons text-sm">payments</span>
+<span>Payments</span>
+</button>
+<button class="chip-active flex items-center space-x-2 px-4 py-2 rounded-full border border-primary text-sm font-medium text-primary bg-primary/10 transition-all" type="button">
+<span class="material-icons text-sm">fingerprint</span>
+<span>Auth / SSO</span>
+</button>
+<button class="chip-active flex items-center space-x-2 px-4 py-2 rounded-full border border-primary text-sm font-medium text-primary bg-primary/10 transition-all" type="button">
+<span class="material-icons text-sm">storage</span>
+<span>Database</span>
+</button>
+<button class="flex items-center space-x-2 px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-400 hover:border-primary transition-all" type="button">
+<span class="material-icons text-sm">psychology</span>
+<span>AI / ML Models</span>
+</button>
+<button class="flex items-center space-x-2 px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-400 hover:border-primary transition-all" type="button">
+<span class="material-icons text-sm">analytics</span>
+<span>Analytics</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center space-x-2 text-slate-500 dark:text-slate-400">
+<span class="material-icons text-sm">lock</span>
+<span class="text-xs">End-to-end encrypted technical brief</span>
+</div>
+<button class="gradient-button w-full md:w-auto px-8 py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center space-x-3 group" type="submit">
+<span>Continue to Registration</span>
+<span class="material-icons group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col items-center text-center px-4">
+<div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4">
+<span class="material-icons text-primary">auto_awesome</span>
+</div>
+<h5 class="font-semibold text-slate-900 dark:text-white mb-2">Automated Scaffolding</h5>
+<p class="text-sm text-slate-500 dark:text-slate-400">Instantly generate clean, type-safe architecture based on your vision.</p>
+</div>
+<div class="flex flex-col items-center text-center px-4">
+<div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4">
+<span class="material-icons text-primary">security</span>
+</div>
+<h5 class="font-semibold text-slate-900 dark:text-white mb-2">Compliance Ready</h5>
+<p class="text-sm text-slate-500 dark:text-slate-400">SOC2 and GDPR standards baked into every integration from day one.</p>
+</div>
+<div class="flex flex-col items-center text-center px-4">
+<div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4">
+<span class="material-icons text-primary">groups</span>
+</div>
+<h5 class="font-semibold text-slate-900 dark:text-white mb-2">Team Collaborative</h5>
+<p class="text-sm text-slate-500 dark:text-slate-400">Multi-user workspace for real-time architectural review and feedback.</p>
+</div>
+</div>
+</div>
+</main>
+<footer class="relative z-10 w-full px-8 py-8 border-t border-slate-200 dark:border-slate-800 mt-auto">
+<div class="max-w-6xl mx-auto flex flex-col md:row justify-between items-center text-slate-500 dark:text-slate-400 text-sm">
+<p>© 2024 StudioBuilder AI. Engineered for Excellence.</p>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<a class="hover:text-primary" href="#">Privacy</a>
+<a class="hover:text-primary" href="#">Terms</a>
+<a class="hover:text-primary" href="#">Security</a>
+</div>
+</div>
+</footer>
+</body></html>

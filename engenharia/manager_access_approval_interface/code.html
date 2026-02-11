@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manager Access Approval Interface | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .glass-effect {
+            background: rgba(16, 22, 34, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(43, 108, 238, 0.2);
+        }
+        .request-card:hover {
+            border-color: rgba(43, 108, 238, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full w-64 border-r border-primary/10 bg-background-light dark:bg-background-dark/50 hidden lg:flex flex-col">
+<div class="p-6 border-b border-primary/10">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-icons text-white text-lg">Auto_awesome</span>
+</div>
+<span class="font-bold text-xl tracking-tight">StudioBuilder <span class="text-primary">AI</span></span>
+</div>
+</div>
+<nav class="flex-1 p-4 space-y-2">
+<a class="flex items-center gap-3 p-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-primary/10 transition-colors" href="#">
+<span class="material-icons text-xl">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg bg-primary/10 text-primary font-medium" href="#">
+<span class="material-icons text-xl">verified_user</span>
+<span>Access Requests</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-primary/10 transition-colors" href="#">
+<span class="material-icons text-xl">account_tree</span>
+<span>Projects</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-primary/10 transition-colors" href="#">
+<span class="material-icons text-xl">analytics</span>
+<span>Governance Audit</span>
+</a>
+</nav>
+<div class="p-4 border-t border-primary/10">
+<div class="flex items-center gap-3 p-2 bg-primary/5 rounded-xl">
+<img alt="Manager Profile" class="w-10 h-10 rounded-lg object-cover" data-alt="Manager profile photo in professional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRbHgbcGnpO2nuEp8VPCYjErXxRaXV7UQ1c61bpJI8Rok3V1zgoUrFEuVoJ8cjACbelqfFwJXM3M2BwI45OugStELi4rYqcUbZlblYsVTvIvNYd6CqKL5PoLjkN6XfVv9rd8NvRe7nhtY3OpAvEpyc4laQH93wUNee4p9L2ZnCwn7r6NzcU5aJbZX-ELXzLVVZvRzektr_wDmq-jC95pm72OXu1HDrdAGDuEscDmAqgKJ-WtW5lHjwGsUfrr5V5HufLdGvacrOesA"/>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate">Director Marcus</p>
+<p class="text-xs text-slate-500">Security Lead</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="lg:ml-64 p-8">
+<!-- Header -->
+<header class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h1 class="text-3xl font-bold mb-1">Governance Control</h1>
+<p class="text-slate-500">Review and manage permission escalations across your engineering teams.</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-green-500/10 text-green-500 rounded-full text-xs font-semibold">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    SYSTEM SYNCED
+                </div>
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all shadow-lg shadow-primary/20">
+                    Export Audit Logs
+                </button>
+</div>
+</header>
+<!-- Stats Overview -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<div class="bg-background-light dark:bg-background-dark/40 border border-primary/10 p-6 rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-icons text-primary">pending_actions</span>
+</div>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Pending</span>
+</div>
+<div class="text-3xl font-bold">03</div>
+<p class="text-sm text-slate-500 mt-1">Requests awaiting review</p>
+</div>
+<div class="bg-background-light dark:bg-background-dark/40 border border-primary/10 p-6 rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-green-500/10 rounded-lg">
+<span class="material-icons text-green-500">check_circle</span>
+</div>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Approved Today</span>
+</div>
+<div class="text-3xl font-bold">12</div>
+<p class="text-sm text-slate-500 mt-1">+4 from yesterday</p>
+</div>
+<div class="bg-background-light dark:bg-background-dark/40 border border-primary/10 p-6 rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-red-500/10 rounded-lg">
+<span class="material-icons text-red-500">block</span>
+</div>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Denied</span>
+</div>
+<div class="text-3xl font-bold">01</div>
+<p class="text-sm text-slate-500 mt-1">Compliance violations flagged</p>
+</div>
+</div>
+<!-- Request Center -->
+<section class="space-y-6">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-xl font-bold flex items-center gap-2">
+<span class="material-icons text-primary">list</span>
+                    Access Requests Center
+                </h2>
+<div class="flex items-center gap-2">
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">search</span>
+<input class="pl-9 pr-4 py-2 bg-background-light dark:bg-background-dark/80 border border-primary/20 rounded-lg text-sm focus:ring-primary focus:border-primary w-64" placeholder="Search users or projects..." type="text"/>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 border border-primary/20 rounded-lg text-sm hover:bg-primary/5 transition-colors">
+<span class="material-icons text-sm">filter_list</span>
+                        Filter
+                    </button>
+</div>
+</div>
+<!-- Focused Request Entry (The Highlighted Action) -->
+<div class="request-card bg-background-light dark:bg-background-dark/80 border border-primary/30 rounded-xl overflow-hidden transition-all shadow-xl shadow-primary/5">
+<div class="p-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Requester Info -->
+<div class="lg:col-span-3 flex gap-4">
+<img alt="Alex's avatar" class="w-14 h-14 rounded-xl object-cover ring-2 ring-primary/20 ring-offset-2 ring-offset-background-dark" data-alt="Professional portrait of a young male software developer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOALu4sHTEOP0m3fLA2hbU599xecwtNUHYhsHVwoqLxfG3MPBaMwMuMht_q8OfB9Mr8LJA9vJ_cyyOAK_Ko6jM5IUkrH2FvIUbynrXUmf_OQZZZ2s_6lpdVsljakpn_Xv4CNM_n2KLEkN3bapdzZOkP_PZqwkEhqcMqwvJeixkpKpIOr7KAsrDGK-bwC_FLPb9PiyA6YT5TYwdVfCG0TjhP70I4e53oBwozJyOI66t8Zx3SjMp4l_FdPgdj1L3BraIMU9RLa0d8gg"/>
+<div class="flex-1">
+<h3 class="font-bold text-lg">Dev.Alex</h3>
+<p class="text-primary text-sm font-medium">Senior Developer</p>
+<div class="flex items-center gap-1 mt-2 text-[10px] font-bold text-slate-500 tracking-tighter uppercase">
+<span class="material-icons text-[10px]">schedule</span>
+                                2 MINUTES AGO
+                            </div>
+</div>
+</div>
+<!-- Request Details -->
+<div class="lg:col-span-5 space-y-4">
+<div>
+<span class="text-xs font-bold text-slate-500 uppercase">Resource Requested</span>
+<div class="flex items-center gap-3 mt-1.5">
+<div class="px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-lg flex items-center gap-2">
+<span class="material-icons text-primary text-sm">code</span>
+<span class="text-sm font-semibold">Code Export</span>
+</div>
+<span class="material-icons text-slate-600">arrow_forward</span>
+<div class="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 border border-slate-700 rounded-lg flex items-center gap-2">
+<span class="material-icons text-slate-400 text-sm">store</span>
+<span class="text-sm font-semibold">MarketStore Project</span>
+</div>
+</div>
+</div>
+<div class="bg-primary/5 p-4 rounded-xl border border-primary/10">
+<span class="text-xs font-bold text-primary/70 uppercase">Justification</span>
+<p class="text-sm mt-2 text-slate-400 leading-relaxed italic">
+                                "Need to audit the production build for the Q3 release candidate to ensure all CI/CD compliance markers are met before the final deployment window."
+                            </p>
+</div>
+</div>
+<!-- Actions -->
+<div class="lg:col-span-4 flex flex-col justify-center gap-3 h-full pt-4 lg:pt-0">
+<div class="flex items-center gap-4 mb-2">
+<button class="flex-1 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-lg font-bold transition-all shadow-lg shadow-emerald-900/20 active:scale-95">
+<span class="material-icons">check</span>
+                                APPROVE
+                            </button>
+<button class="flex-1 flex items-center justify-center gap-2 bg-rose-600/10 hover:bg-rose-600/20 text-rose-500 border border-rose-600/30 py-3 rounded-lg font-bold transition-all active:scale-95">
+<span class="material-icons">close</span>
+                                DENY
+                            </button>
+</div>
+<div class="text-[11px] text-center text-slate-500">
+<span class="material-icons text-[11px] align-middle">info</span>
+                            Action will be logged to <strong>audit_log_v2.csv</strong>
+</div>
+</div>
+</div>
+</div>
+<!-- Other Requests List -->
+<div class="bg-background-light dark:bg-background-dark/40 border border-primary/10 rounded-xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead class="bg-primary/5">
+<tr>
+<th class="p-4 text-xs font-bold text-slate-500 uppercase tracking-widest">User</th>
+<th class="p-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Resource</th>
+<th class="p-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Duration</th>
+<th class="p-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Status</th>
+<th class="p-4 text-xs font-bold text-slate-500 uppercase tracking-widest text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/5">
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-orange-500/20 text-orange-500 flex items-center justify-center font-bold text-xs">SL</div>
+<div>
+<div class="font-bold text-sm">Sarah.Lee</div>
+<div class="text-[10px] text-slate-500">Junior Analyst</div>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="text-sm font-medium">Database Read Access</div>
+<div class="text-xs text-slate-500">UserAuth-Cluster</div>
+</td>
+<td class="p-4 text-sm font-medium">24 Hours</td>
+<td class="p-4">
+<span class="px-2 py-1 rounded bg-yellow-500/10 text-yellow-500 text-[10px] font-bold">PENDING</span>
+</td>
+<td class="p-4 text-right">
+<button class="text-slate-500 hover:text-primary p-1"><span class="material-icons text-lg">visibility</span></button>
+<button class="text-slate-500 hover:text-emerald-500 p-1 ml-2"><span class="material-icons text-lg">check</span></button>
+</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-500 flex items-center justify-center font-bold text-xs">KM</div>
+<div>
+<div class="font-bold text-sm">Kevin.M</div>
+<div class="text-[10px] text-slate-500">DevOps Lead</div>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="text-sm font-medium">K8s Cluster Root</div>
+<div class="text-xs text-slate-500">Internal-Infra</div>
+</td>
+<td class="p-4 text-sm font-medium">Permanent</td>
+<td class="p-4">
+<span class="px-2 py-1 rounded bg-green-500/10 text-green-500 text-[10px] font-bold">APPROVED</span>
+</td>
+<td class="p-4 text-right">
+<span class="text-xs text-slate-500 italic">Review complete</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<!-- Floating Toast Notification (Simulating Instant Alert) -->
+<div class="fixed top-8 right-8 w-96 glass-effect p-5 rounded-2xl shadow-2xl z-50 animate-in fade-in slide-in-from-right-10 duration-500">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 relative flex-shrink-0">
+<img alt="Notification Avatar" class="w-full h-full rounded-xl object-cover" data-alt="Portrait of Alex for small notification" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx5ZFl29PYJW40RbXMWlyVOsvhZ6HVBl5zYugV4qtPvFbjKSMGmP92vKIsYft_sSko7yhe3YEczHuITlBPqInXhJ9iLmTQvlS2DtOYssSYIi43pDoEFNdMSusJgqH3LTHgaOOCjLToqQQN2qFhf63Eo5jgiQkNEWqXSGDll88us4sDKVrYsdi_p9BunZfkCIHhXL8O3eJy2CF9aYCzTERDODSkmD_crBaT5WFuBjuRisOzBp5tXJoSpmTxURkYbNFeN0t6J4CH0-o"/>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-primary border-2 border-background-dark rounded-full flex items-center justify-center">
+<span class="material-icons text-[10px] text-white">bolt</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-sm">New Access Request</h4>
+<span class="text-[10px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded">URGENT</span>
+</div>
+<p class="text-sm text-slate-300 mt-1">
+<span class="font-semibold text-white">Dev.Alex</span> requested <span class="text-primary">Code Export</span> for <span class="font-semibold text-white">MarketStore</span>
+</p>
+<div class="flex gap-2 mt-4">
+<button class="flex-1 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold transition-all shadow-md">
+                        Approve
+                    </button>
+<button class="flex-1 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-bold border border-slate-700 transition-all">
+                        Ignore
+                    </button>
+</div>
+</div>
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-icons text-sm">close</span>
+</button>
+</div>
+</div>
+<!-- Status Bar (Bottom) -->
+<div class="fixed bottom-0 left-0 lg:left-64 right-0 bg-background-light dark:bg-background-dark/90 border-t border-primary/10 px-6 py-2 flex items-center justify-between z-40 backdrop-blur-md">
+<div class="flex items-center gap-4 text-[10px] font-bold text-slate-500 tracking-widest uppercase">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                API Connected
+            </div>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                Cloud Sync: Active
+            </div>
+</div>
+<div class="text-[10px] text-slate-500">
+            Node: us-east-production-04 | v2.4.1-stable
+        </div>
+</div>
+</body></html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Generated Project Action Plan | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2560e9",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glow-primary {
+            box-shadow: 0 0 15px -3px rgba(37, 96, 233, 0.4);
+        }
+        .glow-progress {
+            box-shadow: 0 0 10px rgba(37, 96, 233, 0.6);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card:hover {
+            border-color: rgba(37, 96, 233, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 min-h-screen font-display">
+<!-- Sidebar / Navigation Simulation -->
+<div class="flex h-screen overflow-hidden">
+<aside class="w-20 lg:w-64 border-r border-primary/10 bg-background-light dark:bg-background-dark flex flex-col items-center py-8">
+<div class="mb-10 px-4 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-icons">bolt</span>
+</div>
+<span class="hidden lg:block font-bold text-xl tracking-tight text-slate-900 dark:text-white">StudioBuilder<span class="text-primary">AI</span></span>
+</div>
+<nav class="flex-1 w-full space-y-2 px-3">
+<a class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-primary/5 rounded-lg transition-colors" href="#">
+<span class="material-icons">dashboard</span>
+<span class="hidden lg:block font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 bg-primary/10 text-primary rounded-lg transition-colors" href="#">
+<span class="material-icons">assignment</span>
+<span class="hidden lg:block font-medium">Action Plan</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-primary/5 rounded-lg transition-colors" href="#">
+<span class="material-icons">layers</span>
+<span class="hidden lg:block font-medium">Assets</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-primary/5 rounded-lg transition-colors" href="#">
+<span class="material-icons">settings</span>
+<span class="hidden lg:block font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-4 w-full">
+<div class="p-4 rounded-xl bg-primary/5 border border-primary/20 hidden lg:block">
+<p class="text-xs text-primary font-bold uppercase tracking-wider mb-2">Usage</p>
+<div class="w-full bg-slate-200 dark:bg-slate-800 h-1 rounded-full mb-2">
+<div class="bg-primary h-full w-3/4 rounded-full"></div>
+</div>
+<p class="text-[10px] text-slate-500">75% of compute credits used</p>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto bg-slate-50/50 dark:bg-background-dark">
+<header class="h-20 border-b border-primary/10 flex items-center justify-between px-8 bg-background-light dark:bg-background-dark sticky top-0 z-10">
+<div>
+<div class="flex items-center gap-2 text-xs text-slate-500 uppercase tracking-widest font-semibold mb-1">
+<span>Projects</span>
+<span class="material-icons text-[12px]">chevron_right</span>
+<span>Quantum SaaS Platform</span>
+</div>
+<h1 class="text-2xl font-bold text-slate-900 dark:text-white">AI Project Action Plan</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 bg-emerald-500/10 text-emerald-500 px-3 py-1.5 rounded-full border border-emerald-500/20 text-sm font-medium">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+</span>
+                        Ready for Execution
+                    </div>
+<button class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-icons text-slate-600 dark:text-slate-300">notifications</span>
+</button>
+<img class="w-10 h-10 rounded-full border-2 border-primary" data-alt="User profile picture showing a male face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkcpMYj3odBlv6BRCSbOj6RC6B0GMfiEuiXrXQ3lf6glLLnZ21XpFb8hVGZyCnXDMNyIdZvirmMD1cFMOg9A92A6RuqeFo7058ztfZ74VDFxnsD4TDj6dgeI83DkxaZio8q_ZCoY7m-nVyI5f8GtAlB1guCCJKPuD_o9xw2suv_XVRTZUpSkOsF-Q1EjZD1G2YSUyZpcxWKWPnFVgzI4MQANeNSyBr-xLrbJUu6tWmm73i3CEsUPkFN7fthJe_6Ar9gMTMOaZNWpI"/>
+</div>
+</header>
+<div class="p-8 max-w-7xl mx-auto">
+<!-- Welcome Section -->
+<div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                            StudioBuilder AI has processed your project briefing. We've coordinated <span class="text-primary font-bold">4 Collaborative Agents</span> to blueprint your execution strategy across all key domains.
+                        </p>
+</div>
+<div class="flex items-center gap-6 px-6 py-4 glass-card rounded-xl">
+<div class="text-center">
+<p class="text-2xl font-bold text-slate-900 dark:text-white">24</p>
+<p class="text-[10px] uppercase font-bold text-slate-500">Modules</p>
+</div>
+<div class="h-10 w-px bg-primary/20"></div>
+<div class="text-center">
+<p class="text-2xl font-bold text-slate-900 dark:text-white">128</p>
+<p class="text-[10px] uppercase font-bold text-slate-500">Functions</p>
+</div>
+<div class="h-10 w-px bg-primary/20"></div>
+<div class="text-center">
+<p class="text-2xl font-bold text-slate-900 dark:text-white">12s</p>
+<p class="text-[10px] uppercase font-bold text-slate-500">Est. Build</p>
+</div>
+</div>
+</div>
+<!-- Action Plan Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-32">
+<!-- Phase 1: Visual Identity -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-icons text-7xl text-primary">palette</span>
+</div>
+<div class="flex items-start justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
+<span class="material-icons">brush</span>
+</div>
+<div>
+<h3 class="font-bold text-lg">Visual Identity</h3>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-tighter">Phase 01 / Design System</p>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-slate-800/50 px-2 py-1 rounded-full border border-white/5">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="AI Agent avatar profile showing a professional face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR76DIDz5YPFPZNaKj6xhfcyuyIBPg5lZsslpJZlWjIFvKEdPrSpJXeSkFjwoi3oPzjZx01gfrZf02FHzgQpuiWsCuZLudY4NB1ezEx-bvq_Q7JH3fonKzu8Bp9VUUpPH3sMxgVbdvXrixaGNMt2OSYoDUfVE05xJRyRYLQ4qKVx65mMNoJEN6u-OhyyzeWtZaqM5mk8-Q77ObFhIz--XOE0s_20hKmZjugOd2ejClA7eq4rftG7fuK6C3nMls9Q2V9wM1dj3o6I0"/>
+<span class="text-[10px] font-bold text-slate-300">Designer AI</span>
+</div>
+</div>
+<ul class="space-y-4 mb-6">
+<li class="flex items-center justify-between group/item">
+<div class="flex items-center gap-3">
+<span class="material-icons text-emerald-500 text-sm">check_circle</span>
+<span class="text-sm font-medium">Color Palette Generation</span>
+</div>
+<span class="text-[10px] text-slate-500 font-mono">DONE</span>
+</li>
+<li class="flex items-center justify-between group/item">
+<div class="flex items-center gap-3">
+<span class="material-icons text-emerald-500 text-sm">check_circle</span>
+<span class="text-sm font-medium">Typography Scales (Tailwind)</span>
+</div>
+<span class="text-[10px] text-slate-500 font-mono">DONE</span>
+</li>
+<li class="flex items-center justify-between group/item">
+<div class="flex items-center gap-3">
+<span class="material-icons text-primary text-sm animate-pulse">hourglass_empty</span>
+<span class="text-sm font-medium">Component Moodboard</span>
+</div>
+<span class="text-[10px] text-primary font-mono">90%</span>
+</li>
+</ul>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase mb-1">
+<span class="text-slate-500 tracking-wider">Ready for deployment</span>
+<span class="text-primary">94%</span>
+</div>
+<div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full glow-progress" style="width: 94%"></div>
+</div>
+</div>
+</div>
+<!-- Phase 2: Architecture -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-icons text-7xl text-primary">lan</span>
+</div>
+<div class="flex items-start justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
+<span class="material-icons">architecture</span>
+</div>
+<div>
+<h3 class="font-bold text-lg">Architecture</h3>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-tighter">Phase 02 / Next.js Setup</p>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-slate-800/50 px-2 py-1 rounded-full border border-white/5">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="AI Agent avatar profile showing a professional face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj8QdbuuQHKcEgclm18btNgG-WfAGzm8dQwY6pBQjzsQimcfZvbpGln_RghdgR-z7mEzqS_vW_uGCh-tXQykbiwQMUFIdlSGK3eDQ_m53O5aQJRU8oVxYD2gMUqnOouIWq1r9XbE6e-HYw1B2FqDgzdenLAJLWGIW1mGofu7_zCwnnPdhD9a7ij7WF3VY6oFNAEHUm1WdC334nP3WwYtbZdWqMaWmlAou6HX32Y9pCC4BZU7zI44vJDPk84-t9jeBqrQ2p_QOtjVo"/>
+<span class="text-[10px] font-bold text-slate-300">Architect AI</span>
+</div>
+</div>
+<ul class="space-y-4 mb-6">
+<li class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-icons text-emerald-500 text-sm">check_circle</span>
+<span class="text-sm font-medium">App Router Structure (Next.js 14)</span>
+</div>
+<span class="text-[10px] text-slate-500 font-mono">DONE</span>
+</li>
+<li class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-icons text-emerald-500 text-sm">check_circle</span>
+<span class="text-sm font-medium">API Route Mapping</span>
+</div>
+<span class="text-[10px] text-slate-500 font-mono">DONE</span>
+</li>
+<li class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-icons text-emerald-500 text-sm">check_circle</span>
+<span class="text-sm font-medium">Middleware &amp; Auth Guard Logic</span>
+</div>
+<span class="text-[10px] text-slate-500 font-mono">DONE</span>
+</li>
+</ul>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase mb-1">
+<span class="text-slate-500 tracking-wider">Ready for deployment</span>
+<span class="text-primary">100%</span>
+</div>
+<div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full glow-progress" style="width: 100%"></div>
+</div>
+</div>
+</div>
+<!-- Phase 3: Database -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-icons text-7xl text-primary">storage</span>
+</div>
+<div class="flex items-start justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
+<span class="material-icons">dns</span>
+</div>
+<div>
+<h3 class="font-bold text-lg">Database</h3>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-tighter">Phase 03 / Data Modeling</p>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-slate-800/50 px-2 py-1 rounded-full border border-white/5">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="AI Agent avatar profile showing a professional face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhDm7cQzn8Fl_87XWfNGSyq_mJWfqhEWSdJmGL9k2vJbOCCxdf2PmmHhzvsXZBEnDn0GgK31MKhcKEy2PhhHqq0ssfySGtsZMWrzAX4ie4AVcV93GO6wQz6WBfraxG5pqt69l8UGuj2BARR1hF_RbKrP-7vJRD6FTZ2RyjTPw-ONzdpHn7G6WibGIrs7tYZ2RTqYj_bvq3OhVp34WHWfRsD3GDEhgdK-DsdWQPZWrWpZjZmiQt9qKeaC2d4bDX3neg-mqfl6Y-PQs"/>
+<span class="text-[10px] font-bold text-slate-300">Engineer AI</span>
+</div>
+</div>
+<ul class="space-y-4 mb-6">
+<li class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-icons text-emerald-500 text-sm">check_circle</span>
+<span class="text-sm font-medium">Entity-Relationship Mapping</span>
+</div>
+<span class="text-[10px] text-slate-500 font-mono">DONE</span>
+</li>
+<li class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-icons text-primary text-sm animate-pulse">hourglass_empty</span>
+<span class="text-sm font-medium">Prisma Schema Generation</span>
+</div>
+<span class="text-[10px] text-primary font-mono">45%</span>
+</li>
+<li class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-icons text-slate-600 text-sm">radio_button_unchecked</span>
+<span class="text-sm font-medium text-slate-500 italic">Database Migration Scripts</span>
+</div>
+<span class="text-[10px] text-slate-600 font-mono">QUEUED</span>
+</li>
+</ul>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase mb-1">
+<span class="text-slate-500 tracking-wider">Ready for deployment</span>
+<span class="text-primary">45%</span>
+</div>
+<div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full glow-progress" style="width: 45%"></div>
+</div>
+</div>
+</div>
+<!-- Phase 4: Business -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-icons text-7xl text-primary">description</span>
+</div>
+<div class="flex items-start justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
+<span class="material-icons">business_center</span>
+</div>
+<div>
+<h3 class="font-bold text-lg">Business</h3>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-tighter">Phase 04 / Strategy &amp; Legal</p>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-slate-800/50 px-2 py-1 rounded-full border border-white/5">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="AI Agent avatar profile showing a professional face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDxQtm6IQlu-ZfoWGJUVQNGyY7KYS5JS8eKB-5o21d70tcdpb5K_qBbGB6kjmhht_UXqrWSupovL4rqK3zR-Ztg6-u-y7_J1T3A9Y90beD9El4cyCoSmQ_jsTB--Dh85SNv_L8r7BEpxiDIXfkPPO4_mhdxD-nF73huGmnKHnpjeBxYC0cJ1XTM2z58lhHSf2kjog5-nwexZYOK2-rKs_nSE_unCTrfqIdDsFHILiQV4g-1ivdW7azOukxyBelAkcBoPmCAktltpE"/>
+<span class="text-[10px] font-bold text-slate-300">Business Lead AI</span>
+</div>
+</div>
+<ul class="space-y-4 mb-6">
+<li class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-icons text-emerald-500 text-sm">check_circle</span>
+<span class="text-sm font-medium">Project Proposal Document</span>
+</div>
+<span class="text-[10px] text-slate-500 font-mono">DONE</span>
+</li>
+<li class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-icons text-emerald-500 text-sm">check_circle</span>
+<span class="text-sm font-medium">Terms of Service Framework</span>
+</div>
+<span class="text-[10px] text-slate-500 font-mono">DONE</span>
+</li>
+<li class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-icons text-emerald-500 text-sm">check_circle</span>
+<span class="text-sm font-medium">Privacy Policy Skeleton</span>
+</div>
+<span class="text-[10px] text-slate-500 font-mono">DONE</span>
+</li>
+</ul>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase mb-1">
+<span class="text-slate-500 tracking-wider">Ready for deployment</span>
+<span class="text-primary">100%</span>
+</div>
+<div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full glow-progress" style="width: 100%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Launch Action -->
+<div class="fixed bottom-0 left-20 lg:left-64 right-0 p-8 flex justify-center bg-gradient-to-t from-background-dark via-background-dark/95 to-transparent pt-12">
+<div class="bg-slate-900/80 backdrop-blur-xl border border-primary/30 p-2 rounded-2xl flex items-center gap-6 pr-6 glow-primary">
+<button class="bg-primary hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 transition-all transform hover:scale-[1.02] active:scale-[0.98]">
+<span class="material-icons">rocket_launch</span>
+                        LAUNCH PROJECT EXECUTION
+                    </button>
+<div class="hidden sm:flex flex-col">
+<span class="text-xs font-bold text-slate-300 uppercase">Universal Trigger</span>
+<span class="text-[10px] text-slate-500 tracking-tight">Triggers simultaneous multi-agent generation</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Map background placeholder simulation -->
+<div class="hidden" data-location="San Francisco" style=""></div>
+</body></html>

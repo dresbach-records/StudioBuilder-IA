@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI | Technical Project Inquiry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b4bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101322",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-btn {
+            background: linear-gradient(135deg, #2b4bee 0%, #7c3aed 100%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-display">
+<!-- Navigation -->
+<nav class="border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-icons text-white text-sm">architecture</span>
+</div>
+<span class="font-bold text-xl tracking-tight">StudioBuilder<span class="text-primary">AI</span></span>
+</div>
+<div class="hidden md:flex space-x-8 text-sm font-medium text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Services</a>
+<a class="hover:text-primary transition-colors" href="#">Case Studies</a>
+<a class="hover:text-primary transition-colors" href="#">Process</a>
+<a class="text-primary border-b-2 border-primary pb-1" href="#">Inquiry</a>
+</div>
+</nav>
+<main class="flex-grow flex items-center justify-center p-6 md:p-12 lg:p-20">
+<div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Column: Information -->
+<div class="lg:col-span-5 space-y-8">
+<div>
+<span class="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase rounded mb-4 border border-primary/20">
+                        Consultation Phase
+                    </span>
+<h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                        Engineering the <span class="text-primary">Future</span> of Enterprise Systems.
+                    </h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg">
+                        Our technical consultation process is designed for high-stakes software development. We dive deep into your architecture, identifying bottlenecks before they exist.
+                    </p>
+</div>
+<div class="space-y-6">
+<div class="flex items-start space-x-4">
+<div class="w-10 h-10 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center flex-shrink-0">
+<span class="material-icons text-primary">schedule</span>
+</div>
+<div>
+<h4 class="font-semibold text-slate-900 dark:text-white">Rapid Response</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Initial technical assessment within 24 business hours.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-10 h-10 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center flex-shrink-0">
+<span class="material-icons text-primary">security</span>
+</div>
+<div>
+<h4 class="font-semibold text-slate-900 dark:text-white">Secure Handling</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">All inquiries and briefs are protected by standard mutual NDAs.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-10 h-10 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center flex-shrink-0">
+<span class="material-icons text-primary">code</span>
+</div>
+<div>
+<h4 class="font-semibold text-slate-900 dark:text-white">Direct Access</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Talk directly to Principal Systems Architects, not sales reps.</p>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-200 dark:border-slate-800">
+<p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Core Competencies</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-[10px] font-bold">RUST / GO</span>
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-[10px] font-bold">KUBERNETES</span>
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-[10px] font-bold">REACT / NEXT.JS</span>
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-[10px] font-bold">TERRAFORM</span>
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-[10px] font-bold">OPEN AI API</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Inquiry Form -->
+<div class="lg:col-span-7">
+<div class="glass-panel p-8 md:p-10 rounded-xl shadow-2xl">
+<h2 class="text-2xl font-bold mb-8">Project Inquiry</h2>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Name -->
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-400" for="name">Full Name</label>
+<input class="w-full bg-slate-900/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" id="name" name="name" placeholder="John Doe" type="text"/>
+</div>
+<!-- Email -->
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-400" for="email">Company Email</label>
+<input class="w-full bg-slate-900/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" id="email" name="email" placeholder="john@company.com" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Project Type -->
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-400" for="project_type">Project Type</label>
+<select class="w-full bg-slate-900/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all appearance-none cursor-pointer" id="project_type" name="project_type">
+<option value="">Select Project Type</option>
+<option value="custom_software">Custom Software Development</option>
+<option value="architecture">System Architecture Design</option>
+<option value="cloud_migration">Cloud Migration &amp; Scaling</option>
+<option value="ai_integration">AI/ML Implementation</option>
+<option value="security_audit">Infrastructure Security Audit</option>
+</select>
+</div>
+<!-- Budget Range -->
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-400" for="budget">Estimated Budget</label>
+<select class="w-full bg-slate-900/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all appearance-none cursor-pointer" id="budget" name="budget">
+<option value="">Select Range</option>
+<option value="25k-50k">$25,000 - $50,000</option>
+<option value="50k-100k">$50,000 - $100,000</option>
+<option value="100k-250k">$100,000 - $250,000</option>
+<option value="250k+">$250,000+</option>
+</select>
+</div>
+</div>
+<!-- Project Description -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="text-sm font-medium text-slate-400" for="description">Project Description</label>
+<span class="text-[10px] text-slate-500">Max 2000 characters</span>
+</div>
+<textarea class="w-full bg-slate-900/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none" id="description" name="description" placeholder="Tell us about the technical challenges, goals, and desired outcomes of your project..." rows="5"></textarea>
+</div>
+<!-- File Upload -->
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-400">Technical Specifications / Brief</label>
+<div class="border-2 border-dashed border-slate-700 rounded-xl p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:border-primary/50 hover:bg-primary/5 transition-all group">
+<div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-icons text-slate-500 group-hover:text-primary">upload_file</span>
+</div>
+<p class="text-sm text-slate-300 font-medium">Click to upload or drag and drop</p>
+<p class="text-xs text-slate-500 mt-1">PDF, DOCX or ZIP (max. 10MB)</p>
+<input class="hidden" type="file"/>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="pt-4">
+<button class="gradient-btn w-full py-4 px-6 rounded-lg text-white font-bold text-lg hover:shadow-[0_0_20px_rgba(43,75,238,0.4)] transition-all flex items-center justify-center space-x-2 active:scale-[0.98]" type="submit">
+<span>Request Consultation</span>
+<span class="material-icons text-lg">arrow_forward</span>
+</button>
+<p class="text-center text-xs text-slate-500 mt-4 flex items-center justify-center space-x-1">
+<span class="material-icons text-xs">lock</span>
+<span>Encrypted 256-bit SSL connection</span>
+</p>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+<footer class="border-t border-slate-200 dark:border-slate-800 p-8 text-center">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-xs text-slate-500 font-medium uppercase tracking-widest">
+<div class="flex space-x-8">
+<span>© 2024 StudioBuilder AI</span>
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Security Disclosure</a>
+</div>
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>All Systems Operational</span>
+</div>
+<div class="flex items-center space-x-4">
+<a class="hover:text-primary" href="#"><i class="material-icons text-sm">terminal</i></a>
+<a class="hover:text-primary" href="#"><i class="material-icons text-sm">hub</i></a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

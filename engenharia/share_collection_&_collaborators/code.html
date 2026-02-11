@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Share Collection - StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b4bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101322",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex items-center justify-center p-4">
+<!-- Modal Overlay Backdrop (Visual Mockup) -->
+<div class="fixed inset-0 bg-black/40 backdrop-blur-sm z-0"></div>
+<!-- Share Modal Container -->
+<div class="relative z-10 w-full max-w-xl bg-white dark:bg-[#1a1d2e] rounded-xl shadow-2xl border border-primary/10 overflow-hidden">
+<!-- Modal Header -->
+<div class="px-6 py-4 flex items-center justify-between border-b border-primary/5">
+<div>
+<h2 class="text-lg font-bold text-gray-900 dark:text-white">Share "Modern SaaS Landing"</h2>
+<p class="text-sm text-gray-500 dark:text-gray-400">Manage access and collaboration settings</p>
+</div>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-400 transition-colors">
+<span class="material-icons text-xl leading-none">close</span>
+</button>
+</div>
+<!-- Tab Navigation -->
+<div class="px-6 mt-4">
+<div class="flex space-x-1 p-1 bg-primary/5 dark:bg-primary/10 rounded-lg">
+<button class="flex-1 py-2 text-sm font-medium rounded-md bg-white dark:bg-primary shadow-sm text-primary dark:text-white">
+                    Invite by Email
+                </button>
+<button class="flex-1 py-2 text-sm font-medium rounded-md text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors">
+                    Public Link
+                </button>
+</div>
+</div>
+<!-- Tab Content: Invite by Email -->
+<div class="p-6 space-y-6">
+<div class="space-y-4">
+<label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500">Add collaborators</label>
+<div class="flex flex-col md:flex-row gap-3">
+<div class="flex-grow relative">
+<div class="flex flex-wrap items-center gap-2 p-2 min-h-[44px] border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800/50 focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary transition-all">
+<!-- Tag Mockup -->
+<div class="flex items-center gap-1.5 px-2 py-1 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary rounded text-xs font-medium">
+                                sarah@design.io
+                                <span class="material-icons text-[14px] cursor-pointer">close</span>
+</div>
+<input class="flex-grow min-w-[120px] bg-transparent border-none focus:ring-0 text-sm py-1 placeholder:text-gray-400 dark:text-white" placeholder="Enter emails..." type="text"/>
+</div>
+</div>
+<div class="w-full md:w-32">
+<select class="w-full h-[44px] bg-white dark:bg-gray-800/50 border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-200 focus:ring-primary focus:border-primary">
+<option>Viewer</option>
+<option selected="">Editor</option>
+<option>Admin</option>
+</select>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg font-semibold text-sm transition-all shadow-lg shadow-primary/20 shrink-0">
+                        Invite
+                    </button>
+</div>
+</div>
+<!-- Divider -->
+<div class="h-px bg-gray-100 dark:bg-gray-800 w-full"></div>
+<!-- Public Link Mockup (Hidden/Disabled State Visual) -->
+<div class="hidden">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-icons text-primary text-xl">link</span>
+<span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Public Access</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex gap-2">
+<input class="flex-grow bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-500 py-2 px-3" readonly="" type="text" value="https://studiobuilder.ai/share/k8s2-9j1n-4l0p"/>
+<button class="flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-3 rounded-lg hover:bg-gray-200 transition-colors">
+<span class="material-icons text-lg">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Collaborators List -->
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500">Manage Access (3)</label>
+</div>
+<div class="space-y-3">
+<!-- Owner -->
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/20 border-2 border-primary/30 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Profile photo of the project owner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNsilWTnb3JSZA86Qm0KdSzCuzaAZyF_lyePBcU8wgtJCWMQeN_Fue9ZdGY93fPVCtwuossAy1tSOWDECeuvgkDuzWHJnVpIkBr1bqM1YRhnUzEzZKA6AlU8pPJW0BBep_5JsdAOJ2FUG_Sfll_FNQb_2hZdi45sox0zERchc6cIpLHghUc7Ht8aBl5cmcHpItzwgAXAZHNJtS9Siy0IBNJkqzf7gMxn4mvxCtp1ReTaaSNfIdHXHlct9_TOzq_y4Gc89MXq8IA1A"/>
+</div>
+<div>
+<h4 class="text-sm font-semibold text-gray-900 dark:text-white flex items-center gap-1.5">
+                                    Marcus Thorne
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-500 rounded uppercase font-bold tracking-tight">You</span>
+</h4>
+<p class="text-xs text-gray-500">marcus@studiobuilder.ai</p>
+</div>
+</div>
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500 px-3 py-1">Owner</span>
+</div>
+<!-- Collaborator 1 -->
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-blue-500/20 border-2 border-transparent flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Profile photo of an editor collaborator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs-ZuMF1bDmGbOSuCFPz0PWXRCsuHQ9NW-IxMyfBP8Y236MUvAUWLDGpr4joJwnZXBvdZTXPyPgjszXGhpUHB-xAF5QR9I_gOwVV0X0kdmMIT2bBoMD1byH8GT07UMKl7l_X1_iMZ8jxeoRs5WPHVNhll4HkrKtrlSdypsJukrqESoAhErj-e4dZNmBmw7hsdxHp73nBaqXSFwV88BnISf3Kb-CRSR-6IxIYSoDV5xlL57BZ4nJh2CO98WEd9TJrYFrIajkxEn7Mo"/>
+</div>
+<div>
+<h4 class="text-sm font-semibold text-gray-900 dark:text-white">Elena Rodriguez</h4>
+<p class="text-xs text-gray-500">elena.r@agency.com</p>
+</div>
+</div>
+<select class="bg-transparent border-none text-xs font-medium text-gray-600 dark:text-gray-400 focus:ring-0 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 rounded px-2 py-1">
+<option>Viewer</option>
+<option selected="">Editor</option>
+<option class="text-red-500">Remove</option>
+</select>
+</div>
+<!-- Collaborator 2 -->
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-emerald-500/20 border-2 border-transparent flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Profile photo of a viewer collaborator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtoAC5mJRP14iI9hts8YTx2vZBzZaL99Gd-OfKWvLWxFRRt8Y7ricYHETE3T-m7OMAHm_GM5BEWujxDaPpKvqrppjxsstrghEuL5aJibnx2pNxjKAznHxmfuD8ms6YUTYpnQMxGXUXskmuFSDi-aafBZ9KdSy9wlrtWJwUrc02rOsjuf8e-PuWRgIZyptmXQeLtiYsPx1oIegT89ELc_xWmziJQ2GSEWCbEEg9LnnPGVTDnhCdYmvdmXiQcdSXKSxL2tCHFynZ4m8"/>
+</div>
+<div>
+<h4 class="text-sm font-semibold text-gray-900 dark:text-white">David Chen</h4>
+<p class="text-xs text-gray-500">david@startup.io</p>
+</div>
+</div>
+<select class="bg-transparent border-none text-xs font-medium text-gray-600 dark:text-gray-400 focus:ring-0 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 rounded px-2 py-1">
+<option selected="">Viewer</option>
+<option>Editor</option>
+<option class="text-red-500">Remove</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="px-6 py-4 bg-gray-50 dark:bg-gray-800/30 flex items-center justify-between border-t border-primary/5">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-icons text-sm">security</span>
+<span class="text-[11px] font-medium uppercase tracking-wider">Enterprise Security Enabled</span>
+</div>
+<button class="text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                Done
+            </button>
+</div>
+</div>
+<!-- UI Background Elements (Workspace Mockup) -->
+<div class="fixed inset-0 pointer-events-none opacity-20 dark:opacity-40">
+<div class="absolute top-10 left-10 w-64 h-48 bg-gray-200 dark:bg-gray-800 rounded-lg"></div>
+<div class="absolute top-10 right-10 w-96 h-96 bg-gray-200 dark:bg-gray-800 rounded-lg"></div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 w-[80%] h-32 bg-gray-200 dark:bg-gray-800 rounded-lg"></div>
+</div>
+</body></html>

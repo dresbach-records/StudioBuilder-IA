@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Firebase Studio Integration Settings | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2560e9",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex">
+<!-- Navigation Sidebar -->
+<aside class="w-64 bg-background-dark text-slate-300 flex-shrink-0 flex flex-col border-r border-slate-800">
+<div class="p-6 flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-icons-round text-white text-lg">auto_awesome</span>
+</div>
+<span class="text-xl font-bold text-white tracking-tight">StudioBuilder</span>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 transition-colors" href="#">
+<span class="material-icons-round text-xl">dashboard</span>
+<span class="font-medium">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 transition-colors" href="#">
+<span class="material-icons-round text-xl">edit_note</span>
+<span class="font-medium">AI Editor</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 transition-colors" href="#">
+<span class="material-icons-round text-xl">folder</span>
+<span class="font-medium">Projects</span>
+</a>
+<div class="pt-4 pb-2">
+<p class="px-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">System</p>
+</div>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary" href="#">
+<span class="material-icons-round text-xl">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-800 transition-colors" href="#">
+<span class="material-icons-round text-xl">cloud_queue</span>
+<span class="font-medium">Integrations</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-800">
+<div class="flex items-center gap-3 px-3 py-2">
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-slate-700" data-alt="Professional user profile avatar photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtvv0bXXrWbbFvMsSdc2W4ogOhfZBWzoPVTpBsIcz9n5PW6F4hI3gBitfff9xBT2RFReCLh-qvzfpM2PuzJwBYC0x3dx48sEZ6v6TxO6zGrY8BvZ2YOANSR-Qs7Y8wvYDMc9IcJkYeqXgaRFhbLsKkhGBl9bHorpZvDX8ij-MCjpbYPJK8wEs7FdJYtg6vNA7NrKkKnskG-8Vy1Zoe8Mpm6CdufcP8xlejax78cgY_v4Q3BskSFSi9g8sf6x-AE4G0z6u4H5XNhFQ"/>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-white truncate">Alex Johnson</p>
+<p class="text-xs text-slate-500 truncate">Pro Account</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto">
+<!-- Header -->
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark/50 flex items-center justify-between px-8 sticky top-0 z-10 backdrop-blur-sm">
+<div class="flex items-center gap-2 text-sm text-slate-500">
+<span>Settings</span>
+<span class="material-icons-round text-sm">chevron_right</span>
+<span class="text-slate-900 dark:text-white font-medium">Firebase Studio</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-icons-round">notifications</span>
+</button>
+<div class="h-6 w-px bg-slate-200 dark:bg-slate-800"></div>
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all shadow-sm shadow-primary/20">
+                    Save Changes
+                </button>
+</div>
+</header>
+<div class="max-w-4xl mx-auto p-8 space-y-8">
+<!-- Page Title & Status -->
+<div class="flex items-end justify-between">
+<div class="space-y-1">
+<h1 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        Firebase Studio Integration
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">Beta</span>
+</h1>
+<p class="text-slate-500">Connect your Firebase project to enable real-time database sync and automated hosting deployments.</p>
+</div>
+<div class="flex flex-col items-end gap-2">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-50 dark:bg-red-500/10 border border-red-100 dark:border-red-500/20">
+<span class="flex h-2 w-2 rounded-full bg-red-500"></span>
+<span class="text-xs font-medium text-red-600 dark:text-red-400">Not Connected</span>
+</div>
+<button class="text-xs text-primary font-medium hover:underline">View documentation</button>
+</div>
+</div>
+<!-- Configuration Form -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="md:col-span-2 space-y-6">
+<!-- Credentials Card -->
+<div class="bg-white dark:bg-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<h2 class="text-lg font-semibold mb-4 flex items-center gap-2">
+<span class="material-icons-round text-primary">vpn_key</span>
+                            Connection Credentials
+                        </h2>
+<div class="space-y-5">
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                                    Firebase Project ID
+                                    <span class="material-icons-round text-xs text-slate-400 cursor-help" title="Find this in Project Settings &gt; General">info</span>
+</label>
+<input class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary transition-all px-4 py-2.5" placeholder="studio-builder-project-id" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                                    Web API Key
+                                    <span class="material-icons-round text-xs text-slate-400 cursor-help" title="Find this in Project Settings &gt; General">info</span>
+</label>
+<input class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary transition-all px-4 py-2.5" type="password" value="AIzaSyB3pX8K7-YV4tL-Example"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1.5">
+                                    Auth Domain
+                                </label>
+<input class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary transition-all px-4 py-2.5" placeholder="project-name.firebaseapp.com" type="text"/>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<p class="text-xs text-slate-400 italic">Sensitive data is encrypted before storage.</p>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-primary text-primary font-medium hover:bg-primary/5 transition-colors">
+<span class="material-icons-round text-sm">sync</span>
+                                Test Connection
+                            </button>
+</div>
+</div>
+<!-- Sync Options Card -->
+<div class="bg-white dark:bg-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<h3 class="text-lg font-semibold text-slate-900 dark:text-white">Auto-sync changes</h3>
+<p class="text-sm text-slate-500 max-w-sm">Automatically push layout and component changes to Firebase Hosting on every save.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<!-- Service Selection -->
+<div class="bg-white dark:bg-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<h2 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">Integrated Services</h2>
+<div class="space-y-4">
+<div class="group relative flex items-center gap-3 p-3 rounded-xl border border-primary bg-primary/5 hover:bg-primary/10 transition-all cursor-pointer">
+<div class="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 flex items-center justify-center text-primary border border-primary/20">
+<span class="material-icons-round">storage</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-semibold text-slate-900 dark:text-white">Cloud Firestore</p>
+<p class="text-xs text-slate-500">NoSQL Database</p>
+</div>
+<span class="material-icons-round text-primary">check_circle</span>
+</div>
+<div class="group relative flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all cursor-pointer">
+<div class="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 flex items-center justify-center text-slate-400 border border-slate-200 dark:border-slate-700">
+<span class="material-icons-round">cloud_upload</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-semibold text-slate-900 dark:text-white">Firebase Hosting</p>
+<p class="text-xs text-slate-500">Web Assets &amp; CDNs</p>
+</div>
+<div class="w-5 h-5 border-2 border-slate-200 dark:border-slate-700 rounded-full"></div>
+</div>
+<div class="group relative flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all cursor-pointer">
+<div class="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 flex items-center justify-center text-slate-400 border border-slate-200 dark:border-slate-700">
+<span class="material-icons-round">folder_shared</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-semibold text-slate-900 dark:text-white">Firebase Storage</p>
+<p class="text-xs text-slate-500">Static Binary Files</p>
+</div>
+<div class="w-5 h-5 border-2 border-slate-200 dark:border-slate-700 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Setup Help Card -->
+<div class="bg-primary/5 p-5 rounded-xl border border-primary/10">
+<h4 class="text-sm font-semibold text-primary mb-2 flex items-center gap-2">
+<span class="material-icons-round text-lg">lightbulb</span>
+                            Need help?
+                        </h4>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+                            To find your Firebase credentials, navigate to your Project Settings in the Firebase Console and scroll to "Your Apps".
+                        </p>
+<a class="text-sm font-medium text-primary hover:underline flex items-center gap-1" href="#">
+                            Go to Firebase Console
+                            <span class="material-icons-round text-xs">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Footer Action Bar -->
+<div class="pt-6 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+<button class="text-sm font-medium text-red-500 hover:text-red-600 flex items-center gap-2">
+<span class="material-icons-round text-lg">delete_outline</span>
+                    Disconnect Firebase Project
+                </button>
+<div class="flex items-center gap-3">
+<button class="px-5 py-2.5 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                        Cancel
+                    </button>
+<button class="px-6 py-2.5 rounded-lg bg-primary text-white text-sm font-semibold hover:bg-primary/90 shadow-lg shadow-primary/25 transition-all">
+                        Save and Synchronize
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI - New Project Wizard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "primary-dark": "#3a21c1",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .gradient-button {
+            background: linear-gradient(135deg, #4b2bee 0%, #7e22ce 100%);
+        }
+        .step-active {
+            box-shadow: 0 0 0 4px rgba(75, 43, 238, 0.15);
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #4b2bee !important;
+            ring: 2px;
+            ring-color: rgba(75, 43, 238, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header / Navigation -->
+<header class="w-full py-4 px-6 bg-white dark:bg-slate-900 border-b border-primary/10 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-lg">AutoAwesome</span>
+</div>
+<span class="font-bold text-xl tracking-tight">StudioBuilder <span class="text-primary">AI</span></span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-500 hover:text-primary transition-colors text-sm font-medium">Help Center</button>
+<div class="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-icons text-primary text-base">person</span>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-start pt-12 pb-20 px-4">
+<!-- Progress Stepper -->
+<div class="w-full max-w-4xl mb-12">
+<div class="relative flex justify-between items-center w-full">
+<!-- Connecting Line -->
+<div class="absolute top-1/2 left-0 w-full h-1 bg-slate-200 dark:bg-slate-800 -translate-y-1/2 z-0"></div>
+<div class="absolute top-1/2 left-0 w-[12.5%] h-1 bg-primary -translate-y-1/2 z-0"></div>
+<!-- Step 1 -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold step-active">1</div>
+<span class="absolute -bottom-7 whitespace-nowrap text-sm font-semibold text-primary">Basics</span>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-slate-400 flex items-center justify-center font-bold">2</div>
+<span class="absolute -bottom-7 whitespace-nowrap text-sm font-medium text-slate-400">Design</span>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-slate-400 flex items-center justify-center font-bold">3</div>
+<span class="absolute -bottom-7 whitespace-nowrap text-sm font-medium text-slate-400">Technical</span>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-slate-400 flex items-center justify-center font-bold">4</div>
+<span class="absolute -bottom-7 whitespace-nowrap text-sm font-medium text-slate-400">Content</span>
+</div>
+<!-- Step 5 -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-slate-400 flex items-center justify-center font-bold">5</div>
+<span class="absolute -bottom-7 whitespace-nowrap text-sm font-medium text-slate-400">Review</span>
+</div>
+</div>
+</div>
+<!-- Form Card -->
+<div class="w-full max-w-3xl bg-white dark:bg-slate-900 rounded-xl shadow-xl shadow-primary/5 border border-slate-100 dark:border-slate-800 overflow-hidden">
+<div class="p-8 md:p-10">
+<div class="mb-8">
+<h1 class="text-2xl font-bold mb-2">Basic Information</h1>
+<p class="text-slate-500 dark:text-slate-400">Let's start with the core details of your project. This helps us tailor the next steps to your specific needs.</p>
+</div>
+<form class="space-y-6">
+<!-- Project Name -->
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2" for="project-name">Project Name</label>
+<input class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white transition-all focus:ring-2 focus:ring-primary/20" id="project-name" placeholder="e.g. My Awesome Startup" type="text"/>
+</div>
+<!-- Project Type -->
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2" for="project-type">Project Type</label>
+<select class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white transition-all focus:ring-2 focus:ring-primary/20" id="project-type">
+<option value="">Select a type...</option>
+<option value="site">Website</option>
+<option value="ecommerce">E-commerce</option>
+<option value="system">Business System / SaaS</option>
+<option value="landing">Landing Page</option>
+</select>
+</div>
+<!-- Main Objective -->
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2" for="objective">Main Objective</label>
+<textarea class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white transition-all focus:ring-2 focus:ring-primary/20" id="objective" placeholder="What do you want to achieve with this project?" rows="4"></textarea>
+</div>
+<!-- Target Audience -->
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2" for="audience">Target Audience</label>
+<input class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white transition-all focus:ring-2 focus:ring-primary/20" id="audience" placeholder="e.g. Tech-savvy professionals aged 25-40" type="text"/>
+</div>
+<!-- Budget and Deadline Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2" for="budget">Estimated Budget</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+<input class="w-full pl-8 pr-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white transition-all focus:ring-2 focus:ring-primary/20" id="budget" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2" for="deadline">Desired Deadline</label>
+<div class="relative">
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400">
+<span class="material-icons text-xl">calendar_today</span>
+</span>
+<input class="w-full pl-4 pr-12 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white transition-all focus:ring-2 focus:ring-primary/20" id="deadline" type="date"/>
+</div>
+</div>
+</div>
+</form>
+</div>
+<!-- Footer / Navigation -->
+<div class="px-8 py-6 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<button class="text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white text-sm font-medium transition-colors flex items-center gap-2">
+<span class="material-icons text-sm">exit_to_app</span>
+                    Save &amp; Exit
+                </button>
+<div class="flex gap-4">
+<button class="px-8 py-3 rounded-lg font-bold text-white gradient-button hover:opacity-90 transition-all shadow-lg shadow-primary/20 flex items-center gap-2">
+                        Next Step
+                        <span class="material-icons text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Support Info -->
+<div class="mt-8 text-center">
+<p class="text-slate-400 text-sm">Step 1 of 5: Project Foundation</p>
+<div class="mt-4 flex justify-center gap-6">
+<div class="flex items-center gap-2 text-slate-400">
+<span class="material-icons text-sm">lock</span>
+<span class="text-xs">Secure Data</span>
+</div>
+<div class="flex items-center gap-2 text-slate-400">
+<span class="material-icons text-sm">cloud_done</span>
+<span class="text-xs">Auto-saving</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Copyright -->
+<footer class="w-full py-6 text-center text-slate-400 text-xs">
+        © 2024 StudioBuilder AI. All rights reserved.
+    </footer>
+</body></html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manager Security Audit &amp; Access Log | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#2b6cee",
+                "background-light": "#f6f6f8",
+                "background-dark": "#0F172A", // Overriding slightly for the requested IDE theme
+                "surface": "#1E293B",
+                "border-color": "#334155",
+              },
+              fontFamily: {
+                "display": ["Space Grotesk"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0F172A;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            width: 8px;
+        }
+        .scrollbar-hide::-webkit-scrollbar-track {
+            background: #0F172A;
+        }
+        .scrollbar-hide::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        .critical-row {
+            background: rgba(239, 68, 68, 0.05);
+            border-left: 3px solid #ef4444;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-200 min-h-screen font-display">
+<!-- Sidebar Navigation (Minimized) -->
+<aside class="fixed inset-y-0 left-0 w-16 bg-surface border-r border-border-color flex flex-col items-center py-6 gap-8 z-50">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white">architecture</span>
+</div>
+<nav class="flex flex-col gap-6">
+<button class="text-slate-400 hover:text-white"><span class="material-icons">dashboard</span></button>
+<button class="text-slate-400 hover:text-white"><span class="material-icons">storage</span></button>
+<button class="text-primary"><span class="material-icons">security</span></button>
+<button class="text-slate-400 hover:text-white"><span class="material-icons">people</span></button>
+<button class="text-slate-400 hover:text-white"><span class="material-icons">settings</span></button>
+</nav>
+</aside>
+<main class="ml-16 p-8">
+<!-- Header Section -->
+<header class="flex justify-between items-start mb-8">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<span class="text-slate-400 text-sm font-medium tracking-widest uppercase">Management Console</span>
+<span class="h-1 w-1 rounded-full bg-slate-600"></span>
+<span class="text-slate-400 text-sm">v2.4.0-stable</span>
+</div>
+<h1 class="text-3xl font-bold text-white flex items-center gap-3">
+                    Security Audit &amp; Access Log
+                    <span class="material-icons text-primary">verified_user</span>
+</h1>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 bg-surface hover:bg-slate-700 border border-border-color px-4 py-2 rounded-lg transition-all">
+<span class="material-icons text-sm">refresh</span>
+<span>Live Stream</span>
+</button>
+<button class="flex items-center gap-2 bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-all shadow-lg shadow-primary/20">
+<span class="material-icons text-sm">ios_share</span>
+<span>Export Report</span>
+</button>
+</div>
+</header>
+<!-- Stats Overview -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<div class="bg-surface p-5 rounded-xl border border-border-color">
+<div class="text-slate-400 text-sm mb-2 flex items-center gap-2">
+<span class="material-icons text-xs">event_note</span> Total Events (24h)
+                </div>
+<div class="text-2xl font-bold text-white">12,482</div>
+<div class="text-xs text-emerald-400 mt-1 flex items-center">
+<span class="material-icons text-xs">trending_up</span> +12% from yesterday
+                </div>
+</div>
+<div class="bg-surface p-5 rounded-xl border border-border-color">
+<div class="text-slate-400 text-sm mb-2 flex items-center gap-2">
+<span class="material-icons text-xs text-amber-500">warning</span> Warning Alerts
+                </div>
+<div class="text-2xl font-bold text-white">42</div>
+<div class="text-xs text-slate-500 mt-1">Requires review</div>
+</div>
+<div class="bg-surface p-5 rounded-xl border border-border-color border-l-4 border-l-red-500">
+<div class="text-slate-400 text-sm mb-2 flex items-center gap-2">
+<span class="material-icons text-xs text-red-500">gpp_maybe</span> Critical Threats
+                </div>
+<div class="text-2xl font-bold text-white text-red-400">07</div>
+<div class="text-xs text-red-400/70 mt-1">Action required immediately</div>
+</div>
+<div class="bg-surface p-5 rounded-xl border border-border-color">
+<div class="text-slate-400 text-sm mb-2 flex items-center gap-2">
+<span class="material-icons text-xs text-primary">person_search</span> Active Watchlist
+                </div>
+<div class="text-2xl font-bold text-white">03</div>
+<div class="text-xs text-slate-500 mt-1">Users flagged for audit</div>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="bg-surface rounded-xl border border-border-color p-4 mb-6 flex flex-wrap items-center gap-4">
+<div class="relative flex-grow max-w-md">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">search</span>
+<input class="w-full bg-background-dark border border-border-color rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none text-slate-200" placeholder="Search logs, IPs, or actions... (CMD+K)" type="text"/>
+</div>
+<div class="h-8 w-[1px] bg-border-color hidden lg:block"></div>
+<select class="bg-background-dark border border-border-color rounded-lg px-3 py-2 text-sm outline-none focus:ring-1 focus:ring-primary text-slate-300">
+<option>All Users</option>
+<option>System Admin</option>
+<option>Lead Engineer</option>
+<option>Guest Architect</option>
+</select>
+<select class="bg-background-dark border border-border-color rounded-lg px-3 py-2 text-sm outline-none focus:ring-1 focus:ring-primary text-slate-300">
+<option>Last 24 Hours</option>
+<option>Last 7 Days</option>
+<option>Last 30 Days</option>
+<option>Custom Range</option>
+</select>
+<div class="flex items-center gap-2 bg-background-dark p-1 rounded-lg border border-border-color">
+<button class="px-3 py-1 rounded text-xs font-medium bg-primary text-white">All</button>
+<button class="px-3 py-1 rounded text-xs font-medium text-slate-400 hover:text-slate-200">Informational</button>
+<button class="px-3 py-1 rounded text-xs font-medium text-slate-400 hover:text-slate-200">Warning</button>
+<button class="px-3 py-1 rounded text-xs font-medium text-slate-400 hover:text-slate-200">Critical</button>
+</div>
+</div>
+<!-- Audit Table -->
+<div class="bg-surface rounded-xl border border-border-color overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-background-dark/50 border-b border-border-color">
+<th class="px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Timestamp</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">User</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Action</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Project</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">IP / Location</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Severity</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-color/50">
+<!-- Critical Row -->
+<tr class="critical-row hover:bg-red-500/10 transition-colors">
+<td class="px-6 py-4 font-mono text-sm text-slate-400">2023-10-24 14:22:01</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-slate-700" data-alt="Profile portrait of a professional male user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsaut8ILDl8t3cu7DjoDq3pxJNrlFXvzsGy3EyfgY5ROpELYFEiDrDOnFmDhsUlsDEahVGxBw-UJBsSv4YXFNqUkLyRZeUIVNuDN0PvNg-f-nwIC8BUaRFwxwM1ZkJkUrCCjwPUGZt1UwQuBrkNM2HhvbiZE8gIi9QDMwxrx4ir9ydD-GFjsMGxFcP5wvPF0M629GgxekH5TUrl3SWhItyztdFlZu1CqoMy0akt5QMa56Uv1s-QhUydbgdi_AxyWQ5gwffmFH_Jf0"/>
+<span class="text-sm font-medium text-white">Alex Rivera</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-icons text-red-500 text-base">report_problem</span>
+<span class="text-sm">Attempted Unauthorized Access</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-300">Core-Infrastructure-Prod</td>
+<td class="px-6 py-4">
+<div class="text-sm">192.168.1.104</div>
+<div class="text-xs text-slate-500">Moscow, RU</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 rounded text-[10px] font-bold uppercase bg-red-500/20 text-red-500 border border-red-500/50">Critical</span>
+</td>
+</tr>
+<!-- Warning Row -->
+<tr class="hover:bg-slate-700/30 transition-colors">
+<td class="px-6 py-4 font-mono text-sm text-slate-400">2023-10-24 14:15:44</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-slate-700" data-alt="Profile portrait of a professional female user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe_MfI1HOThrl1kVf6JtTPh3KBYhkfq2XOXetbim9L-9omKKPXKUZP9ab91rG4--sobhaC8miBMQnQzMGedCqDQkfaqdZ3GW8hOB-MJjUzbQkVw-ZBVCRNAZXtMNTOLq26XX0s_0xetLnuDctjviiRVZP-NXi3LEjd_LoOvmJaHeFAnLE93A8udGncyzNhilSUlpZXCTAcStLWkEV0bPqzBvcrUxU87VBi9rTDAFPpBuRM7sFFsqRdeitdd29ZbfDUWJ2cnh80vV8"/>
+<span class="text-sm font-medium text-white">Sarah Jenkins</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Exported Large Dataset (Codebase)</td>
+<td class="px-6 py-4 text-sm text-slate-300">Project-Epsilon</td>
+<td class="px-6 py-4">
+<div class="text-sm">72.14.192.11</div>
+<div class="text-xs text-slate-500">New York, US</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 rounded text-[10px] font-bold uppercase bg-amber-500/20 text-amber-500 border border-amber-500/50">Warning</span>
+</td>
+</tr>
+<!-- Info Row -->
+<tr class="hover:bg-slate-700/30 transition-colors">
+<td class="px-6 py-4 font-mono text-sm text-slate-400">2023-10-24 14:10:12</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-slate-700" data-alt="Profile portrait of a software developer user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKQoicKKOxgFuUbt7JJkt4rqGeppvEroiZC9SkuJhKhp07-b9phXUe5p3bAlKIcX-i-NCXQsNKavsyLS_bb_16ijDbBh7Xopx58hx3wYqGBiAKbbUgGsJ__tv6scXtLUDC0luao-sNgihnxCdHaJslkjNozBLMUjxvAY_8mQWLRT5moKjFsScm7PL0lYAfu90w4FEorsFbd0b8gjA6zGgDg8Rw40vd5nT0JPYHgv1g1vAIgcSuyzzDaVeLLLrKayLp90hEedDHB6w"/>
+<span class="text-sm font-medium text-white">David Chen</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Modified Database Schema</td>
+<td class="px-6 py-4 text-sm text-slate-300">Staging-DB-Sync</td>
+<td class="px-6 py-4">
+<div class="text-sm">203.0.113.45</div>
+<div class="text-xs text-slate-500">Toronto, CA</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 rounded text-[10px] font-bold uppercase bg-blue-500/20 text-blue-400 border border-blue-500/50">Informational</span>
+</td>
+</tr>
+<!-- Critical Row -->
+<tr class="critical-row hover:bg-red-500/10 transition-colors">
+<td class="px-6 py-4 font-mono text-sm text-slate-400">2023-10-24 13:58:21</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center border border-slate-600">
+<span class="material-icons text-sm text-slate-400">person</span>
+</div>
+<span class="text-sm font-medium text-white">Unknown User</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-icons text-red-500 text-base">vpn_key</span>
+<span class="text-sm">Brute Force Login Attempt</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-300">Main-Auth-Service</td>
+<td class="px-6 py-4">
+<div class="text-sm">45.89.230.15</div>
+<div class="text-xs text-slate-500">Pyongyang, KP</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 rounded text-[10px] font-bold uppercase bg-red-500/20 text-red-500 border border-red-500/50">Critical</span>
+</td>
+</tr>
+<!-- Info Row -->
+<tr class="hover:bg-slate-700/30 transition-colors">
+<td class="px-6 py-4 font-mono text-sm text-slate-400">2023-10-24 13:45:00</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-slate-700" data-alt="Profile portrait of a lead developer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZg1xymJpretOYQM8m7gXTu7MKIg4Fy80TKJk3UUW05XEpNc_aSgIFJE36BVo4J1II_53Ox_nDoMz2TRgNPaiaCl6EPl_n4erSLPN_1ZRqUAwSPKiBl2K2I-DYrX-HlLfxp87xUay6Yro1yEyVxCbovS8IXPuOtVq5YB3HtHveVb57oxftv39-c2fb_YOG-2msFdOWJVIIyJwKGkZq11YBPR3TsJvwaiS3_kmuJ1Cl-8qTh8mn6F1uJZefjuYlsjlmqEzreudJ-S4"/>
+<span class="text-sm font-medium text-white">Elena Rodriguez</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Deployed Version v2.3.9</td>
+<td class="px-6 py-4 text-sm text-slate-300">Marketplace-Frontend</td>
+<td class="px-6 py-4">
+<div class="text-sm">18.234.5.122</div>
+<div class="text-xs text-slate-500">Virginia, US</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 rounded text-[10px] font-bold uppercase bg-blue-500/20 text-blue-400 border border-blue-500/50">Informational</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 border-t border-border-color flex items-center justify-between bg-background-dark/30">
+<div class="text-sm text-slate-400">
+                    Showing <span class="font-medium text-white">1</span> to <span class="font-medium text-white">10</span> of <span class="font-medium text-white">2,482</span> entries
+                </div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded hover:bg-slate-700 text-slate-400 disabled:opacity-50" disabled="">
+<span class="material-icons text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary text-white text-sm font-medium">1</button>
+<button class="w-8 h-8 rounded hover:bg-slate-700 text-slate-400 text-sm font-medium">2</button>
+<button class="w-8 h-8 rounded hover:bg-slate-700 text-slate-400 text-sm font-medium">3</button>
+<span class="text-slate-600 mx-1">...</span>
+<button class="w-8 h-8 rounded hover:bg-slate-700 text-slate-400 text-sm font-medium">249</button>
+<button class="p-2 rounded hover:bg-slate-700 text-slate-400">
+<span class="material-icons text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Map Overview Section -->
+<section class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 bg-surface rounded-xl border border-border-color p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold text-white flex items-center gap-2">
+<span class="material-icons text-primary">public</span> Global Traffic Density
+                    </h3>
+<div class="flex items-center gap-4 text-xs">
+<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span> Authorized</div>
+<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-red-500"></span> Blocked</div>
+</div>
+</div>
+<div class="aspect-video bg-background-dark rounded-lg overflow-hidden border border-border-color relative">
+<div class="absolute inset-0 opacity-40 bg-gradient-to-t from-background-dark to-transparent z-10"></div>
+<!-- Mock Map Visual -->
+<div class="w-full h-full relative" data-location="Global" style="">
+<img class="w-full h-full object-cover" data-alt="Stylized dark world map with data points" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfHoswb4pJoTr5QgBQQNcuBk29FerK6BPVxWKQOrOMwzcf77jMzEweL4nHYlKiQxfonFGhyxYVtah0rzYymfsfBe2aiR1D1P_c5tA4HN7KOH0UduC6Nb5csVYbfc4AWjBYhaENtOlH_2Miq_mUVY_aUHBCPxVWUItYXNtpI0X4jCj3_ZSB-boBXyfOnyhf2QrvdehM2UtQwqqLTBX7WviVeZ6QorTXl7TgmyDcwGiQWsdFNVW7GMloUi0aCx7vjYwl2LdO9zpe9PI"/>
+<!-- Simulated Data Points -->
+<div class="absolute top-1/4 left-1/4 w-3 h-3 bg-primary rounded-full animate-pulse shadow-[0_0_10px_#2b6cee]"></div>
+<div class="absolute top-1/3 left-1/2 w-4 h-4 bg-red-500 rounded-full animate-pulse shadow-[0_0_15px_#ef4444]"></div>
+<div class="absolute top-1/2 left-[80%] w-3 h-3 bg-primary rounded-full animate-pulse shadow-[0_0_10px_#2b6cee]"></div>
+<div class="absolute top-[60%] left-1/3 w-3 h-3 bg-primary rounded-full animate-pulse shadow-[0_0_10px_#2b6cee]"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface rounded-xl border border-border-color p-6">
+<h3 class="font-bold text-white mb-6 flex items-center gap-2">
+<span class="material-icons text-primary">assignment</span> Recent Reports
+                </h3>
+<div class="space-y-4">
+<div class="p-4 bg-background-dark rounded-lg border border-border-color flex items-center justify-between group cursor-pointer hover:border-primary transition-colors">
+<div>
+<div class="text-sm font-medium text-white group-hover:text-primary transition-colors">Daily Security Snapshot</div>
+<div class="text-xs text-slate-500">Oct 23, 2023 • 1.2MB</div>
+</div>
+<span class="material-icons text-slate-500 group-hover:text-primary">download</span>
+</div>
+<div class="p-4 bg-background-dark rounded-lg border border-border-color flex items-center justify-between group cursor-pointer hover:border-primary transition-colors">
+<div>
+<div class="text-sm font-medium text-white group-hover:text-primary transition-colors">Compliance Audit Q3</div>
+<div class="text-xs text-slate-500">Oct 20, 2023 • 4.5MB</div>
+</div>
+<span class="material-icons text-slate-500 group-hover:text-primary">download</span>
+</div>
+<div class="p-4 bg-background-dark rounded-lg border border-border-color flex items-center justify-between group cursor-pointer hover:border-primary transition-colors">
+<div>
+<div class="text-sm font-medium text-white group-hover:text-primary transition-colors">Access Log Export - Prod</div>
+<div class="text-xs text-slate-500">Oct 19, 2023 • 0.8MB</div>
+</div>
+<span class="material-icons text-slate-500 group-hover:text-primary">download</span>
+</div>
+</div>
+<button class="w-full mt-6 py-2 text-sm text-primary font-medium hover:bg-primary/10 rounded-lg transition-colors border border-primary/20">
+                    View All Archives
+                </button>
+</div>
+</section>
+</main>
+<!-- Detailed View Flyout (Simulation) -->
+<div class="fixed top-0 right-0 h-full w-96 bg-surface border-l border-border-color shadow-2xl translate-x-full transition-transform z-[60]">
+<!-- This would normally open via JS. Included structure for complete UI design -->
+<div class="p-6 border-b border-border-color flex justify-between items-center">
+<h2 class="text-lg font-bold">Event Details</h2>
+<button class="material-icons text-slate-400 hover:text-white">close</button>
+</div>
+<div class="p-6">
+<div class="mb-6 p-4 bg-background-dark rounded border border-border-color font-mono text-xs text-blue-400">
+                { "event_id": "aud_01HDK", "user": "alex_r", "action": "UNAUTHORIZED_FILE_ACCESS", "resource": "/prod/config/env.vars", "severity": "CRITICAL" }
+            </div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Global AI Planning &amp; Collaboration Hub | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2560e9",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0a0a0f",
+                        "panel-dark": "#111621",
+                        "border-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #2560e9;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display h-screen flex flex-col overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="h-16 border-b border-slate-200 dark:border-border-dark bg-white dark:bg-panel-dark flex items-center justify-between px-6 z-20">
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-xl">architecture</span>
+</div>
+<div>
+<h1 class="text-sm font-bold tracking-tight">STUDIOBUILDER <span class="text-primary text-xs ml-1">AI</span></h1>
+<p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-widest font-semibold">Planning Phase • Project ID: 8824-X</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-panel-dark bg-blue-500 flex items-center justify-center text-[10px] font-bold">AR</div>
+<div class="w-8 h-8 rounded-full border-2 border-panel-dark bg-purple-500 flex items-center justify-center text-[10px] font-bold">DS</div>
+<div class="w-8 h-8 rounded-full border-2 border-panel-dark bg-emerald-500 flex items-center justify-center text-[10px] font-bold">CD</div>
+<div class="w-8 h-8 rounded-full border-2 border-panel-dark bg-slate-700 flex items-center justify-center text-[10px] font-bold border-dashed">+1</div>
+</div>
+<div class="h-8 w-px bg-slate-200 dark:border-border-dark"></div>
+<button class="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all">
+<span class="material-icons text-sm">play_arrow</span>
+                Deploy Planning
+            </button>
+</div>
+</header>
+<main class="flex flex-1 overflow-hidden">
+<!-- Left Sidebar: Project Context -->
+<aside class="w-80 border-r border-slate-200 dark:border-border-dark bg-white dark:bg-panel-dark flex flex-col overflow-hidden">
+<div class="p-4 border-b border-slate-200 dark:border-border-dark">
+<h2 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+<span class="material-icons text-sm">folder_open</span> Project Context
+                </h2>
+<div class="space-y-4 custom-scrollbar overflow-y-auto max-h-[calc(100vh-12rem)]">
+<!-- Client Brief Card -->
+<div class="bg-background-light dark:bg-background-dark/50 p-4 rounded-xl border border-slate-200 dark:border-border-dark">
+<h3 class="text-sm font-semibold mb-2">Client Data</h3>
+<div class="space-y-2 text-xs text-slate-500 dark:text-slate-400">
+<div class="flex justify-between">
+<span>Client:</span>
+<span class="text-slate-900 dark:text-slate-200 font-medium">Lumina Digital</span>
+</div>
+<div class="flex justify-between">
+<span>Industry:</span>
+<span class="text-slate-900 dark:text-slate-200 font-medium">Fintech</span>
+</div>
+<div class="flex justify-between">
+<span>Deadline:</span>
+<span class="text-slate-900 dark:text-slate-200 font-medium">Oct 12, 2024</span>
+</div>
+</div>
+</div>
+<!-- Scope Card -->
+<div class="bg-background-light dark:bg-background-dark/50 p-4 rounded-xl border border-slate-200 dark:border-border-dark">
+<div class="flex justify-between items-center mb-2">
+<h3 class="text-sm font-semibold">Project Scope</h3>
+<span class="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full font-bold italic">Draft 1.4</span>
+</div>
+<ul class="text-xs space-y-2 text-slate-600 dark:text-slate-400 list-disc list-inside">
+<li>Responsive Web Dashboard</li>
+<li>Real-time Data Visualization</li>
+<li>User Authentication (Auth0)</li>
+<li>Multi-tenant Architecture</li>
+</ul>
+</div>
+<!-- Uploaded Assets -->
+<div class="bg-background-light dark:bg-background-dark/50 p-4 rounded-xl border border-slate-200 dark:border-border-dark">
+<h3 class="text-sm font-semibold mb-3">Uploaded Assets</h3>
+<div class="grid grid-cols-2 gap-2">
+<div class="aspect-square rounded-lg overflow-hidden bg-slate-200 dark:bg-slate-800 relative group cursor-pointer">
+<img alt="Moodboard" class="w-full h-full object-cover" data-alt="Abstract blue and purple gradient digital art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX2HvkuACeqe5DmFYAojDmgj0lLJv48XAjxSI48DrgJsvdceLF_0W2kZHZ8brxb7Q0Q_rxqL75UtPH7KnksRIXvIgg_HzRXgjgpVZ4LSJbosGgzprxqxFulDMUSqA1wEOu-Y0eYer-7aOq8x7b1u2mzqtTLp_G4EbXLEc23WSRcjrHbSlr2u9j-18tSKduSUE5S9WIcatjTJvrNi2K5v-fxalTnSmEGxeQ7UShFSHVCsaFVJEGCaIIgi93QTNvd3hmxtFMFz0FOQA"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-icons text-white text-lg">zoom_in</span>
+</div>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden bg-slate-200 dark:bg-slate-800 relative group cursor-pointer">
+<img alt="UI Kit" class="w-full h-full object-cover" data-alt="Minimalist dark UI design interface layout" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCML6nLJvFJLdVZtRYivFWclicPWT7je4EjVUgaztiiqWJSrPBekDLcAxMZut3htQG0TytjX0oJUrCn2XS1vVBbSG-Qh1zvmwD5ZwvOnQx8pJ8r8VoVdmVuZOjhRwBL3CTywVGgKijmMmeuSGumLyghvhk0KaADfYjl6CLrwnKjZnMlgZFonU6DKezB3pAQAhug7-xa5AQH63yYWW0ZNjsK5M-snBpnAw_2JvuJZ3e-tIgs-KeaM2Mh2Lw088nSc2s9PB0okaPOZGo"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-icons text-white text-lg">zoom_in</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-3 text-[11px] font-bold text-primary flex items-center justify-center gap-1 hover:underline">
+<span class="material-icons text-xs">add_circle_outline</span> VIEW ALL 12 FILES
+                        </button>
+</div>
+</div>
+</div>
+<!-- Agent Status List -->
+<div class="p-4 mt-auto">
+<h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">AI Personas Active</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/20">
+<span class="material-icons text-sm text-white">architecture</span>
+</div>
+<div class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-panel-dark"></div>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold">Architect</p>
+<p class="text-[10px] text-slate-500">Evaluating Infrastructure</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
+<span class="material-icons text-sm text-white">palette</span>
+</div>
+<div class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-panel-dark"></div>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold">Designer</p>
+<p class="text-[10px] text-slate-500">Defining Moodboard</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+<span class="material-icons text-sm text-white">code</span>
+</div>
+<div class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-orange-500 rounded-full border-2 border-panel-dark"></div>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold">Coder</p>
+<p class="text-[10px] text-slate-500">Idle - Awaiting Params</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content: Collaboration Chat -->
+<section class="flex-1 flex flex-col relative bg-background-light dark:bg-background-dark">
+<!-- Chat Feed -->
+<div class="flex-1 overflow-y-auto p-6 space-y-8 custom-scrollbar">
+<!-- System Message -->
+<div class="flex flex-col items-center">
+<span class="text-[10px] bg-slate-200 dark:bg-slate-800 text-slate-500 px-3 py-1 rounded-full font-bold uppercase tracking-widest">Session Started: 14:02 UTC</span>
+</div>
+<!-- Agent Message: Architect -->
+<div class="flex gap-4 max-w-4xl">
+<div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center flex-shrink-0">
+<span class="material-icons text-blue-500">architecture</span>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-blue-500">Architect</span>
+<span class="text-[10px] text-slate-500">14:05</span>
+</div>
+<div class="bg-white dark:bg-panel-dark border border-slate-200 dark:border-border-dark p-4 rounded-xl rounded-tl-none shadow-sm">
+<p class="text-sm leading-relaxed">
+                                After analyzing the fintech scope and scalability requirements, I strongly recommend a <span class="text-primary font-semibold underline decoration-primary/30">microservices architecture</span>. We should separate the Auth services from the data visualization pipeline to ensure peak performance during heavy API calls.
+                            </p>
+<div class="mt-4 flex flex-wrap gap-2">
+<button class="text-[10px] bg-primary/10 hover:bg-primary/20 text-primary font-bold px-3 py-1.5 rounded-lg flex items-center gap-1 transition-colors">
+<span class="material-icons text-[12px]">check_circle</span> APPROVE STRATEGY
+                                </button>
+<button class="text-[10px] bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 font-bold px-3 py-1.5 rounded-lg flex items-center gap-1 transition-colors">
+<span class="material-icons text-[12px]">help_outline</span> DETAILS
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent Message: Designer -->
+<div class="flex gap-4 max-w-4xl">
+<div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+<span class="material-icons text-purple-500">palette</span>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-purple-500">Designer</span>
+<span class="text-[10px] text-slate-500">14:08</span>
+</div>
+<div class="bg-white dark:bg-panel-dark border border-slate-200 dark:border-border-dark p-4 rounded-xl rounded-tl-none shadow-sm">
+<p class="text-sm leading-relaxed mb-4">
+                                I agree with the modularity. Based on the uploaded fintech assets, I've prepared a preliminary moodboard draft. I'll use a deep navy palette with primary blue accents to evoke trust and modernism.
+                            </p>
+<div class="grid grid-cols-3 gap-2 p-2 bg-slate-50 dark:bg-slate-900 rounded-lg">
+<div class="h-20 rounded bg-[#0a0a0f] border border-white/5 flex flex-col justify-end p-2">
+<span class="text-[8px] font-mono opacity-50">#0A0A0F</span>
+</div>
+<div class="h-20 rounded bg-primary border border-white/5 flex flex-col justify-end p-2">
+<span class="text-[8px] font-mono text-white opacity-70">#2560E9</span>
+</div>
+<div class="h-20 rounded bg-emerald-500 border border-white/5 flex flex-col justify-end p-2">
+<span class="text-[8px] font-mono text-white opacity-70">#10B981</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent Message: Coder -->
+<div class="flex gap-4 max-w-4xl">
+<div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center flex-shrink-0">
+<span class="material-icons text-emerald-500">code</span>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-emerald-500">Coder</span>
+<span class="text-[10px] text-slate-500">14:12</span>
+</div>
+<div class="bg-white dark:bg-panel-dark border border-slate-200 dark:border-border-dark p-4 rounded-xl rounded-tl-none shadow-sm">
+<p class="text-sm leading-relaxed">
+                                For the tech stack, I'll initiate the project using <span class="font-mono text-emerald-400">Next.js 14</span> with <span class="font-mono text-emerald-400">TypeScript</span>. If the Architect confirms the microservices, I'll set up the <span class="font-mono text-emerald-400">gRPC</span> communication layer for internal services. 
+                            </p>
+</div>
+</div>
+</div>
+<!-- User Intervention Placeholder -->
+<div class="flex gap-4 justify-end">
+<div class="flex flex-col items-end gap-2 max-w-2xl">
+<div class="flex items-center gap-2">
+<span class="text-[10px] text-slate-500">14:15</span>
+<span class="text-sm font-bold text-primary">Project Lead (You)</span>
+</div>
+<div class="bg-primary text-white p-4 rounded-xl rounded-tr-none shadow-lg shadow-primary/20">
+<p class="text-sm leading-relaxed">
+                                Let's proceed with the Architect's plan. Designer, make sure the dashboard also includes a dark-mode variant specifically for terminal users.
+                            </p>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
+<span class="material-icons text-white">person</span>
+</div>
+</div>
+<!-- "Thinking" Indicator -->
+<div class="flex gap-4 max-w-4xl animate-pulse">
+<div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+<span class="material-icons text-purple-500 text-sm">palette</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] font-bold text-purple-500">Designer is thinking...</span>
+<div class="flex gap-1">
+<div class="w-2 h-2 rounded-full bg-purple-500/40"></div>
+<div class="w-2 h-2 rounded-full bg-purple-500/40"></div>
+<div class="w-2 h-2 rounded-full bg-purple-500/40"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Intervention Input Area -->
+<div class="p-6 border-t border-slate-200 dark:border-border-dark bg-white dark:bg-panel-dark/80 backdrop-blur-md">
+<div class="max-w-4xl mx-auto flex gap-4 items-center">
+<div class="flex-1 relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-icons text-slate-400 text-lg group-focus-within:text-primary transition-colors">bolt</span>
+</div>
+<input class="w-full bg-background-light dark:bg-background-dark border-slate-200 dark:border-border-dark focus:border-primary focus:ring-1 focus:ring-primary rounded-xl py-4 pl-12 pr-4 text-sm outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600" placeholder="Intervene and direct the AI team..." type="text"/>
+<div class="absolute right-3 inset-y-0 flex items-center gap-2">
+<button class="p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg text-slate-400 transition-colors">
+<span class="material-icons text-xl">mic</span>
+</button>
+<button class="bg-primary hover:bg-primary/90 text-white w-10 h-10 rounded-lg flex items-center justify-center transition-transform hover:scale-105">
+<span class="material-icons">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-3 gap-6">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="w-3.5 h-3.5 rounded text-primary bg-slate-200 dark:bg-slate-800 border-none" type="checkbox"/>
+<span class="text-[11px] font-bold text-slate-500 group-hover:text-slate-400 transition-colors">PAUSE AUTO-COLLABORATION</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="w-3.5 h-3.5 rounded text-primary bg-slate-200 dark:bg-slate-800 border-none" type="checkbox"/>
+<span class="text-[11px] font-bold text-slate-500 group-hover:text-slate-400 transition-colors">LOG ALL AGENT DECISIONS</span>
+</label>
+</div>
+</div>
+</section>
+<!-- Right Sidebar: Timeline & Stats -->
+<aside class="w-72 border-l border-slate-200 dark:border-border-dark bg-white dark:bg-panel-dark p-6 hidden lg:flex flex-col gap-8">
+<div>
+<h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">Planning Roadmap</h3>
+<div class="space-y-6 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-200 dark:before:bg-border-dark">
+<div class="flex gap-4 relative">
+<div class="w-[24px] h-[24px] rounded-full bg-primary flex items-center justify-center z-10">
+<span class="material-icons text-[14px] text-white">check</span>
+</div>
+<div>
+<p class="text-xs font-bold">Concept Definition</p>
+<p class="text-[10px] text-slate-500">Completed 14:02</p>
+</div>
+</div>
+<div class="flex gap-4 relative">
+<div class="w-[24px] h-[24px] rounded-full bg-primary ring-4 ring-primary/20 flex items-center justify-center z-10">
+<span class="material-icons text-[14px] text-white animate-pulse">sync</span>
+</div>
+<div>
+<p class="text-xs font-bold text-primary">Technical Strategy</p>
+<p class="text-[10px] text-slate-500 italic">In progress...</p>
+</div>
+</div>
+<div class="flex gap-4 relative">
+<div class="w-[24px] h-[24px] rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center z-10 border border-slate-300 dark:border-border-dark">
+</div>
+<div>
+<p class="text-xs font-bold text-slate-400">Asset Generation</p>
+<p class="text-[10px] text-slate-500">Pending approval</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto">
+<div class="bg-primary/5 rounded-xl border border-primary/20 p-4">
+<div class="flex items-center justify-between mb-3">
+<h4 class="text-[11px] font-bold text-primary uppercase">Agent Efficiency</h4>
+<span class="material-icons text-primary text-sm">trending_up</span>
+</div>
+<div class="space-y-3">
+<div>
+<div class="flex justify-between text-[10px] mb-1">
+<span>Tokens Consumed</span>
+<span class="font-bold">12.4k</span>
+</div>
+<div class="h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-2/3"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] mb-1">
+<span>Logic Consistency</span>
+<span class="font-bold text-emerald-500">98%</span>
+</div>
+<div class="h-1 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="bg-emerald-500 h-full w-[98%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</main>
+</body></html>

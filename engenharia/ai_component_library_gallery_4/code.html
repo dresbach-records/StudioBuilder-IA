@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI | Contextual Actions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b4bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101322",
+                        "card-dark": "#1a1e2e",
+                        "border-dark": "#2d334a",
+                        "context-bg": "#0F172A",
+                        "neon-blue": "#00f2ff",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body { font-family: 'Inter', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #2d334a; border-radius: 10px; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .context-menu-item {
+            @apply flex items-center justify-between px-4 py-2 hover:bg-white/5 hover:text-[var(--neon-blue)] cursor-pointer text-[13px] text-white/90 transition-all duration-150 relative;
+        }
+        .context-menu-item:hover::before {
+            content: '';
+            @apply absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-4 bg-[var(--neon-blue)] rounded-full shadow-[0_0_8px_var(--neon-blue)];
+        }
+        .context-section-label {
+            @apply px-4 py-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1;
+        }
+        .shortcut-key {
+            @apply text-[11px] text-slate-500 font-medium ml-8;
+        }
+        .blurred-bg-overlay {
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display overflow-hidden relative">
+<div class="fixed z-[100] w-72 bg-context-bg/90 backdrop-blur-xl border border-slate-800 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] py-2" id="context-menu" style="top: 180px; left: 450px;">
+<div class="space-y-0.5">
+<div class="context-section-label">Basic</div>
+<div class="context-menu-item">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] opacity-70">content_copy</span> Copy</span>
+<span class="shortcut-key">Ctrl+C</span>
+</div>
+<div class="context-menu-item">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] opacity-70">content_cut</span> Cut</span>
+<span class="shortcut-key">Ctrl+X</span>
+</div>
+<div class="context-menu-item">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] opacity-70">content_paste</span> Paste</span>
+<span class="shortcut-key">Ctrl+V</span>
+</div>
+<div class="context-menu-item">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] opacity-70">content_copy</span> Duplicate</span>
+<span class="shortcut-key">Shift+D</span>
+</div>
+<div class="context-menu-item text-red-400/90 hover:text-red-400">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] opacity-70">delete</span> Delete</span>
+<span class="shortcut-key">Del</span>
+</div>
+<div class="h-px bg-slate-800/50 my-2 mx-3"></div>
+<div class="context-section-label">Generate</div>
+<div class="context-menu-item">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] opacity-70">auto_fix_high</span> Regenerate</span>
+<span class="shortcut-key">Alt+R</span>
+</div>
+<div class="context-menu-item">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] opacity-70">query_stats</span> Predictive Heatmap</span>
+<span class="shortcut-key">Alt+H</span>
+</div>
+<div class="context-menu-item">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] opacity-70">layers</span> Variants</span>
+<span class="material-icons text-[14px] text-slate-600">chevron_right</span>
+</div>
+<div class="h-px bg-slate-800/50 my-2 mx-3"></div>
+<div class="context-section-label">Edit</div>
+<div class="context-menu-item">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] opacity-70">chat_bubble</span> Add to Conversation</span>
+<span class="shortcut-key">Ctrl+L</span>
+</div>
+<div class="context-menu-item">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] opacity-70">edit_note</span> Annotate</span>
+<span class="shortcut-key">Alt+A</span>
+</div>
+<div class="context-menu-item">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] opacity-70">format_paint</span> Design System</span>
+<span class="shortcut-key">Alt+S</span>
+</div>
+<div class="h-px bg-slate-800/50 my-2 mx-3"></div>
+<div class="context-section-label">Preview &amp; Export</div>
+<div class="context-menu-item">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] opacity-70">open_in_new</span> New Tab</span>
+</div>
+<div class="context-menu-item">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] opacity-70">devices</span> View Modes</span>
+<span class="material-icons text-[14px] text-slate-600">chevron_right</span>
+</div>
+<div class="context-menu-item">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] opacity-70">code</span> Show Code</span>
+<span class="shortcut-key">Alt+C</span>
+</div>
+<div class="context-menu-item">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] opacity-70">output</span> Export</span>
+<span class="shortcut-key">Ctrl+E</span>
+</div>
+<div class="context-menu-item">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] opacity-70">download</span> Download</span>
+<span class="shortcut-key">Shift+D</span>
+</div>
+</div>
+</div>
+<aside class="fixed left-0 top-0 h-screen w-64 bg-white dark:bg-background-dark border-r border-slate-200 dark:border-border-dark z-50 flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white">architecture</span>
+</div>
+<span class="text-xl font-bold tracking-tight">StudioBuilder</span>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-1 overflow-y-auto custom-scrollbar">
+<div class="text-xs font-semibold text-slate-400 uppercase tracking-wider px-3 mb-2">Main Menu</div>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 hover:text-primary rounded transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span> Dashboard
+        </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 hover:text-primary rounded transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">widgets</span> Components
+        </a>
+<div class="mt-8 flex items-center justify-between px-3 mb-2">
+<div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Collections</div>
+<button class="text-slate-400 hover:text-primary"><span class="material-icons text-sm">add</span></button>
+</div>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg font-medium border-r-2 border-primary" href="#">
+<span class="material-symbols-outlined text-[20px]">folder</span> Alpha Startup
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 hover:text-primary rounded transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">folder</span> E-commerce App
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 hover:text-primary rounded transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">folder</span> Portfolio v2
+            </a>
+</div>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-border-dark">
+<div class="bg-primary/10 rounded-xl p-4">
+<p class="text-xs text-primary font-bold mb-1">PRO PLAN</p>
+<p class="text-sm text-slate-300 mb-3">Unlimited AI generation &amp; code exports.</p>
+<button class="w-full bg-primary text-white text-xs font-bold py-2 rounded-lg shadow-lg shadow-primary/20">Upgrade Now</button>
+</div>
+</div>
+</aside>
+<main class="ml-64 h-screen overflow-y-auto custom-scrollbar relative">
+<div class="absolute inset-0 z-10 pointer-events-none blurred-bg-overlay bg-black/5"></div>
+<header class="sticky top-0 z-40 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-border-dark px-8 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between gap-8">
+<div class="flex-1 flex flex-col">
+<div class="flex items-center gap-2 text-slate-500 text-xs mb-1">
+<span>Collections</span>
+<span class="material-icons text-[10px]">chevron_right</span>
+<span class="text-primary font-medium">Alpha Startup</span>
+</div>
+<h1 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">folder_open</span>
+                    Alpha Startup
+                </h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex bg-white dark:bg-card-dark border border-slate-200 dark:border-border-dark rounded-full p-1">
+<button class="px-4 py-1.5 text-xs font-semibold rounded-full bg-primary text-white shadow-lg shadow-primary/20">Grid</button>
+<button class="px-4 py-1.5 text-xs font-semibold rounded-full text-slate-500 dark:text-slate-400 hover:text-white transition-all">List</button>
+</div>
+</div>
+</div>
+</header>
+<div class="px-8 py-8 max-w-7xl mx-auto space-y-12 relative z-0">
+<section>
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-500">
+<span class="material-icons text-sm">auto_fix_high</span>
+</div>
+<h2 class="text-lg font-bold">Hero &amp; Navigation</h2>
+</div>
+<p class="text-xs text-slate-500 font-medium">3 Components</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="group component-card relative bg-white dark:bg-card-dark border-2 border-primary rounded-xl overflow-hidden shadow-xl transition-all">
+<div class="absolute top-3 left-3 z-20">
+<div class="w-6 h-6 bg-primary rounded-md flex items-center justify-center text-white">
+<span class="material-icons text-sm">check_box</span>
+</div>
+</div>
+<div class="absolute top-3 right-3 z-30 opacity-0 group-hover:opacity-100 flex flex-col gap-1 transition-opacity">
+<button class="w-8 h-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-md flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-8 h-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-md flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<button class="w-8 h-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-md flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary cursor-move">
+<span class="material-symbols-outlined text-[18px]">drag_pan</span>
+</button>
+</div>
+<div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800 cursor-context-menu">
+<img class="w-full h-full object-cover" data-alt="Modern abstract dark blue gradient background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD3MpuJJ66BlkL3dKwSs1OOv5lEZCtu7b7t8dv8hi1T07Wp1XiakA2ApcOPZ83HZgETX5OxCVqPFvTPxOOzrgbeVT48m9mmNJ4tpeSmVVB9ilIsBAb2d8Ckjaj0CzG94p9ZgWSrVuYryjO9TAyeV6acq5ZKOWiBpNL2j9pjIRCbIeFTxEKWytzkYlBxWl0DBfJeHNtRM2vB-FTgTp-X-ZJ6oJzxZNiH0JLLVhHvnk2qt06RimtBgSZ-Y-F54b3GrNhFm99yyLgjsE"/>
+</div>
+<div class="p-4 bg-primary/5">
+<h3 class="font-bold text-sm text-white">SaaS Minimal Hero</h3>
+<div class="flex items-center justify-between mt-1">
+<p class="text-[10px] text-slate-500 uppercase tracking-wider font-bold">React • Framer</p>
+<span class="material-icons text-slate-400 text-sm">drag_indicator</span>
+</div>
+</div>
+</div>
+<div class="group component-card relative bg-white dark:bg-card-dark border border-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all">
+<div class="absolute top-3 right-3 z-30 opacity-0 group-hover:opacity-100 flex flex-col gap-1 transition-opacity">
+<button class="w-8 h-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-md flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-8 h-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-md flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<button class="w-8 h-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-md flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary cursor-move">
+<span class="material-symbols-outlined text-[18px]">drag_pan</span>
+</button>
+</div>
+<div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
+<img class="w-full h-full object-cover" data-alt="Gradient purple and blue mesh pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE-YoeA6Wn4S1ShjUD6EQLmGvYcIUlsIGRTugUq0yBpMPscJXipc8KxC_Pg-SzmjAONPJP93hF2KVMvmuCsztEGX9iVEfYZRONBpZxMWh873-fhG68FgaZkbJ5fMf6JV3Yf7_ySzyOToNL_ptMsfSl5Op1xTWzQBysYqVoJ3AKrcZyDvESUsZTnbkriVoIT2wZbkxUbaL8gRj8ZwqxIllcWGUtyFnz6HF96aeSqPy_ZyFONERBtaRC17Qq4voTti8ISC2E6UBcb-Y"/>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-sm">Neon Dark Mesh</h3>
+<div class="flex items-center justify-between mt-1">
+<p class="text-[10px] text-slate-500 uppercase tracking-wider font-bold">HTML • CSS</p>
+<span class="material-icons text-slate-400 text-sm">drag_indicator</span>
+</div>
+</div>
+</div>
+<div class="group component-card relative bg-white dark:bg-card-dark border border-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all">
+<div class="absolute top-3 right-3 z-30 opacity-0 group-hover:opacity-100 flex flex-col gap-1 transition-opacity">
+<button class="w-8 h-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-md flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-8 h-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-md flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<button class="w-8 h-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-md flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary cursor-move">
+<span class="material-symbols-outlined text-[18px]">drag_pan</span>
+</button>
+</div>
+<div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-slate-800">
+<img class="w-full h-full object-cover" data-alt="Vibrant organic pink and purple shapes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3mRXz7xt2POn3uKnTsiwgpiRIbw4TqAviw78Y7f3B2cQeW9yhsNWth3W6l_t-BfK3lbt1gw39QGIVj6F-mTPnrClyZSK6_6r2nL3s_qHMcdDR2BpmMdIwgttBjdaoXiNuQeOlCownw1rs9F8ub63_JMTCbsUJjwEaLP0jlfL9l6DJefrKPH3FOMOpZyfBoskSzZZgM8Wfj5wUiAB9A7DANFU_Zq_BIjs70lO45kTvK9cTd_WNXywhJKPFGbzwJh5Mn2sszz_mWR0"/>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-sm">Sticky Glass Nav</h3>
+<div class="flex items-center justify-between mt-1">
+<p class="text-[10px] text-slate-500 uppercase tracking-wider font-bold">Tailwind • Next.js</p>
+<span class="material-icons text-slate-400 text-sm">drag_indicator</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+<span class="material-icons text-sm">view_quilt</span>
+</div>
+<h2 class="text-lg font-bold">Product Showcase</h2>
+</div>
+<p class="text-xs text-slate-500 font-medium">2 Components</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="group component-card relative bg-white dark:bg-card-dark border border-slate-200 dark:border-border-dark rounded-xl overflow-hidden hover:shadow-xl transition-all">
+<div class="absolute top-3 right-3 z-30 opacity-0 group-hover:opacity-100 flex flex-col gap-1 transition-opacity">
+<button class="w-8 h-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-md flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-8 h-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-md flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<button class="w-8 h-8 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-lg shadow-md flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-primary cursor-move">
+<span class="material-symbols-outlined text-[18px]">drag_pan</span>
+</button>
+</div>
+<div class="h-40 relative bg-slate-900 flex items-center justify-center overflow-hidden">
+<div class="grid grid-cols-2 gap-2 p-4">
+<div class="w-12 h-12 bg-primary/20 rounded-lg"></div>
+<div class="w-12 h-12 bg-primary/20 rounded-lg"></div>
+<div class="w-12 h-12 bg-primary/20 rounded-lg"></div>
+<div class="w-12 h-12 bg-primary/20 rounded-lg"></div>
+</div>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-sm">Bento Grid Layout</h3>
+<div class="flex items-center justify-between mt-1">
+<p class="text-[10px] text-slate-500 uppercase tracking-wider font-bold">Grid Layout • 12 Saved</p>
+<span class="material-icons text-slate-400 text-sm">drag_indicator</span>
+</div>
+</div>
+</div>
+<div class="group border-2 border-dashed border-slate-200 dark:border-border-dark rounded-xl flex flex-col items-center justify-center p-8 hover:border-primary/50 hover:bg-primary/5 transition-all cursor-pointer">
+<div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center text-slate-400 group-hover:text-primary transition-colors">
+<span class="material-icons">add_to_photos</span>
+</div>
+<p class="mt-4 text-sm font-bold text-slate-400 group-hover:text-primary">Add from Library</p>
+<p class="text-[10px] text-slate-500 text-center mt-1">Drag components here to add</p>
+</div>
+</div>
+</section>
+<div class="bg-card-dark border border-border-dark p-6 rounded-2xl flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">cloud_done</span>
+</div>
+<div>
+<h4 class="font-bold">Project Synced</h4>
+<p class="text-xs text-slate-500">5 components are ready for export to repository.</p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 bg-slate-800 text-white rounded-xl font-bold text-sm hover:bg-slate-700">Export All</button>
+<button class="px-6 py-2.5 bg-primary text-white rounded-xl font-bold text-sm shadow-lg shadow-primary/20 hover:opacity-90">Open Editor</button>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed right-6 bottom-6 flex flex-col items-end gap-3 z-50">
+<div class="bg-white dark:bg-card-dark border border-slate-200 dark:border-border-dark p-3 rounded-2xl shadow-2xl flex items-center gap-4">
+<div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">move_to_inbox</span>
+</div>
+<div class="pr-4">
+<p class="text-[10px] font-bold text-primary uppercase">Quick Move</p>
+<p class="text-xs font-semibold">Drop here to move</p>
+</div>
+</div>
+</div>
+
+</body></html>

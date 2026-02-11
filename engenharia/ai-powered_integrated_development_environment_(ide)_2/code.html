@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI - Advanced Code Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#f97316",
+                        "background-light": "#ffffff",
+                        "background-dark": "#0f172a",
+                        "sidebar-light": "#f3f4f6",
+                        "sidebar-dark": "#020617",
+                        "editor-light": "#ffffff",
+                        "editor-dark": "#0f172a",
+                        "border-light": "#e5e7eb",
+                        "border-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        mono: ["Fira Code", "monospace"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "6px",
+                    },
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+        body { font-family: 'Inter', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .custom-shadow { box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
+        .diff-line-number { @apply w-10 text-right pr-4 select-none opacity-30 shrink-0; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24 }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-300 h-screen overflow-hidden flex flex-col">
+<header class="h-12 border-b border-border-light dark:border-border-dark flex items-center justify-between px-4 shrink-0 bg-white dark:bg-sidebar-dark z-30">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="material-icons-round text-primary text-2xl">local_fire_department</span>
+<span class="font-bold text-sm tracking-tight hidden md:block">StudioBuilder AI</span>
+</div>
+<div class="h-4 w-[1px] bg-border-light dark:bg-border-dark"></div>
+<nav class="flex items-center gap-2 text-xs font-medium text-slate-500">
+<span class="hover:text-primary cursor-pointer transition-colors">markstore-main</span>
+<span class="material-icons-round text-sm">chevron_right</span>
+<span class="text-slate-900 dark:text-slate-100">src</span>
+<span class="material-icons-round text-sm">chevron_right</span>
+<span class="text-slate-900 dark:text-slate-100">components</span>
+<span class="material-icons-round text-sm">chevron_right</span>
+<span class="text-primary font-semibold italic">ProductCard.tsx</span>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative flex items-center bg-slate-100 dark:bg-slate-800 rounded-md px-3 py-1 text-xs w-64 border border-border-light dark:border-border-dark">
+<span class="material-icons-round text-sm mr-2 opacity-50">search</span>
+<input class="bg-transparent border-none focus:ring-0 p-0 text-xs w-full" placeholder="Search project..." type="text"/>
+<span class="opacity-40 text-[10px] bg-slate-200 dark:bg-slate-700 px-1 rounded">Ctrl+P</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-colors">
+<span class="material-icons-round text-xl">help_outline</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs border border-primary/30">JD</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<aside class="w-12 flex flex-col items-center py-4 gap-6 border-r border-border-light dark:border-border-dark bg-sidebar-light dark:bg-sidebar-dark shrink-0">
+<span class="material-icons-round text-primary cursor-pointer hover:opacity-80">file_copy</span>
+<span class="material-icons-round text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 cursor-pointer">search</span>
+<span class="material-icons-round text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 cursor-pointer">source</span>
+<span class="material-icons-round text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 cursor-pointer">bug_report</span>
+<span class="material-icons-round text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 cursor-pointer">grid_view</span>
+<div class="mt-auto flex flex-col items-center gap-6">
+<span class="material-icons-round text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 cursor-pointer">settings</span>
+<span class="material-icons-round text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 cursor-pointer">account_circle</span>
+</div>
+</aside>
+<aside class="w-64 border-r border-border-light dark:border-border-dark bg-sidebar-light dark:bg-sidebar-dark shrink-0 overflow-y-auto text-xs hidden lg:block">
+<div class="p-3 uppercase tracking-wider text-[10px] font-bold opacity-50 flex justify-between items-center">
+<span>Explorer: MARKSTORE-MAIN</span>
+<span class="material-icons-round text-sm">more_horiz</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center px-4 py-1 hover:bg-slate-200 dark:hover:bg-slate-800 cursor-pointer group">
+<span class="material-icons-round text-sm mr-2 opacity-50">chevron_right</span>
+<span class="material-icons-round text-sm mr-2 text-blue-400">folder</span>
+<span>config</span>
+</div>
+<div class="flex items-center px-4 py-1 hover:bg-slate-200 dark:hover:bg-slate-800 cursor-pointer group">
+<span class="material-icons-round text-sm mr-2 opacity-50 rotate-90 transition-transform">chevron_right</span>
+<span class="material-icons-round text-sm mr-2 text-blue-400">folder_open</span>
+<span>src</span>
+</div>
+<div class="pl-4">
+<div class="flex items-center px-4 py-1 hover:bg-slate-200 dark:hover:bg-slate-800 cursor-pointer group">
+<span class="material-icons-round text-sm mr-2 opacity-50 rotate-90 transition-transform">chevron_right</span>
+<span class="material-icons-round text-sm mr-2 text-blue-400">folder_open</span>
+<span>components</span>
+</div>
+<div class="pl-4">
+<div class="flex items-center px-4 py-1 hover:bg-slate-200 dark:hover:bg-slate-800 cursor-pointer group">
+<span class="material-icons-round text-sm mr-2 opacity-50">chevron_right</span>
+<span class="material-icons-round text-sm mr-2 text-blue-400">folder</span>
+<span>ui</span>
+</div>
+<div class="pl-4">
+<div class="flex items-center py-1 bg-primary/10 text-primary border-l-2 border-primary cursor-pointer justify-between pr-4 pl-4 -ml-4">
+<div class="flex items-center">
+<span class="material-icons-round text-sm mr-2 text-cyan-400">description</span>
+<span class="font-semibold">ProductCard.tsx</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="text-[9px] bg-primary/20 px-1 rounded border border-primary/30">DIFF</span>
+<div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(249,115,22,0.8)]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col bg-editor-dark overflow-hidden relative">
+<div class="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-slate-900/90 backdrop-blur-md border border-slate-700/50 p-1.5 rounded-full shadow-2xl">
+<button class="flex items-center gap-1.5 px-4 py-1.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full text-xs font-bold transition-all transform active:scale-95">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                Accept Changes
+            </button>
+<button class="flex items-center gap-1.5 px-4 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-full text-xs font-bold transition-all">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+                Revision
+            </button>
+<button class="flex items-center gap-1.5 px-4 py-1.5 bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-full text-xs font-bold transition-all">
+<span class="material-symbols-outlined text-[18px]">close</span>
+                Reject
+            </button>
+</div>
+<div class="flex h-8 bg-sidebar-dark/50 border-b border-border-dark shrink-0">
+<div class="flex items-center px-4 gap-2 bg-editor-dark border-r border-border-dark h-full text-[11px] text-slate-400 border-t-2 border-t-primary">
+<span class="material-symbols-outlined text-[14px] text-cyan-400">description</span>
+<span>ProductCard.tsx <span class="opacity-50">(Diff)</span></span>
+<span class="material-icons-round text-[14px] ml-2 hover:bg-white/10 rounded">close</span>
+</div>
+</div>
+<div class="flex-1 flex overflow-hidden font-mono text-[13px] leading-relaxed">
+<div class="flex-1 flex flex-col border-r border-border-dark overflow-hidden bg-slate-950/20">
+<div class="h-6 flex items-center px-4 bg-slate-900/80 text-[10px] uppercase font-bold text-slate-500 tracking-widest border-b border-border-dark">
+                    Original Code
+                </div>
+<div class="flex-1 overflow-y-auto no-scrollbar py-4">
+<div class="flex">
+<span class="diff-line-number">1</span>
+<span class="text-slate-400 italic">import React from 'react';</span>
+</div>
+<div class="flex bg-red-900/30 border-l-4 border-red-500">
+<span class="diff-line-number text-red-400/50">2</span>
+<span class="text-red-400"><span class="bg-red-500/20 px-0.5">import { Product } from './types';</span></span>
+</div>
+<div class="flex">
+<span class="diff-line-number">3</span>
+<span class="text-slate-400"></span>
+</div>
+<div class="flex">
+<span class="diff-line-number">4</span>
+<span class="text-slate-400">export const ProductCard = ({ product }: { product: Product }) =&gt; {</span>
+</div>
+<div class="flex bg-red-900/30 border-l-4 border-red-500">
+<span class="diff-line-number text-red-400/50">5</span>
+<span class="text-red-400 px-1 italic">  // old layout logic here</span>
+</div>
+<div class="flex bg-red-900/30 border-l-4 border-red-500">
+<span class="diff-line-number text-red-400/50">6</span>
+<span class="text-red-400">  return &lt;div className="card"&gt;{product.name}&lt;/div&gt;;</span>
+</div>
+<div class="flex">
+<span class="diff-line-number">7</span>
+<span class="text-slate-400">};</span>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col overflow-hidden bg-editor-dark">
+<div class="h-6 flex items-center px-4 bg-slate-900/80 text-[10px] uppercase font-bold text-emerald-500 tracking-widest border-b border-border-dark">
+                    AI Suggested Code
+                </div>
+<div class="flex-1 overflow-y-auto no-scrollbar py-4">
+<div class="flex">
+<span class="diff-line-number">1</span>
+<span class="text-slate-300 italic">import React from 'react';</span>
+</div>
+<div class="flex bg-emerald-900/30 border-l-4 border-emerald-500">
+<span class="diff-line-number text-emerald-400/50">2</span>
+<span class="text-emerald-400"><span class="bg-emerald-500/20 px-0.5">import { Product } from '@/types/global';</span></span>
+</div>
+<div class="flex">
+<span class="diff-line-number">3</span>
+<span class="text-slate-300"></span>
+</div>
+<div class="flex">
+<span class="diff-line-number">4</span>
+<span class="text-slate-300">export const ProductCard = ({ product }: { product: Product }) =&gt; {</span>
+</div>
+<div class="flex bg-emerald-900/30 border-l-4 border-emerald-500">
+<span class="diff-line-number text-emerald-400/50">5</span>
+<span class="text-emerald-400">  return (</span>
+</div>
+<div class="flex bg-emerald-900/30 border-l-4 border-emerald-500">
+<span class="diff-line-number text-emerald-400/50">6</span>
+<span class="text-emerald-400">    &lt;article className="group relative bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all"&gt;</span>
+</div>
+<div class="flex bg-emerald-900/30 border-l-4 border-emerald-500">
+<span class="diff-line-number text-emerald-400/50">7</span>
+<span class="text-emerald-400">      &lt;div className="p-4"&gt;{product.name}&lt;/div&gt;</span>
+</div>
+<div class="flex bg-emerald-900/30 border-l-4 border-emerald-500">
+<span class="diff-line-number text-emerald-400/50">8</span>
+<span class="text-emerald-400">    &lt;/article&gt;</span>
+</div>
+<div class="flex bg-emerald-900/30 border-l-4 border-emerald-500">
+<span class="diff-line-number text-emerald-400/50">9</span>
+<span class="text-emerald-400">  );</span>
+</div>
+<div class="flex">
+<span class="diff-line-number">10</span>
+<span class="text-slate-300">};</span>
+</div>
+</div>
+</div>
+</div>
+<div class="h-40 border-t border-border-dark bg-sidebar-dark flex flex-col">
+<div class="flex items-center px-4 border-b border-border-dark h-8 text-xs font-medium gap-6">
+<span class="opacity-50 hover:opacity-100 cursor-pointer">PROBLEMS</span>
+<span class="opacity-50 hover:opacity-100 cursor-pointer">OUTPUT</span>
+<span class="border-b-2 border-primary text-primary cursor-pointer pb-2 mt-2">TERMINAL</span>
+<span class="opacity-50 hover:opacity-100 cursor-pointer">DEBUG CONSOLE</span>
+<div class="ml-auto flex items-center gap-4 text-slate-400">
+<div class="flex items-center gap-1">
+<span class="material-icons-round text-sm">auto_awesome</span>
+<span>AI Diff Generation: ProductCard.tsx</span>
+<span class="material-icons-round text-sm text-emerald-500">check_circle</span>
+</div>
+<span class="material-icons-round text-sm cursor-pointer">expand_less</span>
+<span class="material-icons-round text-sm cursor-pointer">close</span>
+</div>
+</div>
+<div class="flex-1 p-3 font-mono text-[11px] overflow-y-auto bg-black/40">
+<div class="flex gap-2">
+<span class="text-primary">➜</span>
+<span class="text-blue-400">markstore-main</span>
+<span class="text-emerald-400">git:(feature/product-restructuring)</span>
+<span class="text-slate-100">npm run lint --fix</span>
+</div>
+<div class="mt-1 text-slate-500 italic opacity-60">Checking for lint errors in src/components/ui/ProductCard.tsx...</div>
+<div class="text-emerald-500 mt-1 flex items-center gap-2">
+<span class="material-icons-round text-[12px]">done_all</span>
+<span>AI applied fixes successfully. Generating diff for review.</span>
+</div>
+<div class="flex gap-2 mt-2">
+<span class="text-primary">➜</span>
+<span class="text-blue-400">markstore-main</span>
+<span class="text-slate-100 animate-pulse">█</span>
+</div>
+</div>
+</div>
+</main>
+<aside class="w-[400px] border-l border-border-light dark:border-border-dark bg-sidebar-light dark:bg-sidebar-dark flex flex-col shrink-0">
+<div class="h-10 px-4 flex items-center justify-between border-b border-border-light dark:border-border-dark bg-white dark:bg-sidebar-dark">
+<div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[18px] text-primary">magic_button</span>
+<span>AI Refactor</span>
+</div>
+<div class="flex gap-2">
+<span class="material-icons-round text-sm opacity-50 cursor-pointer">history</span>
+<span class="material-icons-round text-sm opacity-50 cursor-pointer">close</span>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-6 no-scrollbar">
+<div class="flex flex-col gap-2">
+<div class="text-xs text-slate-500 flex items-center gap-2">
+<span class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-1 rounded uppercase text-[9px] font-bold">Studio AI</span>
+<span>14:05</span>
+</div>
+<div class="bg-white dark:bg-slate-800 p-3 rounded-lg border border-border-light dark:border-border-dark text-xs leading-relaxed shadow-sm">
+<p class="mb-3">I've generated a new layout for <code class="bg-slate-100 dark:bg-slate-700 px-1 rounded">ProductCard.tsx</code> that follows the requested design system and fixes the absolute import for the global types.</p>
+<div class="bg-emerald-500/10 border border-emerald-500/30 p-2 rounded text-emerald-400 text-[11px] mb-3 flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>Check the diff view in the center to review and accept the changes.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-border-light dark:border-border-dark bg-white dark:bg-sidebar-dark">
+<div class="relative">
+<textarea class="w-full bg-slate-50 dark:bg-slate-800 border border-border-light dark:border-border-dark rounded-xl px-4 py-3 text-xs focus:ring-1 focus:ring-primary focus:border-primary transition-all resize-none outline-none" placeholder="Reply to AI..." rows="2"></textarea>
+<div class="absolute bottom-3 right-3">
+<button class="w-7 h-7 bg-primary text-white rounded-lg flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity">
+<span class="material-icons-round text-sm">arrow_upward</span>
+</button>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<footer class="h-6 bg-primary text-white flex items-center px-3 justify-between text-[10px] shrink-0 font-medium z-30">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 hover:bg-white/10 px-2 h-full cursor-pointer">
+<span class="material-icons-round text-sm">fork_right</span>
+<span>feature/product-restructuring*</span>
+</div>
+<div class="flex items-center gap-1 hover:bg-white/10 px-2 h-full cursor-pointer">
+<span class="material-icons-round text-sm">sync</span>
+</div>
+<div class="flex items-center gap-1 hover:bg-white/10 px-2 h-full cursor-pointer">
+<span class="material-icons-round text-sm">error_outline</span>
+<span>0</span>
+<span class="material-icons-round text-sm">warning_amber</span>
+<span>0</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="hover:bg-white/10 px-2 h-full flex items-center cursor-pointer">Spaces: 2</span>
+<span class="hover:bg-white/10 px-2 h-full flex items-center cursor-pointer">UTF-8</span>
+<span class="hover:bg-white/10 px-2 h-full flex items-center cursor-pointer">TypeScript JSX</span>
+<div class="flex items-center gap-1 hover:bg-white/10 px-2 h-full cursor-pointer">
+<span class="material-icons-round text-sm">notifications</span>
+</div>
+</div>
+</footer>
+
+</body></html>

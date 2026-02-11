@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Technical SEO Files Generator | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "editor-bg": "#0F172A",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .code-font { font-family: 'JetBrains Mono', monospace; }
+        .syntax-tag { color: #3b82f6; }
+        .syntax-attr { color: #93c5fd; }
+        .syntax-string { color: #10b981; }
+        .syntax-comment { color: #64748b; }
+        .syntax-keyword { color: #f472b6; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Navigation Header -->
+<header class="border-b border-primary/10 bg-white/5 backdrop-blur-md sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center gap-4">
+<div class="bg-primary p-1.5 rounded-lg">
+<span class="material-icons-round text-white text-2xl">architecture</span>
+</div>
+<nav class="hidden md:flex items-center gap-2 text-sm font-medium text-slate-400">
+<span>Projects</span>
+<span class="material-icons-round text-xs">chevron_right</span>
+<span class="text-slate-200">Portfolio-v1</span>
+<span class="material-icons-round text-xs">chevron_right</span>
+<span class="text-primary">SEO Settings</span>
+</nav>
+</div>
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-2 mr-4 px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-full">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-xs font-medium text-primary">Live Sync Active</span>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg font-medium transition-all flex items-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-icons-round text-sm">folder_zip</span>
+                        Save to Root Folder
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<!-- Page Inclusion Toggle Section -->
+<section class="mb-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+<div>
+<h1 class="text-2xl font-bold tracking-tight">Technical SEO Files</h1>
+<p class="text-slate-400 mt-1">Configure automated discovery and crawling rules for search engine bots.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 text-sm font-medium bg-primary/10 text-primary border border-primary/20 rounded-lg hover:bg-primary/20 transition-colors">
+                        Sitemap Settings
+                    </button>
+<button class="px-4 py-2 text-sm font-medium bg-slate-800 text-slate-300 border border-slate-700 rounded-lg hover:bg-slate-700 transition-colors">
+                        Validation History
+                    </button>
+</div>
+</div>
+<div class="bg-editor-bg border border-slate-800 rounded-xl p-6">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-sm font-semibold uppercase tracking-wider text-slate-500">Sitemap Page Inclusion</h2>
+<span class="text-xs text-slate-500">8 of 10 pages included</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+<!-- Page Chips -->
+<label class="flex items-center justify-between p-3 rounded-lg border border-primary/40 bg-primary/10 cursor-pointer group transition-all">
+<div class="flex items-center gap-2">
+<span class="material-icons-round text-primary text-sm">description</span>
+<span class="text-sm font-medium">Home</span>
+</div>
+<input checked="" class="rounded border-slate-700 bg-slate-900 text-primary focus:ring-primary/50" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg border border-primary/40 bg-primary/10 cursor-pointer group transition-all">
+<div class="flex items-center gap-2">
+<span class="material-icons-round text-primary text-sm">info</span>
+<span class="text-sm font-medium">About</span>
+</div>
+<input checked="" class="rounded border-slate-700 bg-slate-900 text-primary focus:ring-primary/50" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg border border-primary/40 bg-primary/10 cursor-pointer group transition-all">
+<div class="flex items-center gap-2">
+<span class="material-icons-round text-primary text-sm">shopping_bag</span>
+<span class="text-sm font-medium">Products</span>
+</div>
+<input checked="" class="rounded border-slate-700 bg-slate-900 text-primary focus:ring-primary/50" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg border border-slate-700 bg-slate-800/50 cursor-pointer group hover:border-slate-500 transition-all">
+<div class="flex items-center gap-2">
+<span class="material-icons-round text-slate-500 text-sm">lock</span>
+<span class="text-sm font-medium text-slate-400">Admin</span>
+</div>
+<input class="rounded border-slate-700 bg-slate-900 text-primary focus:ring-primary/50" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg border border-primary/40 bg-primary/10 cursor-pointer group transition-all">
+<div class="flex items-center gap-2">
+<span class="material-icons-round text-primary text-sm">article</span>
+<span class="text-sm font-medium">Blog</span>
+</div>
+<input checked="" class="rounded border-slate-700 bg-slate-900 text-primary focus:ring-primary/50" type="checkbox"/>
+</label>
+<!-- More chips... -->
+</div>
+</div>
+</section>
+<!-- Editors Grid -->
+<div class="grid lg:grid-cols-2 gap-8">
+<!-- Sitemap.xml Editor -->
+<div class="flex flex-col bg-editor-bg border border-slate-800 rounded-xl overflow-hidden shadow-2xl">
+<div class="flex items-center justify-between px-4 py-3 bg-slate-900 border-b border-slate-800">
+<div class="flex items-center gap-3">
+<span class="material-icons-round text-amber-500 text-xl">code</span>
+<span class="text-sm font-medium text-slate-300">sitemap.xml</span>
+<span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded uppercase">XML</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-[10px] font-semibold text-slate-500">UP TO DATE</span>
+</div>
+</div>
+<div class="relative flex-grow custom-scrollbar overflow-auto max-h-[500px] bg-[#0F172A] p-6 code-font text-sm leading-relaxed">
+<div class="flex gap-4">
+<div class="text-slate-600 text-right select-none pr-4 border-r border-slate-800/50">
+                            01<br/>02<br/>03<br/>04<br/>05<br/>06<br/>07<br/>08<br/>09<br/>10<br/>11<br/>12<br/>13<br/>14
+                        </div>
+<div class="whitespace-nowrap">
+<span class="syntax-tag">&lt;?xml</span> <span class="syntax-attr">version</span>=<span class="syntax-string">"1.0"</span> <span class="syntax-attr">encoding</span>=<span class="syntax-string">"UTF-8"</span><span class="syntax-tag">?&gt;</span><br/>
+<span class="syntax-tag">&lt;urlset</span> <span class="syntax-attr">xmlns</span>=<span class="syntax-string">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="syntax-tag">&gt;</span><br/>
+                              <span class="syntax-tag">&lt;url&gt;</span><br/>
+                                <span class="syntax-tag">&lt;loc&gt;</span>https://studiobuilder.ai/<span class="syntax-tag">&lt;/loc&gt;</span><br/>
+                                <span class="syntax-tag">&lt;lastmod&gt;</span>2023-11-24<span class="syntax-tag">&lt;/lastmod&gt;</span><br/>
+                                <span class="syntax-tag">&lt;priority&gt;</span>1.0<span class="syntax-tag">&lt;/priority&gt;</span><br/>
+                              <span class="syntax-tag">&lt;/url&gt;</span><br/>
+                              <span class="syntax-tag">&lt;url&gt;</span><br/>
+                                <span class="syntax-tag">&lt;loc&gt;</span>https://studiobuilder.ai/about<span class="syntax-tag">&lt;/loc&gt;</span><br/>
+                                <span class="syntax-tag">&lt;lastmod&gt;</span>2023-11-20<span class="syntax-tag">&lt;/lastmod&gt;</span><br/>
+                                <span class="syntax-tag">&lt;priority&gt;</span>0.8<span class="syntax-tag">&lt;/priority&gt;</span><br/>
+                              <span class="syntax-tag">&lt;/url&gt;</span><br/>
+<span class="syntax-comment">  &lt;!-- Additional 6 pages omitted for brevity --&gt;</span><br/>
+<span class="syntax-tag">&lt;/urlset&gt;</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-slate-900 border-t border-slate-800">
+<button class="flex items-center gap-2 text-xs font-medium text-slate-400 hover:text-white transition-colors">
+<span class="material-icons-round text-sm">refresh</span>
+                        Regenerate Sitemap
+                    </button>
+<button class="flex items-center gap-2 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-xs font-medium transition-colors">
+<span class="material-icons-round text-sm">content_copy</span>
+                        Copy Code
+                    </button>
+</div>
+</div>
+<!-- Robots.txt Editor -->
+<div class="flex flex-col bg-editor-bg border border-slate-800 rounded-xl overflow-hidden shadow-2xl">
+<div class="flex items-center justify-between px-4 py-3 bg-slate-900 border-b border-slate-800">
+<div class="flex items-center gap-3">
+<span class="material-icons-round text-blue-400 text-xl">smart_toy</span>
+<span class="text-sm font-medium text-slate-300">robots.txt</span>
+<span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded uppercase">Text</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-slate-600"></div>
+<span class="text-[10px] font-semibold text-slate-500">SAVED LOCAL</span>
+</div>
+</div>
+<div class="relative flex-grow custom-scrollbar overflow-auto max-h-[500px] bg-[#0F172A] p-6 code-font text-sm leading-relaxed">
+<div class="flex gap-4">
+<div class="text-slate-600 text-right select-none pr-4 border-r border-slate-800/50">
+                            01<br/>02<br/>03<br/>04<br/>05<br/>06<br/>07<br/>08<br/>09<br/>10
+                        </div>
+<div class="whitespace-nowrap">
+<span class="syntax-comment"># Robots.txt generated by StudioBuilder AI</span><br/><br/>
+<span class="syntax-keyword">User-agent:</span> *<br/>
+<span class="syntax-keyword">Allow:</span> /<br/>
+<span class="syntax-keyword">Disallow:</span> /admin/<br/>
+<span class="syntax-keyword">Disallow:</span> /api/auth/<br/>
+<span class="syntax-keyword">Disallow:</span> /temp/<br/><br/>
+<span class="syntax-keyword">Sitemap:</span> https://studiobuilder.ai/sitemap.xml<br/>
+<span class="syntax-keyword">Crawl-delay:</span> 10
+                        </div>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-slate-900 border-t border-slate-800">
+<button class="flex items-center gap-2 text-xs font-medium text-slate-400 hover:text-white transition-colors">
+<span class="material-icons-round text-sm">settings_backup_restore</span>
+                        Reset to Defaults
+                    </button>
+<button class="flex items-center gap-2 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-xs font-medium transition-colors">
+<span class="material-icons-round text-sm">content_copy</span>
+                        Copy Rules
+                    </button>
+</div>
+</div>
+</div>
+<!-- Footer / Documentation Link -->
+<footer class="mt-12 pt-8 border-t border-slate-800">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 text-slate-500">
+<span class="material-icons-round text-lg">help_outline</span>
+<a class="text-sm hover:text-primary transition-colors" href="#">Sitemap Documentation</a>
+</div>
+<div class="flex items-center gap-2 text-slate-500">
+<span class="material-icons-round text-lg">verified</span>
+<a class="text-sm hover:text-primary transition-colors" href="#">SEO Best Practices</a>
+</div>
+</div>
+<div class="text-sm text-slate-500 italic">
+                    All files are automatically minified upon deployment.
+                </div>
+</div>
+</footer>
+</main>
+<!-- Project Context Bar -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900/90 backdrop-blur border border-slate-700 px-4 py-2 rounded-full shadow-2xl flex items-center gap-4 z-50">
+<div class="flex -space-x-2">
+<img alt="" class="w-6 h-6 rounded-full border border-slate-800" data-alt="User avatar 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZhkXKWEmNVJOeE_Wjv2n__-kOSLZXNJP05IJcHJgpefT-vvYP68Ekhmmy8RJ56oSdwYBkZepoHsdiQJ04FlH_1lPCct11fHKM2GniAMM7KrC5wVUc6NjM-KtgP_u65luO38gqGL1Xl5M5bLIKuqtA1XQPWmRIPKU5IO_iiM-xtjVP9PLra2f-J7yDmlJej7IKcmYzQTt4mvoH4yvxx5JUIKBX3XWCkKtHYQDXGjTk_IYloAwRRfDmogiiSUbmqFUeIUfWMBmd_fY"/>
+<img alt="" class="w-6 h-6 rounded-full border border-slate-800" data-alt="User avatar 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL7m7h7rafUfSdfC34ST1D9rzjxVnylCHdKfUv0d1t3yqVop3pYWOAe8g89630ocbW-CPsj3W1vzeiH70281otN5bs8V7nekUHxirfH6FIOHAOigYkxafjgCDg18xG20xT6kadcEe1b7BZ95deYPK-WrLoOx-PDe8DEs5cM4vcg4r6M9wGEekSo7x1Sp0Y1lmBZ5iEhiR0yu3z6lftKhfF8h9FxqpaoPIObGKFeAbTr1TF8kHC69vYTPF734tC5CuGCFJUdh5WIiA"/>
+</div>
+<div class="w-px h-4 bg-slate-700"></div>
+<p class="text-xs text-slate-400">Editing with <span class="text-slate-100 font-medium">Marketing Team</span></p>
+<div class="w-px h-4 bg-slate-700"></div>
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-sm text-slate-500">history</span>
+<span class="text-xs text-slate-500">Last change 2m ago</span>
+</div>
+</div>
+</body></html>

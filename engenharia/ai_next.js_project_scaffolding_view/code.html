@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI | Next.js Project Scaffolding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["Fira Code", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+        .code-syntax {
+            font-family: 'Fira Code', monospace;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #4b2bee33;
+            border-radius: 10px;
+        }
+        .scaffolding-node {
+            border-left: 1px solid rgba(75, 43, 238, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 h-screen flex flex-col font-display">
+<!-- Header / Navigation -->
+<header class="h-14 border-b border-primary/10 bg-white/5 backdrop-blur-md flex items-center justify-between px-4 z-50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-icons-round text-white text-xl">auto_awesome</span>
+</div>
+<div>
+<h1 class="text-sm font-bold tracking-tight">StudioBuilder AI</h1>
+<p class="text-[10px] text-primary font-medium uppercase tracking-widest">Next.js Architect Mode</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-primary/5 px-3 py-1.5 rounded-full border border-primary/20">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="text-xs font-medium text-slate-300">Project: <span class="text-white">MarketStore</span></span>
+<div class="h-3 w-px bg-primary/20"></div>
+<span class="text-xs font-medium text-slate-300">Branch: <span class="text-white">main</span></span>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 transition-colors">
+<span class="material-icons-round text-sm">settings</span>
+                Config
+            </button>
+<button class="flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs font-bold bg-primary text-white hover:bg-primary/90 transition-all shadow-lg shadow-primary/25">
+<span class="material-icons-round text-sm">rocket_launch</span>
+                Deploy App
+            </button>
+</div>
+</header>
+<div class="flex-1 flex overflow-hidden">
+<!-- Sidebar: File Explorer -->
+<aside class="w-64 border-r border-primary/10 flex flex-col bg-background-light dark:bg-background-dark/50">
+<div class="p-3 flex items-center justify-between border-b border-primary/5">
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Explorer</span>
+<div class="flex gap-2">
+<span class="material-icons-round text-sm text-slate-500 cursor-pointer hover:text-primary">create_new_folder</span>
+<span class="material-icons-round text-sm text-slate-500 cursor-pointer hover:text-primary">note_add</span>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar py-2 text-sm">
+<!-- Project Root -->
+<div class="flex items-center gap-2 px-4 py-1 text-slate-400">
+<span class="material-icons-round text-sm">keyboard_arrow_down</span>
+<span class="material-icons-round text-base text-primary/80">folder</span>
+<span class="font-medium text-slate-200">market-store</span>
+</div>
+<!-- Folders -->
+<div class="ml-4 scaffolding-node">
+<div class="flex items-center gap-2 px-4 py-1 text-slate-400 opacity-60">
+<span class="material-icons-round text-sm">keyboard_arrow_right</span>
+<span class="material-icons-round text-base text-amber-500/80">folder</span>
+<span>.next</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-1 text-slate-400">
+<span class="material-icons-round text-sm">keyboard_arrow_down</span>
+<span class="material-icons-round text-base text-blue-400/80">folder</span>
+<span>public</span>
+</div>
+<div class="ml-4 scaffolding-node">
+<div class="flex items-center gap-2 px-4 py-1 text-slate-400">
+<span class="material-icons-round text-base text-emerald-400/80">image</span>
+<span class="text-xs">logo.svg</span>
+</div>
+</div>
+<div class="flex items-center gap-2 px-4 py-1 text-slate-200 bg-primary/10 border-r-2 border-primary">
+<span class="material-icons-round text-sm">keyboard_arrow_down</span>
+<span class="material-icons-round text-base text-primary">folder</span>
+<span class="font-semibold">src</span>
+</div>
+<div class="ml-4 scaffolding-node">
+<div class="flex items-center gap-2 px-4 py-1 text-slate-400">
+<span class="material-icons-round text-sm">keyboard_arrow_right</span>
+<span class="material-icons-round text-base text-primary/60">folder</span>
+<span>app</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-1 text-slate-400">
+<span class="material-icons-round text-sm">keyboard_arrow_down</span>
+<span class="material-icons-round text-base text-primary/60">folder</span>
+<span>components</span>
+</div>
+<div class="ml-4 scaffolding-node">
+<div class="flex items-center gap-2 px-4 py-1 text-slate-400">
+<span class="material-icons-round text-sm">keyboard_arrow_right</span>
+<span class="material-icons-round text-base text-primary/40">folder</span>
+<span>ui</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-1 text-slate-400">
+<span class="material-icons-round text-sm">keyboard_arrow_down</span>
+<span class="material-icons-round text-base text-primary/40">folder</span>
+<span>checkout</span>
+</div>
+<div class="ml-4 scaffolding-node">
+<div class="flex items-center gap-2 px-4 py-1 text-primary bg-primary/5">
+<span class="material-icons-round text-base">javascript</span>
+<span class="font-medium">Payment.tsx</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 px-4 py-1 text-slate-400">
+<span class="material-icons-round text-sm">keyboard_arrow_right</span>
+<span class="material-icons-round text-base text-primary/60">folder</span>
+<span>services</span>
+</div>
+</div>
+</div>
+<!-- Config Files -->
+<div class="mt-4 border-t border-primary/5 pt-2">
+<div class="flex items-center gap-2 px-8 py-1 text-slate-400">
+<span class="material-icons-round text-base text-blue-400">settings</span>
+<span class="text-xs">next.config.js</span>
+</div>
+<div class="flex items-center gap-2 px-8 py-1 text-slate-400">
+<span class="material-icons-round text-base text-cyan-400">Description</span>
+<span class="text-xs">tailwind.config.ts</span>
+</div>
+<div class="flex items-center gap-2 px-8 py-1 text-slate-400">
+<span class="material-icons-round text-base text-slate-500">terminal</span>
+<span class="text-xs">package.json</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col relative overflow-hidden bg-[#0d0b1a]">
+<!-- Breadcrumbs / Tabs -->
+<div class="h-10 border-b border-primary/10 flex items-center justify-between px-4 bg-background-dark/80 backdrop-blur-sm">
+<div class="flex items-center gap-2 text-[11px] font-medium">
+<span class="text-slate-500">src</span>
+<span class="material-icons-round text-[10px] text-slate-600">chevron_right</span>
+<span class="text-slate-500">components</span>
+<span class="material-icons-round text-[10px] text-slate-600">chevron_right</span>
+<span class="text-slate-500">checkout</span>
+<span class="material-icons-round text-[10px] text-slate-600">chevron_right</span>
+<span class="text-primary">Payment.tsx</span>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-primary/10 border border-primary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="text-[10px] font-bold text-primary uppercase tracking-tight">AI Generating</span>
+</div>
+</div>
+</div>
+<!-- Editor & Scaffolding Viz -->
+<div class="flex-1 flex flex-col lg:flex-row overflow-hidden">
+<!-- Code Editor View -->
+<div class="flex-1 p-6 overflow-y-auto custom-scrollbar code-syntax text-sm leading-relaxed">
+<div class="flex flex-col gap-1">
+<p class="text-indigo-400"><span class="text-pink-500">import</span> { useState, useEffect } <span class="text-pink-500">from</span> <span class="text-emerald-400">'react'</span>;</p>
+<p class="text-indigo-400"><span class="text-pink-500">import</span> { loadStripe } <span class="text-pink-500">from</span> <span class="text-emerald-400">'@stripe/stripe-js'</span>;</p>
+<p class="text-indigo-400"><span class="text-pink-500">import</span> { Button } <span class="text-pink-500">from</span> <span class="text-emerald-400">'@/components/ui/button'</span>;</p>
+<p class="mb-4 text-slate-600">// Generated by StudioBuilder AI for MarketStore Project</p>
+<p class="text-slate-200"><span class="text-pink-500">export default function</span> <span class="text-blue-400">PaymentSection</span>() {</p>
+<div class="ml-6 space-y-1 border-l border-white/5 pl-4">
+<p class="text-slate-200"><span class="text-pink-500">const</span> [status, setStatus] = <span class="text-blue-400">useState</span>(<span class="text-emerald-400">'idle'</span>);</p>
+<p class="text-slate-200"><span class="text-pink-500">const</span> [loading, setLoading] = <span class="text-blue-400">useState</span>(<span class="text-pink-500">false</span>);</p>
+<br/>
+<p class="text-pink-500">const <span class="text-blue-400">handlePayment</span> = <span class="text-slate-200">async () =&gt; {</span></p>
+<div class="ml-6 border-l border-white/5 pl-4">
+<p class="text-blue-400">setLoading<span class="text-slate-200">(<span class="text-pink-500">true</span>);</span></p>
+<p class="text-slate-400">// API Call logic for Stripe integration</p>
+<p class="text-pink-500">try <span class="text-slate-200">{</span></p>
+<p class="ml-6 text-slate-200"><span class="text-pink-500">await</span> <span class="text-blue-400">processTransaction</span>();</p>
+<p class="text-slate-200">} <span class="text-pink-500">catch</span> (err) {</p>
+<p class="ml-6 text-red-400">console.error(<span class="text-emerald-400">'Payment Failed'</span>, err);</p>
+<p class="text-slate-200">}</p>
+</div>
+<p class="text-slate-200">};</p>
+<br/>
+<p class="text-pink-500">return <span class="text-slate-200">(</span></p>
+<div class="ml-6 border-l border-white/5 pl-4">
+<p class="text-slate-500">&lt;<span class="text-indigo-400">div</span> <span class="text-blue-300">className</span>=<span class="text-emerald-400">"max-w-2xl mx-auto p-8"</span>&gt;</p>
+<p class="ml-6 text-slate-500">&lt;<span class="text-indigo-400">h2</span> <span class="text-blue-300">className</span>=<span class="text-emerald-400">"text-2xl font-bold mb-4"</span>&gt;Complete Purchase&lt;/<span class="text-indigo-400">h2</span>&gt;</p>
+<p class="ml-6 text-slate-500">&lt;<span class="text-indigo-400">div</span> <span class="text-blue-300">className</span>=<span class="text-emerald-400">"bg-white/5 border border-white/10 p-6 rounded-xl"</span>&gt;</p>
+<p class="ml-12 text-slate-500">&lt;<span class="text-indigo-400">Button</span> <span class="text-blue-300">onClick</span>={handlePayment} <span class="text-blue-300">disabled</span>={loading}&gt;</p>
+<p class="ml-18 text-slate-200">{loading ? 'Processing...' : 'Pay Now'}</p>
+<p class="ml-12 text-slate-500">&lt;/<span class="text-indigo-400">Button</span>&gt;</p>
+<p class="ml-6 text-slate-500">&lt;/<span class="text-indigo-400">div</span>&gt;</p>
+<p class="text-slate-500">&lt;/<span class="text-indigo-400">div</span>&gt;</p>
+</div>
+<p class="text-slate-200">);</p>
+</div>
+<p class="text-slate-200">}</p>
+</div>
+</div>
+<!-- Scaffolding Visualizer Sidebar (Hidden on small screens) -->
+<div class="w-full lg:w-96 border-l border-primary/10 bg-background-dark/30 p-6 flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Live Hierarchy</h3>
+<div class="relative bg-black/40 rounded-xl p-4 border border-white/5 shadow-inner">
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+<span class="material-icons-round text-primary text-lg">folder</span>
+</div>
+<div class="flex-1">
+<div class="h-1.5 w-24 bg-primary/40 rounded-full mb-1"></div>
+<div class="h-1 w-16 bg-slate-800 rounded-full"></div>
+</div>
+<span class="material-icons-round text-emerald-500 text-sm">check_circle</span>
+</div>
+<div class="flex items-center gap-3 relative">
+<div class="absolute -left-4 top-10 w-4 h-px bg-primary/20"></div>
+<div class="w-8 h-8 rounded-lg bg-primary/40 flex items-center justify-center">
+<span class="material-icons-round text-primary text-lg animate-pulse">create_new_folder</span>
+</div>
+<div class="flex-1">
+<div class="h-1.5 w-32 bg-primary/60 rounded-full mb-1"></div>
+<div class="h-1 w-20 bg-slate-800 rounded-full"></div>
+</div>
+<div class="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+</div>
+<div class="flex items-center gap-3 opacity-30">
+<div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center">
+<span class="material-icons-round text-slate-500 text-lg">folder_open</span>
+</div>
+<div class="flex-1">
+<div class="h-1.5 w-28 bg-slate-700 rounded-full mb-1"></div>
+<div class="h-1 w-12 bg-slate-800 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Build Insight</h3>
+<div class="bg-gradient-to-br from-primary/10 to-transparent p-4 rounded-xl border border-primary/20">
+<div class="flex items-center justify-between mb-4">
+<span class="text-[10px] text-slate-400 font-medium">Progress</span>
+<span class="text-xs font-bold text-primary">74%</span>
+</div>
+<div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden mb-4">
+<div class="h-full bg-primary w-[74%] shadow-[0_0_15px_rgba(75,43,238,0.5)]"></div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="p-2 bg-black/30 rounded-lg">
+<p class="text-[10px] text-slate-500 mb-1">Files Generated</p>
+<p class="text-sm font-bold">42 <span class="text-[10px] text-primary/60">/ 56</span></p>
+</div>
+<div class="p-2 bg-black/30 rounded-lg">
+<p class="text-[10px] text-slate-500 mb-1">Time Elapsed</p>
+<p class="text-sm font-bold">0:48s</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto p-4 bg-primary/5 rounded-xl border border-primary/10 flex items-start gap-3">
+<span class="material-icons-round text-primary mt-1">info</span>
+<div>
+<p class="text-xs font-semibold mb-1">Framework Detected</p>
+<p class="text-[11px] text-slate-400 leading-relaxed">
+                                AI has configured <span class="text-white font-medium">Next.js 14 App Router</span> with Tailwind CSS and TypeScript optimization.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Status Bar -->
+<footer class="h-8 bg-primary border-t border-white/10 flex items-center justify-between px-4 text-[11px] font-medium text-white/90">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-1.5 cursor-pointer hover:text-white transition-colors">
+<span class="material-icons-round text-xs">sync_alt</span>
+<span>Generating API Routes...</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-xs">error_outline</span>
+<span>0 Errors</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-xs">warning_amber</span>
+<span>2 Warnings</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-xs">memory</span>
+<span>Memory: 242MB</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-xs">router</span>
+<span>Next.js 14.2.3</span>
+</div>
+<div class="flex items-center gap-1.5 bg-white/20 px-2 py-0.5 rounded">
+<span class="material-icons-round text-xs">notifications_active</span>
+<span>AI Scaffolding Live</span>
+</div>
+</div>
+</footer>
+<!-- Overlay Visualization (Scaffolding Animation Mock) -->
+<div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl pointer-events-none opacity-20 hidden lg:block">
+<div class="relative w-full aspect-video">
+<div class="absolute inset-0 bg-primary/5 blur-[120px] rounded-full"></div>
+<!-- Dynamic Grid Effect -->
+<div class="absolute inset-0 grid grid-cols-6 grid-rows-4 gap-4 p-8">
+<div class="border border-primary/20 rounded-lg"></div>
+<div class="border border-primary/40 rounded-lg col-span-2"></div>
+<div class="border border-primary/10 rounded-lg"></div>
+<div class="border border-primary/30 rounded-lg col-span-2 row-span-2"></div>
+<div class="border border-primary/10 rounded-lg row-span-2"></div>
+<div class="border border-primary/5 rounded-lg"></div>
+<div class="border border-primary/40 rounded-lg"></div>
+</div>
+</div>
+</div>
+</body></html>

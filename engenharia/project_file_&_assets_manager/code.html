@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project File &amp; Assets Manager | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#3b2bee",
+                "background-light": "#f6f6f8",
+                "background-dark": "#0c0a1d", // Adjusted to be slightly darker than the prompt for depth
+                "surface-dark": "#121022",
+                "border-dark": "#2a264f",
+              },
+              fontFamily: {
+                "display": ["Space Grotesk"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .file-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #2a264f; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #3b2bee; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased h-screen flex flex-col overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="h-16 border-b border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark flex items-center justify-between px-6 z-20">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-icons-round text-white text-xl">architecture</span>
+</div>
+<span class="font-bold text-lg tracking-tight">StudioBuilder <span class="text-primary">AI</span></span>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-border-dark mx-2"></div>
+<div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+<span>My Projects</span>
+<span class="material-icons-round text-sm">chevron_right</span>
+<span class="text-slate-900 dark:text-slate-100 font-medium">E-commerce Template V2</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 text-xs font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                SYNCED
+            </div>
+<button class="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all shadow-lg shadow-primary/20">
+<span class="material-icons-round text-sm">save</span>
+                Save Root Changes
+            </button>
+<div class="h-8 w-8 rounded-full bg-slate-200 dark:bg-border-dark overflow-hidden border border-slate-300 dark:border-primary/30">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="User avatar for profile settings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBROV2-chAOLdTsaPXI4aqWyo83tCOINnCFaeUzgQrC5pufditcxraw3w9nD7x9QMAaOFcwqi0mUmvVERJV7B5_2Vnzyb7UxisKjBq1ozKBufiuo7_a-sk9JfJYvaL9gruZyN3hCsLzpP_ghSxvzFlm9AwKnN23RDZLC86oM819FrTgHDIcA8v0nmZ8gqyzcEikN0shPFQy1YuNj3o54-3-3ezCn6vdGRNj4v7FvzKiRhEJXmCGH-PjQAdnJbX03SUHRTRuzmrVWEw"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Sidebar: File Tree -->
+<aside class="w-72 border-r border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark flex flex-col overflow-hidden">
+<div class="p-4 border-b border-slate-200 dark:border-border-dark flex items-center justify-between">
+<h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Project Explorer</h2>
+<div class="flex gap-1">
+<button class="p-1 hover:bg-slate-100 dark:hover:bg-primary/10 rounded transition-colors" title="New File">
+<span class="material-icons-round text-lg text-slate-500">note_add</span>
+</button>
+<button class="p-1 hover:bg-slate-100 dark:hover:bg-primary/10 rounded transition-colors" title="Collapse All">
+<span class="material-icons-round text-lg text-slate-500">unfold_less</span>
+</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-2">
+<!-- Root Level -->
+<div class="space-y-1">
+<div class="flex items-center gap-2 px-2 py-1.5 rounded-lg text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-primary/10 cursor-pointer group">
+<span class="material-icons-round text-slate-400 group-hover:text-primary transition-colors">expand_more</span>
+<span class="material-icons-round text-primary">folder_open</span>
+<span class="text-sm font-medium">Root Folder</span>
+</div>
+<!-- Sub-folders -->
+<div class="ml-4 space-y-1 border-l border-slate-200 dark:border-border-dark pl-2">
+<!-- Assets Folder -->
+<div class="flex items-center gap-2 px-2 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 cursor-pointer group">
+<span class="material-icons-round text-slate-400">chevron_right</span>
+<span class="material-icons-round text-amber-500">folder</span>
+<span class="text-sm">Assets</span>
+</div>
+<!-- Components Folder (Active) -->
+<div class="flex items-center gap-2 px-2 py-1.5 rounded-lg bg-primary/10 text-primary cursor-pointer border-r-2 border-primary">
+<span class="material-icons-round">expand_more</span>
+<span class="material-icons-round text-primary">folder_open</span>
+<span class="text-sm font-semibold">Components</span>
+</div>
+<div class="ml-6 space-y-1">
+<div class="flex items-center gap-2 px-2 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-primary cursor-pointer transition-colors">
+<span class="material-icons-round text-sm text-blue-400">code</span>
+<span class="text-sm">Navbar.tsx</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-primary cursor-pointer transition-colors">
+<span class="material-icons-round text-sm text-blue-400">code</span>
+<span class="text-sm">HeroSection.tsx</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 rounded-lg text-slate-600 dark:text-slate-400 hover:text-primary cursor-pointer transition-colors">
+<span class="material-icons-round text-sm text-blue-400">code</span>
+<span class="text-sm">Footer.tsx</span>
+</div>
+</div>
+<!-- Images Folder -->
+<div class="flex items-center gap-2 px-2 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 cursor-pointer">
+<span class="material-icons-round text-slate-400">chevron_right</span>
+<span class="material-icons-round text-pink-500">folder</span>
+<span class="text-sm">Images</span>
+</div>
+<!-- Source Code Folder -->
+<div class="flex items-center gap-2 px-2 py-1.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/10 cursor-pointer">
+<span class="material-icons-round text-slate-400">chevron_right</span>
+<span class="material-icons-round text-emerald-500">folder</span>
+<span class="text-sm">Source Code</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-primary/5 border-t border-slate-200 dark:border-border-dark">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-semibold text-slate-500 uppercase tracking-tighter">Storage Usage</span>
+<span class="text-xs font-bold">72%</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-border-dark h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[72%]"></div>
+</div>
+</div>
+</aside>
+<!-- Main Workspace -->
+<main class="flex-1 flex flex-col overflow-hidden bg-background-light dark:bg-background-dark">
+<!-- Workspace Toolbar -->
+<div class="h-14 px-6 flex items-center justify-between border-b border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative flex-1 max-w-md">
+<span class="material-icons-round absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-1.5 rounded-lg bg-slate-100 dark:bg-background-dark border-transparent focus:border-primary focus:ring-0 text-sm transition-all outline-none" placeholder="Search files and folders..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center bg-slate-100 dark:bg-background-dark rounded-lg p-1">
+<button class="p-1.5 bg-white dark:bg-primary shadow-sm rounded text-slate-900 dark:text-white transition-all">
+<span class="material-icons-round text-lg">grid_view</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-all">
+<span class="material-icons-round text-lg">view_list</span>
+</button>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-border-dark mx-1"></div>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-border-dark hover:bg-slate-50 dark:hover:bg-primary/10 text-sm font-medium transition-all">
+<span class="material-icons-round text-sm">sort</span>
+                        Sort: Type
+                        <span class="material-icons-round text-sm">expand_more</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:opacity-90 text-sm font-medium transition-all">
+<span class="material-icons-round text-sm">add</span>
+                        New Folder
+                    </button>
+</div>
+</div>
+<!-- Content Area -->
+<div class="flex-1 overflow-y-auto p-6 custom-scrollbar">
+<div class="mb-6">
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-icons-round text-primary">folder</span>
+                        Components
+                        <span class="text-sm font-normal text-slate-500 ml-2">(12 Items)</span>
+</h3>
+<div class="file-grid">
+<!-- Code File Card -->
+<div class="bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark rounded-xl p-4 hover:border-primary/50 transition-all group cursor-pointer shadow-sm hover:shadow-md">
+<div class="flex items-center justify-between mb-3">
+<div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
+<span class="material-icons-round text-blue-500">javascript</span>
+</div>
+<button class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-primary transition-all">
+<span class="material-icons-round">more_vert</span>
+</button>
+</div>
+<h4 class="text-sm font-semibold truncate mb-1">Navbar.tsx</h4>
+<div class="text-[10px] uppercase font-bold text-slate-400 flex items-center gap-2">
+<span>12 KB</span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span>Modified 2h ago</span>
+</div>
+<div class="mt-4 p-2 bg-slate-50 dark:bg-background-dark/50 rounded-lg border border-slate-100 dark:border-border-dark overflow-hidden">
+<div class="text-[10px] font-mono text-slate-400 opacity-60">
+<span class="text-primary">export const</span> Navbar = () =&gt; {<br/>
+                                      <span class="text-emerald-500">return</span> (<br/>
+                                        &lt;<span class="text-pink-500">nav</span>&gt;...&lt;/<span class="text-pink-500">nav</span>&gt;
+                                </div>
+</div>
+</div>
+<!-- Image File Card -->
+<div class="bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark rounded-xl overflow-hidden hover:border-primary/50 transition-all group cursor-pointer shadow-sm hover:shadow-md">
+<div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-background-dark">
+<img alt="Asset Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Abstract geometric gradients for UI asset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIfT4DxUvBVEW0U7HrTF8j4IR_79SfmTo9VxbkT8ISZuxU5Ip56zZtT8ALOZyizhFYqbIHi2zHzi9mB0Z7yf3beQhsezawsvcJDTFiWG4IyO61iFbtoVkySHSQYvaXdVbBba1rXMnddEbgWA1CHNHT4Y7_NhsNUX5Tjx6d2OpgGmtO9TpRz8o7A_uj950cqsAXqL1GFV5s6P4TBJft9kowMPPmfdKzjnImB0v-VHZvWkEi96Nju_ZTYOuorwg7_k21oywVBe2xORI"/>
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center">
+<span class="material-icons-round text-white opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all">visibility</span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-1">
+<h4 class="text-sm font-semibold truncate">Hero_Abstract.png</h4>
+<span class="material-icons-round text-pink-500 text-sm">image</span>
+</div>
+<div class="text-[10px] uppercase font-bold text-slate-400 flex items-center gap-2">
+<span>2.4 MB</span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span>Modified 1d ago</span>
+</div>
+</div>
+</div>
+<!-- CSS Card -->
+<div class="bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark rounded-xl p-4 hover:border-primary/50 transition-all group cursor-pointer shadow-sm hover:shadow-md">
+<div class="flex items-center justify-between mb-3">
+<div class="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center">
+<span class="material-icons-round text-pink-500">style</span>
+</div>
+<button class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-primary transition-all">
+<span class="material-icons-round">more_vert</span>
+</button>
+</div>
+<h4 class="text-sm font-semibold truncate mb-1">GlobalStyles.css</h4>
+<div class="text-[10px] uppercase font-bold text-slate-400 flex items-center gap-2">
+<span>4.2 KB</span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span>Modified 5h ago</span>
+</div>
+<div class="mt-4 p-2 bg-slate-50 dark:bg-background-dark/50 rounded-lg border border-slate-100 dark:border-border-dark overflow-hidden">
+<div class="text-[10px] font-mono text-slate-400 opacity-60">
+<span class="text-primary">:root</span> {<br/>
+                                      --primary: #3b2bee;<br/>
+                                      --font: Space Grotesk;<br/>
+                                    }
+                                </div>
+</div>
+</div>
+<!-- Image File Card 2 -->
+<div class="bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark rounded-xl overflow-hidden hover:border-primary/50 transition-all group cursor-pointer shadow-sm hover:shadow-md">
+<div class="aspect-video relative overflow-hidden bg-slate-100 dark:bg-background-dark">
+<img alt="Asset Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Blue and purple gradient background asset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtGOHIzhpMfCug_p4uAr-tNKEsvCBnjW-GymB2hFjdZItLm1Y0sbLLKtRJxoR81z3F_OGyYJezVMxeWFLJwU6R3rjlWeHTEbLR5jhzbSDaHk8RrTipRIvPxEd6nrVv7lLfNqv6PDn9U29yWoY0fkkQYSqi4WLTi67LSEhPEBLG4uhUx4Mve5WZkMnxDZ4m7eFBzAOq1qbv45kwcZOTvY67Hh1Hcs8qAONkL2m3WyRyx0aM_hi_I_p3Xk2NOfkLYbtnYO7YlPhBzCQ"/>
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center">
+<span class="material-icons-round text-white opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all">visibility</span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-1">
+<h4 class="text-sm font-semibold truncate">Background_Gradient.jpg</h4>
+<span class="material-icons-round text-pink-500 text-sm">image</span>
+</div>
+<div class="text-[10px] uppercase font-bold text-slate-400 flex items-center gap-2">
+<span>1.1 MB</span>
+<span class="w-1 h-1 rounded-full bg-slate-400"></span>
+<span>Modified 3d ago</span>
+</div>
+</div>
+</div>
+<!-- Drag and Drop Target -->
+<div class="border-2 border-dashed border-slate-300 dark:border-border-dark rounded-xl flex flex-col items-center justify-center p-6 text-slate-400 hover:border-primary/50 hover:text-primary transition-all group cursor-pointer">
+<span class="material-icons-round text-4xl mb-2 group-hover:scale-110 transition-transform">cloud_upload</span>
+<span class="text-xs font-bold uppercase tracking-widest">Upload Asset</span>
+</div>
+</div>
+</div>
+<!-- Recent Activity Section (Secondary View) -->
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Recent Activity</h3>
+<div class="bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark rounded-xl overflow-hidden">
+<table class="w-full text-left text-sm">
+<thead class="bg-slate-50 dark:bg-primary/5 border-b border-slate-200 dark:border-border-dark">
+<tr>
+<th class="px-6 py-3 font-semibold text-slate-500">Name</th>
+<th class="px-6 py-3 font-semibold text-slate-500 text-right">Size</th>
+<th class="px-6 py-3 font-semibold text-slate-500">Status</th>
+<th class="px-6 py-3 font-semibold text-slate-500">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-border-dark">
+<tr class="hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors cursor-pointer">
+<td class="px-6 py-3 flex items-center gap-3 font-medium">
+<span class="material-icons-round text-blue-400 text-lg">description</span>
+                                        ProjectConfig.json
+                                    </td>
+<td class="px-6 py-3 text-right text-slate-500 font-mono">2.1 KB</td>
+<td class="px-6 py-3">
+<span class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-border-dark text-[10px] font-bold text-slate-500">IDLE</span>
+</td>
+<td class="px-6 py-3">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-round text-lg">download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors cursor-pointer">
+<td class="px-6 py-3 flex items-center gap-3 font-medium">
+<span class="material-icons-round text-emerald-400 text-lg">file_copy</span>
+                                        README.md
+                                    </td>
+<td class="px-6 py-3 text-right text-slate-500 font-mono">15.4 KB</td>
+<td class="px-6 py-3">
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold text-primary">MODIFIED</span>
+</td>
+<td class="px-6 py-3">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-round text-lg">download</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Right Toolbelt (Optional/Decorative) -->
+<aside class="w-14 border-l border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark flex flex-col items-center py-4 gap-4">
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-primary bg-primary/10 border border-primary/20">
+<span class="material-icons-round">folder_shared</span>
+</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-slate-400 hover:text-primary transition-all">
+<span class="material-icons-round">history</span>
+</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-slate-400 hover:text-primary transition-all">
+<span class="material-icons-round">settings_input_component</span>
+</button>
+<div class="mt-auto">
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-slate-400 hover:text-primary transition-all">
+<span class="material-icons-round">help_outline</span>
+</button>
+</div>
+</aside>
+</div>
+<!-- Status Bar -->
+<footer class="h-8 border-t border-slate-200 dark:border-border-dark bg-white dark:bg-surface-dark flex items-center justify-between px-4 text-[11px] font-medium text-slate-500">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                CONNECTED TO STUDIO_NODE_04
+            </div>
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-[14px]">terminal</span>
+                BASH
+            </div>
+</div>
+<div class="flex items-center gap-4">
+<span>UTF-8</span>
+<span class="flex items-center gap-1"><span class="material-icons-round text-[14px]">code</span> Typescript</span>
+<span class="flex items-center gap-1 hover:text-primary cursor-pointer"><span class="material-icons-round text-[14px]">sync</span> Last Sync: Just now</span>
+</div>
+</footer>
+</body></html>

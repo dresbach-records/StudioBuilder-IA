@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2560e9",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        "surface-dark": "#0F172A",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<title>AI Image Optimizer | StudioBuilder AI</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center p-4 lg:p-8">
+<!-- Modal Backdrop -->
+<div class="fixed inset-0 bg-background-dark/80 backdrop-blur-sm z-0"></div>
+<!-- Main Modal Container -->
+<div class="relative z-10 w-full max-w-5xl bg-surface-dark border border-primary/20 rounded-xl shadow-2xl overflow-hidden flex flex-col">
+<!-- Header -->
+<div class="px-6 py-5 border-b border-primary/10 flex items-center justify-between">
+<div>
+<h1 class="text-xl font-bold tracking-tight flex items-center gap-2">
+<span class="material-icons-round text-primary">auto_fix_high</span>
+                    AI Image Optimizer
+                </h1>
+<p class="text-sm text-slate-400 mt-1">Reduce file size while maintaining studio-quality visual fidelity.</p>
+</div>
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-icons-round">close</span>
+</button>
+</div>
+<!-- Content Body -->
+<div class="p-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Comparison Viewport -->
+<div class="lg:col-span-8 space-y-4">
+<div class="relative aspect-video rounded-lg overflow-hidden border border-primary/10 bg-slate-900 group">
+<!-- Images Container -->
+<div class="absolute inset-0 grid grid-cols-2 h-full">
+<div class="relative overflow-hidden border-r border-white/10">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Abstract colorful digital waves and gradients original version" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTeXxboXIfCEpdpRPCoaTnWAsBQLXmERFcnyzwb5bMIJXdiWmDiyuSdercT3Vw51f0TygTWEBENIO8LSmk9ev6VswOFit5RyOF8y6uklaDN0EvHeJlVvtsyiVMsEhiiS4Ec6AFpz29a_SKVeffb7T1EMjRRBkUSCJbIMDtHnyT3wRO2t4CR7hsYlHttNxpyNcr6P3eM1Dii1V8Fg1FX9biUN32wKOFlgWFojzml9rAp58OAVAJmb_t3_Z2OiQ8jcu79-CQuWEKYHM"/>
+<div class="absolute top-4 left-4 bg-background-dark/60 backdrop-blur-md px-3 py-1 rounded text-xs font-medium border border-white/10 uppercase tracking-widest">
+                                Original
+                            </div>
+</div>
+<div class="relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover opacity-95" data-alt="Abstract colorful digital waves and gradients compressed version" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnxYezsSr6iw1RAcbyMYzngxI98v44H8NAsyNrOHL0auzlKj_R9Bw_o9lBogAvKe44fpw2zbdaizXangtiF_vn3gigLOZ8rnc0Gd2ZaUWlSqGPoSWauMjCGwKzG0m3Q6dkZ3wutppHdvOJaSKv9wT-k2KW8Emp11m7I8WIhzv5hpJFNpgIoubAlNRnGEhvKjkwp_MYnKSM8so4GhTpfuRGNNU3rHa4kgV4507xV9_P2oV8f4Qnpr8gVVvAucV3X_n3XRuhZ6y2yCg"/>
+<div class="absolute top-4 right-4 bg-primary/80 backdrop-blur-md px-3 py-1 rounded text-xs font-medium border border-white/10 uppercase tracking-widest">
+                                Optimized
+                            </div>
+</div>
+</div>
+<!-- Comparison Slider Handle (Visual UI Decoration) -->
+<div class="absolute inset-y-0 left-1/2 -ml-px w-0.5 bg-primary/50 shadow-[0_0_15px_rgba(37,96,233,0.5)] z-20">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary border-4 border-surface-dark flex items-center justify-center shadow-lg">
+<span class="material-icons-round text-sm">unfold_more</span>
+</div>
+</div>
+<!-- Size Badges -->
+<div class="absolute bottom-4 inset-x-4 flex justify-between items-end">
+<div class="bg-background-dark/80 backdrop-blur-md p-3 rounded-lg border border-white/5">
+<span class="block text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Current Size</span>
+<span class="text-lg font-bold text-slate-300">8.4 MB</span>
+</div>
+<div class="bg-primary/20 backdrop-blur-md p-3 rounded-lg border border-primary/30 text-right">
+<span class="block text-[10px] text-primary-200 uppercase font-bold tracking-tighter">New Size</span>
+<span class="text-lg font-bold text-white">1.2 MB</span>
+<span class="block text-[10px] text-green-400 font-bold">-85% Reduced</span>
+</div>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-slate-400">Optimization Progress</span>
+<span class="text-primary">Ready</span>
+</div>
+<div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full w-full bg-primary/40 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Controls Side -->
+<div class="lg:col-span-4 flex flex-col justify-between space-y-6">
+<div class="space-y-6">
+<!-- Magic Optimize Button -->
+<button class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-primary via-blue-600 to-purple-600 hover:brightness-110 transition-all shadow-lg shadow-primary/20 flex flex-col items-center justify-center gap-2 group">
+<div class="flex items-center gap-2">
+<span class="material-icons-round text-white animate-pulse">auto_fix_high</span>
+<span class="font-bold text-white tracking-wide uppercase text-sm">Magic Optimize</span>
+</div>
+<span class="text-[10px] text-white/70">AI-driven fidelity balancing</span>
+</button>
+<!-- Quality Slider -->
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="text-sm font-semibold text-slate-300">Quality Settings</label>
+<span class="text-sm font-bold text-primary px-2 py-0.5 bg-primary/10 rounded">75%</span>
+</div>
+<input class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-primary" max="100" min="0" type="range" value="75"/>
+<div class="flex justify-between text-[10px] text-slate-500 font-bold uppercase tracking-widest">
+<span>Max Compression</span>
+<span>Max Quality</span>
+</div>
+</div>
+<!-- Format Options -->
+<div class="space-y-3">
+<label class="text-sm font-semibold text-slate-300">Output Format</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="p-2 text-xs font-bold border border-primary/50 bg-primary/10 text-primary rounded-lg">WEBP</button>
+<button class="p-2 text-xs font-bold border border-slate-700 hover:border-slate-500 text-slate-400 rounded-lg">PNG</button>
+<button class="p-2 text-xs font-bold border border-slate-700 hover:border-slate-500 text-slate-400 rounded-lg">JPG</button>
+</div>
+</div>
+<!-- Info Alert -->
+<div class="p-3 bg-primary/5 border border-primary/20 rounded-lg flex gap-3">
+<span class="material-icons-round text-primary text-sm">info</span>
+<p class="text-xs text-slate-400 leading-relaxed">
+                            StudioBuilder AI uses <span class="text-slate-200">Neural Synthesis</span> to preserve edges and textures during extreme compression.
+                        </p>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="pt-6 border-t border-primary/10 space-y-3">
+<button class="w-full py-3 bg-primary hover:bg-primary/90 text-white font-bold rounded-lg transition-colors flex items-center justify-center gap-2">
+<span>Apply and Upload</span>
+<span class="material-icons-round text-sm">cloud_upload</span>
+</button>
+<button class="w-full py-2 text-slate-500 hover:text-slate-300 font-medium text-sm transition-colors">
+                        Discard Changes
+                    </button>
+</div>
+</div>
+</div>
+<!-- Warning Toast (Subtle bottom bar) -->
+<div class="bg-red-500/10 border-t border-red-500/20 px-6 py-2 flex items-center justify-center gap-2">
+<span class="material-icons-round text-red-400 text-xs">warning</span>
+<span class="text-[11px] font-medium text-red-200/70 tracking-tight">Original file (8.4MB) exceeds the current workspace limit of 5.0MB</span>
+</div>
+</div>
+</body></html>

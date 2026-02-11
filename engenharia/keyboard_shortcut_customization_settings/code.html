@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Keyboard Shortcuts | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b4bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101322",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .shortcut-key {
+            min-width: 2.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 border-r border-slate-200 dark:border-primary/10 bg-white dark:bg-background-dark/50 hidden md:flex flex-col">
+<div class="p-6">
+<div class="flex items-center gap-2 mb-8">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-sm">auto_awesome</span>
+</div>
+<span class="font-bold text-lg tracking-tight">StudioBuilder</span>
+</div>
+<nav class="space-y-1">
+<p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-4 ml-3">Settings</p>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-icons text-xl">person</span> Profile
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-icons text-xl">palette</span> Workspace
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium bg-primary/10 text-primary rounded-lg" href="#">
+<span class="material-icons text-xl">keyboard</span> Keyboard
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-icons text-xl">notifications</span> Notifications
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-icons text-xl">integration_instructions</span> API Keys
+                    </a>
+</nav>
+</div>
+<div class="mt-auto p-6 border-t border-slate-200 dark:border-primary/10">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="User profile avatar smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJhibrg44bs_cNeeRPJaZDfN6l2zu1JAEnQnAthFQO1336zHfQjjQLHqwKyhQKG7GcAr-E5vDz7gqJSTubWGwQZ0cTJuW6GugzWKJYKTn8-tLq33xbKIXJlVWclgs3l8yo5E3MrSXXu0yjB_DVQ2FQlt-NAX9B8oKGDlX-4h-jyESGi56wu0z5NTFbtCaTY2qXtda4jRH_SX7ypZ0xTk-rXHhYUjHU2zAbfFFnZumRHugMyBssTD1PwJYZTjUWSmAG3Qaren7Wb7w"/>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-semibold truncate">Alex Rivera</p>
+<p class="text-[10px] text-slate-500 truncate">Pro Account</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark">
+<div class="max-w-4xl mx-auto py-12 px-6 md:px-12">
+<!-- Header -->
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-3xl font-bold mb-2">Keyboard Shortcuts</h1>
+<p class="text-slate-500 dark:text-slate-400">Optimize your workflow and build faster with custom key bindings.</p>
+</div>
+<div class="flex items-center gap-3 p-3 bg-white dark:bg-primary/5 rounded-xl border border-slate-200 dark:border-primary/20">
+<div class="flex flex-col">
+<span class="text-xs font-semibold">Visual Hints</span>
+<span class="text-[10px] text-slate-500">Show keys in UI</span>
+</div>
+<button class="relative inline-flex h-6 w-11 items-center rounded-full bg-primary">
+<span class="inline-block h-4 w-4 transform rounded-full bg-white translate-x-6"></span>
+</button>
+</div>
+</header>
+<!-- Search and Filters -->
+<div class="flex flex-col md:flex-row gap-4 mb-8">
+<div class="relative flex-1">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-primary/20 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Search for an action..." type="text"/>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2 md:pb-0">
+<button class="px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg whitespace-nowrap">All</button>
+<button class="px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-primary/20 text-slate-600 dark:text-slate-300 text-sm font-medium rounded-lg hover:border-primary/50 whitespace-nowrap">Editor</button>
+<button class="px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-primary/20 text-slate-600 dark:text-slate-300 text-sm font-medium rounded-lg hover:border-primary/50 whitespace-nowrap">AI Tools</button>
+<button class="px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-primary/20 text-slate-600 dark:text-slate-300 text-sm font-medium rounded-lg hover:border-primary/50 whitespace-nowrap">Exports</button>
+</div>
+</div>
+<!-- Shortcut Groups -->
+<div class="space-y-10">
+<!-- General Group -->
+<section>
+<div class="flex items-center gap-3 mb-4">
+<span class="material-icons text-primary/60">settings</span>
+<h2 class="text-sm font-bold uppercase tracking-widest text-slate-400">General</h2>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-primary/10 overflow-hidden">
+<!-- Row -->
+<div class="group flex items-center justify-between p-4 border-b border-slate-100 dark:border-primary/5 hover:bg-slate-50 dark:hover:bg-primary/5 cursor-pointer transition-colors">
+<span class="text-sm font-medium">Open Settings</span>
+<div class="flex gap-1">
+<span class="shortcut-key bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">Cmd</span>
+<span class="shortcut-key bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">,</span>
+</div>
+</div>
+<!-- Row -->
+<div class="group flex items-center justify-between p-4 border-b border-slate-100 dark:border-primary/5 hover:bg-slate-50 dark:hover:bg-primary/5 cursor-pointer transition-colors">
+<span class="text-sm font-medium">Quick Search</span>
+<div class="flex gap-1">
+<span class="shortcut-key bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">Cmd</span>
+<span class="shortcut-key bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">K</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Editor Group -->
+<section>
+<div class="flex items-center gap-3 mb-4">
+<span class="material-icons text-primary/60">edit_square</span>
+<h2 class="text-sm font-bold uppercase tracking-widest text-slate-400">Editor Controls</h2>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-primary/10 overflow-hidden">
+<!-- Row Recording State -->
+<div class="flex items-center justify-between p-4 border-b-2 border-primary bg-primary/5 transition-all">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-primary">Duplicate Layer</span>
+<span class="text-[10px] text-primary/70">Recording new shortcut...</span>
+</div>
+<div class="flex gap-1 animate-pulse">
+<span class="shortcut-key bg-primary text-white border-none shadow-lg">Press Keys</span>
+</div>
+</div>
+<!-- Row Conflict State -->
+<div class="group flex items-center justify-between p-4 border-b border-slate-100 dark:border-primary/5 hover:bg-slate-50 dark:hover:bg-primary/5 cursor-pointer transition-colors">
+<div class="flex items-center gap-2">
+<span class="text-sm font-medium">Delete Selection</span>
+<span class="material-icons text-amber-500 text-xs" title="Conflict detected">warning</span>
+</div>
+<div class="flex gap-1">
+<span class="shortcut-key bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">⌫</span>
+</div>
+</div>
+<!-- Row Normal -->
+<div class="group flex items-center justify-between p-4 border-b border-slate-100 dark:border-primary/5 hover:bg-slate-50 dark:hover:bg-primary/5 cursor-pointer transition-colors">
+<span class="text-sm font-medium">Group Selection</span>
+<div class="flex gap-1">
+<span class="shortcut-key bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">Cmd</span>
+<span class="shortcut-key bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">G</span>
+</div>
+</div>
+<!-- Row Normal -->
+<div class="group flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-primary/5 cursor-pointer transition-colors">
+<span class="text-sm font-medium">Lock Layer</span>
+<div class="flex gap-1">
+<span class="shortcut-key bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">Cmd</span>
+<span class="shortcut-key bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">Shift</span>
+<span class="shortcut-key bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">L</span>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Tools Group -->
+<section>
+<div class="flex items-center gap-3 mb-4">
+<span class="material-icons text-primary/60">bolt</span>
+<h2 class="text-sm font-bold uppercase tracking-widest text-slate-400">AI &amp; Generation</h2>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-primary/10 overflow-hidden">
+<!-- Row -->
+<div class="group flex items-center justify-between p-4 border-b border-slate-100 dark:border-primary/5 hover:bg-slate-50 dark:hover:bg-primary/5 cursor-pointer transition-colors">
+<div class="flex flex-col">
+<span class="text-sm font-medium">Regenerate Layout</span>
+<span class="text-[10px] text-slate-400">Uses current active prompt</span>
+</div>
+<div class="flex gap-1">
+<span class="shortcut-key bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">Cmd</span>
+<span class="shortcut-key bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">R</span>
+</div>
+</div>
+<!-- Row -->
+<div class="group flex items-center justify-between p-4 border-b border-slate-100 dark:border-primary/5 hover:bg-slate-50 dark:hover:bg-primary/5 cursor-pointer transition-colors">
+<span class="text-sm font-medium">Open AI Prompt Bar</span>
+<div class="flex gap-1">
+<span class="shortcut-key bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">Cmd</span>
+<span class="shortcut-key bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">/</span>
+</div>
+</div>
+<!-- Row -->
+<div class="group flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-primary/5 cursor-pointer transition-colors">
+<span class="text-sm font-medium">Suggest Palette</span>
+<div class="flex gap-1">
+<span class="shortcut-key bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">Cmd</span>
+<span class="shortcut-key bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 shadow-sm">P</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Actions -->
+<div class="mt-12 flex items-center justify-between p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-primary/10 rounded-xl shadow-xl shadow-black/5">
+<button class="px-4 py-2 text-sm font-semibold text-slate-500 hover:text-red-500 transition-colors">
+                        Reset to Defaults
+                    </button>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                            Cancel
+                        </button>
+<button class="px-6 py-2.5 text-sm font-semibold text-white bg-primary rounded-lg shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+                            Save Changes
+                        </button>
+</div>
+</div>
+<!-- Tips/Conflict Helper -->
+<div class="mt-8 flex items-start gap-3 p-4 bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 rounded-lg">
+<span class="material-icons text-amber-600 dark:text-amber-400 text-sm mt-0.5">info</span>
+<p class="text-xs text-amber-800 dark:text-amber-300 leading-relaxed">
+<strong class="font-bold">Pro Tip:</strong> You can use multiple modifier keys like <span class="font-mono bg-amber-100 dark:bg-amber-900/40 px-1 rounded">Cmd + Shift + Alt</span> for complex macros. Conflicts will be highlighted in orange.
+                    </p>
+</div>
+</div>
+</main>
+</div>
+</body></html>

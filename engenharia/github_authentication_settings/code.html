@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GitHub Authentication Settings | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#4b2bee",
+                "background-light": "#f6f6f8",
+                "background-dark": "#0F172A",
+                "slate-850": "#1E293B",
+                "slate-900": "#0F172A",
+              },
+              fontFamily: {
+                "display": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-button {
+            background: linear-gradient(135deg, #4b2bee 0%, #7c3aed 100%);
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<!-- Header / Navigation Placeholder -->
+<nav class="border-b border-primary/10 bg-background-light dark:bg-background-dark/50 backdrop-blur-md sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-xl">auto_fix_high</span>
+</div>
+<span class="text-xl font-bold tracking-tight">StudioBuilder <span class="text-primary">AI</span></span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-sm text-slate-400">Settings / Integrations / GitHub</span>
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
+<span class="material-icons text-primary text-sm">person</span>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-6xl mx-auto px-4 py-12">
+<div class="mb-10">
+<h1 class="text-3xl font-bold mb-2">GitHub Authentication</h1>
+<p class="text-slate-500 dark:text-slate-400 max-w-2xl">Connect your GitHub account to enable AI-powered code generation, automatic repository syncing, and seamless deployment workflows directly from StudioBuilder IDE.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Guide -->
+<div class="lg:col-span-4 space-y-6">
+<div class="glass-panel p-6 rounded-xl">
+<h3 class="text-lg font-semibold mb-6 flex items-center gap-2">
+<span class="material-icons text-primary">info</span>
+                        Setup Guide
+                    </h3>
+<div class="space-y-8 relative">
+<!-- Step 1 -->
+<div class="flex gap-4 relative">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center z-10">
+<span class="text-xs font-bold text-primary">01</span>
+</div>
+<div class="w-px h-full bg-primary/20 absolute top-8"></div>
+</div>
+<div>
+<h4 class="font-medium text-sm mb-1">Go to GitHub Settings</h4>
+<p class="text-xs text-slate-400 leading-relaxed">Navigate to your GitHub account settings and locate <span class="text-slate-200">Developer Settings</span> at the bottom left.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex gap-4 relative">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center z-10">
+<span class="text-xs font-bold text-primary">02</span>
+</div>
+<div class="w-px h-full bg-primary/20 absolute top-8"></div>
+</div>
+<div>
+<h4 class="font-medium text-sm mb-1">Generate Token</h4>
+<p class="text-xs text-slate-400 leading-relaxed">Select <span class="text-slate-200">Personal access tokens</span> and choose "Tokens (classic)" or "Fine-grained tokens".</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex gap-4 relative">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center z-10">
+<span class="text-xs font-bold text-primary">03</span>
+</div>
+<div class="w-px h-full bg-primary/20 absolute top-8"></div>
+</div>
+<div>
+<h4 class="font-medium text-sm mb-1">Set Permissions</h4>
+<p class="text-xs text-slate-400 leading-relaxed">Ensure you select <span class="text-slate-200">'repo'</span> and <span class="text-slate-200">'workflow'</span> scopes to allow StudioBuilder to sync your code.</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center z-10">
+<span class="text-xs font-bold text-primary">04</span>
+</div>
+</div>
+<div>
+<h4 class="font-medium text-sm mb-1">Paste &amp; Connect</h4>
+<p class="text-xs text-slate-400 leading-relaxed">Copy the generated token and paste it into the secure field in the configuration panel.</p>
+</div>
+</div>
+</div>
+<div class="mt-8 p-4 bg-primary/10 rounded-lg border border-primary/20">
+<div class="flex gap-3">
+<span class="material-icons text-primary text-sm">lock</span>
+<div>
+<h5 class="text-xs font-bold text-primary uppercase tracking-wider mb-1">Security Note</h5>
+<p class="text-[11px] text-slate-400 leading-normal">Your tokens are AES-256 encrypted and stored securely. We never store tokens in plain text or log them.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Configuration -->
+<div class="lg:col-span-8">
+<div class="bg-slate-850 border border-slate-700/50 rounded-xl overflow-hidden shadow-2xl">
+<!-- Token Status Header -->
+<div class="p-6 border-b border-slate-700/50 flex items-center justify-between bg-slate-800/50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-slate-700 flex items-center justify-center">
+<img alt="" class="w-6 h-6" data-alt="White GitHub logo on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVx1Lm8IAKpxtLe56uBSv-VOzuRw6Fa7WIhfJGvMNdgbnUoHZqjMnvDAFY5zm2s5M6acNkYZqSU6_1KuIZdgR6L2liunCxta5ddQI7l218i02XJrExDI1WUs8tomn_e6ieSlxTRBQzwTLiGd_dyZleF1Jbt7D2amK3o3j5Q9x_LVR3vAjoButbt-PZDRnW779Sps9tSm0r7uWkugZttgbywUVXolY1OQ_UVrIEcZMUBZR9ra0Q7ZHAO7HYyXz3jyjnfALURY3TYJc"/>
+</div>
+<div>
+<h2 class="font-semibold text-lg">Connection Status</h2>
+<p class="text-xs text-slate-500">Last verified: 2 hours ago</p>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-emerald-500/10 text-emerald-400 px-3 py-1.5 rounded-full border border-emerald-500/20">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-xs font-bold uppercase tracking-wide">Active</span>
+</div>
+</div>
+<!-- Configuration Form -->
+<div class="p-8 space-y-8">
+<!-- Token Input -->
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-slate-300" for="token">Personal Access Token (PAT)</label>
+<a class="text-xs text-primary hover:underline" href="#">How to generate a PAT?</a>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons text-slate-500 text-lg">vpn_key</span>
+</div>
+<input class="block w-full pl-10 pr-12 py-3.5 bg-slate-900 border border-slate-700 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-lg text-slate-200 font-mono text-sm placeholder-slate-600 transition-all" id="token" placeholder="ghp_yourtokenhere" type="password" value="ghp_************************************"/>
+<button class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-500 hover:text-slate-300" type="button">
+<span class="material-icons text-lg">visibility_off</span>
+</button>
+</div>
+<p class="text-[11px] text-slate-500 italic">Example: ghp_j9K...3mQp</p>
+</div>
+<!-- Scopes/Permissions -->
+<div class="space-y-4">
+<div class="flex items-center gap-2">
+<span class="material-icons text-slate-400 text-sm">settings_suggest</span>
+<h3 class="text-sm font-medium text-slate-300">Required Repository Permissions</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Permission Item -->
+<label class="flex items-start p-4 bg-slate-900 border border-slate-700 rounded-lg cursor-pointer hover:border-primary/50 transition-colors">
+<div class="flex items-center h-5">
+<input checked="" class="h-4 w-4 text-primary bg-slate-800 border-slate-600 rounded focus:ring-primary focus:ring-offset-slate-900" type="checkbox"/>
+</div>
+<div class="ml-3">
+<span class="block text-xs font-bold text-slate-200">repo</span>
+<span class="block text-[11px] text-slate-500 mt-0.5">Full control of private and public repositories.</span>
+</div>
+</label>
+<!-- Permission Item -->
+<label class="flex items-start p-4 bg-slate-900 border border-slate-700 rounded-lg cursor-pointer hover:border-primary/50 transition-colors">
+<div class="flex items-center h-5">
+<input checked="" class="h-4 w-4 text-primary bg-slate-800 border-slate-600 rounded focus:ring-primary focus:ring-offset-slate-900" type="checkbox"/>
+</div>
+<div class="ml-3">
+<span class="block text-xs font-bold text-slate-200">workflow</span>
+<span class="block text-[11px] text-slate-500 mt-0.5">Update GitHub Action workflows.</span>
+</div>
+</label>
+<!-- Permission Item -->
+<label class="flex items-start p-4 bg-slate-900 border border-slate-700 rounded-lg cursor-pointer hover:border-primary/50 transition-colors">
+<div class="flex items-center h-5">
+<input class="h-4 w-4 text-primary bg-slate-800 border-slate-600 rounded focus:ring-primary focus:ring-offset-slate-900" type="checkbox"/>
+</div>
+<div class="ml-3">
+<span class="block text-xs font-bold text-slate-200">gist</span>
+<span class="block text-[11px] text-slate-500 mt-0.5">Create and update secret gists.</span>
+</div>
+</label>
+<!-- Permission Item -->
+<label class="flex items-start p-4 bg-slate-900 border border-slate-700 rounded-lg cursor-pointer hover:border-primary/50 transition-colors">
+<div class="flex items-center h-5">
+<input class="h-4 w-4 text-primary bg-slate-800 border-slate-600 rounded focus:ring-primary focus:ring-offset-slate-900" type="checkbox"/>
+</div>
+<div class="ml-3">
+<span class="block text-xs font-bold text-slate-200">user:email</span>
+<span class="block text-[11px] text-slate-500 mt-0.5">Read access to your primary email address.</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Actions -->
+<div class="pt-6 flex flex-col sm:flex-row gap-4">
+<button class="flex-1 gradient-button hover:opacity-90 text-white font-semibold py-3.5 rounded-lg flex items-center justify-center gap-2 transition-all transform hover:scale-[1.01] active:scale-[0.99] shadow-lg shadow-primary/20">
+<span class="material-icons text-lg">link</span>
+                                Connect Account
+                            </button>
+<button class="flex-1 bg-slate-700/50 hover:bg-slate-700 text-slate-200 font-semibold py-3.5 rounded-lg border border-slate-600 flex items-center justify-center gap-2 transition-all">
+<span class="material-icons text-lg">sync_alt</span>
+                                Test Connection
+                            </button>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="px-8 py-5 bg-slate-900/50 border-t border-slate-700/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-2 text-slate-400">
+<span class="material-icons text-sm">history</span>
+<span class="text-[11px]">Last synced repository: <span class="text-slate-300 font-medium">studio-builder-pro-v1</span></span>
+</div>
+<button class="text-red-400 hover:text-red-300 text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-icons text-sm">link_off</span>
+                            Disconnect GitHub Account
+                        </button>
+</div>
+</div>
+<!-- Recent Activity Mini Section -->
+<div class="mt-8">
+<h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2 px-1">
+<span class="material-icons text-xs">history</span>
+                        Recent Activity
+                    </h3>
+<div class="space-y-2">
+<div class="p-3 bg-slate-900/40 border border-slate-800 rounded-lg flex items-center justify-between text-xs">
+<div class="flex items-center gap-3">
+<span class="material-icons text-emerald-400 text-sm">check_circle</span>
+<span class="text-slate-300">Successfully synced <span class="text-white font-medium">main branch</span> to GitHub</span>
+</div>
+<span class="text-slate-500">14 mins ago</span>
+</div>
+<div class="p-3 bg-slate-900/40 border border-slate-800 rounded-lg flex items-center justify-between text-xs opacity-70">
+<div class="flex items-center gap-3">
+<span class="material-icons text-primary text-sm">cloud_upload</span>
+<span class="text-slate-300">Pushed <span class="text-white font-medium">initial-layout-fix</span> pull request</span>
+</div>
+<span class="text-slate-500">2 hours ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Global Background Decor -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none opacity-20 overflow-hidden">
+<div class="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] bg-primary rounded-full blur-[120px]"></div>
+<div class="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-purple-900 rounded-full blur-[100px]"></div>
+</div>
+</body></html>

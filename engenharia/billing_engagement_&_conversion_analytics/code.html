@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022",
+                        "surface-dark": "#1e1b33",
+                        "accent-green": "#10B981",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #131022;
+        }
+        .chart-gradient-blue {
+            background: linear-gradient(180deg, rgba(75, 43, 238, 0.2) 0%, rgba(75, 43, 238, 0) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen">
+<!-- Navigation Sidebar (Icons Only) -->
+<aside class="fixed left-0 top-0 h-full w-20 bg-background-light dark:bg-surface-dark border-r border-slate-200 dark:border-white/5 flex flex-col items-center py-8 gap-8 z-50">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+<span class="material-icons text-white">bolt</span>
+</div>
+<nav class="flex flex-col gap-6">
+<a class="text-primary" href="#"><span class="material-icons">dashboard</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-icons">receipt_long</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-icons">analytics</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-icons">account_tree</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-icons">notifications</span></a>
+</nav>
+<div class="mt-auto flex flex-col gap-6">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-icons">settings</span></a>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="Professional male avatar headshot for user profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbLIDHpdBeyCMs12rj5tkZP6NDDHk6JNmYOecfGrNNxjLjhXWpi-qeMJVuIsK024O8PR1vuRF60g_ZvJnVva2sxNWlhDhbIGd_qRxQL7sabELytgKk2pXrAPkElw-3U1n_w9n2caGs98Xg25Py4L4WRLPtwdMgqfi1HYdrkioxd9X_DHQq42lDLB5pWodB7zN9BXmiJJ50q_ihVzjAH14VHPNP66jBmXPJd9vBZWBpY8x6KkZzBEcCKqiaLOSRNQMbcGuEb2AFd6E"/>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-20 p-8">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div>
+<h1 class="text-2xl font-bold tracking-tight">Billing Engagement &amp; Conversion</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Monitor effectiveness of AI-driven payment workflows.</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center bg-white dark:bg-surface-dark border border-slate-200 dark:border-white/5 rounded-lg px-3 py-2 text-sm">
+<span class="material-icons text-xs mr-2 text-slate-400">calendar_today</span>
+<span>Last 30 Days</span>
+<span class="material-icons text-xs ml-2 text-slate-400">expand_more</span>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center transition-all">
+<span class="material-icons text-sm mr-2">download</span>
+                    Export Report
+                </button>
+</div>
+</header>
+<!-- KPI Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<!-- Open Rate Card -->
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-white/5 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-icons">drafts</span>
+</div>
+<span class="text-accent-green text-xs font-bold flex items-center">
+<span class="material-icons text-xs">trending_up</span> 12%
+                    </span>
+</div>
+<h3 class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Avg. Open Rate</h3>
+<div class="flex items-baseline gap-2 mt-1">
+<p class="text-2xl font-bold">84.2%</p>
+<p class="text-xs text-slate-400">vs 72% last mo.</p>
+</div>
+<div class="mt-4 flex gap-4 text-[10px] font-medium uppercase tracking-tighter">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span> Email: 62%
+                    </div>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-accent-green"></span> WhatsApp: 98%
+                    </div>
+</div>
+</div>
+<!-- Click-Through Rate -->
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-white/5 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-icons">ads_click</span>
+</div>
+<span class="text-accent-green text-xs font-bold flex items-center">
+<span class="material-icons text-xs">trending_up</span> 5.4%
+                    </span>
+</div>
+<h3 class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Payment Link CTR</h3>
+<div class="flex items-baseline gap-2 mt-1">
+<p class="text-2xl font-bold">38.7%</p>
+<p class="text-xs text-slate-400">Direct Conversion</p>
+</div>
+<div class="mt-4 h-1.5 w-full bg-slate-100 dark:bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 38.7%"></div>
+</div>
+</div>
+<!-- Average Time to Pay -->
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-white/5 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-icons">timer</span>
+</div>
+<span class="text-accent-green text-xs font-bold flex items-center">
+<span class="material-icons text-xs">arrow_downward</span> 4h
+                    </span>
+</div>
+<h3 class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Avg. Time to Pay</h3>
+<div class="flex items-baseline gap-2 mt-1">
+<p class="text-2xl font-bold">14.2 hrs</p>
+<p class="text-xs text-slate-400">Post-Notification</p>
+</div>
+<div class="mt-4 flex items-center gap-2 text-xs text-slate-400">
+<span class="material-icons text-xs text-primary">check_circle</span>
+                    Automation efficiency increased
+                </div>
+</div>
+<!-- Total Revenue Recovered -->
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-white/5 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-icons">payments</span>
+</div>
+<span class="text-slate-400 text-xs font-bold flex items-center">
+                        Static
+                    </span>
+</div>
+<h3 class="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Revenue Recovered</h3>
+<div class="flex items-baseline gap-2 mt-1">
+<p class="text-2xl font-bold">$1.24M</p>
+<p class="text-xs text-slate-400">Active Billing</p>
+</div>
+<div class="mt-4 flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-slate-200 dark:bg-white/10 border-2 border-white dark:border-surface-dark flex items-center justify-center text-[8px]">AM</div>
+<div class="w-6 h-6 rounded-full bg-primary/20 border-2 border-white dark:border-surface-dark flex items-center justify-center text-[8px] text-primary">JD</div>
+<div class="w-6 h-6 rounded-full bg-accent-green/20 border-2 border-white dark:border-surface-dark flex items-center justify-center text-[8px] text-accent-green">KP</div>
+<div class="w-6 h-6 rounded-full bg-slate-300 dark:bg-white/20 border-2 border-white dark:border-surface-dark flex items-center justify-center text-[8px]">+4</div>
+</div>
+</div>
+</div>
+<!-- Main Visualization Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+<!-- Channel Performance Bar Chart -->
+<div class="lg:col-span-2 bg-white dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-white/5">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-bold text-lg">Conversion Performance by Channel</h3>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20">Sent</button>
+<button class="px-3 py-1 text-xs rounded-full hover:bg-slate-100 dark:hover:bg-white/5 transition-colors">Opened</button>
+<button class="px-3 py-1 text-xs rounded-full hover:bg-slate-100 dark:hover:bg-white/5 transition-colors">Paid</button>
+</div>
+</div>
+<div class="h-64 flex items-end gap-12 relative px-4">
+<!-- Chart Background Lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-5 px-4">
+<div class="border-t border-slate-500 w-full"></div>
+<div class="border-t border-slate-500 w-full"></div>
+<div class="border-t border-slate-500 w-full"></div>
+<div class="border-t border-slate-500 w-full"></div>
+<div class="border-t border-slate-500 w-full"></div>
+</div>
+<!-- Email Bar Group -->
+<div class="flex-1 flex flex-col items-center gap-3 h-full justify-end group">
+<div class="flex gap-2 items-end w-full px-8">
+<div class="flex-1 bg-primary/40 rounded-t h-[90%] transition-all hover:bg-primary/60"></div>
+<div class="flex-1 bg-primary/70 rounded-t h-[65%] transition-all hover:bg-primary/80"></div>
+<div class="flex-1 bg-primary rounded-t h-[42%] transition-all hover:bg-primary/90"></div>
+</div>
+<span class="text-xs font-semibold text-slate-400">Email Flow</span>
+</div>
+<!-- WhatsApp Bar Group -->
+<div class="flex-1 flex flex-col items-center gap-3 h-full justify-end group">
+<div class="flex gap-2 items-end w-full px-8">
+<div class="flex-1 bg-accent-green/40 rounded-t h-[85%] transition-all hover:bg-accent-green/60"></div>
+<div class="flex-1 bg-accent-green/70 rounded-t h-[82%] transition-all hover:bg-accent-green/80"></div>
+<div class="flex-1 bg-accent-green rounded-t h-[78%] transition-all hover:bg-accent-green/90"></div>
+</div>
+<span class="text-xs font-semibold text-slate-400">WhatsApp Flow</span>
+</div>
+</div>
+<div class="mt-6 flex justify-center gap-8 text-[11px] text-slate-400">
+<div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-slate-300 dark:bg-white/40"></span> Notifications Sent</div>
+<div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-slate-500 dark:bg-white/70"></span> Interaction Confirmed</div>
+<div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Final Conversion</div>
+</div>
+</div>
+<!-- Insights / Sidebar Info -->
+<div class="bg-white dark:bg-surface-dark p-6 rounded-xl border border-slate-200 dark:border-white/5">
+<h3 class="font-bold text-lg mb-6">AI Optimization Insights</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-lg bg-accent-green/10 flex items-center justify-center shrink-0">
+<span class="material-icons text-accent-green">lightbulb</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Switch to WhatsApp</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Engagement is 3x higher for clients aged 25-40 on mobile notifications.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-icons text-primary">schedule</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Peak Payment Time</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Tuesday mornings at 10:00 AM show the lowest friction for invoice clearance.</p>
+</div>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-white/5 rounded-lg border border-slate-200 dark:border-white/5">
+<p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Trend Report</p>
+<p class="text-sm italic">"Automation workflows have reduced manual follow-ups by 68% this quarter."</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity Table -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-white/5 overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-200 dark:border-white/5 flex items-center justify-between">
+<h3 class="font-bold">Recent Billing Activity</h3>
+<div class="flex items-center gap-2 text-xs text-slate-400">
+<span class="material-icons text-xs">filter_list</span>
+<span>Filter: All Events</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-slate-50 dark:bg-white/5 text-[11px] uppercase tracking-wider text-slate-500 dark:text-slate-400">
+<th class="px-6 py-4 font-semibold">Client / Entity</th>
+<th class="px-6 py-4 font-semibold">Channel</th>
+<th class="px-6 py-4 font-semibold">Action Type</th>
+<th class="px-6 py-4 font-semibold">Value</th>
+<th class="px-6 py-4 font-semibold">Time</th>
+<th class="px-6 py-4 font-semibold">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-white/5 transition-colors cursor-pointer group">
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center font-bold text-xs text-blue-500">NC</div>
+<div>
+<p class="text-sm font-medium">Nexus Corp</p>
+<p class="text-[10px] text-slate-400">INV-2023-089</p>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-xs">
+<span class="material-icons text-sm text-primary">email</span>
+<span>Email</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs">Opened Payment Link</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm font-mono">$12,450.00</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-400">2 mins ago</span>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-yellow-500/10 text-yellow-500 text-[10px] font-bold rounded uppercase">Pending</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-white/5 transition-colors cursor-pointer">
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center font-bold text-xs text-green-500">AM</div>
+<div>
+<p class="text-sm font-medium">Aether Media</p>
+<p class="text-[10px] text-slate-400">INV-2023-090</p>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-xs">
+<span class="material-icons text-sm text-accent-green">chat</span>
+<span>WhatsApp</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs">Payment Completed</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm font-mono">$4,200.00</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-400">14 mins ago</span>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-accent-green/10 text-accent-green text-[10px] font-bold rounded uppercase">Success</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-white/5 transition-colors cursor-pointer">
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center font-bold text-xs text-purple-500">SQ</div>
+<div>
+<p class="text-sm font-medium">Stellar Quant</p>
+<p class="text-[10px] text-slate-400">INV-2023-091</p>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-xs">
+<span class="material-icons text-sm text-primary">email</span>
+<span>Email</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs">Invoice Viewed</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm font-mono">$32,100.00</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-400">1 hr ago</span>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-blue-500/10 text-blue-500 text-[10px] font-bold rounded uppercase">Viewed</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-white/5 transition-colors cursor-pointer">
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center font-bold text-xs text-orange-500">VS</div>
+<div>
+<p class="text-sm font-medium">Velo Systems</p>
+<p class="text-[10px] text-slate-400">INV-2023-092</p>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-xs">
+<span class="material-icons text-sm text-accent-green">chat</span>
+<span>WhatsApp</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs">Reminder Clicked</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm font-mono">$1,850.00</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-slate-400">2 hrs ago</span>
+</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-yellow-500/10 text-yellow-500 text-[10px] font-bold rounded uppercase">Pending</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 bg-slate-50 dark:bg-white/5 flex items-center justify-between text-xs text-slate-500">
+<span>Showing 4 of 284 interactions</span>
+<div class="flex gap-2">
+<button class="px-3 py-1 border border-slate-200 dark:border-white/10 rounded hover:bg-white dark:hover:bg-white/5">Previous</button>
+<button class="px-3 py-1 border border-slate-200 dark:border-white/10 rounded bg-white dark:bg-white/10">Next</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

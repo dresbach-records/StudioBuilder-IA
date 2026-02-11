@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Design System Configuration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        @theme {
+            --color-brand-primary: #1978E5;
+            --color-brand-pink: #EC4899;
+            --color-panel-bg: #0F172A;
+        }
+        :root {
+            --primary: #1978E5;
+            --accent-pink: #EC4899;
+            --dark-bg: #0F172A;
+            --neon-blue: #00D1FF;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+        .diagonal-split {
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+        }
+        .diagonal-split-reverse {
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        }
+    </style>
+</head>
+<body class="bg-[#020617] min-h-screen flex items-center justify-center p-4">
+<div class="w-[400px] h-[850px] bg-[#0F172A] rounded-2xl shadow-2xl flex flex-col overflow-hidden text-slate-200 border border-slate-800">
+<div class="px-6 pt-6 pb-4 flex items-center gap-4">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-400">arrow_back</span>
+</button>
+<h1 class="text-lg font-semibold text-white">New Design System</h1>
+</div>
+<div class="flex-1 overflow-y-auto px-6 py-2 custom-scrollbar">
+<div class="relative w-full aspect-[4/3] rounded-xl mb-8 overflow-hidden border border-slate-700 shadow-2xl">
+<div class="absolute inset-0 bg-white p-6 diagonal-split z-10">
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Preview: Light</p>
+<div class="space-y-4 max-w-[80%]">
+<div class="w-full h-9 bg-slate-50 border border-slate-200 rounded-lg px-3 flex items-center">
+<span class="text-xs text-slate-400">Email address</span>
+</div>
+<div class="flex justify-between items-center px-1">
+<span class="text-[11px] font-medium text-[#1978E5]">Forgot password?</span>
+</div>
+<div class="w-full bg-[#1978E5] text-white text-[11px] font-semibold h-9 flex items-center justify-center rounded-lg shadow-sm">
+                        Sign In
+                    </div>
+</div>
+</div>
+<div class="absolute inset-0 bg-[#1E293B] p-6 diagonal-split-reverse">
+<div class="flex flex-col items-end h-full justify-end">
+<div class="space-y-4 w-full max-w-[80%]">
+<div class="w-full h-9 bg-slate-800 border border-slate-700 rounded-lg px-3 flex items-center">
+<span class="text-xs text-slate-500">Email address</span>
+</div>
+<div class="flex justify-between items-center px-1">
+<span class="text-[11px] font-medium text-[var(--neon-blue)]">Forgot password?</span>
+</div>
+<div class="w-full bg-[var(--neon-blue)] text-slate-900 text-[11px] font-bold h-9 flex items-center justify-center rounded-lg shadow-[0_0_15px_rgba(0,209,255,0.3)]">
+                            Sign In
+                        </div>
+</div>
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-4">Preview: Dark</p>
+</div>
+</div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+<div class="w-14 h-7 bg-slate-900 rounded-full border border-slate-600 flex items-center p-1 shadow-[0_0_20px_rgba(25,120,229,0.5)]">
+<div class="w-5 h-5 bg-white rounded-full flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-[14px] text-slate-900 font-bold">wb_sunny</span>
+</div>
+<div class="ml-auto pr-1">
+<span class="material-symbols-outlined text-[14px] text-slate-500">dark_mode</span>
+</div>
+</div>
+</div>
+<div class="absolute inset-0 pointer-events-none z-15 border-t border-slate-500/20 origin-top-left rotate-[36.8deg] w-[130%] h-px"></div>
+</div>
+<div class="space-y-8">
+<section>
+<label class="block text-sm font-medium text-slate-400 mb-3">Color Mode</label>
+<div class="grid grid-cols-2 gap-2 p-1 bg-slate-900/50 rounded-xl border border-slate-800">
+<button class="flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-slate-800 text-white text-sm font-medium shadow-sm">
+<span class="material-symbols-outlined text-[18px]">light_mode</span>
+                        Light
+                    </button>
+<button class="flex items-center justify-center gap-2 py-2 px-4 rounded-lg text-slate-400 hover:text-white text-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[18px]">dark_mode</span>
+                        Dark
+                    </button>
+</div>
+</section>
+<section>
+<label class="block text-sm font-medium text-slate-400 mb-3">Color</label>
+<div class="flex items-center gap-3 bg-slate-900/50 border border-slate-800 rounded-xl p-3">
+<div class="w-8 h-8 rounded-md bg-[#1978E5] border border-white/10 shrink-0"></div>
+<span class="text-sm font-mono text-slate-300">#1978E5</span>
+<div class="ml-auto">
+<span class="material-symbols-outlined text-slate-500 text-[20px] cursor-pointer hover:text-white transition-colors">colorize</span>
+</div>
+</div>
+</section>
+<section>
+<label class="block text-sm font-medium text-slate-400 mb-3">Font</label>
+<div class="relative">
+<button class="w-full flex items-center justify-between bg-slate-900/50 border border-slate-800 rounded-xl p-3 text-slate-300 hover:border-slate-700 transition-colors">
+<span class="text-sm font-medium">Inter</span>
+<span class="material-symbols-outlined text-slate-500 text-[20px]">expand_more</span>
+</button>
+</div>
+</section>
+<section>
+<label class="block text-sm font-medium text-slate-400 mb-3">Corner Radius</label>
+<div class="flex gap-2">
+<button class="flex-1 aspect-square bg-slate-800 border border-slate-700 rounded-lg flex items-center justify-center group">
+<div class="w-5 h-5 border-2 border-slate-400 border-t-slate-400 border-l-slate-400 rounded-none group-hover:border-white transition-colors"></div>
+</button>
+<button class="flex-1 aspect-square bg-slate-900/50 border border-slate-800 rounded-lg flex items-center justify-center group hover:bg-slate-800 transition-colors">
+<div class="w-5 h-5 border-2 border-slate-600 border-t-slate-600 border-l-slate-600 rounded-sm group-hover:border-slate-400"></div>
+</button>
+<button class="flex-1 aspect-square bg-slate-900/50 border border-slate-800 rounded-lg flex items-center justify-center group hover:bg-slate-800 transition-colors">
+<div class="w-5 h-5 border-2 border-slate-600 border-t-slate-600 border-l-slate-600 rounded-md group-hover:border-slate-400"></div>
+</button>
+<button class="flex-1 aspect-square bg-slate-900/50 border border-slate-800 rounded-lg flex items-center justify-center group hover:bg-slate-800 transition-colors">
+<div class="w-5 h-5 border-2 border-slate-600 border-t-slate-600 border-l-slate-600 rounded-full group-hover:border-slate-400"></div>
+</button>
+</div>
+</section>
+</div>
+</div>
+<div class="p-6 bg-[#0F172A] border-t border-slate-800 mt-auto flex flex-col gap-3">
+<button class="w-full py-3.5 px-4 rounded-xl text-sm font-semibold bg-slate-800 text-white hover:bg-slate-700 transition-colors">
+            Save
+        </button>
+<button class="w-full py-3.5 px-4 rounded-xl text-sm font-bold bg-[#EC4899] text-white shadow-lg shadow-pink-500/20 hover:opacity-90 active:scale-[0.98] transition-all">
+            Save and Apply
+        </button>
+</div>
+</div>
+
+</body></html>

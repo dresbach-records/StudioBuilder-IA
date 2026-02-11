@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Case Study | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b4bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101322",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 border-b border-primary/10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white">architecture</span>
+</div>
+<span class="text-xl font-bold tracking-tight">StudioBuilder<span class="text-primary">AI</span></span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Solutions</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Case Studies</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Expertise</a>
+<a class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all" href="#">Start a Project</a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-[600px] w-full overflow-hidden flex items-end pb-16">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40 dark:opacity-30" data-alt="Technical schematic and architectural blueprint of a cloud system" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPKt58QxqDI_IQnsAdimtn-R9eOGRpmyFPjLkVW-nM5TTxKo4l8fIxSxSb_GdP4b16sz6I0efMF3VBy6c2kYrcYVna6KGtaznHnffccbRtef0t-SjyBZCCU_dEyCp2_yBOXKAwqsopr9qPcVY4klsJQp5t_ydRoSBfua8WWWpaS0ZwUivHXY3DuB31dP54zeC2zNAtQUMCyLIIo2FegsBkM7A5jt3KJ4GY1NIFYMVBE-_685pmw6jRYT0RiGay9_B4glTEtTqRVDc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/60 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+<div class="max-w-3xl">
+<div class="flex items-center gap-3 mb-6">
+<span class="px-3 py-1 bg-primary/20 text-primary text-xs font-bold uppercase tracking-widest rounded-full border border-primary/30">Systems Engineering</span>
+<span class="text-slate-400 text-sm">March 2024</span>
+</div>
+<h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">QuantumScale: High-Performance Ledger Architecture</h1>
+<p class="text-xl text-slate-300 leading-relaxed max-w-2xl">
+                    Engineering a distributed, low-latency financial settlement engine capable of processing 100k+ transactions per second with sub-millisecond finality.
+                </p>
+</div>
+</div>
+</section>
+<!-- Main Content Grid -->
+<main class="max-w-7xl mx-auto px-6 py-20">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<!-- Left: Main Content Narrative -->
+<div class="lg:col-span-8 space-y-24">
+<!-- Section: The Challenge -->
+<section id="challenge">
+<div class="flex items-center gap-4 mb-8">
+<span class="w-12 h-[2px] bg-primary"></span>
+<h2 class="text-2xl font-bold uppercase tracking-widest text-primary">The Challenge</h2>
+</div>
+<div class="prose prose-invert prose-slate max-w-none">
+<p class="text-lg text-slate-300 leading-relaxed mb-6 font-light">
+                            Our client, a global fintech leader, faced critical bottlenecks in their legacy clearing system. As transaction volumes grew, the existing monolithic architecture suffered from frequent database locks, resulting in latency spikes of up to 2 seconds during peak trading hours.
+                        </p>
+<p class="text-lg text-slate-300 leading-relaxed">
+                            The system needed to support exponential growth while maintaining strict ACID compliance and zero-loss guarantees. Key requirements included:
+                        </p>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 list-none p-0">
+<li class="flex items-start gap-3 bg-white/5 p-4 rounded-xl border border-white/10">
+<span class="material-icons text-primary">error_outline</span>
+<span>Eliminate data consistency issues in distributed states</span>
+</li>
+<li class="flex items-start gap-3 bg-white/5 p-4 rounded-xl border border-white/10">
+<span class="material-icons text-primary">speed</span>
+<span>Achieve 99.99th percentile latency below 5ms</span>
+</li>
+<li class="flex items-start gap-3 bg-white/5 p-4 rounded-xl border border-white/10">
+<span class="material-icons text-primary">hub</span>
+<span>Seamless integration with 15+ external liquidity providers</span>
+</li>
+<li class="flex items-start gap-3 bg-white/5 p-4 rounded-xl border border-white/10">
+<span class="material-icons text-primary">security</span>
+<span>Maintain rigorous SOC2 and ISO compliance standards</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- Section: The Solution -->
+<section id="solution">
+<div class="flex items-center gap-4 mb-8">
+<span class="w-12 h-[2px] bg-primary"></span>
+<h2 class="text-2xl font-bold uppercase tracking-widest text-primary">The Solution</h2>
+</div>
+<div class="space-y-8">
+<p class="text-lg text-slate-300 leading-relaxed">
+                            StudioBuilder AI designed a multi-tier event-driven architecture using an actor-model pattern to ensure parallel execution without state contention. The solution replaced the central RDBMS with a high-performance event store and materialized views.
+                        </p>
+<div class="rounded-2xl overflow-hidden border border-white/10 bg-white/5 p-4">
+<img class="rounded-xl w-full h-auto grayscale hover:grayscale-0 transition-all duration-700" data-alt="Modern server room with blue LED lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhPeAJ7R5p81a21rN2aVlBoIMFNrvGcXv4XWmZESOxfcJUbqKFGdwHjJ4gKs99OHbAV4S05JIRTVCEswpY76r0MFaMRvl_easgheaFhMrr4YspOFlNZL74nTMSrJfLHT-J5iD_B94LGZ9mSGSFQz-DnH8TIH3z2Skd4wGl-XL7bpbRbD6sjsYeMy20hPlMQ4cGZC0jmLasu_VMp36xA1Cjl3eVQOJ2vxOoQtJSJAl3mBb1So8xMALsafnsSxtGcrtLPqbqGXF6HzQ"/>
+<p class="text-center text-xs text-slate-500 mt-4 italic font-medium">Fig 1.1: Logical Distribution of Actor Nodes across multi-region clusters</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+<div>
+<h3 class="text-xl font-bold mb-4 text-white">Event Sourcing</h3>
+<p class="text-slate-400 text-sm leading-relaxed">
+                                    Implemented a custom append-only log designed for NVMe storage, ensuring every state change is immutable and auditable. This allows for near-instant system recovery and state replay capabilities.
+                                </p>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-4 text-white">Zero-Copy Networking</h3>
+<p class="text-slate-400 text-sm leading-relaxed">
+                                    Utilized kernel-bypass networking techniques (DPDK) to minimize overhead between ingest layers and processing cores, shaving critical microseconds off the end-to-end path.
+                                </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: The Impact -->
+<section id="impact">
+<div class="flex items-center gap-4 mb-8">
+<span class="w-12 h-[2px] bg-primary"></span>
+<h2 class="text-2xl font-bold uppercase tracking-widest text-primary">The Impact</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-primary/10 border border-primary/20 p-8 rounded-2xl flex flex-col items-center text-center">
+<span class="text-4xl font-bold text-primary mb-2">94%</span>
+<span class="text-sm text-slate-400 font-medium uppercase tracking-tighter">Latency Reduction</span>
+</div>
+<div class="bg-primary/10 border border-primary/20 p-8 rounded-2xl flex flex-col items-center text-center">
+<span class="text-4xl font-bold text-primary mb-2">10x</span>
+<span class="text-sm text-slate-400 font-medium uppercase tracking-tighter">Throughput Scaling</span>
+</div>
+<div class="bg-primary/10 border border-primary/20 p-8 rounded-2xl flex flex-col items-center text-center">
+<span class="text-4xl font-bold text-primary mb-2">0</span>
+<span class="text-sm text-slate-400 font-medium uppercase tracking-tighter">Data Loss Incidents</span>
+</div>
+</div>
+<div class="mt-12 bg-white/5 border border-white/10 p-8 rounded-2xl">
+<blockquote class="text-xl italic text-slate-300 leading-relaxed relative">
+<span class="material-icons absolute -top-4 -left-4 text-6xl text-primary/10 select-none">format_quote</span>
+                            "StudioBuilder AI didn't just rebuild our platform; they redefined what we thought was possible in terms of engineering velocity and system stability. Their technical authority is unmatched."
+                        </blockquote>
+<div class="mt-6 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-slate-700">
+<img class="w-full h-full rounded-full object-cover" data-alt="Portrait of a technology executive" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCU7IplNP1RoASblwlhV9Tm4CxeMe03eyjMV-PQMggKRHQ76yv8EcVJ-Aw8Y6EeUEDWeAZ38yJiPHWmWpzuhNaHRu1T2n2Cyk0m9p-BPq4FTa_6dBVMRsxnnHmTbsG-CQlcWtNib5MB81UvkC9vMHXc8GzPPbelLlj2X3JrzL4TJGcv5aJtbYAUrT4cIM1Q9qG5OijoKHXDiq90cgG1XyUP-CMN_XTXCEUxt0eUHSCnfR-kYsAYLSMABsLC_8y_TGXBDnU5nDRdg4o"/>
+</div>
+<div>
+<p class="text-sm font-bold text-white">David Chen</p>
+<p class="text-xs text-slate-500">CTO, Global Finance Partners</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right: Metadata Sidebar -->
+<aside class="lg:col-span-4">
+<div class="sticky top-28 space-y-8">
+<!-- Meta Card -->
+<div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+<h4 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-6">Project Particulars</h4>
+<div class="space-y-6">
+<div>
+<p class="text-xs text-slate-500 mb-1">Client</p>
+<p class="text-lg font-semibold text-white">Global Finance Partners</p>
+</div>
+<div>
+<p class="text-xs text-slate-500 mb-1">Duration</p>
+<p class="text-lg font-semibold text-white">8 Months (Q3 2023 - Q1 2024)</p>
+</div>
+<div>
+<p class="text-xs text-slate-500 mb-1">Service</p>
+<p class="text-lg font-semibold text-white">Distributed Systems Engineering</p>
+</div>
+<div>
+<p class="text-xs text-slate-500 mb-1">Location</p>
+<div class="flex items-center gap-2 text-lg font-semibold text-white">
+<span class="material-icons text-primary text-sm">location_on</span>
+                                    London, UK
+                                </div>
+</div>
+</div>
+<hr class="my-8 border-white/10"/>
+<h4 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">The Tech Stack</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 bg-primary/20 text-primary border border-primary/20 rounded-lg text-xs font-medium">Go / Golang</span>
+<span class="px-3 py-1.5 bg-primary/20 text-primary border border-primary/20 rounded-lg text-xs font-medium">Kubernetes</span>
+<span class="px-3 py-1.5 bg-primary/20 text-primary border border-primary/20 rounded-lg text-xs font-medium">gRPC</span>
+<span class="px-3 py-1.5 bg-primary/20 text-primary border border-primary/20 rounded-lg text-xs font-medium">Redis Stack</span>
+<span class="px-3 py-1.5 bg-primary/20 text-primary border border-primary/20 rounded-lg text-xs font-medium">Terraform</span>
+<span class="px-3 py-1.5 bg-primary/20 text-primary border border-primary/20 rounded-lg text-xs font-medium">AWS Nitro</span>
+<span class="px-3 py-1.5 bg-primary/20 text-primary border border-primary/20 rounded-lg text-xs font-medium">Prometheus</span>
+</div>
+</div>
+<!-- Call to Action -->
+<div class="bg-primary p-8 rounded-2xl relative overflow-hidden group">
+<div class="relative z-10">
+<h4 class="text-xl font-bold text-white mb-2">Build your next system with us.</h4>
+<p class="text-primary-100/80 text-sm mb-6">Experience technical excellence and architectural integrity.</p>
+<a class="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-xl text-sm font-bold hover:bg-slate-100 transition-colors" href="#">
+                                Book Architecture Review
+                                <span class="material-icons text-sm">arrow_forward</span>
+</a>
+</div>
+<span class="material-icons absolute -bottom-4 -right-4 text-9xl text-white/10 group-hover:scale-110 transition-transform duration-500">settings_suggest</span>
+</div>
+<!-- Map Location -->
+<div class="rounded-2xl overflow-hidden h-48 border border-white/10">
+<img class="w-full h-full object-cover" data-alt="Abstract map visualization showing server nodes connectivity" data-location="London" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAenW_GRP8d7_1bGO1eB-a1Bn-ku444c1sDMI9i96mqUpmIgDUUh8bACl7IpskKLoQyiwo3wNT4Wq4Jm2YmGvJCq33VjViRMR2Vxh61f7iEEQhxJS0gngOnJRTnf8mvl6bnNszvbGzk5ypu3oPjt_CHs65MWQ6bd9p4nYmNCeWFhbp9aQuSZG5CwvXTPnMznu8wuL933dScClzYWWe6r66RR-MYGmdiM3WcH5iZH3gILOZiCOd5FfI-94qAXSqK5nDF4pBWQdhIrCA"/>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-background-dark border-t border-white/5 py-12">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary/50 rounded flex items-center justify-center">
+<span class="material-icons text-white text-sm">architecture</span>
+</div>
+<span class="font-bold tracking-tight">StudioBuilder AI</span>
+</div>
+<p class="text-slate-500 text-sm">© 2024 StudioBuilder AI. All rights reserved. Professional engineering for global scale.</p>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-white transition-colors" href="#"><span class="material-icons text-lg">terminal</span></a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#"><span class="material-icons text-lg">dns</span></a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#"><span class="material-icons text-lg">lan</span></a>
+</div>
+</div>
+</footer>
+</body></html>

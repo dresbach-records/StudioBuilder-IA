@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inquiry Success | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0a0a0c",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glow-overlay {
+            background: radial-gradient(circle at 50% 50%, rgba(75, 43, 238, 0.15) 0%, rgba(10, 10, 12, 0) 70%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-display antialiased selection:bg-primary/30">
+<!-- Background Accents -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none">
+<div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full"></div>
+<div class="absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full"></div>
+<div class="absolute inset-0 glow-overlay"></div>
+</div>
+<!-- Navigation Header -->
+<header class="relative z-10 p-8 flex justify-between items-center max-w-7xl mx-auto w-full">
+<div class="flex items-center gap-2 group cursor-pointer">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-icons text-white text-lg">terminal</span>
+</div>
+<span class="text-xl font-bold tracking-tight dark:text-white">StudioBuilder<span class="text-primary">AI</span></span>
+</div>
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="hover:text-primary transition-colors" href="#">Engineering Blog</a>
+<a class="px-4 py-2 border border-primary/20 rounded-lg hover:bg-primary/10 transition-colors" href="#">Client Portal</a>
+</nav>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex items-center justify-center px-6 relative z-10 -mt-16">
+<div class="w-full max-w-xl">
+<!-- Central Success Card -->
+<div class="bg-white/5 dark:bg-white/[0.02] border border-white/10 backdrop-blur-xl p-12 rounded-xl shadow-2xl relative overflow-hidden text-center">
+<!-- Success Icon -->
+<div class="relative mb-10 inline-flex">
+<div class="absolute inset-0 bg-primary/20 blur-2xl rounded-full scale-150"></div>
+<div class="relative w-24 h-24 rounded-full bg-gradient-to-br from-primary to-[#8b5cf6] flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-icons text-white text-5xl">check</span>
+</div>
+</div>
+<!-- Text Content -->
+<div class="space-y-4 mb-12">
+<h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white">Inquiry Received</h1>
+<div class="w-16 h-1 bg-primary/30 mx-auto rounded-full"></div>
+<p class="text-lg text-slate-500 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
+                        Our engineering team is reviewing your technical requirements. We typically respond within <span class="text-primary font-medium">24 business hours</span>.
+                    </p>
+</div>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="w-full sm:w-auto px-8 py-3.5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2 shadow-lg shadow-primary/25" href="#">
+<span class="material-icons text-sm">arrow_back</span>
+                        Back to Home
+                    </a>
+<a class="w-full sm:w-auto px-8 py-3.5 bg-white/5 hover:bg-white/10 dark:bg-white/5 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 font-semibold rounded-lg transition-all flex items-center justify-center gap-2" href="#">
+                        Explore Our Stack
+                        <span class="material-icons text-sm">code</span>
+</a>
+</div>
+<!-- Technical Footer Accent -->
+<div class="mt-12 pt-8 border-t border-white/5 flex items-center justify-center gap-6">
+<div class="flex items-center gap-2 opacity-40 grayscale hover:grayscale-0 transition-all">
+<span class="material-icons text-xs">verified</span>
+<span class="text-[10px] uppercase tracking-[0.2em] font-medium">SSL Encrypted</span>
+</div>
+<div class="flex items-center gap-2 opacity-40 grayscale hover:grayscale-0 transition-all">
+<span class="material-icons text-xs">memory</span>
+<span class="text-[10px] uppercase tracking-[0.2em] font-medium">Cloud Infrastructure</span>
+</div>
+</div>
+</div>
+<!-- Supporting Text -->
+<p class="mt-8 text-center text-slate-500 dark:text-slate-500 text-sm">
+                Expected wait time: <span class="italic font-mono">EST: ~12h</span> • <span class="italic font-mono">GMT: ~18h</span>
+</p>
+</div>
+</main>
+<!-- Footer -->
+<footer class="relative z-10 p-8 border-t border-slate-200 dark:border-white/5">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="text-xs text-slate-500 font-mono tracking-widest uppercase">
+                © 2024 StudioBuilder AI Systems Engineering
+            </div>
+<div class="flex gap-6">
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><img class="w-5 h-5 opacity-70" data-alt="GitHub Social Icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp7-wAB88AssndCy9LPm5JiWvaDs7nz9bBpYqROaTdIQuujIhUIrfJMhN_oOd5oD6gc5kfsU4rsShnYbQjJYja2wIOR3Jl9VG0bhluDnk3natJwkTLulpPO-XEtj9tBS5bNXR21OfVv3SUAjKZdbYFMlMxEhlvGBjIOFuP6YSUn_JPWAR-Em6dslkrlIl-ic8JuFs253lZHIe2neXGAZX1pRAArmgGMqD1AmVTed4Z2Wm59EDww80qg9ZO034ahZvumJZq_9S0xEI"/></a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><img class="w-5 h-5 opacity-70" data-alt="LinkedIn Social Icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5NgW0CUWD91dCEu3wQKqlH4rOtqlmNpsMXEj8agXxDJNhC-EuRmRXHqQO_xfTlC6i3KcE5f70zi370OQLgsP_qDjOVO31DvNDJVHX8pu_Ya_Mt0i3dITpQMxjHlLgImD_f-ucjK3i5OfenXv4Z3O1iPy-TkTUG7kqWmp9Hp4YkTceQ3PiCJKcyOu4TYxaz5pp8GRlO-Bi2c7yTjjo6NbY5-EofphLIVb2jb2BLyMLcHgq2Kh8TbR_jSiGWIypq6bePtT7p_ZijbQ"/></a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><img class="w-5 h-5 opacity-70" data-alt="Twitter Social Icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB16SyEYy5VAiN9_5QSWnBvD9x5VRtMHhaeFwxriztBwVK8R8cKSSSo3F1WzWD2vVkiXBTckQGMarrXY4YhXYC6nFL1lls963ELaoVZBx1GZ35F5-mos-qNS0l6atCqILMB2GM2mgMOKMcwKa_1HB8szKbXum3qL53pUhIxCiMTlhZUez8nP3U9H8Lq_cuo_jCBcWFfmA_GPGS2qRmbVh5FwaAREVtf97Fu1Av9TMofSr2XjVGKlgliu837hTNE7Rw-kVKSEOL5hfI"/></a>
+</div>
+</div>
+</footer>
+<!-- Image for Context -->
+<div class="hidden">
+<img class="hidden" data-alt="Abstract dark blue circuit board pattern background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAatgsI5Mx9SJAM6bFCLvqMh7BMJZsdUAkZKcCBFkPEgeocqSLr0khaypoV3_eB7zR36iJTHVvTnHV7ekXqTw5drE4LMaAHajKHKwVxtmFvmvdWean3qduSI6OxUWz2AE6a0QUPlCaOSYwK2bR6jRhmX91icDinhdARJPfdklgnVgT55odiXThnHPNfVNVKT4vwZ5ehXzxdjiD2ZpuRPxhJTT8L7EFH5F2CcmQX1nMvL6w9JM47_wAHUq1utL_IiilYQA__gHla4xk"/>
+</div>
+</body></html>

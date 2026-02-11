@@ -83,7 +83,7 @@ const InfrastructurePage: React.FC = () => {
                  <p className="flex gap-4"><span className="text-slate-700">[14:32:05]</span> <span className="text-primary font-bold">INFO</span> Loading env configuration from Vault</p>
                  <p className="flex gap-4"><span className="text-slate-700">[14:32:08]</span> <span className="text-emerald-500 font-bold">SUCCESS</span> Connection established to GitHub API</p>
                  <p className="mt-4 text-slate-600"># Step 1/14: FROM node:18-alpine AS builder</p>
-                 <p className="text-slate-500">---> 14c772392686</p>
+                 <p className="text-slate-500">{ '---> 14c772392686' }</p>
                  <p className="text-slate-600"># Step 2/14: WORKDIR /app</p>
                  <p className="text-slate-600"># Step 3/14: COPY package.json yarn.lock ./</p>
                  <p className="text-slate-600"># Step 4/14: RUN yarn install --frozen-lockfile</p>

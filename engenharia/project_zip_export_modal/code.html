@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project ZIP Export Modal - StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#121022",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center p-4">
+<!-- Modal Backdrop -->
+<div class="fixed inset-0 bg-background-dark/80 backdrop-blur-sm z-0"></div>
+<!-- Export Modal Container -->
+<div class="relative z-10 w-full max-w-2xl bg-slate-900 border border-primary/20 rounded-xl shadow-2xl overflow-hidden">
+<!-- Header Section -->
+<div class="p-6 border-b border-white/5 flex justify-between items-start">
+<div>
+<h1 class="text-2xl font-bold tracking-tight">Project ZIP Export</h1>
+<p class="text-slate-400 text-sm mt-1">Your website project is bundled and ready for production.</p>
+</div>
+<button class="p-2 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-icons-round text-slate-400">close</span>
+</button>
+</div>
+<!-- Main Content Body -->
+<div class="p-6 space-y-8">
+<!-- Status & Compression Section -->
+<div class="flex flex-col md:flex-row items-center gap-8 bg-primary/5 p-6 rounded-xl border border-primary/10">
+<div class="relative w-32 h-32 flex items-center justify-center">
+<!-- Progress Circle Background -->
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-white/5" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary drop-shadow-[0_0_8px_rgba(59,43,238,0.5)]" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="36.4" stroke-width="8"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="text-2xl font-bold">90%</span>
+</div>
+</div>
+<div class="flex-1 space-y-2 text-center md:text-left">
+<div class="flex items-center justify-center md:justify-start gap-2 text-primary">
+<span class="material-icons-round text-sm">check_circle</span>
+<span class="font-semibold uppercase tracking-wider text-xs">Ready for Export</span>
+</div>
+<h2 class="text-xl font-bold text-white">Project Bundle: "portfolio-v1.zip"</h2>
+<p class="text-sm text-slate-400">Compression complete. All assets optimized for fast loading and SEO performance.</p>
+</div>
+</div>
+<!-- Breakdown Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-white/5 border border-white/10 p-4 rounded-lg flex items-center gap-4">
+<div class="w-10 h-10 rounded bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-icons-round">image</span>
+</div>
+<div>
+<div class="text-sm font-semibold">Images</div>
+<div class="text-xs text-slate-400">12 files (4.2 MB)</div>
+</div>
+</div>
+<div class="bg-white/5 border border-white/10 p-4 rounded-lg flex items-center gap-4">
+<div class="w-10 h-10 rounded bg-indigo-500/20 flex items-center justify-center text-indigo-400">
+<span class="material-icons-round">code</span>
+</div>
+<div>
+<div class="text-sm font-semibold">Source Code</div>
+<div class="text-xs text-slate-400">8 files (156 KB)</div>
+</div>
+</div>
+<div class="bg-white/5 border border-white/10 p-4 rounded-lg flex items-center gap-4">
+<div class="w-10 h-10 rounded bg-purple-500/20 flex items-center justify-center text-purple-400">
+<span class="material-icons-round">folder_zip</span>
+</div>
+<div>
+<div class="text-sm font-semibold">Assets</div>
+<div class="text-xs text-slate-400">4 files (1.1 MB)</div>
+</div>
+</div>
+</div>
+<!-- File Structure Preview -->
+<div class="space-y-3">
+<h3 class="text-sm font-semibold text-slate-300 flex items-center gap-2">
+<span class="material-icons-round text-sm">account_tree</span>
+                    File Structure Preview
+                </h3>
+<div class="bg-black/40 border border-white/5 rounded-lg p-4 font-mono text-sm text-slate-400 overflow-hidden">
+<div class="space-y-1">
+<div class="flex items-center gap-2 text-slate-200">
+<span class="material-icons-round text-sm text-primary">folder_open</span>
+                            portfolio-project/
+                        </div>
+<div class="flex items-center gap-2 ml-4">
+<span class="material-icons-round text-sm text-indigo-400">folder</span>
+                            src/
+                        </div>
+<div class="flex items-center gap-2 ml-8">
+<span class="material-icons-round text-sm text-slate-500">description</span>
+                            main.js
+                        </div>
+<div class="flex items-center gap-2 ml-8">
+<span class="material-icons-round text-sm text-slate-500">css</span>
+                            styles.css
+                        </div>
+<div class="flex items-center gap-2 ml-4">
+<span class="material-icons-round text-sm text-purple-400">folder</span>
+                            public/
+                        </div>
+<div class="flex items-center gap-2 ml-8">
+<span class="material-icons-round text-sm text-amber-400">image</span>
+                            hero-banner.webp
+                        </div>
+<div class="flex items-center gap-2 ml-8">
+<span class="material-icons-round text-sm text-slate-500">html</span>
+                            index.html
+                        </div>
+<div class="flex items-center gap-2 ml-4">
+<span class="material-icons-round text-sm text-blue-400">settings</span>
+                            package.json
+                        </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="p-6 bg-white/5 flex flex-col gap-4">
+<button class="group relative w-full overflow-hidden rounded-lg bg-gradient-to-r from-primary to-purple-600 p-px transition-all hover:shadow-[0_0_20px_rgba(59,43,238,0.4)]">
+<div class="flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 group-hover:bg-transparent transition-colors rounded-[calc(0.5rem-1px)]">
+<span class="material-icons-round text-white group-hover:animate-bounce">download</span>
+<span class="font-bold text-white tracking-wide">Download .ZIP Package</span>
+</div>
+</button>
+<div class="flex justify-center">
+<button class="text-xs text-slate-500 hover:text-white transition-colors uppercase tracking-widest font-bold">
+                    Cancel Export
+                </button>
+</div>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-purple-600 to-primary"></div>
+<div class="fixed bottom-10 right-10 opacity-10 pointer-events-none">
+<img alt="Abstract tech background pattern" class="w-64" data-alt="Abstract blue digital blueprint mesh on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxbGKL2yXyatFJAgGSiqvCdOzr9hENXEx1mi2g850gbwcJ6ZpamDfqS5EC0MvbmeVdabLNhg6-UE4JGCWg19dwWclqEm2EmXvXNCcCz9TruAw_XYsQtEbQZuW9ChsM23l-zy9R-1P0tdcQ9-lE-X6DZsH9IPCzgRgHZhmWlORL1FcbanG8GmCkkBMpS0lmtFGTjKfdtPn21HD3nsuJthSG20pkATxQD2B-Dc-EEeh9TFak2qLbGYT_oe_xlBTJInBKUyNlALgr4bc"/>
+</div>
+</body></html>

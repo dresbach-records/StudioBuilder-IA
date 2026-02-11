@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Billing &amp; Communication Notifications Settings | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0F172A",
+                        "surface-dark": "#1E293B",
+                        "border-dark": "#334155"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<!-- Header Navigation -->
+<header class="border-b border-slate-200 dark:border-border-dark bg-white dark:bg-background-dark/50 sticky top-0 z-40 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-icons text-white">auto_awesome</span>
+</div>
+<div>
+<h1 class="text-lg font-bold tracking-tight">StudioBuilder <span class="text-primary">AI</span></h1>
+<nav class="flex text-xs text-slate-500 dark:text-slate-400 gap-2">
+<span>Settings</span>
+<span>/</span>
+<span class="text-slate-800 dark:text-slate-200">Billing Notifications</span>
+</nav>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-surface-dark transition-colors relative">
+<span class="material-icons text-slate-500">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-background-dark"></span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-primary/30">
+<img alt="Profile" data-alt="User profile avatar circle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE3oFoVk_NhKaTt_Xi91gMkWUamxFMqHcaxnGUPWdvuhxZEd8zoe17V8kIZeYMfml0bDVxDqC949kcIiiSL5U_ka9Ba5B_ycy8mqe25kHIikakNyaPTJ_U4hH9daXz7Oo4d_bdfzfP4x53WAabrbr2VLYa71HaqT4Zdln2v68US4yztH0LyPiTknyuHakCyOp0frnW9hbw4CsYQpqM1uA8Hd5ESTMQHBgebjuQCNe-rvLrDQUAyP8w7Z5EL-2euJMSxw7V0JD1F1U"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<!-- Dashboard Intro -->
+<div class="mb-8">
+<h2 class="text-3xl font-bold mb-2">Notification Workflows</h2>
+<p class="text-slate-500 dark:text-slate-400">Configure how your clients receive billing updates and payment reminders across all channels.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Column 1: Email Notifications -->
+<div class="space-y-6">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center">
+<span class="material-icons text-primary text-xl">alternate_email</span>
+</div>
+<h3 class="text-xl font-semibold">Email Notifications</h3>
+</div>
+<!-- Notification Card 1 -->
+<div class="bg-white dark:bg-surface-dark rounded-xl p-5 border border-slate-200 dark:border-border-dark hover:border-primary/50 transition-colors shadow-sm">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<h4 class="font-medium">Invoice Sent</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Triggered when a new invoice is generated for a client.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700/50">
+<span class="text-xs font-medium text-slate-400">Channel: Default SMTP</span>
+<button class="text-sm font-semibold text-primary hover:text-primary/80 flex items-center gap-1 group">
+                            Edit Template <span class="material-icons text-sm group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Notification Card 2 -->
+<div class="bg-white dark:bg-surface-dark rounded-xl p-5 border border-slate-200 dark:border-border-dark hover:border-primary/50 transition-colors shadow-sm">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<h4 class="font-medium">Payment Received</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Automatic thank-you and receipt after successful transaction.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700/50">
+<span class="text-xs font-medium text-slate-400">Channel: Default SMTP</span>
+<button class="text-sm font-semibold text-primary hover:text-primary/80 flex items-center gap-1 group">
+                            Edit Template <span class="material-icons text-sm group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Notification Card 3 -->
+<div class="bg-white dark:bg-surface-dark rounded-xl p-5 border border-slate-200 dark:border-border-dark border-dashed opacity-80 hover:opacity-100 transition-opacity">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<h4 class="font-medium">Overdue Reminder</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Automatic nudges for invoices past their due date.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700/50">
+<div class="flex gap-2">
+<span class="text-xs px-2 py-0.5 rounded bg-amber-500/10 text-amber-500 border border-amber-500/20">Inactive</span>
+<span class="text-xs px-2 py-0.5 rounded bg-slate-500/10 text-slate-500 border border-slate-500/20">3 Reminders</span>
+</div>
+<button class="text-sm font-semibold text-primary hover:text-primary/80 flex items-center gap-1">
+                            Setup Workflow
+                        </button>
+</div>
+</div>
+</div>
+<!-- Column 2: WhatsApp Integration -->
+<div class="space-y-6">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-emerald-500/10 flex items-center justify-center">
+<span class="material-icons text-emerald-500 text-xl">chat</span>
+</div>
+<h3 class="text-xl font-semibold">WhatsApp Integration</h3>
+</div>
+<div class="flex items-center gap-1 px-2 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-[10px] font-bold text-emerald-500 uppercase tracking-wider">Connected via Twilio</span>
+</div>
+</div>
+<!-- Notification Card 4 -->
+<div class="bg-white dark:bg-surface-dark rounded-xl p-5 border border-slate-200 dark:border-border-dark hover:border-primary/50 transition-colors shadow-sm">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<h4 class="font-medium">Instant Payment Confirmation</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Send an immediate WhatsApp receipt when payment clears.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700/50">
+<span class="text-xs font-medium text-slate-400">Template ID: WPP_PAY_01</span>
+<button class="text-sm font-semibold text-primary hover:text-primary/80 flex items-center gap-1 group">
+                            Edit Template <span class="material-icons text-sm group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Notification Card 5 -->
+<div class="bg-white dark:bg-surface-dark rounded-xl p-5 border border-slate-200 dark:border-border-dark hover:border-primary/50 transition-colors shadow-sm">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<h4 class="font-medium">Low Balance Alert</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Notify clients when their prepay credit is below $50.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="mt-4 flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700/50">
+<span class="text-xs font-medium text-slate-400">Threshold: $50.00</span>
+<button class="text-sm font-semibold text-primary hover:text-primary/80 flex items-center gap-1 group">
+                            Edit Template <span class="material-icons text-sm group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- API Info Card -->
+<div class="bg-primary/5 rounded-xl p-6 border border-primary/20">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-lg bg-white dark:bg-surface-dark border border-primary/20 flex items-center justify-center">
+<span class="material-icons text-primary">api</span>
+</div>
+<div>
+<p class="text-sm font-bold">API Configuration</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Twilio Enterprise API Active</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 bg-primary text-white text-xs font-semibold rounded-lg hover:bg-primary/90 transition-all">Manage Keys</button>
+<button class="px-3 py-1.5 bg-white dark:bg-surface-dark text-slate-700 dark:text-slate-300 text-xs font-semibold rounded-lg border border-slate-200 dark:border-border-dark hover:bg-slate-50 transition-all">Test Connection</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Save Bar -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4 z-50">
+<div class="glass-panel rounded-2xl p-4 flex items-center justify-between shadow-2xl shadow-primary/10 border border-white/10">
+<p class="text-sm text-slate-300 ml-4">You have unsaved changes in <span class="text-white font-medium">WhatsApp Templates</span></p>
+<div class="flex gap-3">
+<button class="px-5 py-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors">Discard</button>
+<button class="px-6 py-2 bg-primary text-white text-sm font-bold rounded-xl shadow-lg shadow-primary/40 hover:scale-[1.02] transition-transform">Save Changes</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Modal Overlay (Template Editor) -->
+<div class="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-background-dark/80 backdrop-blur-sm">
+<div class="bg-white dark:bg-surface-dark w-full max-w-4xl rounded-2xl shadow-2xl border border-slate-200 dark:border-border-dark overflow-hidden flex flex-col max-h-[90vh]">
+<!-- Modal Header -->
+<div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+<span class="material-icons text-primary">edit_note</span>
+</div>
+<div>
+<h3 class="text-xl font-bold">Template Editor</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Customizing: <span class="text-primary font-medium">Payment Confirmation (WhatsApp)</span></p>
+</div>
+</div>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+<span class="material-icons text-slate-400">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="flex-1 overflow-hidden grid grid-cols-1 md:grid-cols-5">
+<!-- Variable Sidebar -->
+<div class="md:col-span-2 p-6 bg-slate-50 dark:bg-slate-900/50 border-r border-slate-100 dark:border-slate-800 overflow-y-auto custom-scrollbar">
+<h5 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Available Tokens</h5>
+<div class="space-y-3">
+<button class="w-full text-left p-3 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark hover:border-primary transition-all group">
+<span class="block text-xs font-mono text-primary mb-1">{client_name}</span>
+<span class="block text-[10px] text-slate-500">The full name of the recipient client.</span>
+</button>
+<button class="w-full text-left p-3 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark hover:border-primary transition-all group">
+<span class="block text-xs font-mono text-primary mb-1">{invoice_value}</span>
+<span class="block text-[10px] text-slate-500">The total amount of the current invoice.</span>
+</button>
+<button class="w-full text-left p-3 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark hover:border-primary transition-all group">
+<span class="block text-xs font-mono text-primary mb-1">{invoice_id}</span>
+<span class="block text-[10px] text-slate-500">The unique identifier (e.g. INV-2024).</span>
+</button>
+<button class="w-full text-left p-3 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark hover:border-primary transition-all group">
+<span class="block text-xs font-mono text-primary mb-1">{due_date}</span>
+<span class="block text-[10px] text-slate-500">The expiration date of the document.</span>
+</button>
+</div>
+</div>
+<!-- Editor Area -->
+<div class="md:col-span-3 p-6 flex flex-col gap-6">
+<div class="flex-1 flex flex-col">
+<div class="flex items-center justify-between mb-2">
+<label class="text-sm font-semibold">Message Content</label>
+<span class="text-[10px] text-slate-500">Supports Markdown &amp; Emojis</span>
+</div>
+<div class="relative flex-1">
+<textarea class="w-full h-full min-h-[200px] p-4 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-border-dark rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none font-mono text-sm leading-relaxed" spellcheck="false">Hello *{client_name}*, 
+
+We've successfully received your payment of *{invoice_value}* for invoice *#{invoice_id}*. 
+
+Thank you for choosing StudioBuilder AI! Your updated balance is available in the portal.
+
+Best regards,
+StudioBuilder Team 🚀</textarea>
+</div>
+</div>
+<!-- Preview -->
+<div class="p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-icons text-emerald-500 text-sm">visibility</span>
+<span class="text-xs font-bold text-emerald-600 uppercase">Live Preview</span>
+</div>
+<div class="bg-white dark:bg-[#0b141a] p-3 rounded-lg shadow-sm border dark:border-emerald-500/20 max-w-[90%] relative">
+<div class="absolute -left-2 top-2 w-4 h-4 bg-white dark:bg-[#0b141a] rotate-45 border-l border-b border-inherit"></div>
+<p class="text-xs text-slate-800 dark:text-slate-200 leading-relaxed">
+                                Hello <span class="font-bold">Alex Rivera</span>,<br/><br/>
+                                We've successfully received your payment of <span class="font-bold">$1,250.00</span> for invoice <span class="font-bold">#INV-9901</span>.<br/><br/>
+                                Thank you for choosing StudioBuilder AI! Your updated balance is available in the portal.<br/><br/>
+                                Best regards,<br/>
+                                StudioBuilder Team 🚀
+                            </p>
+<div class="text-[9px] text-right text-slate-400 mt-1">10:42 AM ✓✓</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="p-6 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center bg-slate-50 dark:bg-slate-900/50">
+<button class="flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors">
+<span class="material-icons text-base">history</span> View Version History
+                </button>
+<div class="flex gap-3">
+<button class="px-6 py-2 text-sm font-semibold border border-slate-200 dark:border-border-dark rounded-xl hover:bg-white dark:hover:bg-surface-dark transition-colors">Cancel</button>
+<button class="px-8 py-2 bg-primary text-white text-sm font-bold rounded-xl shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">Update Template</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

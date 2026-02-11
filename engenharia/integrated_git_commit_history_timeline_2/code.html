@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudioBuilder AI - Git History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022",
+                        "warning": "#f59e0b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #4b2bee33;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #4b2bee;
+        }
+        .timeline-line {
+            width: 2px;
+            background: linear-gradient(to bottom, #4b2bee 0%, #4b2bee22 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display selection:bg-primary/30 h-screen flex overflow-hidden">
+<div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm hidden">
+<div class="w-full max-w-md bg-[#1a172e] border border-white/10 rounded-xl shadow-2xl p-6 overflow-hidden">
+<div class="flex items-center gap-3 mb-4 text-warning">
+<span class="material-symbols-outlined text-3xl">settings_backup_restore</span>
+<h3 class="text-lg font-semibold text-white">Confirm Revert</h3>
+</div>
+<div class="space-y-4">
+<p class="text-sm text-slate-300 leading-relaxed">
+                This will create a new commit reversing changes from <span class="font-mono text-primary bg-primary/10 px-1.5 py-0.5 rounded">4c33b1e</span>.
+            </p>
+<div class="bg-warning/10 border border-warning/20 p-3 rounded-lg flex gap-3">
+<span class="material-symbols-outlined text-warning text-lg">info</span>
+<p class="text-xs text-slate-400">All current unsaved work will be preserved in a separate stash.</p>
+</div>
+</div>
+<div class="flex items-center justify-end gap-3 mt-8">
+<button class="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white transition-colors">Cancel</button>
+<button class="px-4 py-2 bg-warning hover:bg-warning/90 text-background-dark font-bold text-sm rounded-lg transition-all shadow-lg shadow-warning/20">
+                Confirm Revert
+            </button>
+</div>
+</div>
+</div>
+<aside class="w-16 border-r border-primary/10 flex flex-col items-center py-6 gap-8 bg-white dark:bg-[#0b0916] z-50">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-icons text-white">bolt</span>
+</div>
+<nav class="flex flex-col gap-6">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors"><span class="material-icons">folder_open</span></button>
+<button class="p-2 text-primary bg-primary/10 rounded-lg"><span class="material-icons">history</span></button>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors"><span class="material-icons">search</span></button>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors"><span class="material-icons">extension</span></button>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors"><span class="material-icons">settings</span></button>
+</nav>
+</aside>
+<main class="flex-1 flex overflow-hidden">
+<div class="flex-1 bg-white dark:bg-[#0f0d1a] p-8 opacity-40 select-none hidden lg:block">
+<div class="flex items-center gap-2 mb-6">
+<span class="text-xs font-mono px-2 py-1 bg-primary/10 text-primary rounded">CheckoutComponent.tsx</span>
+<span class="text-xs text-slate-500">modified 12m ago</span>
+</div>
+<div class="space-y-4">
+<div class="h-4 w-1/2 bg-slate-200 dark:bg-slate-800 rounded"></div>
+<div class="h-4 w-3/4 bg-slate-200 dark:bg-slate-800 rounded"></div>
+<div class="h-4 w-2/3 bg-slate-200 dark:bg-slate-800 rounded"></div>
+<div class="h-4 w-1/2 bg-slate-200 dark:bg-slate-800 rounded"></div>
+</div>
+</div>
+<section class="w-full lg:w-[480px] bg-white dark:bg-[#131022] border-l border-primary/10 flex flex-col h-full shadow-2xl">
+<header class="p-4 border-b border-primary/10 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h2 class="text-sm font-semibold uppercase tracking-wider text-slate-500 flex items-center gap-2">
+<span class="material-icons text-sm">git_branch</span>
+                    Commit History
+                </h2>
+<div class="flex items-center gap-2">
+<span class="text-[10px] font-mono bg-primary/20 text-primary px-2 py-0.5 rounded-full">main</span>
+<button class="text-slate-400 hover:text-white"><span class="material-icons text-sm">refresh</span></button>
+</div>
+</div>
+<div class="relative group">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-sm text-slate-500 group-focus-within:text-primary">search</span>
+<input class="w-full bg-slate-100 dark:bg-[#1c192d] border-none rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary placeholder:text-slate-500 transition-all" placeholder="Filter by message or author..." type="text"/>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-6 relative">
+<div class="absolute left-9 top-0 bottom-0 timeline-line opacity-20"></div>
+<div class="space-y-8 relative">
+<div class="relative pl-10">
+<div class="absolute left-[-5px] top-1.5 w-4 h-4 rounded-full bg-primary border-4 border-background-dark ring-4 ring-primary/20 z-10"></div>
+<div class="bg-primary/5 border border-primary/20 rounded-xl p-4 hover:border-primary/40 transition-all group cursor-pointer">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full border border-primary/30" data-alt="User avatar for Alex Rivera developer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0spv7D5Xpb9Bha9Jdfk-BpN4Zu0BEoErS8KrFaojyAd004KYcvuLBxTPH8vS-mexIn9hww9xX-O8gSvWf-mEiCyMFibmVbTTldisJsD95iJEsk53kOPtj-6qnBdfi8Mh3Dj_SkIPZueqZ9N3xM9GZO5Eyn6FIrT6H9vhvMng2cS4q5ETxHj1eG8-elcL0xSbiGAP1e44QXpHyk6Y1p_hU7oj9MqoqrqXftBAz7hPQPANxI3V296Ghkk2HYhrHKR7QVvXOAxJdg_o"/>
+<span class="text-xs font-medium text-slate-300">Alex Rivera</span>
+<span class="text-[10px] text-slate-500 font-mono">ad92f0c</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-[10px] text-slate-500 uppercase tracking-tighter">Just Now</span>
+</div>
+</div>
+<h3 class="text-sm font-semibold text-white mb-2 leading-relaxed">Refactored Checkout Component to use Atomic Design principles</h3>
+<div class="flex items-center justify-between">
+<div class="flex flex-wrap gap-2">
+<span class="text-[10px] flex items-center gap-1 text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">
+<span class="material-icons text-[12px]">add_circle</span> 12
+                                </span>
+<span class="text-[10px] flex items-center gap-1 text-rose-400 bg-rose-400/10 px-2 py-0.5 rounded">
+<span class="material-icons text-[12px]">remove_circle</span> 4
+                                </span>
+</div>
+<button class="opacity-0 group-hover:opacity-100 flex items-center gap-1 text-xs font-semibold text-warning bg-warning/10 hover:bg-warning/20 px-3 py-1.5 rounded-lg transition-all border border-warning/20">
+<span class="material-symbols-outlined text-sm">settings_backup_restore</span>
+                                Revert
+                            </button>
+</div>
+<div class="flex gap-2 mt-4">
+<button class="flex-1 bg-primary hover:bg-primary/90 text-white text-xs font-medium py-1.5 px-3 rounded-lg flex items-center justify-center gap-2 transition-all">
+<span class="material-icons text-sm">auto_awesome</span>
+                                AI Explain
+                            </button>
+<button class="bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs py-1.5 px-3 rounded-lg transition-all border border-slate-700">
+                                View Diff
+                            </button>
+</div>
+<div class="mt-4 pt-4 border-t border-primary/10">
+<p class="text-[11px] leading-relaxed text-slate-400 bg-slate-900/50 p-3 rounded-lg border border-slate-800">
+<span class="text-primary font-bold">Studio AI:</span> This change modularizes the checkout logic into separate <code>PaymentMethod</code> and <code>OrderSummary</code> components.
+                            </p>
+</div>
+</div>
+</div>
+<div class="relative pl-10">
+<div class="absolute left-[-5px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-background-dark z-10"></div>
+<div class="bg-slate-800/20 border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition-all group cursor-pointer">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full border border-slate-600" data-alt="User avatar for Sarah Jenkins developer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByYsXgxFLZ0j-VgKaE_JLD1BKH8xC_f270u_my2-6nsGiAy1mfTrlcS7QwMiEioxJoKeHOXkQIBdEDfdBqLXq7xFessXJiiL2zHzW3ZMvpleANiUGndnLbT09KTrDYNKPdiWkeSvUsaAvkqB8Qh8fqOP4LHM74DSRKxrn2FSERywCwBJOp7uFxyCJ0PBXVzK7KKU8e6kFcqEMzv76XcusoMQwywV1ECfQKbFyA3uwmeqp7s5470oQ5q_KBoHTKxTcGjAqdrnxqrP4"/>
+<span class="text-xs font-medium text-slate-400">Sarah Jenkins</span>
+<span class="text-[10px] text-slate-600 font-mono">4c33b1e</span>
+</div>
+<span class="text-[10px] text-slate-500 uppercase tracking-tighter">2h ago</span>
+</div>
+<h3 class="text-sm font-medium text-slate-300 mb-2 leading-relaxed">Fix: Responsive alignment on landing page hero section</h3>
+<div class="flex items-center justify-between mt-3">
+<div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-xs text-primary font-medium hover:underline">View files</button>
+</div>
+<button class="opacity-0 group-hover:opacity-100 flex items-center gap-1 text-xs font-semibold text-warning bg-warning/10 hover:bg-warning/20 px-3 py-1.5 rounded-lg transition-all border border-warning/20">
+<span class="material-symbols-outlined text-sm">settings_backup_restore</span>
+                                Revert
+                            </button>
+</div>
+</div>
+</div>
+<div class="relative pl-10">
+<div class="absolute left-[-5px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-background-dark z-10"></div>
+<div class="bg-slate-800/20 border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition-all group cursor-pointer">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full border border-slate-600" data-alt="User avatar for Marco Polo developer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDyDq5OYy_7QQcUwtjkENIcm0LzkqdLuG38kwxzj9Vg1_sImYwrdKrto41Nfi1ftFyFjvzYYJ6tfF9CwjqWth--X6m-fkU14-GPKcCcGRGhTKOWxzEIOe6DRwXKdH8TocU2XTfHYvoqrPeiSEp1nByoTnByJj73aRzUGw0_amojY-9JyNEEkSldHbTzBoIXrS1pLa_UsJW5YHFgem7XXoMhZhITVmsG92FAVwFH27E2CZkZsHUp5RBkevLYIi7184DodalRzWjap4"/>
+<span class="text-xs font-medium text-slate-400">Marco Polo</span>
+<span class="text-[10px] text-slate-600 font-mono">f882a44</span>
+</div>
+<span class="text-[10px] text-slate-500 uppercase tracking-tighter">Yesterday</span>
+</div>
+<h3 class="text-sm font-medium text-slate-300 mb-2 leading-relaxed">Initial boilerplate for Stripe integration</h3>
+<div class="flex justify-end mt-2">
+<button class="opacity-0 group-hover:opacity-100 flex items-center gap-1 text-xs font-semibold text-warning bg-warning/10 hover:bg-warning/20 px-3 py-1.5 rounded-lg transition-all border border-warning/20">
+<span class="material-symbols-outlined text-sm">settings_backup_restore</span>
+                                Revert
+                            </button>
+</div>
+</div>
+</div>
+<div class="relative pl-10">
+<div class="absolute left-[-5px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-background-dark z-10"></div>
+<div class="bg-slate-800/20 border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition-all group cursor-pointer">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full border border-slate-600" data-alt="User avatar for Alex Rivera developer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzyZ-lqdjOlWruOtkIK3aR53taR0y6P1vXHI8FZjcA3yd8NCiE1aYrRor0fXsiPLYM_ti2mvXCiPD2pxKVZHNuTZfIct12zKMmtR2mmWbCwt9UsdjrQ_09yEFV8vIUCm4o0Pseo6DqftURONDXMa26pjGwURQW7bzdoJOBkQeA7D6NeLq0z8kejp37aO9Vda29SifUj8tcj8zAKRXbUTJnouXmilhURzEdPEYRcxEy5Vb3SBpQt3XT3p_25PPSTmXpUa1_wzW0UZ8"/>
+<span class="text-xs font-medium text-slate-400">Alex Rivera</span>
+<span class="text-[10px] text-slate-600 font-mono">b229c11</span>
+</div>
+<span class="text-[10px] text-slate-500 uppercase tracking-tighter">Oct 24</span>
+</div>
+<h3 class="text-sm font-medium text-slate-300 mb-2 leading-relaxed">Chore: update dependencies and typescript version</h3>
+<div class="flex justify-end mt-2">
+<button class="opacity-0 group-hover:opacity-100 flex items-center gap-1 text-xs font-semibold text-warning bg-warning/10 hover:bg-warning/20 px-3 py-1.5 rounded-lg transition-all border border-warning/20">
+<span class="material-symbols-outlined text-sm">settings_backup_restore</span>
+                                Revert
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<button class="mt-8 w-full py-2 border border-dashed border-slate-700 rounded-lg text-xs text-slate-500 hover:text-primary hover:border-primary transition-colors uppercase tracking-widest font-semibold">
+                Load older commits
+            </button>
+</div>
+<footer class="p-4 bg-slate-100/50 dark:bg-[#0b0916] border-t border-primary/10">
+<div class="flex items-center justify-between text-[11px] text-slate-500">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span> 1,242 total commits</span>
+</div>
+<button class="flex items-center gap-1 hover:text-primary transition-colors">
+                    Settings <span class="material-icons text-xs">keyboard_arrow_right</span>
+</button>
+</div>
+</footer>
+</section>
+<div class="hidden xl:flex w-80 bg-[#1a172e] border-l border-primary/10 flex-col">
+<div class="p-4 border-b border-primary/10 flex items-center justify-between">
+<span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Changes in ad92f0c</span>
+<span class="text-[10px] px-1.5 py-0.5 bg-primary/10 text-primary rounded">3 files</span>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-4">
+<div class="space-y-1">
+<div class="flex items-center justify-between group cursor-pointer hover:bg-white/5 p-1 rounded transition-colors">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-icons text-emerald-400 text-sm">add</span>
+<span class="text-xs text-slate-300 truncate">src/components/PaymentMethod.tsx</span>
+</div>
+</div>
+<div class="flex items-center justify-between group cursor-pointer hover:bg-white/5 p-1 rounded transition-colors">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-icons text-emerald-400 text-sm">add</span>
+<span class="text-xs text-slate-300 truncate">src/components/OrderSummary.tsx</span>
+</div>
+</div>
+<div class="flex items-center justify-between group cursor-pointer hover:bg-white/5 p-1 rounded transition-colors">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-icons text-amber-400 text-sm">edit</span>
+<span class="text-xs text-slate-300 truncate">src/pages/Checkout.tsx</span>
+</div>
+</div>
+</div>
+<div class="pt-4 mt-4 border-t border-white/5">
+<h4 class="text-[10px] text-slate-500 uppercase tracking-widest mb-3 font-bold">Quick Actions</h4>
+<div class="grid grid-cols-2 gap-2">
+<button class="p-3 bg-white/5 hover:bg-white/10 rounded-lg flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-all">
+<span class="material-icons text-lg">merge</span>
+<span class="text-[10px]">Cherry-pick</span>
+</button>
+<button class="p-3 bg-white/5 hover:bg-warning/10 rounded-lg flex flex-col items-center gap-1 text-slate-400 hover:text-warning transition-all group">
+<span class="material-symbols-outlined text-lg">settings_backup_restore</span>
+<span class="text-[10px]">Revert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="p-4 bg-primary/10 border-t border-primary/20">
+<div class="flex items-start gap-3">
+<div class="p-2 bg-primary rounded-lg">
+<span class="material-icons text-white text-sm">auto_awesome</span>
+</div>
+<div>
+<h5 class="text-xs font-semibold text-white mb-1">AI Recommendation</h5>
+<p class="text-[10px] text-slate-400 leading-tight">These changes could affect the <code>CartContext.ts</code>. Would you like me to run tests?</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+</body></html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Client Hosting &amp; Service Checkout | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4b2bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Navigation / Header -->
+<header class="border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-icons text-white text-xl">layers</span>
+</div>
+<span class="font-bold text-xl tracking-tight">StudioBuilder <span class="text-primary">AI</span></span>
+</div>
+<div class="flex items-center gap-4 text-sm font-medium text-slate-500">
+<span class="flex items-center gap-1"><span class="material-icons text-sm">lock</span> Secure Checkout</span>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 py-8 md:py-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Pane: Selection -->
+<div class="lg:col-span-7 space-y-8">
+<div>
+<h1 class="text-3xl font-bold mb-2">Select Your Engineering Infrastructure</h1>
+<p class="text-slate-500">Choose a high-performance hosting environment optimized for StudioBuilder AI deployments. Powered by Hostinger infrastructure.</p>
+</div>
+<!-- Plan Selection -->
+<div class="space-y-4">
+<!-- Basic Plan -->
+<label class="relative block cursor-pointer group">
+<input class="peer sr-only" name="plan" type="radio" value="basic"/>
+<div class="p-6 bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-xl transition-all peer-checked:border-primary peer-checked:ring-4 peer-checked:ring-primary/10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-lg font-bold">Basic Tier</h3>
+<p class="text-sm text-slate-500">Ideal for small projects &amp; prototypes</p>
+</div>
+<div class="text-right">
+<span class="text-2xl font-bold">$29</span>
+<span class="text-slate-500 text-sm">/mo</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 text-sm border-t border-slate-100 dark:border-slate-800 pt-4">
+<div class="flex items-center gap-2">
+<span class="material-icons text-slate-400 text-base">memory</span>
+<span>2GB RAM</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-icons text-slate-400 text-base">storage</span>
+<span>20GB SSD Storage</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-icons text-slate-400 text-base">speed</span>
+<span>Standard Bandwidth</span>
+</div>
+<div class="flex items-center gap-2 opacity-40">
+<span class="material-icons text-slate-400 text-base">sync</span>
+<span>Direct IDE Sync</span>
+</div>
+</div>
+</div>
+</label>
+<!-- Scale Plan (Default Selected) -->
+<label class="relative block cursor-pointer group">
+<input checked="" class="peer sr-only" name="plan" type="radio" value="scale"/>
+<div class="absolute -top-3 right-6 bg-primary text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full z-10">Recommended</div>
+<div class="p-6 bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-xl transition-all peer-checked:border-primary peer-checked:ring-4 peer-checked:ring-primary/10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-lg font-bold">Scale Tier</h3>
+<p class="text-sm text-slate-500">For production apps with active traffic</p>
+</div>
+<div class="text-right">
+<span class="text-2xl font-bold">$79</span>
+<span class="text-slate-500 text-sm">/mo</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 text-sm border-t border-slate-100 dark:border-slate-800 pt-4">
+<div class="flex items-center gap-2">
+<span class="material-icons text-primary text-base">memory</span>
+<span>8GB RAM</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-icons text-primary text-base">storage</span>
+<span>100GB SSD Storage</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-icons text-primary text-base">sync</span>
+<span class="font-medium text-primary">Direct IDE Sync</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-icons text-primary text-base">bolt</span>
+<span>Auto-Scaling Enabled</span>
+</div>
+</div>
+</div>
+</label>
+<!-- Enterprise Plan -->
+<label class="relative block cursor-pointer group">
+<input class="peer sr-only" name="plan" type="radio" value="enterprise"/>
+<div class="p-6 bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-xl transition-all peer-checked:border-primary peer-checked:ring-4 peer-checked:ring-primary/10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-lg font-bold">Enterprise</h3>
+<p class="text-sm text-slate-500">Dedicated resources &amp; custom specs</p>
+</div>
+<div class="text-right">
+<span class="text-2xl font-bold">$249</span>
+<span class="text-slate-500 text-sm">/mo</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 text-sm border-t border-slate-100 dark:border-slate-800 pt-4">
+<div class="flex items-center gap-2">
+<span class="material-icons text-slate-400 text-base">dns</span>
+<span>Dedicated Resources</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-icons text-slate-400 text-base">support_agent</span>
+<span>24/7 Engineering Support</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-icons text-slate-400 text-base">rocket_launch</span>
+<span>Priority Deployment</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-icons text-slate-400 text-base">security</span>
+<span>Custom Firewall Rules</span>
+</div>
+</div>
+</div>
+</label>
+</div>
+<div class="p-4 rounded-lg bg-primary/5 border border-primary/20 flex items-start gap-4">
+<img class="w-12 h-12 rounded bg-primary/20 object-cover shrink-0" data-alt="Abstract purple and blue gradient background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2m2K8LeE8odTWacPqvb07olfDxRVrIEyY6pQqn-w6sez-AHc1fgQotg6tXedMmxR8L-sF8x0li9ueWXOwoPbKZmI1fZ4umC5NsFHT4u_o_YnzPWyCc1ToSf_m8eyVa2M2xnEhztXKWTCyobQL2zScL8GPuItvWJjEWfugujZnJFPCaQeezb3kemjKNK7UxMxuEd3lOR-EXl-cGlHSVlF3zwoybQRqVFM0TqvaL3LnUS_FBE0UZD7YzQEvUzRd-8Kf_tB0a_mPcbc"/>
+<div>
+<h4 class="text-sm font-bold text-primary">Hostinger Global Partnership</h4>
+<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Your application is hosted on Tier-3 data centers with LiteSpeed caching and 99.9% uptime guarantee. Integrated directly with the StudioBuilder AI deployment engine.</p>
+</div>
+</div>
+</div>
+<!-- Right Pane: Checkout Summary -->
+<div class="lg:col-span-5">
+<div class="sticky top-24 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-xl shadow-slate-200/50 dark:shadow-none">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800">
+<h2 class="text-xl font-bold mb-4">Order Summary</h2>
+<div class="space-y-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500">Scale Tier Hosting</span>
+<span class="font-medium">$79.00</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-1.5">
+<span class="text-slate-500">Dev Validation Fee</span>
+<span class="material-icons text-[14px] text-slate-400 cursor-help" title="Mandatory engineering check before first deployment">info</span>
+</div>
+<span class="font-medium">$15.00</span>
+</div>
+<div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-end">
+<div>
+<p class="text-xs text-slate-400 uppercase font-bold tracking-wider">Monthly Total</p>
+<p class="text-xs text-slate-500 mt-0.5">Renews monthly starting today</p>
+</div>
+<div class="text-right">
+<span class="text-3xl font-black text-primary">$94.00</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-slate-50 dark:bg-slate-900/50">
+<h3 class="text-sm font-bold mb-4 flex items-center gap-2 uppercase tracking-wide text-slate-500">
+<span class="material-icons text-sm">credit_card</span> Secure Payment
+                        </h3>
+<form class="space-y-4" onsubmit="return false">
+<div>
+<label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase">Cardholder Name</label>
+<input class="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-sm transition-all" placeholder="Johnathan Doe" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase">Card Number</label>
+<div class="relative">
+<input class="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-sm transition-all" placeholder="**** **** **** ****" type="text"/>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 flex gap-1">
+<div class="w-6 h-4 bg-slate-200 rounded-sm"></div>
+<div class="w-6 h-4 bg-slate-200 rounded-sm"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase">Expiry</label>
+<input class="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-sm transition-all" placeholder="MM / YY" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase">CVC</label>
+<input class="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-sm transition-all" placeholder="123" type="text"/>
+</div>
+</div>
+<button class="w-full mt-4 bg-primary text-white font-bold py-4 rounded shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all active:scale-[0.98] flex items-center justify-center gap-2" type="submit">
+<span class="material-icons text-lg">rocket</span>
+                                Pay &amp; Request Deployment
+                            </button>
+</form>
+<div class="mt-6 flex items-center justify-center gap-6 opacity-40 grayscale contrast-125">
+<span class="material-icons text-2xl">verified_user</span>
+<span class="material-icons text-2xl">security</span>
+<span class="material-icons text-2xl">lock</span>
+</div>
+</div>
+</div>
+<div class="mt-6 px-4 space-y-3">
+<p class="text-[11px] text-slate-400 text-center leading-relaxed">
+                        By completing this purchase, you agree to our <a class="underline" href="#">Terms of Service</a> and the <a class="underline" href="#">Hosting Service Level Agreement (SLA)</a>. Deployment starts automatically after payment validation.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<footer class="max-w-7xl mx-auto px-4 py-12 border-t border-slate-200 dark:border-slate-800 mt-12">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 grayscale opacity-50">
+<span class="material-icons text-sm">cloud</span>
+<span class="text-sm font-bold">Hostinger Partner Network</span>
+</div>
+<div class="flex gap-8">
+<a class="text-sm text-slate-500 hover:text-primary" href="#">Contact Engineering</a>
+<a class="text-sm text-slate-500 hover:text-primary" href="#">Service Status</a>
+<a class="text-sm text-slate-500 hover:text-primary" href="#">Infrastructure Docs</a>
+</div>
+<div class="text-xs text-slate-400">
+                © 2024 StudioBuilder AI. All infrastructure rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Engineering Technology Stack | StudioBuilder AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b4bee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101322",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .circuit-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(43, 75, 238, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(43, 75, 238, 0.2);
+            border-color: rgba(43, 75, 238, 0.5);
+        }
+        .nav-link-active {
+            color: #2b4bee;
+            border-left: 2px solid #2b4bee;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200 antialiased selection:bg-primary selection:text-white">
+<!-- Circuit Pattern Overlay -->
+<div class="fixed inset-0 circuit-bg pointer-events-none opacity-40"></div>
+<!-- Gradient Blobs -->
+<div class="fixed -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="fixed top-1/2 -right-24 w-80 h-80 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="relative flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="hidden lg:flex flex-col w-64 fixed h-full border-r border-primary/10 bg-background-dark/50 backdrop-blur-xl z-20">
+<div class="p-8">
+<div class="flex items-center gap-2 mb-12">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-icons text-white text-lg">architecture</span>
+</div>
+<span class="font-bold text-xl tracking-tight text-white">StudioBuilder<span class="text-primary">AI</span></span>
+</div>
+<nav class="space-y-6">
+<div class="text-xs font-semibold text-slate-500 uppercase tracking-widest px-4">Core Architecture</div>
+<ul class="space-y-1">
+<li><a class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:text-primary transition-colors border-l-2 border-transparent" href="#frontend">Frontend Systems</a></li>
+<li><a class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:text-primary transition-colors border-l-2 border-transparent" href="#backend">Backend Services</a></li>
+<li><a class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:text-primary transition-colors border-l-2 border-transparent" href="#infrastructure">Cloud &amp; Infra</a></li>
+<li><a class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:text-primary transition-colors border-l-2 border-transparent" href="#database">Data Architecture</a></li>
+<li><a class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:text-primary transition-colors border-l-2 border-transparent" href="#aiml">Intelligence Layers</a></li>
+</ul>
+</nav>
+</div>
+<div class="mt-auto p-8 border-t border-primary/10">
+<div class="bg-primary/5 rounded-lg p-4 border border-primary/20">
+<p class="text-xs text-slate-400 mb-2 italic">Engineering integrity at every layer of the stack.</p>
+<a class="text-xs text-primary font-semibold flex items-center gap-1 hover:underline" href="#">
+                        Architecture Review <span class="material-icons text-[12px]">open_in_new</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 lg:ml-64 relative z-10">
+<!-- Hero Section -->
+<section class="px-8 pt-20 pb-16 lg:px-16 border-b border-primary/10">
+<div class="max-w-4xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">System Architecture v4.2.0</span>
+</div>
+<h1 class="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                        Our Technology <span class="text-primary italic">Arsenal</span>
+</h1>
+<p class="text-lg text-slate-400 max-w-2xl leading-relaxed">
+                        We leverage a world-class engineering stack designed for performance, security, and exponential scalability. From low-latency backend primitives to intelligent interface layers, our tools define our excellence.
+                    </p>
+</div>
+</section>
+<!-- Stack Sections -->
+<div class="px-8 lg:px-16 py-12 space-y-24 pb-32">
+<!-- Frontend Section -->
+<section class="scroll-mt-24" id="frontend">
+<div class="flex flex-col lg:flex-row gap-8 mb-12">
+<div class="lg:w-1/3">
+<h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+<span class="material-icons text-primary">web</span> Frontend
+                            </h2>
+<p class="text-sm text-slate-400 leading-relaxed">
+                                Delivering high-performance, responsive user interfaces. We focus on deterministic rendering and type-safe UI logic to ensure seamless interaction across platforms.
+                            </p>
+</div>
+<div class="lg:w-2/3 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+<!-- Card -->
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<img alt="React" class="w-10 h-10 mb-4 rounded brightness-125" data-alt="React JS logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwlBcbUdQW3Jo968LYW5ROHoK62sR3RqFX1dss9gVijCgNZoZBjRdyn-72GBVxcXQpQtFkfzNGMe5xGMqtEvxhpNSotLRBKvDKtDaxqJRj4RU60ci2dJmXVI1pq_YkYHH7D_l6sCRnmlclL-F9OiAx8dDxMuqQRdxRdkrMR7LnTAmEKmSMsxHG2gx2nzJdp_kxoMYiWzdEo77mRnfJ54kbF7hK1Dt_H9odbo0SShnMWWhUEikJ4tgvtTcVdzznwUumlLgbHKJVyVQ"/>
+<h3 class="font-bold text-white text-sm">React</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Interface Core</span>
+</div>
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<div class="w-10 h-10 mb-4 bg-white/10 rounded flex items-center justify-center">
+<span class="text-white font-bold text-xl italic">N</span>
+</div>
+<h3 class="font-bold text-white text-sm">Next.js</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Framework</span>
+</div>
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<img alt="TypeScript" class="w-10 h-10 mb-4 rounded" data-alt="TypeScript logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWHD9Q6_y7BaRBzlrV-1cqwMWZ_Wfh3wFTtgId1qDS5OHw71luxdHPkL97zv46IzW8QjVUnFiU9liMo-IZFmsgEacpM9N4GTtHm48UcDlH__OOPhJgtmm-A53XJg-Mbl3lK2jPB09lWwWH4BXZ7CsQyNQ9dXFswUOisO2NmY5IF0XB8l5KpHupZ0sVGQEncUIXawe_7cWpKTh-nj1-NoXoYp2Xirh8YSZfJH_0_7XopAuegB7S8sm4bzdUd5eMBeMTIAcpHiIz5M"/>
+<h3 class="font-bold text-white text-sm">TypeScript</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Typing Layer</span>
+</div>
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<img alt="Tailwind" class="w-10 h-10 mb-4 rounded" data-alt="Tailwind CSS logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhNbkZqHRZpRDjbdwQ58kHbalpqGdITmT145qFipE8ovFDxKoEhbDHsMeAsrQjB5MnYjczD7NAuO9CypZjkuRfvxyIs4Ui6EvwzgIUC36IMl39hTmgz9rqaGcs90ckC_4W7oWafeW_q7uoSrtGyfYaHUcm8KpyqsFIGRiMlG4HDAVd7MBQMepxEfRgkAG4gJ-4LZFM3zO59eJaqGY_Li_qc-rva3OZWgzpsfHlbqnd6PB-y3LNAl_XBZ5Rr6RqExq0OCkbILJYMYI"/>
+<h3 class="font-bold text-white text-sm">Tailwind</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Design System</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Backend Section -->
+<section class="scroll-mt-24" id="backend">
+<div class="flex flex-col lg:flex-row gap-8 mb-12">
+<div class="lg:w-1/3">
+<h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+<span class="material-icons text-primary">dns</span> Backend
+                            </h2>
+<p class="text-sm text-slate-400 leading-relaxed">
+                                Building distributed, low-latency microservices. Our backend philosophy prioritizes memory safety, concurrency, and high throughput for heavy data loads.
+                            </p>
+</div>
+<div class="lg:w-2/3 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<div class="w-10 h-10 mb-4 bg-primary/20 rounded flex items-center justify-center">
+<span class="text-primary font-black text-lg uppercase">Go</span>
+</div>
+<h3 class="font-bold text-white text-sm">Golang</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Microservices</span>
+</div>
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<div class="w-10 h-10 mb-4 bg-orange-900/20 rounded flex items-center justify-center">
+<span class="text-orange-500 font-bold text-xl uppercase">R</span>
+</div>
+<h3 class="font-bold text-white text-sm">Rust</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Performant Kernels</span>
+</div>
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<img alt="Node.js" class="w-10 h-10 mb-4 rounded brightness-110" data-alt="Node JS logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgVYXvGSui8cEO--I-3MCkkcMvJNEExfoq5A3WhQEexH-q9IONwqGSHptbpDPiUxHM-BTgmRsH3UBvC74F5wesjrAKcXyaPynTQw8AHlRqu_KYq_81CN6iGMAWqVk_zw86SjhCObNShEAShHAl8ycJxkuwwHr5SZnOtoY_u1SmNXjUGqXhpeQRZDtyMFaE-7HeOd34QLrr6PFk6Ub-RLZqwwV4LY8zF9Hw4qRSS97KzThzIyTmmI4XJPYg0K0EQeZdRliWPiPput8"/>
+<h3 class="font-bold text-white text-sm">Node.js</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Async Runtime</span>
+</div>
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<div class="w-10 h-10 mb-4 bg-white/10 rounded flex items-center justify-center text-white">
+<span class="material-icons">api</span>
+</div>
+<h3 class="font-bold text-white text-sm">GraphQL</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Data Query</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Infrastructure Section -->
+<section class="scroll-mt-24" id="infrastructure">
+<div class="flex flex-col lg:flex-row gap-8 mb-12">
+<div class="lg:w-1/3">
+<h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+<span class="material-icons text-primary">cloud</span> Infrastructure
+                            </h2>
+<p class="text-sm text-slate-400 leading-relaxed">
+                                Automated, scalable cloud-native architectures. We utilize Infrastructure as Code (IaC) to manage multi-cloud deployments with 99.99% reliability.
+                            </p>
+</div>
+<div class="lg:w-2/3 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<div class="w-10 h-10 mb-4 bg-amber-500/10 rounded flex items-center justify-center">
+<span class="material-icons text-amber-500">cloud_queue</span>
+</div>
+<h3 class="font-bold text-white text-sm">AWS</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Cloud Provider</span>
+</div>
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<div class="w-10 h-10 mb-4 bg-blue-500/10 rounded flex items-center justify-center">
+<span class="material-icons text-blue-500">grid_view</span>
+</div>
+<h3 class="font-bold text-white text-sm">Kubernetes</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Orchestration</span>
+</div>
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<div class="w-10 h-10 mb-4 bg-purple-500/10 rounded flex items-center justify-center">
+<span class="material-icons text-purple-500">layers</span>
+</div>
+<h3 class="font-bold text-white text-sm">Terraform</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">IaC Tool</span>
+</div>
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<div class="w-10 h-10 mb-4 bg-blue-400/10 rounded flex items-center justify-center">
+<span class="material-icons text-blue-400">dock</span>
+</div>
+<h3 class="font-bold text-white text-sm">Docker</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Containerization</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Database Section -->
+<section class="scroll-mt-24" id="database">
+<div class="flex flex-col lg:flex-row gap-8 mb-12">
+<div class="lg:w-1/3">
+<h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+<span class="material-icons text-primary">storage</span> Data Store
+                            </h2>
+<p class="text-sm text-slate-400 leading-relaxed">
+                                Ensuring data integrity and high-speed retrieval. Our data strategy combines relational consistency with high-performance caching.
+                            </p>
+</div>
+<div class="lg:w-2/3 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<div class="w-10 h-10 mb-4 bg-blue-300/10 rounded flex items-center justify-center">
+<span class="material-icons text-blue-300">table_rows</span>
+</div>
+<h3 class="font-bold text-white text-sm">PostgreSQL</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Relational</span>
+</div>
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<div class="w-10 h-10 mb-4 bg-red-500/10 rounded flex items-center justify-center">
+<span class="material-icons text-red-500">bolt</span>
+</div>
+<h3 class="font-bold text-white text-sm">Redis</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">In-Memory Cache</span>
+</div>
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<div class="w-10 h-10 mb-4 bg-green-500/10 rounded flex items-center justify-center">
+<span class="material-icons text-green-500">account_tree</span>
+</div>
+<h3 class="font-bold text-white text-sm">MongoDB</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Document Store</span>
+</div>
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<div class="w-10 h-10 mb-4 bg-slate-500/10 rounded flex items-center justify-center text-slate-400">
+<span class="material-icons">query_stats</span>
+</div>
+<h3 class="font-bold text-white text-sm">Elasticsearch</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Search Engine</span>
+</div>
+</div>
+</div>
+</section>
+<!-- AI/ML Section -->
+<section class="scroll-mt-24" id="aiml">
+<div class="flex flex-col lg:flex-row gap-8 mb-12">
+<div class="lg:w-1/3">
+<h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+<span class="material-icons text-primary">psychology</span> AI &amp; ML
+                            </h2>
+<p class="text-sm text-slate-400 leading-relaxed">
+                                Integrating advanced intelligence into production workflows. We build custom models and leverage LLMs to drive predictive analytics and automated logic.
+                            </p>
+</div>
+<div class="lg:w-2/3 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<div class="w-10 h-10 mb-4 bg-orange-500/10 rounded flex items-center justify-center">
+<span class="material-icons text-orange-500">model_training</span>
+</div>
+<h3 class="font-bold text-white text-sm">TensorFlow</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Neural Nets</span>
+</div>
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<div class="w-10 h-10 mb-4 bg-red-400/10 rounded flex items-center justify-center">
+<span class="material-icons text-red-400">functions</span>
+</div>
+<h3 class="font-bold text-white text-sm">PyTorch</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">ML Framework</span>
+</div>
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<div class="w-10 h-10 mb-4 bg-teal-500/10 rounded flex items-center justify-center">
+<span class="material-icons text-teal-500">auto_awesome</span>
+</div>
+<h3 class="font-bold text-white text-sm">OpenAI API</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">LLM Orchestration</span>
+</div>
+<div class="p-6 bg-primary/5 border border-primary/10 rounded-xl glow-hover transition-all duration-300">
+<div class="w-10 h-10 mb-4 bg-blue-400/10 rounded flex items-center justify-center">
+<span class="material-icons text-blue-400">hub</span>
+</div>
+<h3 class="font-bold text-white text-sm">LangChain</h3>
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">Chain Logic</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Technical Footer -->
+<footer class="px-8 lg:px-16 py-12 border-t border-primary/10 bg-black/20">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 bg-primary/20 rounded flex items-center justify-center">
+<span class="material-icons text-primary text-xs">verified</span>
+</div>
+<span class="text-xs font-medium text-slate-500 uppercase tracking-widest">StudioBuilder AI © 2024</span>
+</div>
+<div class="flex gap-8">
+<a class="text-xs text-slate-500 hover:text-white transition-colors" href="#">Infrastructure Specs</a>
+<a class="text-xs text-slate-500 hover:text-white transition-colors" href="#">Security Protocol</a>
+<a class="text-xs text-slate-500 hover:text-white transition-colors" href="#">API Documentation</a>
+<a class="text-xs text-slate-500 hover:text-white transition-colors" href="#">Incident Status</a>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</body></html>
